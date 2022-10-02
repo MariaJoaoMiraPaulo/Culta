@@ -1,7 +1,17 @@
+import styled from 'styled-components';
+
 export const Title = styled.h1`
     font-size: 22px;
     font-family: SangBleuOGSerif;
     font-weight: 100;
+    color: ${p => p.color || '#cf5945'}
+`
+
+export const TitleBold = styled.h1`
+    font-size: 22px;
+    font-family: SangBleuOGSerif;
+    font-weight: 400;
+    color: ${p => p.color || '#cf5945'}
 `
 
 export const Subtitle = styled.h1`

@@ -3,13 +3,13 @@ import styled from "styled-components"
 
 const LogoWrapper = styled.div`
     width: min-content;
-    font-size: 100px;
-    color: white;
+    font-size: 80px;
+    color: #f0ede3;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
-    grid-row-gap: 40px;
+    grid-row-gap: 30px;
     grid-template-areas:
       "c . ."
       "u . ."
@@ -18,9 +18,9 @@ const LogoWrapper = styled.div`
         line-height: 50px;
     }
     height: fit-content;
-    margin: 30px;
+    margin: 3rem;
     font-family: SangBleuOGSerif;
-    font-weight: 400;
+    font-weight: 200;
 `
 
 const C = styled.span`

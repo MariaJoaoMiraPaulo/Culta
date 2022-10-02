@@ -17,5 +17,13 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
       key="HelveticaNeue"
       />,
+      <link
+      rel="preload"
+      href="/fonts/SangBleuOGSerif-Black.ttf"
+      as="font"
+      type="font/ttf"
+      crossOrigin="anonymous"
+      key="HelveticaNeue"
+      />,
     ])
   }

@@ -16,10 +16,8 @@ const MenuItems = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    display: block;
-    transition: height 0.3s ease-in-out;
+    display: ${p => p.open ? 'block' : 'none'};
 `
-
 
 const MenuHeader = styled.div`
     display: flex;
@@ -46,33 +44,31 @@ const Menu = () => {
             <MenuWrapper>
                 {!isMenuOpen && <MenuIcon color='#000' onClickHandler={()=> setIsMenuOpen(true)}/>}
             </MenuWrapper>
-            { isMenuOpen && 
-                <MenuItems>
-                    <MenuHeader>
-                        <CloseIcon color="#cf5945" onClickHandler={()=> setIsMenuOpen(false)}/>
-                    </MenuHeader>
-                    <MenuContent>
-                        <TitleBold>NÓS</TitleBold>
-                        <MenuItem>Sobre nós</MenuItem>
-                        <MenuItem>Blog</MenuItem>
-                    </MenuContent>
-                    <MenuContent>
-                        <TitleBold>CRIAMOS</TitleBold>
-                        <MenuItem>O que fazemos</MenuItem>
-                        <MenuItem>Serviços</MenuItem>
-                    </MenuContent>
-                    <MenuContent>
-                        <TitleBold>CULTURA</TitleBold>
-                        <MenuItem>Portfólio</MenuItem>
-                        <MenuItem>Galeria</MenuItem>
-                    </MenuContent>
-                    <MenuContent>
-                        <TitleBold>JUNTOS</TitleBold>
-                        <MenuItem>Contacte-nos</MenuItem>
-                        <MenuItem>Faça parte da equipa</MenuItem>
-                    </MenuContent>
-                </MenuItems>
-            }
+            <MenuItems open={isMenuOpen}>
+                <MenuHeader>
+                    <CloseIcon color="#cf5945" onClickHandler={()=> setIsMenuOpen(false)}/>
+                </MenuHeader>
+                <MenuContent>
+                    <TitleBold>NÓS</TitleBold>
+                    <MenuItem>Sobre nós</MenuItem>
+                    <MenuItem>Blog</MenuItem>
+                </MenuContent>
+                <MenuContent>
+                    <TitleBold>CRIAMOS</TitleBold>
+                    <MenuItem>O que fazemos</MenuItem>
+                    <MenuItem>Serviços</MenuItem>
+                </MenuContent>
+                <MenuContent>
+                    <TitleBold>CULTURA</TitleBold>
+                    <MenuItem>Portfólio</MenuItem>
+                    <MenuItem>Galeria</MenuItem>
+                </MenuContent>
+                <MenuContent>
+                    <TitleBold>JUNTOS</TitleBold>
+                    <MenuItem>Contacte-nos</MenuItem>
+                    <MenuItem>Faça parte da equipa</MenuItem>
+                </MenuContent>
+            </MenuItems>
         </>
        
     )

@@ -16,11 +16,19 @@ const IndexPage = () => {
       }
     `,
   );
+  
 
+  console.log(data)
   return (
+    <div>
       <h1>
-        BLOG
+        BLOG POSTS
       </h1>
+      <ul>
+        {data.allContentfulBlogPost.edges.map(({node}) => <li>{node.title}</li>)}
+      </ul>
+      </div>
+
   )
 }
 

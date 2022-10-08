@@ -9,5 +9,21 @@ export const onRenderBody = ({ setHeadComponents }) => {
         crossOrigin="anonymous"
         key="SangBleuOGSerif"
       />,
+      <link
+      rel="preload"
+      href="/fonts/HelveticaNeue-Light.ttf"
+      as="font"
+      type="font/ttf"
+      crossOrigin="anonymous"
+      key="HelveticaNeue"
+      />,
+      <link
+      rel="preload"
+      href="/fonts/SangBleuOGSerif-Black.ttf"
+      as="font"
+      type="font/ttf"
+      crossOrigin="anonymous"
+      key="HelveticaNeue"
+      />,
     ])
   }

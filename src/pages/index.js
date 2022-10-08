@@ -16,9 +16,9 @@ const Banner = styled.div`
   `
   
 const Header = styled.div`
-display: flex;
-justify-content: space-between;
-min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
 `
 
 const IndexPage = () => {

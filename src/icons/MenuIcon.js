@@ -1,8 +1,8 @@
 import React from "react"
 
-const MenuIcon = ({ onClickHandler }) => {
+const MenuIcon = ({ color, onClickHandler }) => {
     return (
-        <svg onClick={onClickHandler} style={{ zIndex: '2', cursor: 'pointer' }} version="1.1" width="25px" x="0px" y="0px" viewBox="0 0 384.97 384.97" fill="currentColor">
+        <svg onClick={onClickHandler} style={{ zIndex: '2', cursor: 'pointer' }} version="1.1" width="25px" x="0px" y="0px" viewBox="0 0 384.97 384.97" fill={color}>
             <g>
                 <path d="M12.03,84.212h360.909c6.641,0,12.03-5.39,12.03-12.03c0-6.641-5.39-12.03-12.03-12.03H12.03
                     C5.39,60.152,0,65.541,0,72.182C0,78.823,5.39,84.212,12.03,84.212z"/>

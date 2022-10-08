@@ -6,9 +6,7 @@ const LogoWrapper = styled.div`
     font-size: 80px;
     color: #f0ede3;
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-auto-rows: min-content;
-    grid-auto-columns: min-content;
+    grid-template-columns: repeat(9, 60px);
     grid-row-gap: 30px;
     grid-template-areas:
       "c . ."

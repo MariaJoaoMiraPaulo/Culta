@@ -1,3 +1,9 @@
+require("dotenv").config({
+  path: `.env`,
+});
+
+console.log(process.env)
+
 module.exports = {
   siteMetadata: {
     title: `Culta`,
@@ -6,8 +12,8 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "oOyyalmHwZwTotK7AcovOpELB-shdtfhrlYU-ozwmXU",
-      "spaceId": "qxsks4uw4spm"
+      accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
+      spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
     }
   }, "gatsby-plugin-sass", {
     resolve: 'gatsby-plugin-google-analytics',

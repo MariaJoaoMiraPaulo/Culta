@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Logo from "../components/Logo"
 import Menu from "../components/Menu"
 import Section from "../components/Section"
+import { SectionTitle, Subtitle, Body } from "../styles/typographyComponents"
 
 const Banner = styled.div`
   width: 100%;
@@ -21,6 +22,11 @@ const Header = styled.div`
   min-height: 100vh;
 `
 
+const SubSection = styled.div`
+width: 800px;
+text-align: center;
+`
+
 const IndexPage = () => {
   return (
     <Banner>
@@ -29,7 +35,23 @@ const IndexPage = () => {
         <Menu/>
       </Header>
       <Section color="#ffff" backgroundColor="#cf5945">
-        <h1>O que nos move é a cultura</h1>
+        <SectionTitle color="#ffff">O que nos move é a cultura.</SectionTitle>
+        <SubSection>
+          <Subtitle>Sobre a Culta</Subtitle>
+          <Body>
+            O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura.  <br></br>
+            Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta e diferenciadora.
+          </Body>
+        </SubSection>
+      </Section>
+      <Section color="#ffff" backgroundColor="#758073">
+        <SectionTitle color="#ffff">O que fazemos</SectionTitle>
+        <SubSection>
+          <Subtitle>contacta a  Culta</Subtitle>
+          <Body>
+            blablabla
+          </Body>
+        </SubSection>
       </Section>
     </Banner>
   )

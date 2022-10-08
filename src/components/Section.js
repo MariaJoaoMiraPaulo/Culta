@@ -4,9 +4,13 @@ import styled from "styled-components"
 const SectionWrapper = styled.div`
 color: ${p => p.color}; 
 background-color: ${p => p.background};
-padding: 3rem;`
-
-
+text-align:center;
+overflow-wrap: break-word;
+padding: 3rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
 
 const Section = ({backgroundColor, color, children}) => {
     return(

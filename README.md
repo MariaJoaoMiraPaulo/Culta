@@ -9,6 +9,8 @@
 
 ## 🚀 Quick start
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/25be99be-98bc-4c8c-8f37-586cf7c59d1f/deploy-status)](https://app.netlify.com/sites/whimsical-llama-36c381/deploys)
+
 1.  **Create a Gatsby site.**
 
     Use the Gatsby CLI to create a new site, specifying the minimal starter.

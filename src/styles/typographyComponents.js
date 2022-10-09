@@ -6,7 +6,7 @@ export const SectionTitle = styled.h1`
     font-weight: 100;
     color: ${p => p.color || '#cf5945'};
     text-transform: uppercase;
-    padding: 0 14rem;
+    margin: 0 15rem;
 `
 
 export const Subtitle = styled.h1`

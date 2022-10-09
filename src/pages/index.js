@@ -14,7 +14,7 @@ const Banner = styled.div`
   background-position: center center;
   display: flex;
   flex-direction: column;
-  `
+`
   
 const Header = styled.div`
   display: flex;
@@ -27,6 +27,13 @@ width: 800px;
 text-align: center;
 `
 
+const SubSectionWithColumns = styled.div`
+width: 100%;
+height: 300px;
+display: flex;
+justify-content: space-between;
+align-items: flex-end;`
+
 const IndexPage = () => {
   return (
     <Banner>
@@ -35,9 +42,8 @@ const IndexPage = () => {
         <Menu/>
       </Header>
       <Section color="#ffff" backgroundColor="#cf5945">
-        <SectionTitle color="#ffff">O que nos move é a cultura.</SectionTitle>
+        <SectionTitle color="#ffff">Inovar a cultura</SectionTitle>
         <SubSection>
-          <Subtitle>Sobre a Culta</Subtitle>
           <Body>
             O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura.  <br></br>
             Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta e diferenciadora.
@@ -45,13 +51,12 @@ const IndexPage = () => {
         </SubSection>
       </Section>
       <Section color="#ffff" backgroundColor="#758073">
-        <SectionTitle color="#ffff">O que fazemos</SectionTitle>
-        <SubSection>
-          <Subtitle>contacta a  Culta</Subtitle>
+        <SubSectionWithColumns>
+          <Subtitle>O que fazemos</Subtitle>
           <Body>
             blablabla
           </Body>
-        </SubSection>
+        </SubSectionWithColumns>
       </Section>
     </Banner>
   )

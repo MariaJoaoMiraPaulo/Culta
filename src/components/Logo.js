@@ -1,68 +1,95 @@
-import * as React from "react"
-import styled from "styled-components"
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const LogoWrapper = styled.div`
-    width: min-content;
-    font-size: 80px;
-    color: #f0ede3;
-    display: grid;
-    grid-template-columns: repeat(9, 60px);
-    grid-row-gap: 30px;
-    grid-template-areas:
-      "c . ."
-      "u . ."
-      "l t a";
-    span {
-        line-height: 50px;
-    }
-    height: fit-content;
-    margin: 3rem;
-    font-family: SangBleuOGSerif;
-    font-weight: 200;
-`
+  width: min-content;
+  font-size: 80px;
+  color: #f0ede3;
+  display: grid;
+  grid-template-columns: repeat(9, 60px);
+  grid-row-gap: 30px;
+  grid-template-areas:
+    'c . .'
+    'u . .'
+    'l t a';
+  span {
+    line-height: 50px;
+  }
+  height: fit-content;
+  margin: 3rem;
+  font-family: SangBleuOGSerif;
+  font-weight: 200;
+  position fixed;
+`;
 
 const C = styled.span`
-grid-area: c;
-&:after{
-    content:"C"
-}`
-
+  grid-area: c;
+  &:after {
+    content: 'C';
+  }
+`;
 
 const U = styled.span`
-grid-area: u;
-&:after{
-    content:"U"
-}
-`
+  grid-area: u;
+  &:after {
+    content: 'U';
+  }
+`;
 
 const L = styled.span`
-grid-area: l;
-&:after{
-    content:"L"
-}
-`
+  grid-area: l;
+  &:after {
+    content: 'L';
+  }
+`;
 
 const T = styled.span`
-grid-area: t;
-&:after{
-    content:"T"
-}
-`
+  grid-area: t;
+  &:after {
+    content: 'T';
+  }
+`;
 
 const A = styled.span`
-grid-area: a;
-&:after{
-    content:"A"
-}
-`
+  grid-area: a;
+  &:after {
+    content: 'A';
+  }
+`;
 const Logo = () => {
-    return(<LogoWrapper>
-        <C/>
-        <U/>
-        <L/>
-        <T/>
-        <A/>
-    </LogoWrapper>)
-}
+  const [isFixed, setIsLogoFixed] = useState(false);
 
-export default Logo
+  useEffect(() => {
+    const isLogoFixed = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop >= 20) {
+        setIsLogoFixed(true);
+      }
+      if (scrollTop == 0) {
+        setIsLogoFixed(false);
+      }
+    };
+
+    window.addEventListener('scroll', isLogoFixed);
+
+    return () => {
+      window.removeEventListener('scroll', isLogoFixed);
+    };
+  });
+
+  return (
+    <LogoWrapper>
+      <C isFixed={isFixed} />
+      {!isFixed && (
+        <>
+          <U />
+          <L />
+          <T />
+          <A />
+        </>
+      )}
+    </LogoWrapper>
+  );
+};
+
+export default Logo;

@@ -6,6 +6,8 @@ import { Title, TitleBold } from '../styles/typographyComponents';
 
 const MenuWrapper = styled.div`
     margin: 2rem;
+    position: absolute;
+    right: 0;
 `
 const MenuItems = styled.div`
     position: relative;

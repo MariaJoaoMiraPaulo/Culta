@@ -1,35 +1,33 @@
-import { graphql, useStaticQuery } from "gatsby"
-import * as React from "react"
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
 
 const IndexPage = () => {
   const data = useStaticQuery(
     graphql`
       query {
-          allContentfulBlogPost {
-            edges {
-              node {
-                title
-                id
-              }
+        allContentfulBlogPost {
+          edges {
+            node {
+              title
+              id
             }
           }
+        }
       }
     `,
   );
-  
 
-  console.log(data)
+  console.log(data);
   return (
     <div>
-      <h1>
-        BLOG POSTS
-      </h1>
+      <h1>BLOG POSTS</h1>
       <ul>
-        {data.allContentfulBlogPost.edges.map(({node}) => <li>{node.title}</li>)}
+        {data.allContentfulBlogPost.edges.map(({ node }) => (
+          <li>{node.title}</li>
+        ))}
       </ul>
-      </div>
+    </div>
+  );
+};
 
-  )
-}
-
-export default IndexPage
+export default IndexPage;

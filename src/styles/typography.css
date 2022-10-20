@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "SangBleuOGSerif";
-  src: url("../../static/fonts/SangBleuOGSerif-Light.ttf");
+  font-family: 'SangBleuOGSerif';
+  src: url('../../static/fonts/SangBleuOGSerif-Light.ttf');
   font-weight: 100;
-} 
+}
 
 @font-face {
-  font-family: "SangBleuOGSerif";
-  src: url("../../static/fonts/SangBleuOGSerif-Black.ttf");
+  font-family: 'SangBleuOGSerif';
+  src: url('../../static/fonts/SangBleuOGSerif-Black.ttf');
   font-weight: 400;
-} 
+}
 
 @font-face {
-  font-family: "HelveticaNeue";
-  src: url("../../static/fonts/HelveticaNeue-Light.ttf");
+  font-family: 'HelveticaNeue';
+  src: url('../../static/fonts/HelveticaNeue-Light.ttf');
   font-weight: 200;
-} 
+}

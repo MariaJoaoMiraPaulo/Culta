@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import useLogoSlidedownAnimation from '../hooks/useLogoSlidedownAnimation';
 
 const LogoWrapper = styled.div`
   width: min-content;
   font-size: 80px;
-  color: #f0ede3;
-  display: grid;
+  color: ${({ theme, color }) => color || theme.colors.marble};
+  display: ${({ orientation }) =>
+    orientation === 'v' ? 'grid' : 'inline-flex'};
   grid-template-columns: repeat(9, 60px);
   grid-row-gap: 30px;
   grid-template-areas:
@@ -17,9 +19,8 @@ const LogoWrapper = styled.div`
   }
   height: fit-content;
   margin: 3rem;
-  font-family: SangBleuOGSerif;
+  font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 200;
-  position fixed;
 `;
 
 const C = styled.span`
@@ -56,38 +57,17 @@ const A = styled.span`
     content: 'A';
   }
 `;
-const Logo = () => {
-  const [isFixed, setIsLogoFixed] = useState(false);
 
-  useEffect(() => {
-    const isLogoFixed = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop >= 20) {
-        setIsLogoFixed(true);
-      }
-      if (scrollTop == 0) {
-        setIsLogoFixed(false);
-      }
-    };
-
-    window.addEventListener('scroll', isLogoFixed);
-
-    return () => {
-      window.removeEventListener('scroll', isLogoFixed);
-    };
-  });
+const Logo = ({ orientation, color }) => {
+  const { isLogoSticky } = useLogoSlidedownAnimation();
 
   return (
-    <LogoWrapper>
-      <C isFixed={isFixed} />
-      {!isFixed && (
-        <>
-          <U />
-          <L />
-          <T />
-          <A />
-        </>
-      )}
+    <LogoWrapper orientation={orientation} color={color}>
+      <C />
+      <U />
+      <L />
+      <T />
+      <A />
     </LogoWrapper>
   );
 };

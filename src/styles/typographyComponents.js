@@ -1,31 +1,30 @@
 import styled from 'styled-components';
 
 export const SectionTitle = styled.h1`
-    font-size: 84px;
-    font-family: SangBleuOGSerif;
-    font-weight: 100;
-    color: ${p => p.color || '#cf5945'};
-    text-transform: uppercase;
-    margin: 0 15rem;
-`
+  font-size: 84px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: 100;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  text-transform: uppercase;
+`;
 
 export const Subtitle = styled.h1`
-    font-size: 28px;
-    font-family: SangBleuOGSerif;
-    font-weight: 200;
-    text-transform: uppercase;
-    padding: 1rem 0;
-`
+  font-size: 60px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: 200;
+  text-transform: uppercase;
+`;
 
 export const TitleBold = styled.h1`
-    font-size: 16px;
-    font-family: SangBleuOGSerif;
-    font-weight: 400;
-    color: ${p => p.color || '#cf5945'}
-`
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: 400;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+`;
 
 export const Body = styled.span`
-    font-size: 18px;
-    font-family: HelveticaNeue;
-    font-weight: 200;
-`
+  font-size: 30px;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+`;

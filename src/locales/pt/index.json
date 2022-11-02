@@ -10,13 +10,11 @@
       "body": " O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura. Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta ediferenciadora."
     },
     "what": {
-      "title": "O que fazemos",
-      "body": {
-        "communication": "Comunicação",
-        "management": "Gestão",
-        "development": "Produção",
-        "cultural": "cultural"
-      }
+      "title": "O que fazemos"
+    },
+    "proud": {
+      "title": "Culturamente orgulhosos",
+      "cta": "As nossas histórias"
     }
   }
 }

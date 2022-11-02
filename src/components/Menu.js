@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
-import { TitleBold } from '../styles/typographyComponents';
+import { SubTitleBolder } from '../styles/typographyComponents';
 
 const MenuWrapper = styled.div`
   margin: 2rem;
@@ -45,7 +45,7 @@ const Menu = () => {
     <>
       <MenuWrapper>
         {!isMenuOpen && (
-          <MenuIcon color="marble" onClickHandler={() => setIsMenuOpen(true)} />
+          <MenuIcon color="red" onClickHandler={() => setIsMenuOpen(true)} />
         )}
       </MenuWrapper>
       <MenuItems open={isMenuOpen}>
@@ -53,22 +53,22 @@ const Menu = () => {
           <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
         </MenuHeader>
         <MenuContent>
-          <TitleBold>NÓS</TitleBold>
+          <SubTitleBolder>NÓS</SubTitleBolder>
           <MenuItem>Sobre nós</MenuItem>
           <MenuItem>Blog</MenuItem>
         </MenuContent>
         <MenuContent>
-          <TitleBold>CRIAMOS</TitleBold>
+          <SubTitleBolder>CRIAMOS</SubTitleBolder>
           <MenuItem>O que fazemos</MenuItem>
           <MenuItem>Serviços</MenuItem>
         </MenuContent>
         <MenuContent>
-          <TitleBold>CULTURA</TitleBold>
+          <SubTitleBolder>CULTURA</SubTitleBolder>
           <MenuItem>Portfólio</MenuItem>
           <MenuItem>Galeria</MenuItem>
         </MenuContent>
         <MenuContent>
-          <TitleBold>JUNTOS</TitleBold>
+          <SubTitleBolder>JUNTOS</SubTitleBolder>
           <MenuItem>Contacte-nos</MenuItem>
           <MenuItem>Faça parte da equipa</MenuItem>
         </MenuContent>

@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Logo from '../components/Logo';
 import Menu from '../components/Menu';
-import Section from '../components/Section';
-import { Subtitle, Body } from '../styles/typographyComponents';
 import { useTranslation } from 'react-i18next';
+import TitleSection from '../components/sections/TitleSection';
+import ImageSection from '../components/sections/ImageSection';
+import {
+  TextSection,
+  CenteredSection,
+} from '../components/sections/TextSection';
 
 const Banner = styled.div`
   width: 100%;
@@ -31,17 +35,22 @@ const IndexPage = () => {
         <Logo orientation="v" />
         <Menu />
       </Header>
-      <Section title background="red" color="marble">
-        {t('homepage.title')}
-      </Section>
-      <Section>
-        <Subtitle> {t('homepage.about.title')}</Subtitle>
-        <Body>{t('homepage.about.body')}</Body>
-      </Section>
-      <Section inverted>
-        <Body>Comunicação Gestão Produção</Body>
-        <Subtitle>{t('homepage.what.title')}</Subtitle>
-      </Section>
+      <TitleSection
+        title={t('homepage.title')}
+        background="red"
+        color="marble"
+      />
+      <CenteredSection body={t('homepage.about.body')} linksTo="" />
+      <ImageSection
+        imagePath="/images/2.jpg"
+        title={t('homepage.what.title')}
+        linkTo={'/about'}
+      />
+      <ImageSection
+        imagePath="/images/3.jpg"
+        title={t('homepage.proud.title')}
+        linkTo={'/blog'}
+      />
     </Banner>
   );
 };

@@ -6,6 +6,12 @@
 
 @font-face {
   font-family: 'SangBleuOGSerif';
+  src: url('../../static/fonts/SangBleuOGSerif-Medium.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'SangBleuOGSerif';
   src: url('../../static/fonts/SangBleuOGSerif-Black.ttf');
   font-weight: 400;
 }

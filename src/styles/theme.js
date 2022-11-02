@@ -1,6 +1,7 @@
 export default {
   fonts: {
     secondary: 'HelveticaNeue',
+    tertiary: 'SangBleuOGSans',
     main: 'SangBleuOGSerif',
   },
   colors: {

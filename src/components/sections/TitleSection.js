@@ -15,10 +15,10 @@ const SectionWrapper = styled.div`
   }
 `;
 
-const TitleSection = ({ title, background, color }) => {
+const TitleSection = ({ title, background, color, size }) => {
   return (
     <SectionWrapper background={background} color={color}>
-      <Title>{title}</Title>
+      <Title size={size}>{title}</Title>
     </SectionWrapper>
   );
 };

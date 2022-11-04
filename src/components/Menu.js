@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
 import { SubTitleBolder } from '../styles/typographyComponents';
+import { LinkWrapper } from './LinkWrapper';
+import { useTranslation } from 'react-i18next';
 
 const MenuWrapper = styled.div`
   margin: 2rem;
@@ -40,6 +42,7 @@ const MenuItem = styled.div`
 `;
 
 const Menu = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
@@ -54,23 +57,23 @@ const Menu = () => {
         </MenuHeader>
         <MenuContent>
           <SubTitleBolder>NÓS</SubTitleBolder>
-          <MenuItem>Sobre nós</MenuItem>
-          <MenuItem>Blog</MenuItem>
+          <LinkWrapper to="/about"><MenuItem>{t('about-us')}</MenuItem></LinkWrapper>
+          <LinkWrapper to="/blog"><MenuItem>{t('blog')}</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
           <SubTitleBolder>CRIAMOS</SubTitleBolder>
-          <MenuItem>O que fazemos</MenuItem>
-          <MenuItem>Serviços</MenuItem>
+          <LinkWrapper to="/"><MenuItem>O que fazemos</MenuItem></LinkWrapper>
+          <LinkWrapper to="/"><MenuItem>Serviços</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
           <SubTitleBolder>CULTURA</SubTitleBolder>
-          <MenuItem>Portfólio</MenuItem>
-          <MenuItem>Galeria</MenuItem>
+          <LinkWrapper to="/"><MenuItem>Portfólio</MenuItem></LinkWrapper>
+          <LinkWrapper to="/"><MenuItem>Galeria</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
           <SubTitleBolder>JUNTOS</SubTitleBolder>
-          <MenuItem>Contacte-nos</MenuItem>
-          <MenuItem>Faça parte da equipa</MenuItem>
+          <LinkWrapper to="/"><MenuItem>Contacte-nos</MenuItem></LinkWrapper>
+          <LinkWrapper to="/"><MenuItem>Faça parte da equipa</MenuItem></LinkWrapper>
         </MenuContent>
       </MenuItems>
     </>

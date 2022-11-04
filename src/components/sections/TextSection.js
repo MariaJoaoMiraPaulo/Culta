@@ -23,7 +23,7 @@ const SectionWrapper = styled.div`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
   background-color: ${({ theme, background }) =>
     theme.colors[background] || theme.colors.marble};
-  text-align: center;
+  text-align: left;
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ const SectionWrapper = styled.div`
     padding: 6rem;
   }
 `;
-
+/* 
 const RightTitleSection = styled.div`
   width: 100%;
   display: flex;
@@ -63,7 +63,7 @@ const RightTitleSection = styled.div`
       padding-right: 0;
       padding-bottom: 0;
       margin-bottom: 0;
-    }
+    } 
   }
 `;
 
@@ -96,42 +96,33 @@ const LeftTitleSection = styled.div`
       padding-bottom: 0;
       padding-right: 10px;
       margin-bottom: 0;
-    }
+    } 
   }
 `;
-
+ */
 export const SectionContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  white-space: pre-line;
 `;
 
-const LinkWrapper = styled.div`
+/* const LinkWrapper = styled.div`
   position: relative;
   display: flex;
   margin-top: 20px;
   width: 100%;
   justify-content: ${({ right }) => (right ? 'flex-end' : 'flex-start')};
-`;
+`; */
 
-export const TextSection = ({ background, color, textRight, title, body }) => {
+export const TextSection = ({ background, color, body }) => {
   return (
     <SectionWrapper color={color} background={background}>
       <SectionContentWrapper>
-        {textRight ? (
-          <LeftTitleSection>
-            <TitleBold>{title}</TitleBold>
-            <Body>{body}</Body>
-          </LeftTitleSection>
-        ) : (
-          <RightTitleSection>
-            <Body>{body}</Body>
-            <TitleBold>{title}</TitleBold>
-          </RightTitleSection>
-        )}
-        <LinkWrapper right={textRight}>
+        <Body>{body}</Body>
+        {/* <LinkWrapper right={textRight}>
           <ButtonAsIcon color="red" />
-        </LinkWrapper>
+        </LinkWrapper> */}
       </SectionContentWrapper>
     </SectionWrapper>
   );

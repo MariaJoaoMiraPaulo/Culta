@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
-const IndexPage = () => {
+const BlogPage = () => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -30,4 +30,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default BlogPage;

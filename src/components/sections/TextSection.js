@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Body, TitleBold } from '../../styles/typographyComponents';
 import { devices } from '../../styles/devices';
-import { ButtonAsIcon } from '../Button';
 
 const CenteredSectionWrapper = styled.div`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -17,6 +16,7 @@ const CenteredSectionWrapper = styled.div`
   @media ${devices.tablet} {
     padding: 3rem 20%;
   }
+  white-space: pre-line;
 `;
 
 const SectionWrapper = styled.div`
@@ -27,11 +27,11 @@ const SectionWrapper = styled.div`
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 3rem;
+  padding: 0 3rem 3rem 3rem;
   @media ${devices.tablet} {
-    padding: 6rem;
+    padding: 0 6rem 6rem 6rem;
   }
+  white-space: pre-line;
 `;
 /* 
 const RightTitleSection = styled.div`
@@ -100,12 +100,13 @@ const LeftTitleSection = styled.div`
   }
 `;
  */
-export const SectionContentWrapper = styled.div`
+
+/* export const SectionContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  white-space: pre-line;
 `;
+ */
 
 /* const LinkWrapper = styled.div`
   position: relative;
@@ -115,20 +116,21 @@ export const SectionContentWrapper = styled.div`
   justify-content: ${({ right }) => (right ? 'flex-end' : 'flex-start')};
 `; */
 
-export const TextSection = ({ background, color, body }) => {
+export const TextSection = ({ background, color, body, title }) => {
   return (
     <SectionWrapper color={color} background={background}>
-      <SectionContentWrapper>
+        <TitleBold color="blue" smaller={true}>{title}</TitleBold>
+      {/* <SectionContentWrapper> */}
         <Body>{body}</Body>
         {/* <LinkWrapper right={textRight}>
           <ButtonAsIcon color="red" />
         </LinkWrapper> */}
-      </SectionContentWrapper>
+      {/* </SectionContentWrapper> */}
     </SectionWrapper>
   );
 };
 
-export const CenteredSection = ({ background, color, body, linksTo }) => {
+export const CenteredSection = ({ background, color, body }) => {
   return (
     <CenteredSectionWrapper color={color} background={background}>
       <Body>{body}</Body>

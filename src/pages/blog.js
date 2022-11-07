@@ -1,8 +1,8 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import * as React from 'react';
+/* import { graphql, useStaticQuery } from 'gatsby';
+ */import * as React from 'react';
 
 const BlogPage = () => {
-  const data = useStaticQuery(
+  /* const data = useStaticQuery(
     graphql`
       query {
         allContentfulBlogPost {
@@ -15,16 +15,15 @@ const BlogPage = () => {
         }
       }
     `,
-  );
+  ); */
 
-  console.log(data);
   return (
     <div>
       <h1>BLOG POSTS</h1>
       <ul>
-        {data.allContentfulBlogPost.edges.map(({ node }) => (
+        {/* {data.allContentfulBlogPost.edges.map(({ node }) => (
           <li>{node.title}</li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

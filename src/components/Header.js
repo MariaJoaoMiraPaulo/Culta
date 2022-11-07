@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <HeaderLink>{t('about-us').toUpperCase()}</HeaderLink>
+      <HeaderLink>{t('about').toUpperCase()}</HeaderLink>
       <HeaderLink>{t('portfolio').toUpperCase()}</HeaderLink>
       <HeaderLink>{t('blog').toUpperCase()}</HeaderLink>
       <HeaderLink>{t('contacts').toUpperCase()}</HeaderLink>

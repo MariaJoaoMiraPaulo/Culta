@@ -12,13 +12,12 @@ const AboutPage = () => {
   return (
     <div>
       <Header />
-      <TitleBold color="red" size="40px">{t('about').toUpperCase()}</TitleBold>
-      <TextSection body={t('body')}/>
+      <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()}/>
       <TitleSection
         title={t('title')}
         background="red"
         color="marble"
-        size="60px"
+        smaller={true}
       />
     </div>
   );

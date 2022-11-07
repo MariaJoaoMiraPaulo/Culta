@@ -57,7 +57,7 @@ const Menu = () => {
         </MenuHeader>
         <MenuContent>
           <SubTitleBolder>NÓS</SubTitleBolder>
-          <LinkWrapper to="/about"><MenuItem>{t('about-us')}</MenuItem></LinkWrapper>
+          <LinkWrapper to="/about"><MenuItem>{t('about')}</MenuItem></LinkWrapper>
           <LinkWrapper to="/blog"><MenuItem>{t('blog')}</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>

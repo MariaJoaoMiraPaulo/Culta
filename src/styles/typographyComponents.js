@@ -2,14 +2,27 @@ import styled from 'styled-components';
 import { devices } from './devices';
 
 export const Title = styled.h1`
-  font-size: ${({ size }) => size || '60px'};
+  font-size: 60px;
   font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 100;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
   line-height: 80px;
   @media ${devices.tablet} {
-    font-size: ${({ size }) => size || '90px'};
+    font-size: 90px;
+  }
+}
+`;
+
+export const Title2 = styled.h1`
+  font-size: 40px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: 100;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  text-transform: uppercase;
+  line-height: 80px;
+  @media ${devices.tablet} {
+    font-size: 60px;
   }
 }
 `;

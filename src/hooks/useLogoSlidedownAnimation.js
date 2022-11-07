@@ -9,7 +9,7 @@ const useLogoSlidedownAnimation = () => {
       if (scrollTop >= 20) {
         setIsLogoStikcy(true);
       }
-      if (scrollTop == 0) {
+      if (scrollTop === 0) {
         setIsLogoStikcy(false);
       }
     };

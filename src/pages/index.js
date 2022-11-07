@@ -8,10 +8,8 @@ import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
 import {
-  TextSection,
   CenteredSection,
 } from '../components/sections/TextSection';
-import Footer from '../components/Footer';
 
 const Banner = styled.div`
   width: 100%;

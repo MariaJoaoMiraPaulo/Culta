@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useLogoSlidedownAnimation from '../hooks/useLogoSlidedownAnimation';
+/* import useLogoSlidedownAnimation from '../hooks/useLogoSlidedownAnimation'; */
 
 const LogoWrapper = styled.div`
   width: min-content;
@@ -59,7 +59,7 @@ const A = styled.span`
 `;
 
 const Logo = ({ orientation, color }) => {
-  const { isLogoSticky } = useLogoSlidedownAnimation();
+  /* const { isLogoSticky } = useLogoSlidedownAnimation(); */
 
   return (
     <LogoWrapper orientation={orientation} color={color}>

@@ -64,3 +64,14 @@ export const Body = styled.span`
     font-size: 28px;
   }
 `;
+
+export const Copyright = styled.span`
+  font-size: 14px;
+  line-height: 40px;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  @media ${devices.tablet} {
+    font-size: 18px;
+  }
+`;

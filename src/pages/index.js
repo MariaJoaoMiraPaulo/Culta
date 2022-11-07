@@ -6,10 +6,7 @@ import Menu from '../components/Menu';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
-import {
-  TextSection,
-  CenteredSection,
-} from '../components/sections/TextSection';
+import { CenteredSection } from '../components/sections/TextSection';
 
 const Banner = styled.div`
   width: 100%;

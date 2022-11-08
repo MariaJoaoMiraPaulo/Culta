@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Logo from '../components/Logo';
 import Menu from '../components/Menu';
+import MyFooter from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
@@ -48,6 +49,7 @@ const IndexPage = () => {
         title={t('homepage.proud.title')}
         linkTo={'/blog'}
       />
+      <MyFooter />
     </Banner>
   );
 };

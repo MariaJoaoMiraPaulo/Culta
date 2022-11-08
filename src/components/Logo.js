@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-/* import useLogoSlidedownAnimation from '../hooks/useLogoSlidedownAnimation'; */
 
 const LogoWrapper = styled.div`
   width: min-content;

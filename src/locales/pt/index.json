@@ -7,7 +7,7 @@
     "title": "Inovar a cultura",
     "about": {
       "title": "Sobre a culta",
-      "body": " O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura. Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta ediferenciadora."
+      "body": " O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura. Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta e diferenciadora."
     },
     "what": {
       "title": "O que fazemos"
@@ -20,6 +20,10 @@
   "newsletter": "newsletter",
   "weekly-news": "Novidades Semanais",
   "new-work": "Novos Trabalhos",
+  "instagram": "Instagram",
+  "linkedin": "LinkedIn",
+  "termos": "Termos e Condições",
+  "politica": "Política de Privacidade",
   "subscribe-newsletter": "Deixe aqui o seu email",
   "copyright": "© 2022 Culta. Todos os direitos reservados."
 }

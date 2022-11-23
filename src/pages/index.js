@@ -7,7 +7,7 @@ import MyFooter from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
-import { CenteredSection } from '../components/sections/TextSection';
+import { TextSection } from '../components/sections/TextSection';
 
 const Banner = styled.div`
   width: 100%;
@@ -22,6 +22,7 @@ const Banner = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   min-height: 100vh;
 `;
 
@@ -30,7 +31,7 @@ const IndexPage = () => {
   return (
     <Banner>
       <Header>
-        <Logo orientation="v" />
+        <Logo />
         <Menu />
       </Header>
       <TitleSection
@@ -38,7 +39,7 @@ const IndexPage = () => {
         background="red"
         color="marble"
       />
-      <CenteredSection body={t('homepage.about.body')} linksTo="" />
+      <TextSection body={t('homepage.about.body')} linksTo="" background="red" color="marble" />
       <ImageSection
         imagePath="/images/2.jpg"
         title={t('homepage.what.title')}

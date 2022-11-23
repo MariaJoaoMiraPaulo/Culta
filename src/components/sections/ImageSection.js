@@ -12,7 +12,7 @@ const SectionWrapper = styled.div`
 
 const ImageSectionWrapper = styled.div`
   width: 100%;
-  height: 800px;
+  height: 400px;
   background-image: url(${props => props.image || '/images/1.jpg'});
   background-size: cover;
   background-position: center center;
@@ -35,7 +35,7 @@ const ImageContent = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 0 40px;
+  padding: 20px 40px;
   max-width: 50%;
 `;
 

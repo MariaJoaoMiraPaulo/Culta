@@ -7,23 +7,11 @@ export const Title = styled.h1`
   font-weight: 100;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 80px;
+  line-height: 155px;
   @media ${devices.tablet} {
-    font-size: 90px;
+    font-size: 120px;
   }
-}
-`;
-
-export const Title2 = styled.h1`
-  font-size: 40px;
-  font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 100;
-  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
-  text-transform: uppercase;
-  line-height: 80px;
-  @media ${devices.tablet} {
-    font-size: 60px;
-  }
+  margin: 0rem;
 }
 `;
 
@@ -33,6 +21,7 @@ export const TitleBold = styled.h1`
   font-weight: 200;
   text-transform: uppercase;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  margin: 0rem;
 `;
 
 export const SubTitleBold = styled.h1`
@@ -45,6 +34,7 @@ export const SubTitleBold = styled.h1`
   @media ${devices.tablet} {
     font-size: 60px;
   }
+  margin: 0rem;
 `;
 
 export const SubTitleBolder = styled.h1`
@@ -52,26 +42,43 @@ export const SubTitleBolder = styled.h1`
   font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 400;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  margin: 0rem;
 `;
 
 export const Body = styled.span`
   font-size: 22px;
-  line-height: 40px;
+  line-height: 33px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
-    font-size: 28px;
+    font-size: 25px;
   }
+  margin: 0rem;
 `;
 
-export const Copyright = styled.span`
+export const CopyrightText = styled.span`
   font-size: 14px;
-  line-height: 40px;
+  line-height: 80px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
     font-size: 18px;
   }
+  margin: 0rem 0.5rem;
+`;
+
+export const FooterLink = styled.span`
+  font-size: 20px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-weight: 100;
+  line-height: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  @media ${devices.tablet} {
+    font-size: 40px;
+  }
+  margin: 0rem;
+  cursor: pointer;
 `;

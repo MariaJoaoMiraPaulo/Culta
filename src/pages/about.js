@@ -15,7 +15,7 @@ const AboutPage = () => {
       <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()}/>
       <TitleSection
         title={t('title')}
-        background="red"
+        background="blue"
         color="marble"
         smaller={true}
       />

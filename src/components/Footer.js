@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Copyright } from '../styles/typographyComponents';
+import { CopyrightText, FooterLink } from '../styles/typographyComponents';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -27,18 +27,27 @@ const ColumnWrapper = styled.div`
   align-items: center;
 `;
 
-const CenterWrapper = styled.div`
+const FirstRow = styled.div`
+  margin: 2rem;
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
   align-items: center;
 `;
 
-const FooterLink = styled.a`
+const AuxLink = styled.a`
+  font-size: 16px;
+  line-height: 30px;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  margin: 0rem;
   cursor: pointer;
-  font-size: ${({ size }) => size || '30px'};
-  line-height: 40px;
-  text-align: center;
+  text-decoration: underline;
+`;
+
+const Copyright = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 const Footer = () => {
@@ -64,27 +73,31 @@ const Footer = () => {
     <FooterWrapper>
       <Columns>
         <ColumnWrapper>
-          <FooterLink>{t('contacts').toUpperCase()}</FooterLink>
-            {data.allContentfulCulta.edges.map(({ node }) => (
-              <>
-              <CenterWrapper>
-                <FooterLink>{node.email.toUpperCase()}</FooterLink>
-                <FooterLink>{node.telefone}</FooterLink>
-              </CenterWrapper>
-              <FooterLink size='20px'>{node.morada}</FooterLink>
-              </>    
-            ))}
+          <FirstRow>
+            <FooterLink>{t('contacts').toUpperCase()}</FooterLink>
+            <AuxLink color="red">...</AuxLink>
+          </FirstRow>
+          {data.allContentfulCulta.edges.map(({ node }) => (
+            <>
+              <FooterLink>{node.email.toUpperCase()}</FooterLink>
+              <FooterLink>{node.telefone}</FooterLink>
+            </>    
+          ))}
         </ColumnWrapper>
         <ColumnWrapper>
-          <FooterLink>{t('newsletter').toUpperCase()}</FooterLink>
-          <CenterWrapper>
-            <FooterLink>{t('weekly-news').toUpperCase()}</FooterLink>
-            <FooterLink>{t('new-work').toUpperCase()}</FooterLink>
-          </CenterWrapper>
-          <FooterLink size='20px'>{t('subscribe-newsletter')}</FooterLink>
+          <FirstRow>
+            <FooterLink>{t('newsletter').toUpperCase()}</FooterLink>
+            <AuxLink>{t('subscribe-newsletter')}</AuxLink>
+          </FirstRow>
+          <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
+          <FooterLink>{t('instagram').toUpperCase()}</FooterLink>          
         </ColumnWrapper>
       </Columns>
-      <Copyright>{t('copyright')}</Copyright>
+      <Copyright>
+        <CopyrightText>{t('copyright')}</CopyrightText>
+        <CopyrightText>{t('politica')}</CopyrightText>
+        <CopyrightText>{t('termos')}</CopyrightText>
+      </Copyright>
     </FooterWrapper>
   );
 };

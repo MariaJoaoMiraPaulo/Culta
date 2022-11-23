@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LogoIcon from '../icons/LogoIcon';
 
 const LogoWrapper = styled.div`
   width: min-content;
@@ -61,13 +62,15 @@ const Logo = ({ orientation, color }) => {
   /* const { isLogoSticky } = useLogoSlidedownAnimation(); */
 
   return (
-    <LogoWrapper orientation={orientation} color={color}>
+    /* <LogoWrapper orientation={orientation} color={color}>
       <C />
       <U />
       <L />
       <T />
       <A />
-    </LogoWrapper>
+    </LogoWrapper> */
+    <LogoIcon/>
+    
   );
 };
 

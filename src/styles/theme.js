@@ -1,4 +1,4 @@
-export default {
+const theme = {
   fonts: {
     secondary: 'HelveticaNeue',
     main: 'SangBleuOGSerif',
@@ -23,3 +23,5 @@ export default {
     },
   },
 };
+
+export default theme;

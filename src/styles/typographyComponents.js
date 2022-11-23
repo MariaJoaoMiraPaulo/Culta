@@ -18,7 +18,6 @@ export const Title = styled.h1`
 export const TitleBold = styled.h1`
   font-size: 60px;
   font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 200;
   text-transform: uppercase;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   margin: 0rem;
@@ -27,7 +26,6 @@ export const TitleBold = styled.h1`
 export const SubTitleBold = styled.h1`
   font-size: 40px;
   font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 100;
   line-height: 65px;
   text-transform: uppercase;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
@@ -40,7 +38,6 @@ export const SubTitleBold = styled.h1`
 export const SubTitleBolder = styled.h1`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 400;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   margin: 0rem;
 `;
@@ -72,7 +69,6 @@ export const CopyrightText = styled.span`
 export const FooterLink = styled.span`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 100;
   line-height: 50px;
   text-transform: uppercase;
   text-align: center;

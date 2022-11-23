@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Logo from '../components/Logo';
 import Menu from '../components/Menu';
 import MyFooter from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
 import { TextSection } from '../components/sections/TextSection';
+import Logo from '../icons/Logo';
 
 const Banner = styled.div`
   width: 100%;
@@ -39,7 +39,12 @@ const IndexPage = () => {
         background="red"
         color="marble"
       />
-      <TextSection body={t('homepage.about.body')} linksTo="" background="red" color="marble" />
+      <TextSection
+        body={t('homepage.about.body')}
+        linksTo=""
+        background="red"
+        color="marble"
+      />
       <ImageSection
         imagePath="/images/2.jpg"
         title={t('homepage.what.title')}

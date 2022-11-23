@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title, Title2 } from '../../styles/typographyComponents';
+import { Title } from '../../styles/typographyComponents';
 import { devices } from '../../styles/devices';
 
 const SectionWrapper = styled.div`

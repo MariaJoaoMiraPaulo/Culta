@@ -65,9 +65,7 @@ const Footer = () => {
         }
       }
     }
-  `,
-  );
-  
+  `);
 
   return (
     <FooterWrapper>
@@ -81,7 +79,7 @@ const Footer = () => {
             <>
               <FooterLink>{node.email.toUpperCase()}</FooterLink>
               <FooterLink>{node.telefone}</FooterLink>
-            </>    
+            </>
           ))}
         </ColumnWrapper>
         <ColumnWrapper>
@@ -90,7 +88,7 @@ const Footer = () => {
             <AuxLink>{t('subscribe-newsletter')}</AuxLink>
           </FirstRow>
           <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
-          <FooterLink>{t('instagram').toUpperCase()}</FooterLink>          
+          <FooterLink>{t('instagram').toUpperCase()}</FooterLink>
         </ColumnWrapper>
       </Columns>
       <Copyright>

@@ -1,14 +1,19 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import CollapsedLogo from '../icons/CollapsedLogo';
 
 const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
-  color: ${({ theme }) => theme.colors.red};
-  box-shadow: 0px 25px 100px -15px #d1caab;
+  color: ${({ theme, color }) => theme.colors[color]};
   position: relative;
+`;
+
+const LinksWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const HeaderLink = styled.a`
@@ -16,16 +21,21 @@ const HeaderLink = styled.a`
   cursor: pointer;
 `;
 
-const Header = () => {
+const Header = ({color}) => {
   const { t } = useTranslation();
 
   return (
-    <HeaderWrapper>
-      <HeaderLink>{t('about').toUpperCase()}</HeaderLink>
-      <HeaderLink>{t('portfolio').toUpperCase()}</HeaderLink>
-      <HeaderLink>{t('blog').toUpperCase()}</HeaderLink>
-      <HeaderLink>{t('contacts').toUpperCase()}</HeaderLink>
-      <HeaderLink>PT | EN</HeaderLink>
+    <HeaderWrapper color={color}>
+      <CollapsedLogo color={color}/>
+      <LinksWrapper>
+        <HeaderLink>{t('about').toUpperCase()}</HeaderLink>
+        <HeaderLink>{t('services').toUpperCase()}</HeaderLink>
+        <HeaderLink>{t('blog').toUpperCase()}</HeaderLink>
+        <HeaderLink>{t('gallery').toUpperCase()}</HeaderLink>
+        <HeaderLink>{t('portfolio').toUpperCase()}</HeaderLink>
+        <HeaderLink>{t('contacts').toUpperCase()}</HeaderLink>
+        <HeaderLink>PT | EN</HeaderLink>
+      </LinksWrapper>
     </HeaderWrapper>
   );
 };

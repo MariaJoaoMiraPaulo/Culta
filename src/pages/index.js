@@ -44,6 +44,7 @@ const IndexPage = () => {
         linksTo=""
         background="red"
         color="marble"
+        centered="true"
       />
       <ImageSection
         imagePath="/images/2.jpg"

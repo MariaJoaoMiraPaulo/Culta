@@ -11,13 +11,12 @@ const AboutPage = () => {
 
   return (
     <>
-      <Header />
-      <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()}/>
+      <Header color="blue"/>
+      <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()} percentage="5%"/>
       <TitleSection
         title={t('title')}
         background="blue"
         color="marble"
-        smaller={true}
       />
       <TextSection color="blue" body="cultura"/>
       <MyFooter />
@@ -39,6 +38,5 @@ export const query = graphql`
     }
   }
 `;
-
 
 export default AboutPage;

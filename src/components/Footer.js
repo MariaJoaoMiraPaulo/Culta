@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { rgba } from 'polished';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
-import { CopyrightText, FooterLink } from '../styles/typographyComponents';
+import { CopyrightText, FooterText } from '../styles/typographyComponents';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -47,6 +48,14 @@ const Copyright = styled.div`
   flex-direction: row;
 `;
 
+const FooterLink = styled(FooterText)`
+  cursor: pointer;
+
+  &: hover {
+    text-shadow:  0 0 10px ${props => rgba(props.theme.colors.marble, 1)};
+  }
+`;
+
 const Footer = () => {
   const { t } = useTranslation();
 
@@ -69,8 +78,8 @@ const Footer = () => {
       <Table>
         <tbody>
           <tr>
-            <th><FooterLink>{t('contacts').toUpperCase()}</FooterLink></th>
-            <th><FooterLink>{t('newsletter').toUpperCase()}</FooterLink></th> 
+            <th><FooterText>{t('contacts').toUpperCase()}</FooterText></th>
+            <th><FooterText>{t('newsletter').toUpperCase()}</FooterText></th> 
           </tr>
           <tr>
             <Td></Td>

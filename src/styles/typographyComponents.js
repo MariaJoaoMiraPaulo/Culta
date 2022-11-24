@@ -53,7 +53,7 @@ export const CopyrightText = styled.span`
   margin: 0rem 0.5rem;
 `;
 
-export const FooterLink = styled.span`
+export const FooterText = styled.span`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.main};
   line-height: 50px;
@@ -64,5 +64,4 @@ export const FooterLink = styled.span`
     font-size: 40px;
   }
   margin: 0rem;
-  cursor: pointer;
 `;

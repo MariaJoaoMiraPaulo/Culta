@@ -3,7 +3,7 @@ import { rgba } from 'polished';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
-import { Title } from '../styles/typographyComponents';
+import { MenuTitle } from '../styles/typographyComponents';
 import { LinkWrapper } from './LinkWrapper';
 import { useTranslation } from 'react-i18next';
 
@@ -64,10 +64,12 @@ const Menu = () => {
           </MenuHeader>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about"><Title>{t('about').toUpperCase()}</Title></LinkWrapper>
-              <LinkWrapper to="/"><Title>{t('blog').toUpperCase()}</Title></LinkWrapper>
-              <LinkWrapper to="/"><Title>{t('services').toUpperCase()}</Title></LinkWrapper>
-              <LinkWrapper to="/"><Title>{t('contacts').toUpperCase()}</Title></LinkWrapper>
+              <LinkWrapper to="/about"><MenuTitle>{t('about').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/"><MenuTitle>{t('services').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/"><MenuTitle>{t('blog').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/"><MenuTitle>{t('gallery').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/"><MenuTitle>{t('contacts').toUpperCase()}</MenuTitle></LinkWrapper>
             </Links>
           </MenuContent>
         </AuxMenu>

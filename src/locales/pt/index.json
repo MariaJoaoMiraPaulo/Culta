@@ -1,7 +1,9 @@
 {
   "about": "Sobre",
-  "blog": "Blog",
   "services": "Serviços",
+  "blog": "Blog",
+  "gallery": "Galeria",
+  "portfolio": "Portfólio",
   "contacts": "Contactos",
   "homepage": {
     "title": "Inovar a cultura",

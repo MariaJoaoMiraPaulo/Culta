@@ -1,7 +1,9 @@
 {
     "about": "Sobre",
+    "services": "Services",
     "blog": "Blog",
-    "services": "Serviços",
+    "gallery": "Gallery",
+    "portfolio": "Portfolio",
     "contacts": "Contactos",
     "homepage": {
       "title": "Inovar a cultura",
@@ -23,3 +25,4 @@
     "policy": "Privacy Policy",
     "copyright": "© 2022 Culta. All rights reserved."
   }  
+  

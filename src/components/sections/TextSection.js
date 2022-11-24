@@ -1,139 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Body, TitleBold } from '../../styles/typographyComponents';
+import { Body, SubTitle } from '../../styles/typographyComponents';
 import { devices } from '../../styles/devices';
 
-const CenteredSectionWrapper = styled.div`
+const TextSectionWrapper = styled.div`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
   background-color: ${({ theme, background }) =>
     theme.colors[background] || theme.colors.marble};
-  text-align: center;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   padding: 3rem;
   height: 800px;
-  min-height: 500px;
   @media ${devices.tablet} {
-    padding: 3rem 20%;
+    padding: 4rem 20%;
   }
   white-space: pre-line;
 `;
 
-const SectionWrapper = styled.div`
-  color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
-  background-color: ${({ theme, background }) =>
-    theme.colors[background] || theme.colors.marble};
-  text-align: left;
-  overflow-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-  padding: 0 3rem 3rem 3rem;
-  @media ${devices.tablet} {
-    padding: 0 6rem 6rem 6rem;
-  }
-  white-space: pre-line;
-`;
-/* 
-const RightTitleSection = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column-reverse;
-
-  span,
-  h1 {
-    width: 100%;
-    text-align: right;
-  }
-
-  @media ${devices.tablet} {
-    flex-direction: row;
-    align-items: flex-end;
-
-    span {
-      width: 80%;
-      text-align: left;
-      padding-right: 30px;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    h1 {
-      text-align: right;
-      padding-right: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    } 
-  }
+const BodyWrapper = styled.div`
+  align-items: center;
+  text-align: center;
 `;
 
-const LeftTitleSection = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  span,
-  h1 {
-    width: 100%;
-    text-align: left;
-  }
-
-  @media ${devices.tablet} {
-    align-items: flex-end;
-    flex-direction: row;
-
-    span {
-      width: 80%;
-      text-align: right;
-      padding-right: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    h1 {
-      text-align: left;
-      padding-bottom: 0;
-      padding-right: 10px;
-      margin-bottom: 0;
-    } 
-  }
-`;
- */
-
-/* export const SectionContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
- */
-
-/* const LinkWrapper = styled.div`
-  position: relative;
-  display: flex;
-  margin-top: 20px;
-  width: 100%;
-  justify-content: ${({ right }) => (right ? 'flex-end' : 'flex-start')};
-`; */
-
-export const TextSection = ({ background, color, body, title }) => {
+const TextSection = ({ background, color, body, title=false }) => {
   return (
-    <SectionWrapper color={color} background={background}>
-        <TitleBold color="blue" smaller={true}>{title}</TitleBold>
-      {/* <SectionContentWrapper> */}
-        <Body>{body}</Body>
-        {/* <LinkWrapper right={textRight}>
-          <ButtonAsIcon color="red" />
-        </LinkWrapper> */}
-      {/* </SectionContentWrapper> */}
-    </SectionWrapper>
+      <TextSectionWrapper color={color} background={background}>
+          {title ? <SubTitle color="blue" smaller={true}>{title}</SubTitle> : null}
+          <BodyWrapper>
+            <Body>{body}</Body>
+          </BodyWrapper>
+      </TextSectionWrapper>
   );
 };
 
-export const CenteredSection = ({ background, color, body }) => {
-  return (
-    <CenteredSectionWrapper color={color} background={background}>
-      <Body>{body}</Body>
-    </CenteredSectionWrapper>
-  );
-};
+export default TextSection;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title, Title2 } from '../../styles/typographyComponents';
+import { Title } from '../../styles/typographyComponents';
 import { devices } from '../../styles/devices';
 
 const SectionWrapper = styled.div`
@@ -9,16 +9,16 @@ const SectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   text-align: center;
   overflow-wrap: break-word;
-  padding: 6rem 1rem;
+  padding: 3rem 1rem;
   @media ${devices.tablet} {
-    padding: 6rem 3rem;
+    padding: 4rem 3rem;
   }
 `;
 
-const TitleSection = ({ title, background, color, smaller=false }) => {
+const TitleSection = ({ title, background, color }) => {
   return (
     <SectionWrapper background={background} color={color}>
-      { smaller ? <Title2>{title}</Title2> : <Title>{title}</Title>}
+      <Title>{title}</Title>
     </SectionWrapper>
   );
 };

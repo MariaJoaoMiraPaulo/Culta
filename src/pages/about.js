@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import TitleSection from '../components/sections/TitleSection';
-import { TextSection } from '../components/sections/TextSection';
+import TextSection from '../components/sections/TextSection';
 import MyFooter from '../components/Footer';
 
 const AboutPage = () => {
@@ -15,7 +15,7 @@ const AboutPage = () => {
       <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()}/>
       <TitleSection
         title={t('title')}
-        background="red"
+        background="blue"
         color="marble"
         smaller={true}
       />

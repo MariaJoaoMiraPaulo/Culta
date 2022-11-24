@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { rgba } from 'polished';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
-import { SubTitle } from '../styles/typographyComponents';
+import { Title } from '../styles/typographyComponents';
 import { LinkWrapper } from './LinkWrapper';
 import { useTranslation } from 'react-i18next';
 
@@ -13,15 +14,20 @@ const MenuWrapper = styled.div`
 `;
 const MenuItems = styled.div`
   position: absolute;
-  height: 100%;
   top: 0;
+  bottom: 0;
   right: 0;
-  width: 400px;
-  background-color: ${props => props.theme.colors.marble};
-  display: flex;
-  flex-direction: column;
+  left: 0;
+  background-color: ${props => rgba(props.theme.colors.marble, 0.7)};
   padding: 2rem;
   display: ${p => (p.open ? 'block' : 'none')};
+`;
+
+const AuxMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 const MenuHeader = styled.div`
@@ -30,15 +36,15 @@ const MenuHeader = styled.div`
 `;
 
 const MenuContent = styled.div`
-  padding: 0 20px 20px 30px;
+  display: flex;
+  justify-content: flex-end;
+  color: ${props => props.theme.colors.red};
 `;
 
-const MenuItem = styled.div`
-  font-size: 20px;
-  cursor: pointer;
-  padding: 5px 40px;
-  color: ${props => props.theme.colors.green};
-  font-family: HelveticaNeue;
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: ${props => props.theme.colors.red};
 `;
 
 const Menu = () => {
@@ -52,29 +58,19 @@ const Menu = () => {
         )}
       </MenuWrapper>
       <MenuItems open={isMenuOpen}>
-        <MenuHeader>
-          <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
-        </MenuHeader>
-        <MenuContent>
-          <SubTitle>NÓS</SubTitle>
-          <LinkWrapper to="/about"><MenuItem>{t('about')}</MenuItem></LinkWrapper>
-          <LinkWrapper to="/blog"><MenuItem>{t('blog')}</MenuItem></LinkWrapper>
-        </MenuContent>
-        <MenuContent>
-          <SubTitle>CRIAMOS</SubTitle>
-          <LinkWrapper to="/"><MenuItem>O que fazemos</MenuItem></LinkWrapper>
-          <LinkWrapper to="/"><MenuItem>Serviços</MenuItem></LinkWrapper>
-        </MenuContent>
-        <MenuContent>
-          <SubTitle>CULTURA</SubTitle>
-          <LinkWrapper to="/"><MenuItem>Portfólio</MenuItem></LinkWrapper>
-          <LinkWrapper to="/"><MenuItem>Galeria</MenuItem></LinkWrapper>
-        </MenuContent>
-        <MenuContent>
-          <SubTitle>JUNTOS</SubTitle>
-          <LinkWrapper to="/"><MenuItem>Contacte-nos</MenuItem></LinkWrapper>
-          <LinkWrapper to="/"><MenuItem>Faça parte da equipa</MenuItem></LinkWrapper>
-        </MenuContent>
+        <AuxMenu>
+          <MenuHeader>
+            <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
+          </MenuHeader>
+          <MenuContent>
+            <Links>
+              <LinkWrapper to="/about"><Title>{t('about').toUpperCase()}</Title></LinkWrapper>
+              <LinkWrapper to="/"><Title>{t('blog').toUpperCase()}</Title></LinkWrapper>
+              <LinkWrapper to="/"><Title>{t('services').toUpperCase()}</Title></LinkWrapper>
+              <LinkWrapper to="/"><Title>{t('contacts').toUpperCase()}</Title></LinkWrapper>
+            </Links>
+          </MenuContent>
+        </AuxMenu>
       </MenuItems>
     </>
   );

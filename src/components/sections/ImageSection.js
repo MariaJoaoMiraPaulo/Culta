@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SubTitleBold } from '../../styles/typographyComponents';
+import { SubTitle } from '../../styles/typographyComponents';
 import { LinkWrapper } from '../LinkWrapper';
 
 const SectionWrapper = styled.div`
@@ -12,7 +12,7 @@ const SectionWrapper = styled.div`
 
 const ImageSectionWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 30rem;
   background-image: url(${props => props.image || '/images/1.jpg'});
   background-size: cover;
   background-position: center center;
@@ -46,7 +46,7 @@ const ImageSection = ({ background, color, imagePath, title, linkTo }) => {
         <ImageSectionCover />
         <ImageContent>
           <LinkWrapper to={linkTo}>
-            <SubTitleBold>{title}</SubTitleBold>
+            <SubTitle>{title}</SubTitle>
           </LinkWrapper>
         </ImageContent>
       </ImageSectionWrapper>

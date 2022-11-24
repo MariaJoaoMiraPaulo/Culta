@@ -5,19 +5,19 @@ import theme from './src/styles/theme';
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <link
-      rel="preload"
+      rel="preload" 
       href="/fonts/SangBleuOGSerif-Light.ttf"
       as="font"
       type="font/ttf"
-      crossOrigin="anonymous"
+      crossOrigin="anonymous"    
       key="SangBleuOGSerif"
     />,
     <link
-      rel="preload"
+      rel="preload" 
       href="/fonts/HelveticaNeue-Light.ttf"
       as="font"
       type="font/ttf"
-      crossOrigin="anonymous"
+      crossOrigin="anonymous"      
       key="HelveticaNeue"
     />,
   ]);

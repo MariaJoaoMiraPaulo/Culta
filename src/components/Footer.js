@@ -13,25 +13,19 @@ const FooterWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.red};
 `;
 
-const Columns = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+const Table = styled.table`
+  padding: 4rem;
   width: 100%;
+`;
+
+const Td = styled.td`
+  text-align: center;
+  padding-bottom: 2rem;
 `;
 
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5rem;
-  align-items: center;
-`;
-
-const FirstRow = styled.div`
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 const AuxLink = styled.a`
@@ -42,7 +36,10 @@ const AuxLink = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   margin: 0rem;
   cursor: pointer;
-  text-decoration: underline;
+
+  &: hover {
+    text-decoration: underline;
+  }
 `;
 
 const Copyright = styled.div`
@@ -69,32 +66,36 @@ const Footer = () => {
 
   return (
     <FooterWrapper>
-      <Columns>
-        <ColumnWrapper>
-          <FirstRow>
-            <FooterLink>{t('contacts').toUpperCase()}</FooterLink>
-            <AuxLink color="red">...</AuxLink>
-          </FirstRow>
-          {data.allContentfulCulta.edges.map(({ node }) => (
-            <>
-              <FooterLink>{node.email.toUpperCase()}</FooterLink>
-              <FooterLink>{node.telefone}</FooterLink>
-            </>
-          ))}
-        </ColumnWrapper>
-        <ColumnWrapper>
-          <FirstRow>
-            <FooterLink>{t('newsletter').toUpperCase()}</FooterLink>
-            <AuxLink>{t('subscribe-newsletter')}</AuxLink>
-          </FirstRow>
-          <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
-          <FooterLink>{t('instagram').toUpperCase()}</FooterLink>
-        </ColumnWrapper>
-      </Columns>
+      <Table>
+        <tbody>
+          <tr>
+            <th><FooterLink>{t('contacts').toUpperCase()}</FooterLink></th>
+            <th><FooterLink>{t('newsletter').toUpperCase()}</FooterLink></th> 
+          </tr>
+          <tr>
+            <Td></Td>
+            <Td><AuxLink>{t('subscribe')}</AuxLink></Td> 
+          </tr>
+          <tr>
+            <td>{data.allContentfulCulta.edges.map(({ node }, index) => (
+              <ColumnWrapper key={index}>
+                <FooterLink>{node.telefone}</FooterLink>
+                <FooterLink>{node.email.toUpperCase()}</FooterLink>
+              </ColumnWrapper>
+            ))}</td>
+            <td>
+              <ColumnWrapper>
+                <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
+                <FooterLink>{t('instagram').toUpperCase()}</FooterLink>
+              </ColumnWrapper>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
       <Copyright>
         <CopyrightText>{t('copyright')}</CopyrightText>
-        <CopyrightText>{t('politica')}</CopyrightText>
-        <CopyrightText>{t('termos')}</CopyrightText>
+        <AuxLink><CopyrightText>{t('policy')}</CopyrightText></AuxLink>
+        <AuxLink><CopyrightText>{t('terms')}</CopyrightText></AuxLink>
       </Copyright>
     </FooterWrapper>
   );

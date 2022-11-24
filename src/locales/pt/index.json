@@ -1,29 +1,25 @@
 {
   "about": "Sobre",
-  "portfolio": "Portfólio",
   "blog": "Blog",
+  "services": "Serviços",
   "contacts": "Contactos",
   "homepage": {
     "title": "Inovar a cultura",
     "about": {
-      "title": "Sobre a culta",
       "body": " O que nos move é a Cultura. Trabalhamos para inovar a forma como se comunica e oferece Cultura. Temos o privilégio de ter como matéria-prima do nosso trabalho a Arte, a História, o Património e os Museus e, por isso, comprometemo-nos com a missão de dar voz ao sector cultural de forma distinta e diferenciadora."
     },
     "what": {
       "title": "O que fazemos"
     },
     "proud": {
-      "title": "Culturamente orgulhosos",
-      "cta": "As nossas histórias"
+      "title": "Culturamente orgulhosos"
     }
   },
-  "newsletter": "newsletter",
-  "weekly-news": "Novidades Semanais",
-  "new-work": "Novos Trabalhos",
+  "newsletter": "Newsletter",
+  "subscribe": "Deixe aqui o seu email",
   "instagram": "Instagram",
   "linkedin": "LinkedIn",
-  "termos": "Termos e Condições",
-  "politica": "Política de Privacidade",
-  "subscribe-newsletter": "Deixe aqui o seu email",
+  "terms": "Termos e Condições",
+  "policy": "Política de Privacidade",
   "copyright": "© 2022 Culta. Todos os direitos reservados."
 }

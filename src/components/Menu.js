@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
-import { SubTitleBolder } from '../styles/typographyComponents';
+import { SubTitle } from '../styles/typographyComponents';
 import { LinkWrapper } from './LinkWrapper';
 import { useTranslation } from 'react-i18next';
 
@@ -56,22 +56,22 @@ const Menu = () => {
           <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
         </MenuHeader>
         <MenuContent>
-          <SubTitleBolder>NÓS</SubTitleBolder>
+          <SubTitle>NÓS</SubTitle>
           <LinkWrapper to="/about"><MenuItem>{t('about')}</MenuItem></LinkWrapper>
           <LinkWrapper to="/blog"><MenuItem>{t('blog')}</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
-          <SubTitleBolder>CRIAMOS</SubTitleBolder>
+          <SubTitle>CRIAMOS</SubTitle>
           <LinkWrapper to="/"><MenuItem>O que fazemos</MenuItem></LinkWrapper>
           <LinkWrapper to="/"><MenuItem>Serviços</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
-          <SubTitleBolder>CULTURA</SubTitleBolder>
+          <SubTitle>CULTURA</SubTitle>
           <LinkWrapper to="/"><MenuItem>Portfólio</MenuItem></LinkWrapper>
           <LinkWrapper to="/"><MenuItem>Galeria</MenuItem></LinkWrapper>
         </MenuContent>
         <MenuContent>
-          <SubTitleBolder>JUNTOS</SubTitleBolder>
+          <SubTitle>JUNTOS</SubTitle>
           <LinkWrapper to="/"><MenuItem>Contacte-nos</MenuItem></LinkWrapper>
           <LinkWrapper to="/"><MenuItem>Faça parte da equipa</MenuItem></LinkWrapper>
         </MenuContent>

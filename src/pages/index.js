@@ -6,7 +6,7 @@ import MyFooter from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../components/sections/TitleSection';
 import ImageSection from '../components/sections/ImageSection';
-import { TextSection } from '../components/sections/TextSection';
+import TextSection from '../components/sections/TextSection';
 import Logo from '../icons/Logo';
 
 const Banner = styled.div`

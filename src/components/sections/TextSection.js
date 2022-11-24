@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Body, TitleBold } from '../../styles/typographyComponents';
+import { Body, SubTitle } from '../../styles/typographyComponents';
 import { devices } from '../../styles/devices';
 
 const TextSectionWrapper = styled.div`
@@ -12,7 +12,7 @@ const TextSectionWrapper = styled.div`
   padding: 3rem;
   height: 800px;
   @media ${devices.tablet} {
-    padding: 4rem 15%;
+    padding: 4rem 20%;
   }
   white-space: pre-line;
 `;
@@ -22,13 +22,15 @@ const BodyWrapper = styled.div`
   text-align: center;
 `;
 
-export const TextSection = ({ background, color, body, title=false }) => {
+const TextSection = ({ background, color, body, title=false }) => {
   return (
       <TextSectionWrapper color={color} background={background}>
-          {title ? <TitleBold color="blue" smaller={true}>{title}</TitleBold> : null}
+          {title ? <SubTitle color="blue" smaller={true}>{title}</SubTitle> : null}
           <BodyWrapper>
             <Body>{body}</Body>
           </BodyWrapper>
       </TextSectionWrapper>
   );
 };
+
+export default TextSection;

@@ -9,6 +9,7 @@ const HeaderWrapper = styled.div`
   width: 100%;
   color: ${({ theme, color }) => theme.colors[color]};
   position: relative;
+  background-color: ${({ theme }) => theme.colors.marble_transparency};
 `;
 
 const LinksWrapper = styled.div`

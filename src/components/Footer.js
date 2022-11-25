@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { rgba } from 'polished';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -52,7 +51,7 @@ const FooterLink = styled(FooterText)`
   cursor: pointer;
 
   &: hover {
-    text-shadow:  0 0 10px ${props => rgba(props.theme.colors.marble, 1)};
+    text-shadow:  0 0 10px ${({ theme }) => theme.colors.marble};
   }
 `;
 

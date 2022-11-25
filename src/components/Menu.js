@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { rgba } from 'polished';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
@@ -18,7 +17,7 @@ const MenuItems = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: ${props => rgba(props.theme.colors.marble, 0.7)};
+  background-color: ${({ theme }) => theme.colors.marble_transparency};
   padding: 2rem;
   display: ${p => (p.open ? 'block' : 'none')};
 `;

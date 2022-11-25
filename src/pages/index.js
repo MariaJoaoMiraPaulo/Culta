@@ -45,6 +45,7 @@ const IndexPage = () => {
         background="red"
         color="marble"
         centered="true"
+        percentage="20%"
       />
       <ImageSection
         imagePath="/images/2.jpg"

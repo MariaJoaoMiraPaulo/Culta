@@ -2,35 +2,37 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import Header from '../components/Header';
+import Menu from '../components/Menu';
 import TitleSection from '../components/sections/TitleSection';
 import TextSection from '../components/sections/TextSection';
+import ImageTextSection from '../components/sections/ImageTextSection';
 import MyFooter from '../components/Footer';
+import CollapsedLogo from '../icons/CollapsedLogo';
 
-const Page = styled.div`
-  background-image: url('/images/1.jpg');
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100vh;
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
-
 
 const AboutPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Page>
-      <Header color="blue"/>
-      <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()} percentage="5%" background="marble_transparency"/>
+    <>
+      <Header>
+        <CollapsedLogo color="red"/>
+        <Menu />
+      </Header>
       <TitleSection
         title={t('title')}
-        background="blue"
-        color="marble"
+        background="marble"
+        color="blue"
       />
+      <ImageTextSection color="blue" body={t('body')} title={t('about').toUpperCase()} imagePath="/images/2.jpg"/>
       <TextSection color="blue" body="cultura"/>
       <MyFooter />
-    </Page>
+    </>
     
   );
 };

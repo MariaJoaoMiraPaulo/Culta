@@ -9,15 +9,15 @@ const TextSectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   display: flex;
   flex-direction: column;
-  padding: 3rem;
   @media ${devices.tablet} {
-    padding: 4rem ${({ percentage }) => percentage || "20%"};
+    padding: 0 ${({ percentage }) => percentage || null};
+    padding-bottom: 3rem;
   }
   white-space: pre-line;
 `;
 
 const TitleWrapper = styled.div`
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
 `;
 
 const BodyWrapper = styled.div`
@@ -26,25 +26,26 @@ const BodyWrapper = styled.div`
 `;
 
 const CenteredBodyWrapper = styled.div`
-  align-items: center;
   text-align: center;
 `;
 
 const TextSection = ({ background, color, body, title=false, centered=false, percentage }) => {
   return (
       <TextSectionWrapper color={color} background={background} percentage={percentage}>
-        <TitleWrapper>
-          {title ? <SubTitle color="blue">{title}</SubTitle> : null}
-        </TitleWrapper>
-          {centered?
-            <CenteredBodyWrapper>
-              <Body>{body}</Body>
-            </CenteredBodyWrapper>
-          :
-            <BodyWrapper>
-              <Body>{body}</Body>
-            </BodyWrapper>
-          }
+        {title ? 
+          <TitleWrapper>
+            <SubTitle color="blue">{title}</SubTitle> 
+          </TitleWrapper>
+        : null}
+        {centered?
+          <CenteredBodyWrapper>
+            <Body>{body}</Body>
+          </CenteredBodyWrapper>
+        :
+          <BodyWrapper>
+            <Body>{body}</Body>
+          </BodyWrapper>
+        }
       </TextSectionWrapper>
   );
 };

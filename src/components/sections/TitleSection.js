@@ -11,7 +11,7 @@ const SectionWrapper = styled.div`
   overflow-wrap: break-word;
   padding: 3rem 1rem;
   @media ${devices.tablet} {
-    padding: 4rem 3rem;
+    padding: 7rem 3rem;
   }
 `;
 

@@ -5,7 +5,6 @@ const theme = {
   },
   colors: {
     marble: '#efede4',
-    marble_transparency: 'rgba(239, 237, 228, 0.8)',
     red: '#ff5945',
     grey: '#c6c6c6',
     blue: '#337896',

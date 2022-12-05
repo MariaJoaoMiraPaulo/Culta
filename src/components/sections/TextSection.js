@@ -11,7 +11,7 @@ const TextSectionWrapper = styled.div`
   flex-direction: column;
   @media ${devices.tablet} {
     padding: 0 ${({ percentage }) => percentage || null};
-    padding-bottom: 3rem;
+    padding-bottom: 7rem;
   }
   white-space: pre-line;
 `;

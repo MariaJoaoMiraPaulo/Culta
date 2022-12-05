@@ -38,6 +38,7 @@ const IndexPage = () => {
         title={t('homepage.title')}
         background="red"
         color="marble"
+        paddingBottom="3.5rem"
       />
       <TextSection
         body={t('homepage.about.body')}

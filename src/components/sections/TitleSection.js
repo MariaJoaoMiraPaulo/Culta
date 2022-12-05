@@ -11,13 +11,13 @@ const SectionWrapper = styled.div`
   overflow-wrap: break-word;
   padding: 3rem 1rem;
   @media ${devices.tablet} {
-    padding: 7rem 3rem;
+    padding: 7rem 3rem ${({ paddingBottom }) => paddingBottom || "7rem"} 3rem;
   }
 `;
 
-const TitleSection = ({ title, background, color }) => {
+const TitleSection = ({ title, background, color, paddingBottom }) => {
   return (
-    <SectionWrapper background={background} color={color}>
+    <SectionWrapper background={background} color={color} paddingBottom={paddingBottom}>
       <Title>{title}</Title>
     </SectionWrapper>
   );

@@ -21,12 +21,8 @@ const ImageSectionWrapper = styled.div`
 `;
 
 const ImageSectionCover = styled.div`
-  z-index: 0;
-  opacity: 0.3;
   width: 100%;
   height: 100%;
-  background: black;
-  position: relative;
 `;
 
 const ImageContent = styled.div`

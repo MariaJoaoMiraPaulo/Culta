@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import HomeLayout from '../components/layouts/HomeLayout';
+import { useTranslation } from 'react-i18next';
 
-const HomePage = () => {
+const BlogLayout = () => {
+
   return (
-    <LayoutWrapper logo={false} isHomepage >
-      <HomeLayout />
-    </LayoutWrapper>
+    <>
+
+    </>
   );
 };
 
@@ -25,4 +25,4 @@ export const query = graphql`
   }
 `;
 
-export default HomePage;
+export default BlogLayout;

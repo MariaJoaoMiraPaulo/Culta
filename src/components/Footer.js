@@ -51,7 +51,8 @@ const FooterLink = styled(FooterText)`
   cursor: pointer;
 
   &: hover {
-    text-shadow:  0 0 10px ${({ theme }) => theme.colors.marble};
+    color: transparent;
+    text-shadow:  0 0 ${({ radius }) => radius || "10px"} ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 `;
 

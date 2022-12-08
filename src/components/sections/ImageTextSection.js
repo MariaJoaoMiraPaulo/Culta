@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { devices } from '../../styles/devices';
-import ImageSection from './ImageSection';
+import Image from '../Image';
 import TextSection from './TextSection';
 
 const ImageTextWrapper = styled.div`
@@ -23,7 +22,7 @@ const ImageTextSection = ({color, body, title, percentage, imagePath }) => {
   return (
       <ImageTextWrapper>
         <ImageWrapper>
-          <ImageSection imagePath={imagePath}/>
+          <Image imagePath={imagePath}/>
         </ImageWrapper>
         <TextWrapper>
           <TextSection color={color} body={body} title={title} percentage={percentage}/>

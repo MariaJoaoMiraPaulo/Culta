@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'react-i18next';
+//import { useTranslation } from 'react-i18next';
 
 const BlogLayout = () => {
-
+  //const { t } = useTranslation();
   return (
     <>
 

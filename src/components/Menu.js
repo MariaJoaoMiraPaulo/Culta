@@ -64,12 +64,12 @@ const Menu = ({color="red"}) => {
           </MenuHeader>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about" color="red"><MenuTitle>{t('about').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red"><MenuTitle>{t('services').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red"><MenuTitle>{t('stories').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red"><MenuTitle>{t('gallery').toUpperCase()}</MenuTitle></LinkWrapper>
-              {/* <LinkWrapper to="/" color="red"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
-              <LinkWrapper to="/" color="red"><MenuTitle>{t('contacts').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/about" color="red" radius="25px"><MenuTitle>{t('about').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('services').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('stories').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('gallery').toUpperCase()}</MenuTitle></LinkWrapper>
+              {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
+              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('contacts').toUpperCase()}</MenuTitle></LinkWrapper>
             </Links>
           </MenuContent>
         </AuxMenu>

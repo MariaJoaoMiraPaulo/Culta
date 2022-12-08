@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import TitleSection from '../sections/TitleSection';
+import ImageSection from '../sections/ImageSection';
 import TextSection from '../sections/TextSection';
 import ImageTextSection from '../sections/ImageTextSection';
 
@@ -17,6 +18,11 @@ const AboutLayout = () => {
       />
       <ImageTextSection color="blue" body={t('body')} title={t('about').toUpperCase()} imagePath="/images/pilares.jpg"/>
       <TextSection color="blue" body="cultura"/>
+      <ImageSection
+        imagePath="/images/what.jpg"
+        title={t('services')}
+        linkTo={'/services'}
+      />
     </>
   );
 };

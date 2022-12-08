@@ -7,6 +7,6 @@ export const LinkWrapper = styled(Link)`
 
   &: hover {
     color: transparent;
-    text-shadow:  0 0 ${({ radius }) => radius || "25px"} ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+    text-shadow:  0 0 ${({ radius }) => radius || null} ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 `;

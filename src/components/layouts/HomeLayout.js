@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import TitleSection from '../sections/TitleSection';
 import ImageSection from '../sections/ImageSection';
 import TextSection from '../sections/TextSection';
+import { graphql } from 'gatsby';
 
 const HomeLayout = () => {
   const { t } = useTranslation();
@@ -23,12 +24,12 @@ const HomeLayout = () => {
         percentage="20%"
       />
       <ImageSection
-        imagePath="/images/2.jpg"
+        imagePath="/images/what.jpg"
         title={t('homepage.what.title')}
-        linkTo={'/about'}
+        linkTo={'/services'}
       />
       <ImageSection
-        imagePath="/images/3.jpg"
+        imagePath="/images/proud.jpg"
         title={t('homepage.proud.title')}
         linkTo={'/blog'}
       />

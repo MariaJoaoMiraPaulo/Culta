@@ -21,7 +21,7 @@ const HomeLayout = () => {
         background="red"
         color="marble"
         centered="true"
-        percentage="20%"
+        padding="20%"
       />
       <ImageSection
         imagePath="/images/what.jpg"

@@ -10,7 +10,7 @@ const TextSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   @media ${devices.tablet} {
-    padding: 0 ${({ percentage }) => percentage || null};
+    padding: 0 ${({ padding }) => padding || null};
     padding-bottom: 7rem;
   }
   white-space: pre-line;
@@ -29,9 +29,9 @@ const CenteredBodyWrapper = styled.div`
   text-align: center;
 `;
 
-const TextSection = ({ background, color, body, title=false, centered=false, percentage }) => {
+const TextSection = ({ background, color, body, title=false, centered=false, padding }) => {
   return (
-      <TextSectionWrapper color={color} background={background} percentage={percentage}>
+      <TextSectionWrapper color={color} background={background} padding={padding}>
         {title ? 
           <TitleWrapper>
             <SubTitle color="blue">{title}</SubTitle> 

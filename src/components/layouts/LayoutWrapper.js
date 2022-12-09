@@ -24,13 +24,13 @@ const Header = styled.div`
   min-height: ${({ minHeight }) => minHeight || "0vh"}
 `;
 
-const LayoutWrapper = ({ children, logo, logoColor, isHomepage=false }) => {
+const LayoutWrapper = ({ children, inline, logoColor, isHomepage=false }) => {
   return (
     <>
     {isHomepage ?
       <Banner>
         <Header minHeight = "100vh">
-          <LogoComponent color={logoColor} logo={logo} />
+          <LogoComponent color={logoColor} inline={inline} />
           <Menu />
         </Header>
         {children}
@@ -39,7 +39,7 @@ const LayoutWrapper = ({ children, logo, logoColor, isHomepage=false }) => {
     : 
       <>
       <Header>
-        <LogoComponent color={logoColor} logo={logo} />
+        <LogoComponent color={logoColor} inline={inline} />
         <Menu />
       </Header>
        {children}

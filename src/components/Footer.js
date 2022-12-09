@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { rgba } from 'polished';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -12,6 +11,7 @@ const FooterWrapper = styled.div`
   width: 100%;
   color: ${({ theme }) => theme.colors.marble};
   background-color: ${({ theme }) => theme.colors.red};
+  z-index: 9;
 `;
 
 const Table = styled.table`
@@ -52,7 +52,9 @@ const FooterLink = styled(FooterText)`
   cursor: pointer;
 
   &: hover {
-    text-shadow:  0 0 10px ${props => rgba(props.theme.colors.marble, 1)};
+    color: transparent;
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 `;
 
@@ -78,20 +80,28 @@ const Footer = () => {
       <Table>
         <tbody>
           <tr>
-            <th><FooterText>{t('contacts').toUpperCase()}</FooterText></th>
-            <th><FooterText>{t('newsletter').toUpperCase()}</FooterText></th> 
+            <th>
+              <FooterText>{t('contacts').toUpperCase()}</FooterText>
+            </th>
+            <th>
+              <FooterText>{t('newsletter').toUpperCase()}</FooterText>
+            </th>
           </tr>
           <tr>
             <Td></Td>
-            <Td><AuxLink>{t('subscribe')}</AuxLink></Td> 
+            <Td>
+              <AuxLink>{t('subscribe')}</AuxLink>
+            </Td>
           </tr>
           <tr>
-            <td>{data.allContentfulCulta.edges.map(({ node }, index) => (
-              <ColumnWrapper key={index}>
-                <FooterLink>{node.telefone}</FooterLink>
-                <FooterLink>{node.email.toUpperCase()}</FooterLink>
-              </ColumnWrapper>
-            ))}</td>
+            <td>
+              {data.allContentfulCulta.edges.map(({ node }, index) => (
+                <ColumnWrapper key={index}>
+                  <FooterLink>{node.telefone}</FooterLink>
+                  <FooterLink>{node.email.toUpperCase()}</FooterLink>
+                </ColumnWrapper>
+              ))}
+            </td>
             <td>
               <ColumnWrapper>
                 <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
@@ -103,8 +113,12 @@ const Footer = () => {
       </Table>
       <Copyright>
         <CopyrightText>{t('copyright')}</CopyrightText>
-        <AuxLink><CopyrightText>{t('policy')}</CopyrightText></AuxLink>
-        <AuxLink><CopyrightText>{t('terms')}</CopyrightText></AuxLink>
+        <AuxLink>
+          <CopyrightText>{t('policy')}</CopyrightText>
+        </AuxLink>
+        <AuxLink>
+          <CopyrightText>{t('terms')}</CopyrightText>
+        </AuxLink>
       </Copyright>
     </FooterWrapper>
   );

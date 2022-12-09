@@ -1,28 +1,13 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'react-i18next';
-import Header from '../components/Header';
-import TitleSection from '../components/sections/TitleSection';
-import TextSection from '../components/sections/TextSection';
-import MyFooter from '../components/Footer';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import AboutLayout from '../components/layouts/AboutLayout';
 
 const AboutPage = () => {
-  const { t } = useTranslation();
-
   return (
-    <>
-      <Header />
-      <TextSection color="blue" body={t('body')} title={t('about').toUpperCase()}/>
-      <TitleSection
-        title={t('title')}
-        background="blue"
-        color="marble"
-        smaller={true}
-      />
-      <TextSection color="blue" body="cultura"/>
-      <MyFooter />
-    </>
-    
+    <LayoutWrapper logoColor="blue">
+      <AboutLayout />
+    </LayoutWrapper>
   );
 };
 
@@ -39,6 +24,5 @@ export const query = graphql`
     }
   }
 `;
-
 
 export default AboutPage;

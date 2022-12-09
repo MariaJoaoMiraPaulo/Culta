@@ -1,62 +1,13 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Menu from '../components/Menu';
-import MyFooter from '../components/Footer';
-import { useTranslation } from 'react-i18next';
-import TitleSection from '../components/sections/TitleSection';
-import ImageSection from '../components/sections/ImageSection';
-import TextSection from '../components/sections/TextSection';
-import Logo from '../icons/Logo';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import HomeLayout from '../components/layouts/HomeLayout';
 
-const Banner = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-image: url('/images/1.jpg');
-  background-size: cover;
-  background-position: center center;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 100vh;
-`;
-
-const IndexPage = () => {
-  const { t } = useTranslation();
+const HomePage = () => {
   return (
-    <Banner>
-      <Header>
-        <Logo />
-        <Menu />
-      </Header>
-      <TitleSection
-        title={t('homepage.title')}
-        background="red"
-        color="marble"
-      />
-      <TextSection
-        body={t('homepage.about.body')}
-        linksTo=""
-        background="red"
-        color="marble"
-      />
-      <ImageSection
-        imagePath="/images/2.jpg"
-        title={t('homepage.what.title')}
-        linkTo={'/about'}
-      />
-      <ImageSection
-        imagePath="/images/3.jpg"
-        title={t('homepage.proud.title')}
-        linkTo={'/blog'}
-      />
-      <MyFooter />
-    </Banner>
+    <LayoutWrapper inline={false} isHomepage>
+      <HomeLayout />
+    </LayoutWrapper>
   );
 };
 
@@ -74,4 +25,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default HomePage;

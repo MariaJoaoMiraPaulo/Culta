@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { rgba } from 'polished';
 import styled from 'styled-components';
 import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
@@ -13,14 +12,15 @@ const MenuWrapper = styled.div`
   right: 0;
 `;
 const MenuItems = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: ${props => rgba(props.theme.colors.marble, 0.7)};
+  background-color: ${({ theme }) => theme.colors.marble};
   padding: 2rem;
   display: ${p => (p.open ? 'block' : 'none')};
+  z-index: 9;
 `;
 
 const AuxMenu = styled.div`
@@ -53,23 +53,34 @@ const Menu = () => {
   return (
     <>
       <MenuWrapper>
-        {!isMenuOpen && (
-          <MenuIcon color="red" onClickHandler={() => setIsMenuOpen(true)} />
-        )}
+        {!isMenuOpen && <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />}
       </MenuWrapper>
       <MenuItems open={isMenuOpen}>
         <AuxMenu>
           <MenuHeader>
-            <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
+            <CloseIcon
+              color="red"
+              onClickHandler={() => setIsMenuOpen(false)}
+            />
           </MenuHeader>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about"><MenuTitle>{t('about').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/"><MenuTitle>{t('services').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/"><MenuTitle>{t('blog').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/"><MenuTitle>{t('gallery').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/"><MenuTitle>{t('contacts').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/about" color="red" radius="25px">
+                <MenuTitle>{t('about').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('services').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('stories').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('gallery').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('contacts').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
             </Links>
           </MenuContent>
         </AuxMenu>

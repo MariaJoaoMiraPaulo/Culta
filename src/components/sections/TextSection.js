@@ -9,27 +9,52 @@ const TextSectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   display: flex;
   flex-direction: column;
-  padding: 3rem;
-  height: 800px;
   @media ${devices.tablet} {
-    padding: 4rem 20%;
+    padding: 0 ${({ padding }) => padding || null};
+    padding-bottom: 7rem;
   }
   white-space: pre-line;
+  z-index: 9;
+`;
+
+const TitleWrapper = styled.div`
+  padding: 0 0 2rem 0;
 `;
 
 const BodyWrapper = styled.div`
-  align-items: center;
+  align-items: left;
+  text-align: left;
+`;
+
+const CenteredBodyWrapper = styled.div`
   text-align: center;
 `;
 
-const TextSection = ({ background, color, body, title=false }) => {
+const TextSection = ({
+  background,
+  color,
+  body,
+  title = false,
+  centered = false,
+  padding,
+}) => {
   return (
-      <TextSectionWrapper color={color} background={background}>
-          {title ? <SubTitle color="blue" smaller={true}>{title}</SubTitle> : null}
-          <BodyWrapper>
-            <Body>{body}</Body>
-          </BodyWrapper>
-      </TextSectionWrapper>
+    <TextSectionWrapper color={color} background={background} padding={padding}>
+      {title ? (
+        <TitleWrapper>
+          <SubTitle color="blue">{title}</SubTitle>
+        </TitleWrapper>
+      ) : null}
+      {centered ? (
+        <CenteredBodyWrapper>
+          <Body>{body}</Body>
+        </CenteredBodyWrapper>
+      ) : (
+        <BodyWrapper>
+          <Body>{body}</Body>
+        </BodyWrapper>
+      )}
+    </TextSectionWrapper>
   );
 };
 

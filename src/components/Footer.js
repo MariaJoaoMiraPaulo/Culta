@@ -11,6 +11,7 @@ const FooterWrapper = styled.div`
   width: 100%;
   color: ${({ theme }) => theme.colors.marble};
   background-color: ${({ theme }) => theme.colors.red};
+  z-index: 9;
 `;
 
 const Table = styled.table`

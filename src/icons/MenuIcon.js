@@ -13,7 +13,7 @@ const MenuIcon = ({ color, onClickHandler }) => {
       x="0px"
       y="0px"
       viewBox="0 0 384.97 384.97"
-      fill={theme.colors[color] || '#000'}
+      fill={theme.colors[color] || theme.colors.red}
     >
       <g>
         <path

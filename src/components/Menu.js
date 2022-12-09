@@ -47,14 +47,14 @@ const Links = styled.div`
   color: ${props => props.theme.colors.red};
 `;
 
-const Menu = ({color="red"}) => {
+const Menu = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
       <MenuWrapper>
         {!isMenuOpen && (
-          <MenuIcon color={color} onClickHandler={() => setIsMenuOpen(true)} />
+          <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />
         )}
       </MenuWrapper>
       <MenuItems open={isMenuOpen}>

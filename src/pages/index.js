@@ -5,7 +5,7 @@ import HomeLayout from '../components/layouts/HomeLayout';
 
 const HomePage = () => {
   return (
-    <LayoutWrapper inline={false} isHomepage >
+    <LayoutWrapper inline={false} isHomepage>
       <HomeLayout />
     </LayoutWrapper>
   );

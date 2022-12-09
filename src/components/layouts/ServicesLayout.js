@@ -4,11 +4,7 @@ import { graphql } from 'gatsby';
 
 const ServicesLayout = () => {
   //const { t } = useTranslation();
-  return (
-    <>
-
-    </>
-  );
+  return <></>;
 };
 
 export const query = graphql`

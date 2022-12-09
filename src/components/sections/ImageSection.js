@@ -19,7 +19,8 @@ const ImageSectionWrapper = styled.div`
     color: transparent;
     z-index: 9;
     cursor: pointer;
-    text-shadow:  0 0 ${({ radius }) => radius || "10px"} ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 `;
 
@@ -30,7 +31,7 @@ const ImageSectionCover = styled.div`
   background-size: cover;
   background-position: center center;
   filter: blur(10px);
-  transform: scale(1.05); 
+  transform: scale(1.05);
 
   &: hover {
     filter: blur(0px);
@@ -38,7 +39,7 @@ const ImageSectionCover = styled.div`
 `;
 
 const ImageContent = styled.div`
-  background-color: rgb(1, 1, 1, 0); 
+  background-color: rgb(1, 1, 1, 0);
   display: flex;
   align-items: flex-start;
   position: absolute;
@@ -52,9 +53,9 @@ const ImageSection = ({ background, color, imagePath, title, linkTo }) => {
   return (
     <SectionWrapper color={color} background={background} href={linkTo}>
       <ImageSectionWrapper>
-        <ImageSectionCover image={imagePath}/>
+        <ImageSectionCover image={imagePath} />
         <ImageContent>
-            <SubTitle>{title}</SubTitle>
+          <SubTitle>{title}</SubTitle>
         </ImageContent>
       </ImageSectionWrapper>
     </SectionWrapper>

@@ -11,13 +11,14 @@ const AboutLayout = () => {
 
   return (
     <>
-      <TitleSection
-        title={t('title')}
-        background="marble"
+      <TitleSection title={t('title')} background="marble" color="blue" />
+      <ImageTextSection
         color="blue"
+        body={t('body')}
+        title={t('about').toUpperCase()}
+        imagePath="/images/pilares.jpg"
       />
-      <ImageTextSection color="blue" body={t('body')} title={t('about').toUpperCase()} imagePath="/images/pilares.jpg"/>
-      <TextSection color="blue" body="cultura"/>
+      <TextSection color="blue" body="cultura" />
       <ImageSection
         imagePath="/images/what.jpg"
         title={t('services')}

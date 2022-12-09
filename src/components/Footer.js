@@ -53,7 +53,8 @@ const FooterLink = styled(FooterText)`
 
   &: hover {
     color: transparent;
-    text-shadow:  0 0 ${({ radius }) => radius || "10px"} ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 `;
 
@@ -79,20 +80,28 @@ const Footer = () => {
       <Table>
         <tbody>
           <tr>
-            <th><FooterText>{t('contacts').toUpperCase()}</FooterText></th>
-            <th><FooterText>{t('newsletter').toUpperCase()}</FooterText></th> 
+            <th>
+              <FooterText>{t('contacts').toUpperCase()}</FooterText>
+            </th>
+            <th>
+              <FooterText>{t('newsletter').toUpperCase()}</FooterText>
+            </th>
           </tr>
           <tr>
             <Td></Td>
-            <Td><AuxLink>{t('subscribe')}</AuxLink></Td> 
+            <Td>
+              <AuxLink>{t('subscribe')}</AuxLink>
+            </Td>
           </tr>
           <tr>
-            <td>{data.allContentfulCulta.edges.map(({ node }, index) => (
-              <ColumnWrapper key={index}>
-                <FooterLink>{node.telefone}</FooterLink>
-                <FooterLink>{node.email.toUpperCase()}</FooterLink>
-              </ColumnWrapper>
-            ))}</td>
+            <td>
+              {data.allContentfulCulta.edges.map(({ node }, index) => (
+                <ColumnWrapper key={index}>
+                  <FooterLink>{node.telefone}</FooterLink>
+                  <FooterLink>{node.email.toUpperCase()}</FooterLink>
+                </ColumnWrapper>
+              ))}
+            </td>
             <td>
               <ColumnWrapper>
                 <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
@@ -104,8 +113,12 @@ const Footer = () => {
       </Table>
       <Copyright>
         <CopyrightText>{t('copyright')}</CopyrightText>
-        <AuxLink><CopyrightText>{t('policy')}</CopyrightText></AuxLink>
-        <AuxLink><CopyrightText>{t('terms')}</CopyrightText></AuxLink>
+        <AuxLink>
+          <CopyrightText>{t('policy')}</CopyrightText>
+        </AuxLink>
+        <AuxLink>
+          <CopyrightText>{t('terms')}</CopyrightText>
+        </AuxLink>
       </Copyright>
     </FooterWrapper>
   );

@@ -21,31 +21,31 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: ${({ minHeight }) => minHeight || "0vh"}
+  min-height: ${({ minHeight }) => minHeight || '0vh'};
 `;
 
-const LayoutWrapper = ({ children, inline, logoColor, isHomepage=false }) => {
+const LayoutWrapper = ({ children, inline, logoColor, isHomepage = false }) => {
   return (
     <>
-    {isHomepage ?
-      <Banner>
-        <Header minHeight = "100vh">
-          <LogoComponent color={logoColor} inline={inline} />
-          <Menu />
-        </Header>
-        {children}
-        <MyFooter />
-      </Banner>
-    : 
-      <>
-      <Header>
-        <LogoComponent color={logoColor} inline={inline} />
-        <Menu />
-      </Header>
-       {children}
-      <MyFooter />  
-      </>  
-    }
+      {isHomepage ? (
+        <Banner>
+          <Header minHeight="100vh">
+            <LogoComponent color={logoColor} inline={inline} />
+            <Menu />
+          </Header>
+          {children}
+          <MyFooter />
+        </Banner>
+      ) : (
+        <>
+          <Header>
+            <LogoComponent color={logoColor} inline={inline} />
+            <Menu />
+          </Header>
+          {children}
+          <MyFooter />
+        </>
+      )}
     </>
   );
 };

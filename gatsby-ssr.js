@@ -6,18 +6,18 @@ export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <link
       as="style"
-      rel="stylesheet preload prefetch" 
+      rel="stylesheet preload prefetch"
       href="/fonts/SangBleuOGSerif-Light.ttf"
       type="text/css"
-      crossOrigin="anonymous"    
+      crossOrigin="anonymous"
       key="SangBleuOGSerif"
     />,
     <link
       as="style"
-      rel="stylesheet preload prefetch" 
+      rel="stylesheet preload prefetch"
       href="/fonts/HelveticaNeue-Light.ttf"
       type="text/css"
-      crossOrigin="anonymous"      
+      crossOrigin="anonymous"
       key="HelveticaNeue"
     />,
   ]);

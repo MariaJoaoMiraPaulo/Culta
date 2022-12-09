@@ -18,16 +18,21 @@ const TextWrapper = styled.div`
   margin: 0 1rem;
 `;
 
-const ImageTextSection = ({color, body, title, padding, imagePath }) => {
+const ImageTextSection = ({ color, body, title, padding, imagePath }) => {
   return (
-      <ImageTextWrapper>
-        <ImageWrapper>
-          <Image imagePath={imagePath}/>
-        </ImageWrapper>
-        <TextWrapper>
-          <TextSection color={color} body={body} title={title} padding={padding}/>
-        </TextWrapper>
-      </ImageTextWrapper>
+    <ImageTextWrapper>
+      <ImageWrapper>
+        <Image imagePath={imagePath} />
+      </ImageWrapper>
+      <TextWrapper>
+        <TextSection
+          color={color}
+          body={body}
+          title={title}
+          padding={padding}
+        />
+      </TextWrapper>
+    </ImageTextWrapper>
   );
 };
 

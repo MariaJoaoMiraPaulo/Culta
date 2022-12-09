@@ -4,11 +4,7 @@ import { graphql } from 'gatsby';
 
 const BlogLayout = () => {
   //const { t } = useTranslation();
-  return (
-    <>
-
-    </>
-  );
+  return <></>;
 };
 
 export const query = graphql`

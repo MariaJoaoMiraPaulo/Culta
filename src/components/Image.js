@@ -23,11 +23,11 @@ const ImageSectionCover = styled.div`
   background-position: center center;
 `;
 
-const ImageSection = ({imagePath}) => {
+const ImageSection = ({ imagePath }) => {
   return (
     <SectionWrapper>
       <ImageSectionWrapper>
-        <ImageSectionCover image={imagePath}/>
+        <ImageSectionCover image={imagePath} />
       </ImageSectionWrapper>
     </SectionWrapper>
   );

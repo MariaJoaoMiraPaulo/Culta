@@ -53,23 +53,34 @@ const Menu = () => {
   return (
     <>
       <MenuWrapper>
-        {!isMenuOpen && (
-          <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />
-        )}
+        {!isMenuOpen && <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />}
       </MenuWrapper>
       <MenuItems open={isMenuOpen}>
         <AuxMenu>
           <MenuHeader>
-            <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
+            <CloseIcon
+              color="red"
+              onClickHandler={() => setIsMenuOpen(false)}
+            />
           </MenuHeader>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about" color="red" radius="25px"><MenuTitle>{t('about').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('services').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('stories').toUpperCase()}</MenuTitle></LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('gallery').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/about" color="red" radius="25px">
+                <MenuTitle>{t('about').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('services').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('stories').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('gallery').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
-              <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('contacts').toUpperCase()}</MenuTitle></LinkWrapper>
+              <LinkWrapper to="/" color="red" radius="25px">
+                <MenuTitle>{t('contacts').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
             </Links>
           </MenuContent>
         </AuxMenu>

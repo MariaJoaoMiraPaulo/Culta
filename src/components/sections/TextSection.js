@@ -30,24 +30,31 @@ const CenteredBodyWrapper = styled.div`
   text-align: center;
 `;
 
-const TextSection = ({ background, color, body, title=false, centered=false, padding }) => {
+const TextSection = ({
+  background,
+  color,
+  body,
+  title = false,
+  centered = false,
+  padding,
+}) => {
   return (
-      <TextSectionWrapper color={color} background={background} padding={padding}>
-        {title ? 
-          <TitleWrapper>
-            <SubTitle color="blue">{title}</SubTitle> 
-          </TitleWrapper>
-        : null}
-        {centered?
-          <CenteredBodyWrapper>
-            <Body>{body}</Body>
-          </CenteredBodyWrapper>
-        :
-          <BodyWrapper>
-            <Body>{body}</Body>
-          </BodyWrapper>
-        }
-      </TextSectionWrapper>
+    <TextSectionWrapper color={color} background={background} padding={padding}>
+      {title ? (
+        <TitleWrapper>
+          <SubTitle color="blue">{title}</SubTitle>
+        </TitleWrapper>
+      ) : null}
+      {centered ? (
+        <CenteredBodyWrapper>
+          <Body>{body}</Body>
+        </CenteredBodyWrapper>
+      ) : (
+        <BodyWrapper>
+          <Body>{body}</Body>
+        </BodyWrapper>
+      )}
+    </TextSectionWrapper>
   );
 };
 

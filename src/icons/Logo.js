@@ -1,3 +1,4 @@
+import { navigate } from 'gatsby';
 import React from 'react';
 import { useTheme } from 'styled-components';
 
@@ -9,6 +10,8 @@ const Logo = ({ color }) => {
       fill={theme.colors[color] || '#fff'}
       viewBox="0 0 1181.6 1130.3"
       width="20%"
+      style={{ cursor: 'pointer' }}
+      onClick={() => navigate('/')}
     >
       <g>
         <path d="M186.4,738.2c-29.8,0-37.1,5-37.1,23v241.4c0,16.8,9.9,20.3,24.5,20.3h65.8c49.7,0,61.2-9.6,67-60.8h3.8v71.2H88.5v-6.1h0.8c29.8,0,37.1-5,37.1-23v-243c0-18-7.3-23-37.1-23h-0.8v-6.1h103.3v6.1H186.4z" />

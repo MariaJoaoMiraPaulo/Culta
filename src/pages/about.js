@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import AboutLayout from '../components/layouts/AboutLayout';
 
@@ -10,19 +9,5 @@ const AboutPage = () => {
     </LayoutWrapper>
   );
 };
-
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;
 
 export default AboutPage;

@@ -4,7 +4,7 @@ import CloseIcon from '../icons/CloseIcon';
 import MenuIcon from '../icons/MenuIcon';
 import { MenuTitle } from '../styles/typographyComponents';
 import { LinkWrapper } from './LinkWrapper';
-import { useTranslation } from 'react-i18next';
+import { withTrans } from '../i18n/withTrans';
 
 const MenuWrapper = styled.div`
   margin: 2rem;
@@ -47,8 +47,7 @@ const Links = styled.div`
   color: ${props => props.theme.colors.red};
 `;
 
-const Menu = () => {
-  const { t } = useTranslation();
+const Menu = ({ t }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
@@ -66,20 +65,20 @@ const Menu = () => {
           <MenuContent>
             <Links>
               <LinkWrapper to="/about" color="red" radius="25px">
-                <MenuTitle>{t('about').toUpperCase()}</MenuTitle>
+                <MenuTitle>{t('menu.about').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               <LinkWrapper to="/" color="red" radius="25px">
-                <MenuTitle>{t('services').toUpperCase()}</MenuTitle>
+                <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper to="/blog" color="red" radius="25px">
+                <MenuTitle>{t('menu.stories').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               <LinkWrapper to="/" color="red" radius="25px">
-                <MenuTitle>{t('stories').toUpperCase()}</MenuTitle>
-              </LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px">
-                <MenuTitle>{t('gallery').toUpperCase()}</MenuTitle>
+                <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
               <LinkWrapper to="/" color="red" radius="25px">
-                <MenuTitle>{t('contacts').toUpperCase()}</MenuTitle>
+                <MenuTitle>{t('menu.contacts').toUpperCase()}</MenuTitle>
               </LinkWrapper>
             </Links>
           </MenuContent>
@@ -89,4 +88,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default withTrans(Menu);

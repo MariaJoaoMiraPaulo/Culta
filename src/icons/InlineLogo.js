@@ -7,7 +7,7 @@ const InlineLogo = ({ color }) => {
   return (
     <svg
       fill={theme.colors[color] || '#fff'}
-      viewBox="0 0 1181.6 1130.3"
+      viewBox="0 0 1450 400"
       width="20%"
     >
       <g>

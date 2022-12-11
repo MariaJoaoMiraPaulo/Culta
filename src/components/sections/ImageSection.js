@@ -22,6 +22,9 @@ const ImageSectionWrapper = styled.div`
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
+
+  max-width: 100%;
+  overflow: hidden;
 `;
 
 const ImageSectionCover = styled.div`

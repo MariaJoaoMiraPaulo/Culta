@@ -12,9 +12,6 @@ const Banner = styled.div`
   background-position: center center;
   display: flex;
   flex-direction: column;
-
-  max-width: 100%;
-  overflow-x: hidden;
 `;
 
 const Page = styled.div`

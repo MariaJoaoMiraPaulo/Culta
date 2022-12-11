@@ -12,7 +12,9 @@ const Banner = styled.div`
   background-position: center center;
   display: flex;
   flex-direction: column;
+`;
 
+const Page = styled.div`
   max-width: 100%;
   overflow-x: hidden;
 `;
@@ -37,14 +39,14 @@ const LayoutWrapper = ({ children, inline, logoColor, isHomepage = false }) => {
           <MyFooter />
         </Banner>
       ) : (
-        <>
+        <Page>
           <Header>
             <LogoComponent color={logoColor} inline={inline} />
             <Menu />
           </Header>
           {children}
           <MyFooter />
-        </>
+        </Page>
       )}
     </>
   );

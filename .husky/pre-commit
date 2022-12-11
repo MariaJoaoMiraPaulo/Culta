@@ -1,4 +1,25 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-npx lint-staged
-git add .
+
+if [ $(git rev-parse -q --verify MERGE_HEAD | wc -c) -eq 0 ]
+then
+  # Prettify staged js, jsx and less files
+  npx lint-staged
+
+  # Grab image files that changed and are staged for the current commit (exclude deleted files)
+  image_files=$(git diff --name-only --staged --relative --diff-filter=d -- '*.svg' '*.jpg' '*.jpeg' '*.png')
+
+  while IFS= read -r file;
+    do
+      # Avoid empty lines
+      if [ ! -z "$file" ]; then
+        echo "Minifying image file: ${file}"
+        file_dir=$(dirname "${file}")
+        # Compress svgs, jpgs and pngs images
+        # TODO: Replace with Squoosh (https://github.com/GoogleChromeLabs/squoosh) since imagemin is no longer maintained
+        yarn imagemin  ${file} --out-dir=$file_dir --plugin.mozjpeg.quality=70 --plugin.pngquant.quality={0.7,0.9} --plugin.pngquant.dithering=0 --plugin.svgo
+
+        # Add updated image file to staging
+        git add ${file}
+      fi
+  done <<< "$image_files"
+fi

@@ -26,6 +26,10 @@ const Header = styled.div`
   min-height: ${({ minHeight }) => minHeight || '0vh'};
 `;
 
+const ChildrenPadding = styled.div`
+  padding: 3rem 0;
+`;
+
 const LayoutWrapper = ({ children, inline, logoColor, isHomepage = false }) => {
   return (
     <>
@@ -44,7 +48,8 @@ const LayoutWrapper = ({ children, inline, logoColor, isHomepage = false }) => {
             <LogoComponent color={logoColor} inline={inline} />
             <Menu />
           </Header>
-          {children}
+          <ChildrenPadding>{children}</ChildrenPadding>
+
           <MyFooter />
         </Page>
       )}

@@ -43,6 +43,20 @@ export const SubTitle = styled.h2`
 }
 `;
 
+export const SmallTitle = styled.h2`
+  font-size: 25px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  text-transform: uppercase;
+  line-height: 65px;
+  font-weight: 100;
+  @media ${devices.tablet} {
+    font-size: 45px;
+  }
+  margin: 0rem;
+}
+`;
+
 export const Body = styled.span`
   font-size: 22px;
   line-height: 33px;
@@ -57,14 +71,14 @@ export const Body = styled.span`
 
 export const CopyrightText = styled.span`
   font-size: 14px;
-  line-height: 80px;
+  line-height: ${({ lineHeight }) => `${lineHeight}px` || '80px'};
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
     font-size: 18px;
   }
-  margin: 0rem 0.5rem;
+  margin: ${({ margin }) => `${margin}` || '0rem 0.5rem'};
 `;
 
 export const FooterText = styled.span`

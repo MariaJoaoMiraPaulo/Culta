@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
 import { CopyrightText, FooterText } from '../styles/typographyComponents';
+import culta from '../data/culta';
+import { withTrans } from '../i18n/withTrans';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -46,6 +46,11 @@ const AuxLink = styled.a`
 const Copyright = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  span {
+    padding-left: 1rem;
+  }
 `;
 
 const FooterLink = styled(FooterText)`
@@ -58,70 +63,52 @@ const FooterLink = styled(FooterText)`
   }
 `;
 
-const Footer = () => {
-  const { t } = useTranslation();
-
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allContentfulCulta {
-        edges {
-          node {
-            email
-            morada
-            telefone
-          }
-        }
-      }
-    }
-  `);
-
+const Footer = ({ t }) => {
   return (
     <FooterWrapper>
       <Table>
         <tbody>
           <tr>
             <th>
-              <FooterText>{t('contacts').toUpperCase()}</FooterText>
+              <FooterText>{t('footer.contacts').toUpperCase()}</FooterText>
             </th>
             <th>
-              <FooterText>{t('newsletter').toUpperCase()}</FooterText>
+              <FooterText>{t('footer.newsletter').toUpperCase()}</FooterText>
             </th>
           </tr>
           <tr>
             <Td></Td>
             <Td>
-              <AuxLink>{t('subscribe')}</AuxLink>
+              <AuxLink>{t('footer.subscribe')}</AuxLink>
             </Td>
           </tr>
           <tr>
             <td>
-              {data.allContentfulCulta.edges.map(({ node }, index) => (
-                <ColumnWrapper key={index}>
-                  <FooterLink>{node.telefone}</FooterLink>
-                  <FooterLink>{node.email.toUpperCase()}</FooterLink>
-                </ColumnWrapper>
-              ))}
+              <ColumnWrapper>
+                <FooterLink>{culta.phoneNumber}</FooterLink>
+                <FooterLink>{culta.email.toUpperCase()}</FooterLink>
+              </ColumnWrapper>
             </td>
             <td>
               <ColumnWrapper>
-                <FooterLink>{t('linkedin').toUpperCase()}</FooterLink>
-                <FooterLink>{t('instagram').toUpperCase()}</FooterLink>
+                <FooterLink>{t('footer.linkedin').toUpperCase()}</FooterLink>
+                <FooterLink>{t('footer.instagram').toUpperCase()}</FooterLink>
               </ColumnWrapper>
             </td>
           </tr>
         </tbody>
       </Table>
       <Copyright>
-        <CopyrightText>{t('copyright')}</CopyrightText>
+        <CopyrightText>{t('footer.copyright')}</CopyrightText>
         <AuxLink>
-          <CopyrightText>{t('policy')}</CopyrightText>
+          <CopyrightText>{t('footer.policy')}</CopyrightText>
         </AuxLink>
         <AuxLink>
-          <CopyrightText>{t('terms')}</CopyrightText>
+          <CopyrightText>{t('footer.terms')}</CopyrightText>
         </AuxLink>
       </Copyright>
     </FooterWrapper>
   );
 };
 
-export default Footer;
+export default withTrans(Footer);

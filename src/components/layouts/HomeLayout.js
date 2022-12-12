@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import TitleSection from '../sections/TitleSection';
 import ImageSection from '../sections/ImageSection';
 import TextSection from '../sections/TextSection';
-import { graphql } from 'gatsby';
+import { withTrans } from '../../i18n/withTrans';
 
-const HomeLayout = () => {
-  const { t } = useTranslation();
+const HomeLayout = ({ t }) => {
   return (
     <>
       <TitleSection
@@ -37,18 +35,4 @@ const HomeLayout = () => {
   );
 };
 
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;
-
-export default HomeLayout;
+export default withTrans(HomeLayout);

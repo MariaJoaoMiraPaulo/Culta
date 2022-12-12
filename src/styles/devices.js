@@ -8,5 +8,5 @@ export const devices = {
   laptop: `(min-width: ${theme.breakpoints.size.laptop})`,
   laptopL: `(min-width: ${theme.breakpoints.size.laptopL})`,
   desktop: `(min-width: ${theme.breakpoints.size.desktop})`,
-  desktopL: `(min-width: ${theme.breakpoints.size.desktop})`,
+  desktopL: `(min-width: ${theme.breakpoints.size.desktopL})`,
 };

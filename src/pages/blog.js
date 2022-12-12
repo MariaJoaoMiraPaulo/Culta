@@ -1,28 +1,39 @@
-import * as React from 'react';
 import { graphql } from 'gatsby';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import * as React from 'react';
 import BlogLayout from '../components/layouts/BlogLayout';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
-const BlogPage = () => {
+const BlogPage = ({ data }) => {
   return (
     <LayoutWrapper>
-      <BlogLayout />
+      <BlogLayout data={data.allContentfulBlogPost.edges} />
     </LayoutWrapper>
   );
 };
 
+export default BlogPage;
+
 export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+  query MyQuery {
+    allContentfulBlogPost {
       edges {
         node {
-          ns
-          data
-          language
+          id
+          title
+          createdAt
+          article {
+            raw
+          }
+          tags {
+            name
+          }
+          backgroundImage {
+            file {
+              url
+            }
+          }
         }
       }
     }
   }
 `;
-
-export default BlogPage;

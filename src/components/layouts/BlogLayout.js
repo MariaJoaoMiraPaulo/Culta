@@ -21,6 +21,7 @@ const BlogLayout = ({ data }) => {
     <BlogPageLayout>
       {data.map(({ node }) => (
         <PostCard
+          key={node.id}
           title={node.title}
           image={node.backgroundImage.file.url}
           tags={node.tags}

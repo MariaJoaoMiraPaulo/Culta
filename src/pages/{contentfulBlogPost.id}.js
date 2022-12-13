@@ -42,7 +42,17 @@ export const query = graphql`
       edges {
         node {
           url
+          file {
+            contentType
+            details {
+              image {
+                height
+                width
+              }
+            }
+          }
           contentful_id
+          description
         }
       }
     }

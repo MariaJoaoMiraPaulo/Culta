@@ -9,7 +9,7 @@ import {
 } from '../../styles/typographyComponents';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import PostImage from './PostImage';
+import PostAsset from './PostAsset';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -60,9 +60,9 @@ const getCustomOptions = assets => {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <Body>{children}</Body>,
-      [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-        <PostImage id={node.data.target.sys.id} assets={assets} />
-      ),
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+        return <PostAsset id={node.data.target.sys.id} assets={assets} />;
+      },
     },
     renderText: text => {
       return text.split('\n').reduce((children, textSegment, index) => {

@@ -9,6 +9,7 @@ import {
 } from '../../styles/typographyComponents';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import PostImage from './PostImage';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -52,25 +53,31 @@ const PaddingParagraph = styled.div`
   padding: 1rem 0;
 `;
 
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: text => <Body>{text}</Body>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Body>{children}</Body>,
-  },
-  renderText: text => {
-    return text.split('\n').reduce((children, textSegment, index) => {
-      return [
-        ...children,
-        index > 0 && <br key={index} /> && <PaddingParagraph />,
-        textSegment,
-      ];
-    }, []);
-  },
+const getCustomOptions = assets => {
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: text => <Body>{text}</Body>,
+    },
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => <Body>{children}</Body>,
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
+        <PostImage id={node.data.target.sys.id} assets={assets} />
+      ),
+    },
+    renderText: text => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [
+          ...children,
+          index > 0 && <br key={index} /> && <PaddingParagraph />,
+          textSegment,
+        ];
+      }, []);
+    },
+  };
+  return options;
 };
 
-const Post = ({ post }) => {
+const Post = ({ post, assets }) => {
   const { article, title, tags, createdAt, backgroundImage } = post;
 
   return (
@@ -92,7 +99,8 @@ const Post = ({ post }) => {
           </div>
         </PostContentHeader>
         <PostContentBody>
-          {!!article.raw && renderRichText({ raw: article.raw }, options)}
+          {!!article.raw &&
+            renderRichText({ raw: article.raw }, getCustomOptions(assets))}
         </PostContentBody>
       </PostContent>
     </PostWrapper>

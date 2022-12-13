@@ -10,7 +10,10 @@ const Post = ({ data }) => {
 
   return (
     <LayoutWrapper>
-      <PostLayout post={data.contentfulBlogPost} />
+      <PostLayout
+        post={data.contentfulBlogPost}
+        assets={data.allContentfulAsset}
+      />
     </LayoutWrapper>
   );
 };
@@ -32,6 +35,14 @@ export const query = graphql`
       backgroundImage {
         file {
           url
+        }
+      }
+    }
+    allContentfulAsset {
+      edges {
+        node {
+          url
+          contentful_id
         }
       }
     }

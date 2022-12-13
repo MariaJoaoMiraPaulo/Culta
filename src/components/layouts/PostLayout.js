@@ -6,10 +6,10 @@ const PostPageLayout = styled.div`
   padding: 3rem 0;
 `;
 
-const PostLayout = ({ post }) => {
+const PostLayout = ({ post, assets }) => {
   return (
     <PostPageLayout>
-      <Post post={post} />
+      <Post post={post} assets={assets} />
     </PostPageLayout>
   );
 };

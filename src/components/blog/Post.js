@@ -13,21 +13,23 @@ import PostAsset from './PostAsset';
 
 const PostWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   color: ${theme.colors.red};
 `;
 
 const PostContent = styled.div`
-  width: 100%;
+  max-width: 100%;
+  margin: 3rem;
 
   @media ${devices.tablet} {
-    width: 60%;
+    width: 70%;
   }
 `;
 
 const PostContentImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 450px;
   background-image: url(${props => props.image || '/images/1.jpg'});
   background-size: cover;
   background-position: center center;
@@ -39,14 +41,25 @@ const PostContentHeader = styled.div`
   flex-direction: row;
 `;
 
-const BlogDate = styled.div`
+const BlogDateAndTopics = styled.div`
   writing-mode: vertical-rl;
   transform: scale(-1, -1);
   padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin: 0;
+    text-align: end;
+  }
 `;
 
 const PostContentBody = styled.div`
-  padding-top: 2rem;
+  margin: 2rem 0rem;
+
+  @media ${devices.tablet} {
+    margin: 2rem 5.5rem;
+  }
 `;
 
 const PaddingParagraph = styled.div`
@@ -82,21 +95,19 @@ const Post = ({ post, assets }) => {
 
   return (
     <PostWrapper>
+      <PostContentImage image={backgroundImage.file.url} />
       <PostContent>
-        <PostContentImage image={backgroundImage.file.url} />
         <PostContentHeader>
-          <BlogDate>
-            <Body>{new Date(createdAt).toLocaleDateString()}</Body>
-          </BlogDate>
-          <div>
-            <SmallTitle>{title}</SmallTitle>
+          <BlogDateAndTopics>
             <CopyrightText margin="2rem 0" lineHeight="30">
               {tags
                 .map(({ name }) => name)
                 .join(' ,')
                 .toUpperCase()}
             </CopyrightText>
-          </div>
+            <Body>{new Date(createdAt).toLocaleDateString()}</Body>
+          </BlogDateAndTopics>
+          <SmallTitle>{title}</SmallTitle>
         </PostContentHeader>
         <PostContentBody>
           {!!article.raw &&

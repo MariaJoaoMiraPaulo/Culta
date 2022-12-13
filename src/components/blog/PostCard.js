@@ -54,7 +54,7 @@ const Title = styled.div`
 
 const PostCard = ({ key, title, image, tags, id, createdAt }) => {
   return (
-    <PostContainer key={key} image={image} onClick={() => navigate(`/${id}`)}>
+    <PostContainer image={image} onClick={() => navigate(`/${id}`)}>
       <PostContent>
         <Tags>
           {tags.map(({ name }) => (

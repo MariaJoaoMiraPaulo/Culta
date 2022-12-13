@@ -20,6 +20,14 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
       key="HelveticaNeue"
     />,
+    <link
+      as="style"
+      rel="stylesheet preload prefetch"
+      href="/fonts/HelveticaNeue-Medium.ttf"
+      type="text/css"
+      crossOrigin="anonymous"
+      key="HelveticaNeue"
+    />,
   ]);
 };
 

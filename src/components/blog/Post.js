@@ -4,7 +4,10 @@ import { devices } from '../../styles/devices';
 import theme from '../../styles/theme';
 import {
   Body,
+  BodyBold,
+  BodyTitle,
   CopyrightText,
+  BodyUnderlined,
   SmallTitle,
 } from '../../styles/typographyComponents';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
@@ -38,19 +41,29 @@ const PostContentImage = styled.div`
 
 const PostContentHeader = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media ${devices.tablet} {
+    flex-direction: row;
+  }
 `;
 
 const BlogDateAndTopics = styled.div`
-  writing-mode: vertical-rl;
-  transform: scale(-1, -1);
-  padding-left: 20px;
+  writing-mode: horizontal-tb;
+  transform: scale(1, 1);
+
   display: flex;
   flex-direction: column;
 
   span {
     margin: 0;
+    text-align: start;
+  }
+
+  @media ${devices.tablet} {
+    writing-mode: vertical-rl;
+    transform: scale(-1, -1);
     text-align: end;
+    padding-left: 20px;
   }
 `;
 
@@ -63,16 +76,26 @@ const PostContentBody = styled.div`
 `;
 
 const PaddingParagraph = styled.div`
-  padding: 1rem 0;
+  padding-bottom: 2rem;
 `;
 
 const getCustomOptions = assets => {
   const options = {
     renderMark: {
-      [MARKS.BOLD]: text => <Body>{text}</Body>,
+      [MARKS.BOLD]: text => <BodyBold>{text}</BodyBold>,
+      [MARKS.UNDERLINE]: text => <BodyUnderlined>{text}</BodyUnderlined>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <Body>{children}</Body>,
+      [BLOCKS.HEADING_1]: (node, children) => (
+        <PaddingParagraph>
+          <BodyTitle>{children}</BodyTitle>
+        </PaddingParagraph>
+      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <PaddingParagraph>
+          <Body>{children}</Body>
+        </PaddingParagraph>
+      ),
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
         return <PostAsset id={node.data.target.sys.id} assets={assets} />;
       },

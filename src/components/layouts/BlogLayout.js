@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import PostCard from '../blog/PostCard';
 
-const PostsContainer = styled.div`
+const BlogPageLayout = styled.div`
   display: grid;
   grid-template-columns: 100%;
   padding: 25px;
@@ -18,7 +18,7 @@ const PostsContainer = styled.div`
 
 const BlogLayout = ({ data }) => {
   return (
-    <PostsContainer>
+    <BlogPageLayout>
       {data.map(({ node }) => (
         <PostCard
           title={node.title}
@@ -28,7 +28,7 @@ const BlogLayout = ({ data }) => {
           createdAt={node.createdAt}
         />
       ))}
-    </PostsContainer>
+    </BlogPageLayout>
   );
 };
 

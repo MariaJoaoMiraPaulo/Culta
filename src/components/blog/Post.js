@@ -4,29 +4,35 @@ import { devices } from '../../styles/devices';
 import theme from '../../styles/theme';
 import {
   Body,
+  BodyBold,
+  BodyTitle,
   CopyrightText,
+  BodyUnderlined,
   SmallTitle,
 } from '../../styles/typographyComponents';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import PostAsset from './PostAsset';
 
 const PostWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   color: ${theme.colors.red};
 `;
 
 const PostContent = styled.div`
-  width: 100%;
+  max-width: 100%;
+  margin: 3rem;
 
   @media ${devices.tablet} {
-    width: 60%;
+    width: 70%;
   }
 `;
 
 const PostContentImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 450px;
   background-image: url(${props => props.image || '/images/1.jpg'});
   background-size: cover;
   background-position: center center;
@@ -35,64 +41,100 @@ const PostContentImage = styled.div`
 
 const PostContentHeader = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media ${devices.tablet} {
+    flex-direction: row;
+  }
 `;
 
-const BlogDate = styled.div`
-  writing-mode: vertical-rl;
-  transform: scale(-1, -1);
-  padding-left: 20px;
+const BlogDateAndTopics = styled.div`
+  writing-mode: horizontal-tb;
+  transform: scale(1, 1);
+
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin: 0;
+    text-align: start;
+  }
+
+  @media ${devices.tablet} {
+    writing-mode: vertical-rl;
+    transform: scale(-1, -1);
+    text-align: end;
+    padding-left: 20px;
+  }
 `;
 
 const PostContentBody = styled.div`
-  padding-top: 2rem;
+  margin: 2rem 0rem;
+
+  @media ${devices.tablet} {
+    margin: 2rem 5.5rem;
+  }
 `;
 
 const PaddingParagraph = styled.div`
-  padding: 1rem 0;
+  padding-bottom: 2rem;
 `;
 
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: text => <Body>{text}</Body>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Body>{children}</Body>,
-  },
-  renderText: text => {
-    return text.split('\n').reduce((children, textSegment, index) => {
-      return [
-        ...children,
-        index > 0 && <br key={index} /> && <PaddingParagraph />,
-        textSegment,
-      ];
-    }, []);
-  },
+const getCustomOptions = assets => {
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: text => <BodyBold>{text}</BodyBold>,
+      [MARKS.UNDERLINE]: text => <BodyUnderlined>{text}</BodyUnderlined>,
+    },
+    renderNode: {
+      [BLOCKS.HEADING_1]: (node, children) => (
+        <PaddingParagraph>
+          <BodyTitle>{children}</BodyTitle>
+        </PaddingParagraph>
+      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <PaddingParagraph>
+          <Body>{children}</Body>
+        </PaddingParagraph>
+      ),
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+        return <PostAsset id={node.data.target.sys.id} assets={assets} />;
+      },
+    },
+    renderText: text => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [
+          ...children,
+          index > 0 && <br key={index} /> && <PaddingParagraph />,
+          textSegment,
+        ];
+      }, []);
+    },
+  };
+  return options;
 };
 
-const Post = ({ post }) => {
+const Post = ({ post, assets }) => {
   const { article, title, tags, createdAt, backgroundImage } = post;
 
   return (
     <PostWrapper>
+      <PostContentImage image={backgroundImage.file.url} />
       <PostContent>
-        <PostContentImage image={backgroundImage.file.url} />
         <PostContentHeader>
-          <BlogDate>
-            <Body>{new Date(createdAt).toLocaleDateString()}</Body>
-          </BlogDate>
-          <div>
-            <SmallTitle>{title}</SmallTitle>
+          <BlogDateAndTopics>
             <CopyrightText margin="2rem 0" lineHeight="30">
               {tags
                 .map(({ name }) => name)
                 .join(' ,')
                 .toUpperCase()}
             </CopyrightText>
-          </div>
+            <Body>{new Date(createdAt).toLocaleDateString()}</Body>
+          </BlogDateAndTopics>
+          <SmallTitle>{title}</SmallTitle>
         </PostContentHeader>
         <PostContentBody>
-          {!!article.raw && renderRichText({ raw: article.raw }, options)}
+          {!!article.raw &&
+            renderRichText({ raw: article.raw }, getCustomOptions(assets))}
         </PostContentBody>
       </PostContent>
     </PostWrapper>

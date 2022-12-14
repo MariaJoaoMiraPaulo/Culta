@@ -52,13 +52,13 @@ const Title = styled.div`
   margin-right: 25%;
 `;
 
-const PostCard = ({ title, image, tags, id, createdAt }) => {
+const PostCard = ({ key, title, image, tags, id, createdAt }) => {
   return (
     <PostContainer image={image} onClick={() => navigate(`/${id}`)}>
       <PostContent>
         <Tags>
           {tags.map(({ name }) => (
-            <CopyrightText>{name.toUpperCase()}</CopyrightText>
+            <CopyrightText key={name}>{name.toUpperCase()}</CopyrightText>
           ))}
         </Tags>
         <BottomContent>

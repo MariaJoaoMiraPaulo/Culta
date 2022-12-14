@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SmallTitle, Body } from '../styles/typographyComponents';
+import { SmallTitle } from '../styles/typographyComponents';
+import { withTrans } from '../i18n/withTrans';
 
 const Animation = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const AnimationContainer = styled.div`
   color: ${({ theme }) => theme.colors.blue};
   padding: 0 1rem;
 `;
-
+/* https://www.sliderrevolution.com/resources/css-text-animation/*/
 const Sentences = styled.ul`
   list-style-type: none;
   display: flex;
@@ -35,78 +36,74 @@ const Sentences = styled.ul`
     line-height: 65px;
   }
 
-  -webkit-animation-name: change;
-  -webkit-animation-duration: 20s;
-  -webkit-animation-iteration-count: infinite;
-
   animation-name: change;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
 
   @keyframes change {
     0%,
-    15%,
+    16.5%,
     100% {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 1%, 0);
     }
     0%,
-    30%,
+    33%,
     100% {
       transform: translate3d(0, -16%, 0);
     }
     0%,
-    45%,
+    49.5%,
     100% {
       transform: translate3d(0, -32.5%, 0);
     }
     0%,
-    60%,
+    66%,
     100% {
       transform: translate3d(0, -48.5%, 0);
     }
     0%,
-    75%,
+    82.5%,
     100% {
       transform: translate3d(0, -66%, 0);
     }
     0%,
-    90%,
+    99%,
     100% {
       transform: translate3d(0, -82.5%, 0);
     }
   }
 `;
 
-const CultureAnimation = () => {
+const CultureAnimation = ({ t }) => {
   return (
     <Animation>
       <AnimationContainer>
         <Sentences>
           <li>
-            <SmallTitle>somos</SmallTitle>
+            <SmallTitle>{t('about.sentence1')}</SmallTitle>
           </li>
           <li>
-            <SmallTitle>comunicar a</SmallTitle>
+            <SmallTitle>{t('about.sentence2')}</SmallTitle>
           </li>
           <li>
-            <SmallTitle>aproximar a sociedade da</SmallTitle>
+            <SmallTitle>{t('about.sentence3')}</SmallTitle>
           </li>
           <li>
-            <SmallTitle>impacto social através da</SmallTitle>
+            <SmallTitle>{t('about.sentence4')}</SmallTitle>
           </li>
           <li>
-            <SmallTitle>criar e inovar a</SmallTitle>
+            <SmallTitle>{t('about.sentence5')}</SmallTitle>
           </li>
           <li>
-            <SmallTitle>dar voz à</SmallTitle>
+            <SmallTitle>{t('about.sentence6')}</SmallTitle>
           </li>
         </Sentences>
       </AnimationContainer>
       <CultureContainer>
-        <SmallTitle>Cultura</SmallTitle>
+        <SmallTitle>{t('about.culture')}</SmallTitle>
       </CultureContainer>
     </Animation>
   );
 };
 
-export default CultureAnimation;
+export default withTrans(CultureAnimation);

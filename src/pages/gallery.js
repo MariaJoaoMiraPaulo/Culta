@@ -1,15 +1,15 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Asset from '../components/blog/Asset';
+import GalleryLayout from '../components/layouts/GalleryLayout';
 
 const Gallery = ({ data }) => {
-  console.log('HERE', data.allContentfulGalleryPhoto.edges);
+  console.log(data.allContentfulGalleryPhoto);
+
   return (
-    <>
-      {data.allContentfulGalleryPhoto.edges.map(({ node }) => (
-        <Asset id={node.photo.contentful_id} assets={data.allContentfulAsset} />
-      ))}
-    </>
+    <GalleryLayout
+      photos={data.allContentfulGalleryPhoto}
+      assets={data.allContentfulAsset}
+    />
   );
 };
 

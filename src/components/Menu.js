@@ -73,7 +73,7 @@ const Menu = ({ t }) => {
               <LinkWrapper to="/blog" color="red" radius="25px">
                 <MenuTitle>{t('menu.stories').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px">
+              <LinkWrapper to="/gallery" color="red" radius="25px">
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}

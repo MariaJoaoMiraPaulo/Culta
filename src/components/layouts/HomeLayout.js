@@ -4,7 +4,7 @@ import ImageSection from '../sections/ImageSection';
 import TextSection from '../sections/TextSection';
 import { withTrans } from '../../i18n/withTrans';
 
-const HomeLayout = ({ t }) => {
+const HomeLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection
@@ -22,12 +22,12 @@ const HomeLayout = ({ t }) => {
         padding="20%"
       />
       <ImageSection
-        imagePath="/images/what.jpg"
+        image={images['what.jpg']}
         title={t('homepage.what.title')}
         linkTo={'/services'}
       />
       <ImageSection
-        imagePath="/images/proud.jpg"
+        image={images['proud.jpg']}
         title={t('homepage.proud.title')}
         linkTo={'/blog'}
       />

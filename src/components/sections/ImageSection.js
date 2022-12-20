@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SubTitle } from '../../styles/typographyComponents';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const SectionWrapper = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -30,9 +31,6 @@ const ImageSectionWrapper = styled.div`
 const ImageSectionCover = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.image || '/images/1.jpg'});
-  background-size: cover;
-  background-position: center center;
   filter: blur(10px);
   transform: scale(1.05);
 
@@ -52,11 +50,18 @@ const ImageContent = styled.div`
   max-width: 50%;
 `;
 
-const ImageSection = ({ background, color, imagePath, title, linkTo }) => {
+const ImageSection = ({ background, color, image, title, linkTo }) => {
   return (
     <SectionWrapper color={color} background={background} href={linkTo}>
       <ImageSectionWrapper>
-        <ImageSectionCover image={imagePath} />
+        <ImageSectionCover>
+          <GatsbyImage
+            image={image}
+            alt={title}
+            placeholder="blurred"
+            layout="fixed"
+          />
+        </ImageSectionCover>
         <ImageContent>
           <SubTitle>{title}</SubTitle>
         </ImageContent>

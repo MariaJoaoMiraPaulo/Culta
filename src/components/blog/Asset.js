@@ -5,18 +5,33 @@ const AssetWrapper = styled.div`
   padding: 2rem 0;
 `;
 
-const Asset = ({ id, assets, realSize }) => {
+const FixedImg = styled.img`
+  max-width: 100%;
+`;
+
+const Asset = ({ id, assets, realSize = false }) => {
   const asset = assets.edges.find(({ node }) => node.contentful_id === id);
 
   if (asset.node.file.contentType.match(/image\//)) {
     return (
       <AssetWrapper>
-        <img
-          src={asset.node.url}
-          width={realSize ? asset.node.file.details.image.width : '100%'}
-          height={realSize ? asset.node.file.details.image.height : 'auto'}
-          alt={asset.node.description}
-        />
+        <div onContextMenu={e => e.preventDefault()}>
+          {realSize ? (
+            <img
+              src={asset.node.url}
+              width={asset.node.file.details.image.width}
+              height={asset.node.file.details.image.height}
+              alt={asset.node.description}
+              oncontextmenu="return false;"
+            />
+          ) : (
+            <FixedImg
+              src={asset.node.url}
+              alt={asset.node.description}
+              oncontextmenu="return false;"
+            ></FixedImg>
+          )}
+        </div>
       </AssetWrapper>
     );
   }

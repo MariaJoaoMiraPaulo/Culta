@@ -5,7 +5,7 @@ import CultureAnimation from '../CultureAnimation';
 import ImageTextSection from '../sections/ImageTextSection';
 import { withTrans } from '../../i18n/withTrans';
 
-const AboutLayout = ({ t }) => {
+const AboutLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection title={t('about.title')} background="marble" color="blue" />
@@ -13,11 +13,12 @@ const AboutLayout = ({ t }) => {
         color="blue"
         body={t('about.body')}
         title={t('about.about').toUpperCase()}
-        imagePath="/images/pilares.jpg"
+        image={images['pilares.jpg']}
+        imageAlt={t('services.services')}
       />
       <CultureAnimation />
       <ImageSection
-        imagePath="/images/what.jpg"
+        image={images['what.jpg']}
         title={t('services.services')}
         linkTo={'/services'}
       />

@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -18,16 +19,20 @@ const ImageSectionWrapper = styled.div`
 const ImageSectionCover = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.image || '/images/1.jpg'});
-  background-size: cover;
-  background-position: center center;
 `;
 
-const ImageSection = ({ imagePath }) => {
+const ImageSection = ({ image, imageAlt }) => {
   return (
     <SectionWrapper>
       <ImageSectionWrapper>
-        <ImageSectionCover image={imagePath} />
+        <ImageSectionCover>
+          <GatsbyImage
+            image={image}
+            alt={imageAlt}
+            placeholder="blurred"
+            layout="fixed"
+          />
+        </ImageSectionCover>
       </ImageSectionWrapper>
     </SectionWrapper>
   );

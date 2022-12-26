@@ -23,7 +23,7 @@ const BlogLayout = ({ data }) => {
         <PostCard
           key={node.id}
           title={node.title}
-          image={node.backgroundImage.file.url}
+          image={node.backgroundImage.gatsbyImageData}
           tags={node.tags}
           id={node.id}
           createdAt={node.createdAt}

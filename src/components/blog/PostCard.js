@@ -2,29 +2,29 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { CopyrightText, FooterText } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const PostContainer = styled.div`
-  background-image: url(${props => props.image || '/images/1.jpg'});
-  background-size: cover;
-  background-position: center center;
-  margin: 10px;
-  padding: 20px;
+  margin: 20px;
   height: 450px;
   cursor: pointer;
+  position: relative;
 `;
 
 const PostContent = styled.div`
-  width: 100%;
-  height: 100%;
   color: ${props => props.theme.colors.marble};
-  position: relative;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-content: space-between;
 `;
 
 const Tags = styled.div`
-  margin-right: 15px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: right;
@@ -35,6 +35,7 @@ const Tags = styled.div`
 `;
 
 const BottomContent = styled.div`
+  padding: 18px;
   span {
     font-size: 35px;
     line-height: 40px;
@@ -50,11 +51,19 @@ const DateStyle = styled.div`
 
 const Title = styled.div`
   margin-right: 25%;
+  max-width: 100%;
 `;
 
 const PostCard = ({ key, title, image, tags, id, createdAt }) => {
   return (
     <PostContainer image={image} onClick={() => navigate(`/${id}`)}>
+      <GatsbyImage
+        style={{ height: '100%', width: '100%' }}
+        image={image}
+        alt={title}
+        placeholder="blurred"
+        layout="constrained"
+      />
       <PostContent>
         <Tags>
           {tags.map(({ name }) => (

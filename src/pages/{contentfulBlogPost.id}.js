@@ -33,9 +33,11 @@ export const query = graphql`
         raw
       }
       backgroundImage {
+        description
         file {
           url
         }
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     allContentfulAsset {
@@ -53,6 +55,7 @@ export const query = graphql`
           }
           contentful_id
           description
+          gatsbyImageData(layout: CONSTRAINED)
         }
       }
     }

@@ -31,6 +31,7 @@ export const query = graphql`
             file {
               url
             }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
       }

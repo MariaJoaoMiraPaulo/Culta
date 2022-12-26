@@ -13,12 +13,14 @@ import {
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import PostAsset from './PostAsset';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: ${theme.colors.red};
+  position: relative;
 `;
 
 const PostContent = styled.div`
@@ -33,9 +35,6 @@ const PostContent = styled.div`
 const PostContentImage = styled.div`
   width: 100%;
   height: 450px;
-  background-image: url(${props => props.image || '/images/1.jpg'});
-  background-size: cover;
-  background-position: center center;
   margin-bottom: 2rem;
 `;
 
@@ -118,7 +117,15 @@ const Post = ({ post, assets }) => {
 
   return (
     <PostWrapper>
-      <PostContentImage image={backgroundImage.file.url} />
+      <PostContentImage>
+        <GatsbyImage
+          style={{ height: '100%', width: '100%' }}
+          image={backgroundImage.gatsbyImageData}
+          alt={backgroundImage.description}
+          placeholder="blurred"
+          layout="constrained"
+        />
+      </PostContentImage>
       <PostContent>
         <PostContentHeader>
           <BlogDateAndTopics>

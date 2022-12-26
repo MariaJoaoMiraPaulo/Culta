@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,11 +12,13 @@ const PostAsset = ({ id, assets }) => {
   if (asset.node.file.contentType.match(/image\//)) {
     return (
       <PostAssetWrapper>
-        <img
-          src={asset.node.url}
+        <GatsbyImage
           width={asset.node.file.details.image.width}
           height={asset.node.file.details.image.height}
+          image={asset.node.gatsbyImageData}
           alt={asset.node.description}
+          placeholder="blurred"
+          layout="constrained"
         />
       </PostAssetWrapper>
     );

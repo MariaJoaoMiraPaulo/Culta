@@ -4,12 +4,10 @@ import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
 const Gallery = ({ data }) => {
+  console.log(data.allContentfulGalleryPhoto.edges);
   return (
     <LayoutWrapper>
-      <GalleryLayout
-        photos={data.allContentfulGalleryPhoto}
-        assets={data.allContentfulAsset}
-      />
+      <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />
     </LayoutWrapper>
   );
 };
@@ -23,25 +21,9 @@ export const query = graphql`
         node {
           photo {
             contentful_id
+            gatsbyImageData(layout: CONSTRAINED)
+            description
           }
-        }
-      }
-    }
-    allContentfulAsset {
-      edges {
-        node {
-          url
-          file {
-            contentType
-            details {
-              image {
-                height
-                width
-              }
-            }
-          }
-          contentful_id
-          description
         }
       }
     }

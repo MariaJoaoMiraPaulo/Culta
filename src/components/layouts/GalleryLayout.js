@@ -1,17 +1,24 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import * as React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 
-const GalleryPageLayout = styled.div`
+const GalleryGrid = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
+  max-width: fit-content;
+  margin: 20px 50px;
   @media ${devices.tablet} {
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: repeat(5, 1fr);
   @media ${devices.desktop} {
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  img:hover {
+    filter: blur(10px);
+    transform: scale(1.05);
   }
 `;
 
@@ -27,26 +34,85 @@ const PhotoWrapper = styled.div`
   cursor: pointer;
 `;
 
+const Overlay = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+const ZoomedImage = styled.div`
+  max-width: 1000px;
+  max-height: 700px;
+  position: relative;
+`;
+
 const GalleryLayout = ({ photos }) => {
+  const [zoomedImage, setZoomedImage] = useState(null);
+  const overlayRef = useRef(null);
+  const galleryRef = useRef(null);
+  const handleZoom = image => setZoomedImage(image);
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (
+        !overlayRef?.current?.contains(e.target) &&
+        !galleryRef?.current?.contains(e.target)
+      ) {
+        setZoomedImage(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [zoomedImage]);
+
   return (
-    <CenteredDiv>
-      <GalleryPageLayout>
-        {photos.map(
-          ({ node }) =>
-            node.photo.gatsbyImageData && (
-              <PhotoWrapper>
-                <GatsbyImage
-                  style={{ height: '100%', width: '100%' }}
-                  image={node.photo.gatsbyImageData}
-                  alt={node.description}
-                  placeholder="blurred"
-                  layout="constrained"
-                />
-              </PhotoWrapper>
-            ),
-        )}
-      </GalleryPageLayout>
-    </CenteredDiv>
+    <>
+      <CenteredDiv>
+        <GalleryGrid ref={galleryRef}>
+          {photos.map(
+            ({ node }) =>
+              node.photo.gatsbyImageData && (
+                <PhotoWrapper
+                  key={node.photo.id}
+                  onClick={() => handleZoom(node)}
+                >
+                  <GatsbyImage
+                    imgStyle={{ contextmenu: 'false' }}
+                    style={{ height: '100%', width: '100%' }}
+                    image={node.photo.gatsbyImageData}
+                    alt={node.description || 'gallery image'}
+                    placeholder="blurred"
+                    layout="constrained"
+                  />
+                </PhotoWrapper>
+              ),
+          )}
+        </GalleryGrid>
+      </CenteredDiv>
+      {zoomedImage && (
+        <Overlay>
+          <ZoomedImage ref={overlayRef}>
+            <GatsbyImage
+              imgStyle={{ contextmenu: 'false' }}
+              style={{ height: '100%', width: '100%' }}
+              image={zoomedImage.photo.gatsbyImageData}
+              alt={zoomedImage.description || 'gallery image'}
+              placeholder="blurred"
+              layout="constrained"
+            />
+          </ZoomedImage>
+        </Overlay>
+      )}
+    </>
   );
 };
 

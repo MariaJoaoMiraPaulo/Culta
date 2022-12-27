@@ -68,7 +68,17 @@ const GalleryLayout = ({ photos }) => {
       }
     };
 
+    const handleRightClickImage = e => {
+      console.log(e.target);
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
+    document.addEventListener('contextmenu', handleRightClickImage);
+
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
@@ -86,7 +96,6 @@ const GalleryLayout = ({ photos }) => {
                   onClick={() => handleZoom(node)}
                 >
                   <GatsbyImage
-                    imgStyle={{ contextmenu: 'false' }}
                     style={{ height: '100%', width: '100%' }}
                     image={node.photo.gatsbyImageData}
                     alt={node.description || 'gallery image'}
@@ -102,7 +111,6 @@ const GalleryLayout = ({ photos }) => {
         <Overlay>
           <ZoomedImage ref={overlayRef}>
             <GatsbyImage
-              imgStyle={{ contextmenu: 'false' }}
               style={{ height: '100%', width: '100%' }}
               image={zoomedImage.photo.gatsbyImageData}
               alt={zoomedImage.description || 'gallery image'}

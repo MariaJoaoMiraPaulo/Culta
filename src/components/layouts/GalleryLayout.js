@@ -9,7 +9,7 @@ const GalleryGrid = styled.div`
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   max-width: fit-content;
-  margin: 20px 50px;
+  margin: 20px;
   @media ${devices.tablet} {
     grid-template-columns: repeat(5, 1fr);
   @media ${devices.desktop} {
@@ -19,6 +19,10 @@ const GalleryGrid = styled.div`
   img:hover {
     filter: blur(10px);
     transform: scale(1.05);
+  }
+
+  @media ${devices.tablet} {
+    margin: 20px 50px;
   }
 `;
 
@@ -76,11 +80,20 @@ const GalleryLayout = ({ photos }) => {
       }
     };
 
+    const handleEscClick = e => {
+      if (e.key === 'Escape') {
+        setZoomedImage(null);
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
     document.addEventListener('contextmenu', handleRightClickImage);
+    document.addEventListener('keydown', handleEscClick, false);
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('contextmenu', handleRightClickImage);
+      document.removeEventListener('keydown', handleEscClick, false);
     };
   }, [zoomedImage]);
 

@@ -2,6 +2,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
+import { CopyrightText } from '../../styles/typographyComponents';
 
 const GalleryGrid = styled.div`
   display: grid;
@@ -115,6 +116,7 @@ const GalleryLayout = ({ photos }) => {
                     placeholder="blurred"
                     layout="constrained"
                   />
+                  {/* <CopyrightText>{node.author.toUpperCase()}</CopyrightText> */}
                 </PhotoWrapper>
               ),
           )}

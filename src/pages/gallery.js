@@ -24,6 +24,7 @@ export const query = graphql`
             description
             id
           }
+          author
         }
       }
     }

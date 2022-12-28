@@ -5,10 +5,9 @@ import { withTrans } from '../i18n/withTrans';
 
 const Animation = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 3rem;
-  background-color: ${({ theme }) => theme.colors.grey};
+  padding: 5rem;
 `;
 
 const CultureContainer = styled.div`
@@ -24,7 +23,7 @@ const AnimationContainer = styled.div`
   color: ${({ theme }) => theme.colors.blue};
   padding: 0 1rem;
 `;
-/* https://www.sliderrevolution.com/resources/css-text-animation/*/
+
 const Sentences = styled.ul`
   list-style-type: none;
   display: flex;
@@ -34,42 +33,31 @@ const Sentences = styled.ul`
 
   li {
     line-height: 65px;
+    padding-bottom: 1.5rem;
   }
 
   animation-name: change;
-  animation-duration: 20s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 
   @keyframes change {
-    0%,
-    16.5%,
-    100% {
-      transform: translate3d(0, 1%, 0);
+    10% {
+      transform: translate3d(0, 0%, 0);
     }
-    0%,
-    33%,
-    100% {
-      transform: translate3d(0, -16%, 0);
+    30% {
+      transform: translate3d(0, -16.667%, 0);
     }
-    0%,
-    49.5%,
-    100% {
-      transform: translate3d(0, -32.5%, 0);
+    45% {
+      transform: translate3d(0, -33.334%, 0);
     }
-    0%,
-    66%,
-    100% {
-      transform: translate3d(0, -48.5%, 0);
+    60% {
+      transform: translate3d(0, -50.001%, 0);
     }
-    0%,
-    82.5%,
-    100% {
-      transform: translate3d(0, -66%, 0);
+    75% {
+      transform: translate3d(0, -66.668%, 0);
     }
-    0%,
-    99%,
-    100% {
-      transform: translate3d(0, -82.5%, 0);
+    90% {
+      transform: translate3d(0, -83.335%, 0);
     }
   }
 `;

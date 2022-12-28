@@ -67,7 +67,7 @@ const Menu = ({ t }) => {
               <LinkWrapper to="/about" color="red" radius="25px">
                 <MenuTitle>{t('menu.about').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/" color="red" radius="25px">
+              <LinkWrapper to="/services" color="red" radius="25px">
                 <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               <LinkWrapper to="/blog" color="red" radius="25px">
@@ -77,7 +77,7 @@ const Menu = ({ t }) => {
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
-              <LinkWrapper to="/" color="red" radius="25px">
+              <LinkWrapper to="/contacts" color="red" radius="25px">
                 <MenuTitle>{t('menu.contacts').toUpperCase()}</MenuTitle>
               </LinkWrapper>
             </Links>

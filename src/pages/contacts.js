@@ -1,13 +1,13 @@
 import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import ServicesLayout from '../components/layouts/ServicesLayout';
+import ContactsLayout from '../components/layouts/ContactsLayout';
 
-const ServicesPage = () => {
+const ContactsPage = () => {
   return (
     <LayoutWrapper logoColor="blue">
-      <ServicesLayout />
+      <ContactsLayout />
     </LayoutWrapper>
   );
 };
 
-export default ServicesPage;
+export default ContactsPage;

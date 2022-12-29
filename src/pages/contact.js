@@ -1,20 +1,20 @@
 import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import ContactsLayout from '../components/layouts/ContactsLayout';
+import ContactLayout from '../components/layouts/ContactLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
 
-const ContactsPage = ({ data }) => {
+const ContactPage = ({ data }) => {
   const images = getImagesMappedByName(data);
 
   return (
     <LayoutWrapper logoColor="blue">
-      <ContactsLayout images={images} />
+      <ContactLayout images={images} />
     </LayoutWrapper>
   );
 };
 
-export default ContactsPage;
+export default ContactPage;
 
 export const query = graphql`
   query MyQuery {

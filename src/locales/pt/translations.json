@@ -43,5 +43,8 @@
   },
   "services": {
     "services": "Serviços"
+  },
+  "contact": {
+    "title": "Fala connosco"
   }
 }

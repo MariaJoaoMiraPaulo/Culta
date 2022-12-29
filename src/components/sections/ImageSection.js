@@ -33,6 +33,8 @@ const ImageSectionCover = styled.div`
   height: 100%;
   filter: blur(10px);
   transform: scale(1.05);
+  display: flex;
+  justify-content: center;
 
   &: hover {
     filter: blur(0px);

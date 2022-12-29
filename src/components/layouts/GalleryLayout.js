@@ -5,17 +5,14 @@ import { devices } from '../../styles/devices';
 import { CopyrightText } from '../../styles/typographyComponents';
 
 const GalleryGrid = styled.div`
+  width: 90%;
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   max-width: fit-content;
   margin: 20px;
-  @media ${devices.tablet} {
-    grid-template-columns: repeat(5, 1fr);
-  @media ${devices.desktop} {
-    grid-template-columns: repeat(5, 1fr);
-  }
 
   img:hover {
     filter: blur(10px);
@@ -24,6 +21,14 @@ const GalleryGrid = styled.div`
 
   @media ${devices.tablet} {
     margin: 20px 50px;
+    width: 60%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media ${devices.desktop} {
+    margin: 20px 50px;
+    width: 60%;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
@@ -31,19 +36,32 @@ const CenteredDiv = styled.div`
   display: flex;
   justify-content: center;
   min-height: 90vh;
-  margin-top: 3rem;
+  margin: 5rem 0 8rem;
 `;
 
 const PhotoWrapper = styled.div`
-  height: 200px;
+  height: 300px;
   cursor: pointer;
+  position: relative;
+
+  span {
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.marble};
+    display: none;
+  }
+
+  &:hover {
+    span {
+      display: block;
+    }
+  }
 `;
 
 const Overlay = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.7);
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   align-items: center;
@@ -55,6 +73,25 @@ const ZoomedImage = styled.div`
   max-width: 1000px;
   max-height: 700px;
   position: relative;
+  overflow: hidden;
+`;
+
+const Author = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+`;
+
+const AuthorBox = styled.div`
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  color: ${({ theme }) => theme.colors.marble};
+  font-size: 14px;
+  padding: 16px;
 `;
 
 const GalleryLayout = ({ photos }) => {
@@ -116,7 +153,9 @@ const GalleryLayout = ({ photos }) => {
                     placeholder="blurred"
                     layout="constrained"
                   />
-                  {/* <CopyrightText>{node.author.toUpperCase()}</CopyrightText> */}
+                  <Author>
+                    <CopyrightText>{node.author.toUpperCase()}</CopyrightText>
+                  </Author>
                 </PhotoWrapper>
               ),
           )}
@@ -132,6 +171,9 @@ const GalleryLayout = ({ photos }) => {
               placeholder="blurred"
               layout="constrained"
             />
+            <AuthorBox>
+              <CopyrightText>{zoomedImage.author.toUpperCase()}</CopyrightText>
+            </AuthorBox>
           </ZoomedImage>
         </Overlay>
       )}

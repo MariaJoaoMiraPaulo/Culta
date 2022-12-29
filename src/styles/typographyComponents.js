@@ -30,7 +30,7 @@ export const MenuTitle = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 40px;
+  font-size: 29px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;

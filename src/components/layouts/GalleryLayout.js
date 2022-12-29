@@ -2,7 +2,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { CopyrightText } from '../../styles/typographyComponents';
+import { FooterText } from '../../styles/typographyComponents';
 
 const GalleryGrid = styled.div`
   width: 90%;
@@ -80,7 +80,7 @@ const Author = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 5px;
+  padding: 0px 15px;
 `;
 
 const AuthorBox = styled.div`
@@ -90,8 +90,10 @@ const AuthorBox = styled.div`
   width: 100%;
   z-index: 2;
   color: ${({ theme }) => theme.colors.marble};
-  font-size: 14px;
-  padding: 16px;
+  padding: 0 20px;
+  span {
+    font-size: 16px;
+  }
 `;
 
 const GalleryLayout = ({ photos }) => {
@@ -154,7 +156,7 @@ const GalleryLayout = ({ photos }) => {
                     layout="constrained"
                   />
                   <Author>
-                    <CopyrightText>{node.author.toUpperCase()}</CopyrightText>
+                    <FooterText>{node.author.toUpperCase()}</FooterText>
                   </Author>
                 </PhotoWrapper>
               ),
@@ -172,7 +174,7 @@ const GalleryLayout = ({ photos }) => {
               layout="constrained"
             />
             <AuthorBox>
-              <CopyrightText>{zoomedImage.author.toUpperCase()}</CopyrightText>
+              <FooterText>{zoomedImage.author.toUpperCase()}</FooterText>
             </AuthorBox>
           </ZoomedImage>
         </Overlay>

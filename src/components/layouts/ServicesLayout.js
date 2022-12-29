@@ -3,12 +3,11 @@ import TitleSection from '../sections/TitleSection';
 import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { SmallTitle } from '../../styles/typographyComponents';
-import ImageSection from '../sections/ImageSection';
+import { SmallTitle, Body } from '../../styles/typographyComponents';
 
 const ServicesWrapper = styled.div`
   display: grid;
-  margin: 0 2rem;
+  margin: 0 2rem 10rem 2rem;
   grid-template-columns: 100%;
   padding: 20px;
   justify-items: center;
@@ -24,9 +23,24 @@ const Service = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5rem;
+  min-height: 20vh;
+  cursor: default;
+
+  span {
+    display: none;
+  }
+
+  &: hover {
+    h2 {
+      display: none;
+    }
+    span {
+      display: fixed;
+    }
+  }
 `;
 
-const ServicesLayout = ({ t, data, images }) => {
+const ServicesLayout = ({ t, data }) => {
   return (
     <>
       <TitleSection
@@ -38,14 +52,10 @@ const ServicesLayout = ({ t, data, images }) => {
         {data.map(({ node }) => (
           <Service>
             <SmallTitle>{node.serviceName}</SmallTitle>
+            <Body>{node.serviceDescription.serviceDescription}</Body>
           </Service>
         ))}
       </ServicesWrapper>
-      <ImageSection
-        image={images['what.jpg']}
-        title={t('services.services')}
-        linkTo={'/services'}
-      />
     </>
   );
 };

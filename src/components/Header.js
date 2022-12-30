@@ -9,6 +9,7 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  z-index: 1;
 `;
 
 const Header = ({ inline, logoColor }) => {

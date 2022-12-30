@@ -1,16 +1,24 @@
 import { navigate } from 'gatsby';
 import React from 'react';
 import { useTheme } from 'styled-components';
+import styled from 'styled-components';
+import { devices } from '../styles/devices';
 
+const SVGWrapper = styled.svg`
+  cursor: 'pointer';
+  width: 35%;
+
+  @media ${devices.tablet} {
+    width: 20%;
+  }
+`;
 const InlineLogo = ({ color }) => {
   const theme = useTheme();
 
   return (
-    <svg
+    <SVGWrapper
       fill={theme.colors[color] || '#fff'}
       viewBox="0 0 1450 400"
-      width="20%"
-      style={{ cursor: 'pointer' }}
       onClick={() => navigate('/')}
     >
       <g>
@@ -20,7 +28,7 @@ const InlineLogo = ({ color }) => {
         <path d="M1094,353.8h1.9v6.1h-114v-6.1h1.9c36.7,0,43.6-5,43.6-26.4V69.3h-49c-54.7,0-65,21-65.8,83.8h-3.8V58.9h260.1V153h-3.8c-0.8-62.7-11.1-83.8-65.8-83.8h-49v258.2C1050.4,348.9,1057.3,353.8,1094,353.8z" />
         <path d="M1284.5,50.1h3.4l104.4,279.2c5.4,14.9,15.3,24.5,38.6,24.5h0.8v6.1h-89.9v-6.1h1.1c22.6,0,32.9-4.6,26-23.7l-28.3-78h-123.9l-18.4,47c-18,46.3-13.4,54.7,20.7,54.7h0.8v6.1h-89.9v-6.1h0.4c25.2,0,34.8-8.4,51.6-49.3L1284.5,50.1zM1334.2,233.7L1281,88l-57,145.7H1334.2z" />
       </g>
-    </svg>
+    </SVGWrapper>
   );
 };
 

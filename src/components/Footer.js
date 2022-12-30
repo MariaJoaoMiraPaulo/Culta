@@ -15,7 +15,7 @@ const FooterWrapper = styled.div`
 `;
 
 const Table = styled.table`
-  padding: 4rem;
+  margin: 4rem;
   width: 100%;
 `;
 

@@ -86,14 +86,14 @@ export const BodyUnderlined = styled(Body)`
 
 export const CopyrightText = styled.span`
   font-size: 14px;
-  line-height: ${({ lineHeight }) => `${lineHeight}px` || '80px'};
+  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '30px')};
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
     font-size: 18px;
   }
-  margin: ${({ margin }) => `${margin}` || '0rem 0.5rem'};
+  margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
 `;
 
 export const FooterText = styled.span`

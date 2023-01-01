@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { CopyrightText, FooterText } from '../styles/typographyComponents';
 import culta from '../data/culta';
 import { withTrans } from '../i18n/withTrans';
+import { devices } from '../styles/devices';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -45,11 +46,15 @@ const AuxLink = styled.a`
 
 const Copyright = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 
-  span {
-    padding-left: 1rem;
+  @media ${devices.tablet} {
+    flex-direction: row;
+
+    span {
+      padding-left: 1rem;
+    }
   }
 `;
 

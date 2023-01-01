@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { CopyrightText, FooterText } from '../styles/typographyComponents';
+import { Caption, BodySmall } from '../styles/typographyComponents';
 import culta from '../data/culta';
 import { withTrans } from '../i18n/withTrans';
 import { devices } from '../styles/devices';
@@ -58,7 +58,7 @@ const Copyright = styled.div`
   }
 `;
 
-const FooterLink = styled(FooterText)`
+const FooterLink = styled(BodySmall)`
   cursor: pointer;
 
   &: hover {
@@ -75,10 +75,10 @@ const Footer = ({ t }) => {
         <tbody>
           <tr>
             <th>
-              <FooterText>{t('footer.contacts').toUpperCase()}</FooterText>
+              <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
             </th>
             <th>
-              <FooterText>{t('footer.newsletter').toUpperCase()}</FooterText>
+              <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
             </th>
           </tr>
           <tr>
@@ -104,12 +104,12 @@ const Footer = ({ t }) => {
         </tbody>
       </Table>
       <Copyright>
-        <CopyrightText>{t('footer.copyright')}</CopyrightText>
+        <Caption>{t('footer.copyright')}</Caption>
         <AuxLink>
-          <CopyrightText>{t('footer.policy')}</CopyrightText>
+          <Caption>{t('footer.policy')}</Caption>
         </AuxLink>
         <AuxLink>
-          <CopyrightText>{t('footer.terms')}</CopyrightText>
+          <Caption>{t('footer.terms')}</Caption>
         </AuxLink>
       </Copyright>
     </FooterWrapper>

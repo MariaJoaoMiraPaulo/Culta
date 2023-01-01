@@ -43,7 +43,7 @@ export const SubTitle = styled.h2`
 }
 `;
 
-export const SmallTitle = styled.h2`
+export const SubTitle2 = styled.h2`
   font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
@@ -69,7 +69,7 @@ export const Body = styled.span`
   margin: 0rem;
 `;
 
-export const BodyTitle = styled(Body)`
+export const BodyHeading = styled(Body)`
   font-size: 25px;
   @media ${devices.tablet} {
     font-size: 40px;
@@ -84,19 +84,7 @@ export const BodyUnderlined = styled(Body)`
   text-decoration: underline;
 `;
 
-export const CopyrightText = styled.span`
-  font-size: 14px;
-  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '30px')};
-  font-family: ${({ theme }) => theme.fonts.secondary};
-  font-weight: 200;
-  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
-  @media ${devices.tablet} {
-    font-size: 18px;
-  }
-  margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
-`;
-
-export const FooterText = styled.span`
+export const BodySmall = styled.span`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.main};
   line-height: 50px;
@@ -107,4 +95,16 @@ export const FooterText = styled.span`
     font-size: 40px;
   }
   margin: 0rem;
+`;
+
+export const Caption = styled.span`
+  font-size: 14px;
+  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '30px')};
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  @media ${devices.tablet} {
+    font-size: 18px;
+  }
+  margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
 `;

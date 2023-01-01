@@ -3,7 +3,7 @@ import TitleSection from '../sections/TitleSection';
 import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { SmallTitle, Body } from '../../styles/typographyComponents';
+import { SubTitle2, Body } from '../../styles/typographyComponents';
 import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
@@ -52,7 +52,7 @@ const ServicesLayout = ({ t }) => {
       <ServicesWrapper>
         {services.map(({ name, description }) => (
           <Service>
-            <SmallTitle>{name}</SmallTitle>
+            <SubTitle2>{name}</SubTitle2>
             <Body>{description}</Body>
           </Service>
         ))}

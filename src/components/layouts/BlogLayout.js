@@ -6,7 +6,6 @@ import PostCard from '../blog/PostCard';
 const BlogPageLayout = styled.div`
   display: grid;
   grid-template-columns: 100%;
-  padding: 25px;
   min-height: 90vh;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;

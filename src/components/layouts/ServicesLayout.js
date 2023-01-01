@@ -4,6 +4,7 @@ import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import { SmallTitle, Body } from '../../styles/typographyComponents';
+import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
   display: grid;
@@ -40,7 +41,7 @@ const Service = styled.div`
   }
 `;
 
-const ServicesLayout = ({ t, data }) => {
+const ServicesLayout = ({ t }) => {
   return (
     <>
       <TitleSection
@@ -49,10 +50,10 @@ const ServicesLayout = ({ t, data }) => {
         color="blue"
       />
       <ServicesWrapper>
-        {data.map(({ node }) => (
+        {services.map(({ name, description }) => (
           <Service>
-            <SmallTitle>{node.serviceName}</SmallTitle>
-            <Body>{node.serviceDescription.serviceDescription}</Body>
+            <SmallTitle>{name}</SmallTitle>
+            <Body>{description}</Body>
           </Service>
         ))}
       </ServicesWrapper>

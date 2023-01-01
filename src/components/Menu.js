@@ -7,10 +7,13 @@ import { LinkWrapper } from './LinkWrapper';
 import { withTrans } from '../i18n/withTrans';
 
 const MenuWrapper = styled.div`
-  margin: 2rem;
-  position: absolute;
-  right: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding: 1rem;
 `;
+
 const MenuItems = styled.div`
   position: fixed;
   top: 0;

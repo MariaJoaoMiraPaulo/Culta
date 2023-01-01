@@ -5,10 +5,10 @@ import theme from '../../styles/theme';
 import {
   Body,
   BodyBold,
-  BodyTitle,
-  CopyrightText,
+  BodyHeading,
+  Caption,
   BodyUnderlined,
-  SmallTitle,
+  SubTitle2,
 } from '../../styles/typographyComponents';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -87,7 +87,7 @@ const getCustomOptions = assets => {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => (
         <PaddingParagraph>
-          <BodyTitle>{children}</BodyTitle>
+          <BodyHeading>{children}</BodyHeading>
         </PaddingParagraph>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -129,15 +129,15 @@ const Post = ({ post, assets }) => {
       <PostContent>
         <PostContentHeader>
           <BlogDateAndTopics>
-            <CopyrightText margin="2rem 0" lineHeight="30">
+            <Caption margin="2rem 0" lineHeight="30">
               {tags
                 .map(({ name }) => name)
                 .join(' ,')
                 .toUpperCase()}
-            </CopyrightText>
+            </Caption>
             <Body>{new Date(createdAt).toLocaleDateString()}</Body>
           </BlogDateAndTopics>
-          <SmallTitle>{title}</SmallTitle>
+          <SubTitle2>{title}</SubTitle2>
         </PostContentHeader>
         <PostContentBody>
           {!!article.raw &&

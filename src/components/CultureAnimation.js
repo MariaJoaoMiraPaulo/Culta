@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SmallTitle } from '../styles/typographyComponents';
+import { SubTitle2 } from '../styles/typographyComponents';
 import { withTrans } from '../i18n/withTrans';
 
 const Animation = styled.div`
@@ -68,27 +68,27 @@ const CultureAnimation = ({ t }) => {
       <AnimationContainer>
         <Sentences>
           <li>
-            <SmallTitle>{t('about.sentence1')}</SmallTitle>
+            <SubTitle2>{t('about.sentence1')}</SubTitle2>
           </li>
           <li>
-            <SmallTitle>{t('about.sentence2')}</SmallTitle>
+            <SubTitle2>{t('about.sentence2')}</SubTitle2>
           </li>
           <li>
-            <SmallTitle>{t('about.sentence3')}</SmallTitle>
+            <SubTitle2>{t('about.sentence3')}</SubTitle2>
           </li>
           <li>
-            <SmallTitle>{t('about.sentence4')}</SmallTitle>
+            <SubTitle2>{t('about.sentence4')}</SubTitle2>
           </li>
           <li>
-            <SmallTitle>{t('about.sentence5')}</SmallTitle>
+            <SubTitle2>{t('about.sentence5')}</SubTitle2>
           </li>
           <li>
-            <SmallTitle>{t('about.sentence6')}</SmallTitle>
+            <SubTitle2>{t('about.sentence6')}</SubTitle2>
           </li>
         </Sentences>
       </AnimationContainer>
       <CultureContainer>
-        <SmallTitle>{t('about.culture')}</SmallTitle>
+        <SubTitle2>{t('about.culture')}</SubTitle2>
       </CultureContainer>
     </Animation>
   );

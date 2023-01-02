@@ -1,12 +1,9 @@
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-export const LinkWrapper = styled.button`
+export const LinkWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
-  border: none;
-  background: none;
-  text-align: left;
-  cursor: pointer;
 
   &: hover {
     color: transparent;

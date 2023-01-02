@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import { devices } from '../styles/devices';
 
 const SVGWrapper = styled.svg`
-  cursor: 'pointer';
+  cursor: pointer;
   width: 35%;
-  padding: 1rem;
+  padding: 2rem 1rem;
   @media ${devices.tablet} {
     width: 20%;
   }

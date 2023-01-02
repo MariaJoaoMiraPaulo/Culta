@@ -26,7 +26,7 @@ const Page = styled.div`
 `;
 
 const PagePadding = styled.div`
-  padding: 2rem;
+  padding: ${props => (props.noPadding ? '0' : '2rem')};
 `;
 
 const LayoutWrapper = ({
@@ -35,6 +35,7 @@ const LayoutWrapper = ({
   inline,
   logoColor,
   isHomepage = false,
+  noPadding,
 }) => {
   return (
     <>
@@ -52,13 +53,13 @@ const LayoutWrapper = ({
             </BannerImage>
             <Header inline={inline} logoColor={logoColor} />
           </Banner>
-          <PagePadding>{children}</PagePadding>
+          <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </>
       ) : (
         <Page>
           <Header logoColor={logoColor} />
-          <PagePadding>{children}</PagePadding>
+          <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </Page>
       )}

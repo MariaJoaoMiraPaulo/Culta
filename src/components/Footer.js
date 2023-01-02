@@ -60,6 +60,7 @@ const Copyright = styled.div`
 
 const FooterLink = styled(BodySmall)`
   cursor: pointer;
+  text-decoration: none:
 
   &: hover {
     color: transparent;

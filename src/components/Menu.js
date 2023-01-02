@@ -1,47 +1,34 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import CloseIcon from '../icons/CloseIcon';
-import MenuIcon from '../icons/MenuIcon';
-import { MenuTitle } from '../styles/typographyComponents';
-import { LinkWrapper } from './LinkWrapper';
+import React, { useEffect, useState } from 'react';
 import { withTrans } from '../i18n/withTrans';
 import { navigate } from 'gatsby';
+import styled from 'styled-components';
+import MenuIcon from '../icons/MenuIcon';
+import CloseIcon from '../icons/CloseIcon';
+import { LinkWrapper } from './LinkWrapper';
+import { MenuTitle } from '../styles/typographyComponents';
 
-const MenuWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 2rem;
-  padding: 1rem;
-`;
-
-const MenuItems = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+const MenuContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.marble};
-  padding: 2rem;
-  display: ${p => (p.open ? 'block' : 'none')};
-  z-index: 9;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
 `;
 
-const AuxMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-`;
-
-const MenuHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
+const MenuActions = styled.div`
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  z-index: 2;
 `;
 
 const MenuContent = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  bottom: 1rem;
+  right: 1.5rem;
+  position: absolute;
   color: ${props => props.theme.colors.red};
 `;
 
@@ -59,19 +46,25 @@ const Menu = ({ t }) => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.querySelector('body').style.overflow = 'hidden';
+    } else {
+      document.querySelector('body').style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   return (
     <>
-      <MenuWrapper>
-        {!isMenuOpen && <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />}
-      </MenuWrapper>
-      <MenuItems open={isMenuOpen}>
-        <AuxMenu>
-          <MenuHeader>
-            <CloseIcon
-              color="red"
-              onClickHandler={() => setIsMenuOpen(false)}
-            />
-          </MenuHeader>
+      <MenuActions>
+        {!isMenuOpen ? (
+          <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />
+        ) : (
+          <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
+        )}
+      </MenuActions>
+      {isMenuOpen && (
+        <MenuContentWrapper>
           <MenuContent>
             <Links>
               <LinkWrapper
@@ -112,8 +105,8 @@ const Menu = ({ t }) => {
               </LinkWrapper>
             </Links>
           </MenuContent>
-        </AuxMenu>
-      </MenuItems>
+        </MenuContentWrapper>
+      )}
     </>
   );
 };

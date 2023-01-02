@@ -23,6 +23,13 @@ const MenuActions = styled.div`
   right: 2rem;
   top: 1rem;
   z-index: 2;
+
+  svg {
+    &: hover {
+      filter: blur(2px);
+      transform: scale(1.05);
+    }
+  }
 `;
 
 const MenuContent = styled.div`

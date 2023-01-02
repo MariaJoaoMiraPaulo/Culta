@@ -5,6 +5,7 @@ import MenuIcon from '../icons/MenuIcon';
 import { MenuTitle } from '../styles/typographyComponents';
 import { LinkWrapper } from './LinkWrapper';
 import { withTrans } from '../i18n/withTrans';
+import { navigate } from 'gatsby';
 
 const MenuWrapper = styled.div`
   position: relative;
@@ -52,6 +53,12 @@ const Links = styled.div`
 
 const Menu = ({ t }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const jumpTo = path => {
+    navigate(path);
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <MenuWrapper>
@@ -67,20 +74,40 @@ const Menu = ({ t }) => {
           </MenuHeader>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/about')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.about').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/services" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/services')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/blog" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/blog')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.stories').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/gallery" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/gallery')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
-              <LinkWrapper to="/contact" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/contact')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.contacts').toUpperCase()}</MenuTitle>
               </LinkWrapper>
             </Links>

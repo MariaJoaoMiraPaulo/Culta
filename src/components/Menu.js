@@ -14,14 +14,14 @@ const MenuContentWrapper = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow-y: hidden;
 `;
 
 const MenuActions = styled.div`
   position: absolute;
   right: 2rem;
-  top: 1rem;
+  top: 2rem;
   z-index: 2;
 
   svg {
@@ -33,9 +33,13 @@ const MenuActions = styled.div`
 `;
 
 const MenuContent = styled.div`
-  bottom: 1.5rem;
-  right: 1.5rem;
-  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 0 2rem;
+  height: 100%;
   color: ${props => props.theme.colors.red};
 `;
 

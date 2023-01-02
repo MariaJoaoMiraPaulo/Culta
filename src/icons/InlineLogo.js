@@ -7,11 +7,12 @@ import { devices } from '../styles/devices';
 const SVGWrapper = styled.svg`
   cursor: 'pointer';
   width: 35%;
-
+  padding: 1rem;
   @media ${devices.tablet} {
     width: 20%;
   }
 `;
+
 const InlineLogo = ({ color }) => {
   const theme = useTheme();
 

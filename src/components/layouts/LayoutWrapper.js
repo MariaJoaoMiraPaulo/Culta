@@ -45,7 +45,7 @@ const LayoutWrapper = ({
               <GatsbyImage
                 style={{ height: '100%', width: '100%' }}
                 image={bannerImage}
-                alt={'hey'}
+                alt={'banner image'}
                 placeholder="blurred"
                 layout="constrained"
               />
@@ -57,7 +57,7 @@ const LayoutWrapper = ({
         </>
       ) : (
         <Page>
-          <Header />
+          <Header logoColor={logoColor} />
           <PagePadding>{children}</PagePadding>
           <MyFooter />
         </Page>

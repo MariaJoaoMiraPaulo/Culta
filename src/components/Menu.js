@@ -33,7 +33,7 @@ const MenuActions = styled.div`
 `;
 
 const MenuContent = styled.div`
-  bottom: 1rem;
+  bottom: 1.5rem;
   right: 1.5rem;
   position: absolute;
   color: ${props => props.theme.colors.red};

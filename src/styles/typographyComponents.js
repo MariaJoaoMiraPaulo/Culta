@@ -23,7 +23,7 @@ export const MenuTitle = styled.h1`
   line-height: 100px;
   font-weight: 100;
   @media ${devices.tablet} {
-    font-size: 90px;
+    font-size: 30px;
   }
   margin: 0rem;
 }

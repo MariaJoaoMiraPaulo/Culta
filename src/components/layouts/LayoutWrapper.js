@@ -32,7 +32,6 @@ const LayoutWrapper = ({
   logoColor,
   isHomepage = false,
 }) => {
-  console.log(bannerImage);
   return (
     <>
       {isHomepage ? (

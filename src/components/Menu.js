@@ -38,8 +38,8 @@ const MenuContent = styled.div`
   align-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  padding: 0 2rem;
-  height: 100%;
+  padding: 0 3rem;
+  height: 95%;
   color: ${props => props.theme.colors.red};
 `;
 

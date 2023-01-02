@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const LinkWrapper = styled.button`
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
   border: none;
   background: none;
   text-align: left;
-  cursor: pointer;
 
   &: hover {
     color: transparent;

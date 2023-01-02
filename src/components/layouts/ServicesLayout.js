@@ -10,7 +10,6 @@ const ServicesWrapper = styled.div`
   display: grid;
   margin: 0 2rem 10rem 2rem;
   grid-template-columns: 100%;
-  padding: 2rem;
   justify-items: center;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;

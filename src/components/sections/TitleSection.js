@@ -9,9 +9,8 @@ const SectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   text-align: center;
   overflow-wrap: break-word;
-  padding: 3rem 1rem;
   @media ${devices.tablet} {
-    padding: 7rem 3rem ${({ paddingBottom }) => paddingBottom || '7rem'} 3rem;
+    padding: 0rem 3rem ${({ paddingBottom }) => paddingBottom || '7rem'} 3rem;
   }
 `;
 

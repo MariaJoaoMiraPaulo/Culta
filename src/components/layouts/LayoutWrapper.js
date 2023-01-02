@@ -25,6 +25,10 @@ const Page = styled.div`
   max-width: 100%;
 `;
 
+const PagePadding = styled.div`
+  padding: 2rem;
+`;
+
 const LayoutWrapper = ({
   bannerImage,
   children,
@@ -48,13 +52,13 @@ const LayoutWrapper = ({
             </BannerImage>
             <Header inline={inline} logoColor={logoColor} />
           </Banner>
-          {children}
+          <PagePadding>{children}</PagePadding>
           <MyFooter />
         </>
       ) : (
         <Page>
           <Header />
-          {children}
+          <PagePadding>{children}</PagePadding>
           <MyFooter />
         </Page>
       )}

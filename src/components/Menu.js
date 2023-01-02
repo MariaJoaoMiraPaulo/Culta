@@ -6,6 +6,7 @@ import MenuIcon from '../icons/MenuIcon';
 import CloseIcon from '../icons/CloseIcon';
 import { LinkWrapper } from './LinkWrapper';
 import { MenuTitle } from '../styles/typographyComponents';
+import { devices } from '../styles/devices';
 
 const MenuContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.marble};
@@ -30,6 +31,15 @@ const MenuActions = styled.div`
       transform: scale(1.05);
     }
   }
+
+  @media ${devices.tablet} {
+    svg {
+      &: hover {
+        filter: none;
+        transform: none;
+      }
+    }
+  }
 `;
 
 const MenuContent = styled.div`
@@ -38,7 +48,7 @@ const MenuContent = styled.div`
   align-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  padding: 0 3rem;
+  padding: 0 2rem;
   height: 95%;
   color: ${props => props.theme.colors.red};
 `;

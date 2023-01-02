@@ -36,7 +36,6 @@ const CenteredDiv = styled.div`
   display: flex;
   justify-content: center;
   min-height: 90vh;
-  margin: 5rem 0 8rem;
 `;
 
 const PhotoWrapper = styled.div`

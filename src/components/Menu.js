@@ -26,17 +26,17 @@ const MenuActions = styled.div`
   z-index: 2;
 
   svg {
-    &: hover {
-      filter: blur(2px);
-      transform: scale(1.05);
+    &: hover, &: active {
+      filter: blur(0px);
+      transform: scale(1);
     }
   }
 
   @media ${devices.tablet} {
     svg {
-      &: hover {
-        filter: none;
-        transform: none;
+      &: hover, &: active {
+        filter: blur(2px);
+        transform: scale(1.05);
       }
     }
   }
@@ -48,7 +48,7 @@ const MenuContent = styled.div`
   align-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 0 2rem 0 0;
   height: 95%;
   color: ${props => props.theme.colors.red};
 `;

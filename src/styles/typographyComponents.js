@@ -16,7 +16,7 @@ export const Title = styled.h1`
 `;
 
 export const MenuTitle = styled.h1`
-  font-size: 35px;
+  font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;

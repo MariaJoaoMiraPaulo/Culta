@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTheme } from 'styled-components';
 
 const CloseIcon = ({ color, onClickHandler }) => {
+  const theme = useTheme();
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{ cursor: 'pointer' }}
-      fill={color}
+      fill={theme.colors[color] || theme.colors.red}
       onClick={onClickHandler}
       width="20px"
       viewBox="0 0 500.189 501.318"

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { CopyrightText, FooterText } from '../styles/typographyComponents';
 import culta from '../data/culta';
+import { Link } from 'gatsby';
 import { withTrans } from '../i18n/withTrans';
 
 const FooterWrapper = styled.div`
@@ -22,6 +23,7 @@ const Table = styled.table`
 const Td = styled.td`
   text-align: center;
   padding-bottom: 2rem;
+  width: 50%;
 `;
 
 const ColumnWrapper = styled.div`
@@ -53,8 +55,11 @@ const Copyright = styled.div`
   }
 `;
 
-const FooterLink = styled(FooterText)`
+const FooterLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
+  text-align: center;
 
   &: hover {
     color: transparent;
@@ -70,7 +75,9 @@ const Footer = ({ t }) => {
         <tbody>
           <tr>
             <th>
-              <FooterText>{t('footer.contacts').toUpperCase()}</FooterText>
+              <FooterLink to="/contact">
+                <FooterText>{t('footer.contacts').toUpperCase()}</FooterText>
+              </FooterLink>
             </th>
             <th>
               <FooterText>{t('footer.newsletter').toUpperCase()}</FooterText>
@@ -85,14 +92,22 @@ const Footer = ({ t }) => {
           <tr>
             <td>
               <ColumnWrapper>
-                <FooterLink>{culta.phoneNumber}</FooterLink>
-                <FooterLink>{culta.email.toUpperCase()}</FooterLink>
+                <FooterLink>
+                  <FooterText>{culta.phoneNumber}</FooterText>
+                </FooterLink>
+                <FooterLink>
+                  <FooterText>{culta.email.toUpperCase()}</FooterText>
+                </FooterLink>
               </ColumnWrapper>
             </td>
             <td>
               <ColumnWrapper>
-                <FooterLink>{t('footer.linkedin').toUpperCase()}</FooterLink>
-                <FooterLink>{t('footer.instagram').toUpperCase()}</FooterLink>
+                <FooterLink>
+                  <FooterText>{t('footer.linkedin').toUpperCase()}</FooterText>
+                </FooterLink>
+                <FooterLink>
+                  <FooterText>{t('footer.instagram').toUpperCase()}</FooterText>
+                </FooterLink>
               </ColumnWrapper>
             </td>
           </tr>

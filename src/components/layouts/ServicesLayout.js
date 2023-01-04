@@ -40,7 +40,7 @@ const Service = styled.div`
   }
 `;
 
-const ServicesLayout = ({ t }) => {
+const ServicesLayout = ({ t, data, images }) => {
   return (
     <>
       <TitleSection
@@ -56,6 +56,11 @@ const ServicesLayout = ({ t }) => {
           </Service>
         ))}
       </ServicesWrapper>
+      <ImageSection
+        image={images['natureza.jpg']}
+        title={t('contact.title')}
+        linkTo={'/contact'}
+      />
     </>
   );
 };

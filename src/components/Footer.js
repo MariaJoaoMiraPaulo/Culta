@@ -23,6 +23,7 @@ const Table = styled.table`
 const Td = styled.td`
   text-align: center;
   padding-bottom: 2rem;
+  width: 50%;
 `;
 
 const ColumnWrapper = styled.div`
@@ -61,6 +62,8 @@ const Copyright = styled.div`
 const FooterLink = styled(BodySmall)`
   cursor: pointer;
   text-decoration: none:
+  text-align: center;
+  color: inherit;
 
   &: hover {
     color: transparent;
@@ -76,7 +79,9 @@ const Footer = ({ t }) => {
         <tbody>
           <tr>
             <th>
-              <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
+              <FooterLink to="/contact">
+                <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
+              </FooterLink>
             </th>
             <th>
               <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
@@ -91,14 +96,22 @@ const Footer = ({ t }) => {
           <tr>
             <td>
               <ColumnWrapper>
-                <FooterLink>{culta.phoneNumber}</FooterLink>
-                <FooterLink>{culta.email.toUpperCase()}</FooterLink>
+                <FooterLink>
+                  <BodySmall>{culta.phoneNumber}</BodySmall>
+                </FooterLink>
+                <FooterLink>
+                  <BodySmall>{culta.email.toUpperCase()}</BodySmall>
+                </FooterLink>
               </ColumnWrapper>
             </td>
             <td>
               <ColumnWrapper>
-                <FooterLink>{t('footer.linkedin').toUpperCase()}</FooterLink>
-                <FooterLink>{t('footer.instagram').toUpperCase()}</FooterLink>
+                <FooterLink>
+                  <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
+                </FooterLink>
+                <FooterLink>
+                  <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
+                </FooterLink>
               </ColumnWrapper>
             </td>
           </tr>

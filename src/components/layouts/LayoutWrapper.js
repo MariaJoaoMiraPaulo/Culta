@@ -25,14 +25,18 @@ const Page = styled.div`
   max-width: 100%;
 `;
 
+const PagePadding = styled.div`
+  padding: ${props => (props.noPadding ? '0' : '2rem')};
+`;
+
 const LayoutWrapper = ({
   bannerImage,
   children,
   inline,
   logoColor,
   isHomepage = false,
+  noPadding,
 }) => {
-  console.log(bannerImage);
   return (
     <>
       {isHomepage ? (
@@ -42,20 +46,20 @@ const LayoutWrapper = ({
               <GatsbyImage
                 style={{ height: '100%', width: '100%' }}
                 image={bannerImage}
-                alt={'hey'}
+                alt={'banner image'}
                 placeholder="blurred"
                 layout="constrained"
               />
             </BannerImage>
             <Header inline={inline} logoColor={logoColor} />
           </Banner>
-          {children}
+          <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </>
       ) : (
         <Page>
-          <Header />
-          {children}
+          <Header logoColor={logoColor} />
+          <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </Page>
       )}

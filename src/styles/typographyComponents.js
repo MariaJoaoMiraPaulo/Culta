@@ -16,14 +16,15 @@ export const Title = styled.h1`
 `;
 
 export const MenuTitle = styled.h1`
-  font-size: 50px;
+  font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 100px;
+  line-height: 80px;
   font-weight: 100;
   @media ${devices.tablet} {
-    font-size: 90px;
+    font-size: 70px;
+    line-height: 100px;
   }
   margin: 0rem;
 }

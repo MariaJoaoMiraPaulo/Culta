@@ -8,7 +8,12 @@ const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data);
 
   return (
-    <LayoutWrapper inline={false} isHomepage bannerImage={images['1.jpg']}>
+    <LayoutWrapper
+      inline={false}
+      isHomepage
+      bannerImage={images['1.jpg']}
+      noPadding
+    >
       <HomeLayout images={images} />
     </LayoutWrapper>
   );

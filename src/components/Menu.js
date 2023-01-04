@@ -1,46 +1,55 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import CloseIcon from '../icons/CloseIcon';
-import MenuIcon from '../icons/MenuIcon';
-import { MenuTitle } from '../styles/typographyComponents';
-import { LinkWrapper } from './LinkWrapper';
+import React, { useEffect, useState } from 'react';
 import { withTrans } from '../i18n/withTrans';
+import { navigate } from 'gatsby';
+import styled from 'styled-components';
+import MenuIcon from '../icons/MenuIcon';
+import CloseIcon from '../icons/CloseIcon';
+import { LinkWrapper } from './LinkWrapper';
+import { MenuTitle } from '../styles/typographyComponents';
+import { devices } from '../styles/devices';
 
-const MenuWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 2rem;
-  padding: 1rem;
-`;
-
-const MenuItems = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+const MenuContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.marble};
-  padding: 2rem;
-  display: ${p => (p.open ? 'block' : 'none')};
-  z-index: 9;
-`;
-
-const AuxMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
+  overflow-y: hidden;
 `;
 
-const MenuHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
+const MenuActions = styled.div`
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  z-index: 2;
+
+  svg {
+    &: hover, &: active {
+      filter: blur(0px);
+      transform: scale(1);
+    }
+  }
+
+  @media ${devices.tablet} {
+    svg {
+      &: hover, &: active {
+        filter: blur(2px);
+        transform: scale(1.05);
+      }
+    }
+  }
 `;
 
 const MenuContent = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 0 2rem 0 0;
+  height: 95%;
   color: ${props => props.theme.colors.red};
 `;
 
@@ -52,41 +61,73 @@ const Links = styled.div`
 
 const Menu = ({ t }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const jumpTo = path => {
+    navigate(path);
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.querySelector('body').style.overflow = 'hidden';
+    } else {
+      document.querySelector('body').style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   return (
     <>
-      <MenuWrapper>
-        {!isMenuOpen && <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />}
-      </MenuWrapper>
-      <MenuItems open={isMenuOpen}>
-        <AuxMenu>
-          <MenuHeader>
-            <CloseIcon
-              color="red"
-              onClickHandler={() => setIsMenuOpen(false)}
-            />
-          </MenuHeader>
+      <MenuActions>
+        {!isMenuOpen ? (
+          <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />
+        ) : (
+          <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
+        )}
+      </MenuActions>
+      {isMenuOpen && (
+        <MenuContentWrapper>
           <MenuContent>
             <Links>
-              <LinkWrapper to="/about" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/about')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.about').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/services" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/services')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/blog" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/blog')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.stories').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper to="/gallery" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/gallery')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
-              <LinkWrapper to="/contact" color="red" radius="25px">
+              <LinkWrapper
+                onClick={() => jumpTo('/contact')}
+                color="red"
+                radius="25px"
+              >
                 <MenuTitle>{t('menu.contacts').toUpperCase()}</MenuTitle>
               </LinkWrapper>
             </Links>
           </MenuContent>
-        </AuxMenu>
-      </MenuItems>
+        </MenuContentWrapper>
+      )}
     </>
   );
 };

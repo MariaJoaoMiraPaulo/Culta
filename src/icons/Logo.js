@@ -1,16 +1,23 @@
 import { navigate } from 'gatsby';
 import React from 'react';
-import { useTheme } from 'styled-components';
+import styled, { useTheme } from 'styled-components';
+import { devices } from '../styles/devices';
+
+const LogoWrapper = styled.svg`
+  width: 50%;
+  cursor: pointer;
+  @media ${devices.tablet} {
+    width: 20%;
+  }
+`;
 
 const Logo = ({ color }) => {
   const theme = useTheme();
 
   return (
-    <svg
+    <LogoWrapper
       fill={theme.colors[color] || '#fff'}
       viewBox="0 0 1181.6 1130.3"
-      width="20%"
-      style={{ cursor: 'pointer' }}
       onClick={() => navigate('/')}
     >
       <g>
@@ -20,7 +27,7 @@ const Logo = ({ color }) => {
         <path d="M340.4,331.4c-34.4,26-79.2,34.1-118.2,34.1c-112.5,0-164.9-76.5-164.9-156.5c0-96,68.1-156.9,163-156.9c44.4,0,82.6,10.3,116.7,31.4l0.8,55.9h-4.2c-11.1-55.5-60.1-76.1-114-76.1c-63.5,0-136.6,44-136.6,146.9c0,96.8,73.1,144.2,137,144.2c43.2,0,105.2-10.3,117.5-78.8h4.2L340.4,331.4z" />
         <path d="M312.9,576.1c0,77.3-42.5,125.9-117.8,125.9C121.3,702,78,661.4,78,578.4V424.6c0-18-7.3-23-37.1-23h-0.8v-6.1h98.7v6.1h-0.8c-29.8,0-37.1,5-37.1,23v155.7c0,67.3,35.2,103.3,97.2,103.3c66.6,0,99.9-41.7,99.9-108.3V441.8c0-26.8-5-40.2-41.3-40.2h-0.8v-6.1h98.7v6.1h-0.8c-32.5,0-40.9,13.4-40.9,40.2V576.1z" />
       </g>
-    </svg>
+    </LogoWrapper>
   );
 };
 

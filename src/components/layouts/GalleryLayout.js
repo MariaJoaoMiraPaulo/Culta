@@ -2,7 +2,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { FooterText } from '../../styles/typographyComponents';
+import { BodySmall } from '../../styles/typographyComponents';
 
 const GalleryGrid = styled.div`
   width: 90%;
@@ -36,7 +36,6 @@ const CenteredDiv = styled.div`
   display: flex;
   justify-content: center;
   min-height: 90vh;
-  margin: 5rem 0 8rem;
 `;
 
 const PhotoWrapper = styled.div`
@@ -70,8 +69,8 @@ const Overlay = styled.div`
 `;
 
 const ZoomedImage = styled.div`
-  max-width: 1000px;
-  max-height: 700px;
+  max-width: 70%;
+  max-height: 90%;
   position: relative;
   overflow: hidden;
 `;
@@ -113,7 +112,6 @@ const GalleryLayout = ({ photos }) => {
     };
 
     const handleRightClickImage = e => {
-      console.log(e.target);
       if (e.target.tagName === 'IMG') {
         e.preventDefault();
         e.stopPropagation();
@@ -156,7 +154,7 @@ const GalleryLayout = ({ photos }) => {
                     layout="constrained"
                   />
                   <Author>
-                    <FooterText>{node.author.toUpperCase()}</FooterText>
+                    <BodySmall>{node.author.toUpperCase()}</BodySmall>
                   </Author>
                 </PhotoWrapper>
               ),
@@ -167,14 +165,13 @@ const GalleryLayout = ({ photos }) => {
         <Overlay>
           <ZoomedImage ref={overlayRef}>
             <GatsbyImage
-              style={{ height: '100%', width: '100%' }}
               image={zoomedImage.photo.gatsbyImageData}
               alt={zoomedImage.description || 'gallery image'}
               placeholder="blurred"
-              layout="constrained"
+              imgStyle={{ objectFit: 'contain' }}
             />
             <AuthorBox>
-              <FooterText>{zoomedImage.author.toUpperCase()}</FooterText>
+              <BodySmall>{zoomedImage.author.toUpperCase()}</BodySmall>
             </AuthorBox>
           </ZoomedImage>
         </Overlay>

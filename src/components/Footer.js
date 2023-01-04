@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { CopyrightText, FooterText } from '../styles/typographyComponents';
+import { Caption, BodySmall } from '../styles/typographyComponents';
 import culta from '../data/culta';
-import { Link } from 'gatsby';
 import { withTrans } from '../i18n/withTrans';
+import { devices } from '../styles/devices';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const FooterWrapper = styled.div`
 `;
 
 const Table = styled.table`
-  padding: 4rem;
+  margin: 4rem;
   width: 100%;
 `;
 
@@ -47,19 +47,23 @@ const AuxLink = styled.a`
 
 const Copyright = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 
-  span {
-    padding-left: 1rem;
+  @media ${devices.tablet} {
+    flex-direction: row;
+
+    span {
+      padding-left: 1rem;
+    }
   }
 `;
 
-const FooterLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
+const FooterLink = styled(BodySmall)`
   cursor: pointer;
+  text-decoration: none:
   text-align: center;
+  color: inherit;
 
   &: hover {
     color: transparent;
@@ -76,11 +80,11 @@ const Footer = ({ t }) => {
           <tr>
             <th>
               <FooterLink to="/contact">
-                <FooterText>{t('footer.contacts').toUpperCase()}</FooterText>
+                <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
               </FooterLink>
             </th>
             <th>
-              <FooterText>{t('footer.newsletter').toUpperCase()}</FooterText>
+              <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
             </th>
           </tr>
           <tr>
@@ -93,20 +97,20 @@ const Footer = ({ t }) => {
             <td>
               <ColumnWrapper>
                 <FooterLink>
-                  <FooterText>{culta.phoneNumber}</FooterText>
+                  <BodySmall>{culta.phoneNumber}</BodySmall>
                 </FooterLink>
                 <FooterLink>
-                  <FooterText>{culta.email.toUpperCase()}</FooterText>
+                  <BodySmall>{culta.email.toUpperCase()}</BodySmall>
                 </FooterLink>
               </ColumnWrapper>
             </td>
             <td>
               <ColumnWrapper>
                 <FooterLink>
-                  <FooterText>{t('footer.linkedin').toUpperCase()}</FooterText>
+                  <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
                 </FooterLink>
                 <FooterLink>
-                  <FooterText>{t('footer.instagram').toUpperCase()}</FooterText>
+                  <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
                 </FooterLink>
               </ColumnWrapper>
             </td>
@@ -114,12 +118,12 @@ const Footer = ({ t }) => {
         </tbody>
       </Table>
       <Copyright>
-        <CopyrightText>{t('footer.copyright')}</CopyrightText>
+        <Caption>{t('footer.copyright')}</Caption>
         <AuxLink>
-          <CopyrightText>{t('footer.policy')}</CopyrightText>
+          <Caption>{t('footer.policy')}</Caption>
         </AuxLink>
         <AuxLink>
-          <CopyrightText>{t('footer.terms')}</CopyrightText>
+          <Caption>{t('footer.terms')}</Caption>
         </AuxLink>
       </Copyright>
     </FooterWrapper>

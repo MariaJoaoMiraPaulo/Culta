@@ -5,7 +5,7 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
 const Gallery = ({ data }) => {
   return (
-    <LayoutWrapper>
+    <LayoutWrapper logoColor="blue">
       <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />
     </LayoutWrapper>
   );

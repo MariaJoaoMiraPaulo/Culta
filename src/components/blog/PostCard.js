@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { CopyrightText, FooterText } from '../../styles/typographyComponents';
+import { Caption, BodySmall } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -67,15 +67,15 @@ const PostCard = ({ key, title, image, tags, id, createdAt }) => {
       <PostContent>
         <Tags>
           {tags.map(({ name }) => (
-            <CopyrightText key={name}>{name.toUpperCase()}</CopyrightText>
+            <Caption key={name}>{name.toUpperCase()}</Caption>
           ))}
         </Tags>
         <BottomContent>
           <DateStyle>
-            <FooterText>{new Date(createdAt).toLocaleDateString()}</FooterText>
+            <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
           </DateStyle>
           <Title>
-            <FooterText>{title}</FooterText>
+            <BodySmall>{title}</BodySmall>
           </Title>
         </BottomContent>
       </PostContent>

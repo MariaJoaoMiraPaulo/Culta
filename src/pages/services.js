@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ServicesLayout from '../components/layouts/ServicesLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';

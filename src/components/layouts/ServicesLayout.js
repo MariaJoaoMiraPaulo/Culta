@@ -3,8 +3,8 @@ import TitleSection from '../sections/TitleSection';
 import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { SmallTitle, Body } from '../../styles/typographyComponents';
-import ImageSection from '../sections/ImageSection';
+import { SubTitle2, Body } from '../../styles/typographyComponents';
+import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
   display: grid;
@@ -49,10 +49,10 @@ const ServicesLayout = ({ t, data, images }) => {
         color="blue"
       />
       <ServicesWrapper>
-        {data.map(({ node }) => (
+        {services.map(({ name, description }) => (
           <Service>
-            <SmallTitle>{node.serviceName}</SmallTitle>
-            <Body>{node.serviceDescription.serviceDescription}</Body>
+            <SubTitle2>{name}</SubTitle2>
+            <Body>{description}</Body>
           </Service>
         ))}
       </ServicesWrapper>

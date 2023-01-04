@@ -12,6 +12,7 @@ const HomeLayout = ({ t, images }) => {
         background="red"
         color="marble"
         paddingBottom="3.5rem"
+        paddingTop="4.5rem"
       />
       <TextSection
         body={t('homepage.about.body')}

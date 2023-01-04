@@ -4,12 +4,12 @@ import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import { SmallTitle, Body } from '../../styles/typographyComponents';
+import ImageSection from '../sections/ImageSection';
 
 const ServicesWrapper = styled.div`
   display: grid;
   margin: 0 2rem 10rem 2rem;
   grid-template-columns: 100%;
-  padding: 2rem;
   justify-items: center;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;
@@ -40,7 +40,7 @@ const Service = styled.div`
   }
 `;
 
-const ServicesLayout = ({ t, data }) => {
+const ServicesLayout = ({ t, data, images }) => {
   return (
     <>
       <TitleSection
@@ -56,6 +56,11 @@ const ServicesLayout = ({ t, data }) => {
           </Service>
         ))}
       </ServicesWrapper>
+      <ImageSection
+        image={images['natureza.jpg']}
+        title={t('contact.title')}
+        linkTo={'/contact'}
+      />
     </>
   );
 };

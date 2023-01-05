@@ -8,7 +8,7 @@ const AboutPage = ({ data }) => {
   const images = getImagesMappedByName(data);
 
   return (
-    <LayoutWrapper logoColor="blue">
+    <LayoutWrapper logoColor="red">
       <AboutLayout images={images} />
     </LayoutWrapper>
   );

@@ -8,7 +8,7 @@ const ContactPage = ({ data }) => {
   const images = getImagesMappedByName(data);
 
   return (
-    <LayoutWrapper logoColor="blue">
+    <LayoutWrapper logoColor="red">
       <ContactLayout images={images} />
     </LayoutWrapper>
   );

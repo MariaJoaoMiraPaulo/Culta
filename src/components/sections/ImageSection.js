@@ -15,11 +15,11 @@ const ImageSectionWrapper = styled.div`
   height: 30rem;
   color: ${props => props.theme.colors.marble};
   position: relative;
+  cursor: pointer;
 
   &: hover {
     color: transparent;
-    z-index: 9;
-    cursor: pointer;
+    z-index: 1;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
@@ -50,6 +50,7 @@ const ImageContent = styled.div`
   left: 0;
   padding: 20px 40px;
   max-width: 50%;
+  pointer-events: none;
 `;
 
 const ImageSection = ({ background, color, image, title, linkTo }) => {

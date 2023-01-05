@@ -132,6 +132,9 @@ const Footer = ({ t }) => {
         <AuxLink>
           <Caption>{t('footer.terms')}</Caption>
         </AuxLink>
+        <AuxLink>
+          <Caption>{t('footer.license')}</Caption>
+        </AuxLink>
       </Copyright>
     </FooterWrapper>
   );

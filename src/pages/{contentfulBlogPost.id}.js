@@ -1,5 +1,5 @@
 import { graphql, navigate } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import PostLayout from '../components/layouts/PostLayout';
 
@@ -9,7 +9,7 @@ const Post = ({ data }) => {
   }
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper logoColor='red'>
       <PostLayout
         post={data.contentfulBlogPost}
         assets={data.allContentfulAsset}

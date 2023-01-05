@@ -5,7 +5,7 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
 const BlogPage = ({ data }) => {
   return (
-    <LayoutWrapper logoColor="blue">
+    <LayoutWrapper logoColor="red">
       <BlogLayout data={data.allContentfulBlogPost.edges} />
     </LayoutWrapper>
   );

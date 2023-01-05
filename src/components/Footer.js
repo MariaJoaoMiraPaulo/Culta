@@ -4,6 +4,7 @@ import { Caption, BodySmall } from '../styles/typographyComponents';
 import culta from '../data/culta';
 import { withTrans } from '../i18n/withTrans';
 import { devices } from '../styles/devices';
+import { Link } from 'gatsby';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -59,9 +60,9 @@ const Copyright = styled.div`
   }
 `;
 
-const FooterLink = styled(BodySmall)`
+const FooterLink = styled(Link)`
   cursor: pointer;
-  text-decoration: none:
+  text-decoration: none;
   text-align: center;
   color: inherit;
 
@@ -106,10 +107,16 @@ const Footer = ({ t }) => {
             </td>
             <td>
               <ColumnWrapper>
-                <FooterLink>
+                <FooterLink
+                  href="https://www.linkedin.com/company/aculta/?viewAsMember=true"
+                  target="_blank"
+                >
                   <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
                 </FooterLink>
-                <FooterLink>
+                <FooterLink
+                  href="https://www.instagram.com/cultapt/"
+                  target="_blank"
+                >
                   <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
                 </FooterLink>
               </ColumnWrapper>
@@ -124,6 +131,9 @@ const Footer = ({ t }) => {
         </AuxLink>
         <AuxLink>
           <Caption>{t('footer.terms')}</Caption>
+        </AuxLink>
+        <AuxLink>
+          <Caption>{t('footer.license')}</Caption>
         </AuxLink>
       </Copyright>
     </FooterWrapper>

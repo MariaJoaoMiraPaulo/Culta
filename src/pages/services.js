@@ -2,13 +2,14 @@ import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ServicesLayout from '../components/layouts/ServicesLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
+import { graphql } from 'gatsby';
 
 const ServicesPage = ({ data }) => {
   const images = getImagesMappedByName(data);
 
   return (
     <LayoutWrapper logoColor="blue">
-      <ServicesLayout data={data.allContentfulServices.edges} images={images} />
+      <ServicesLayout images={images} />
     </LayoutWrapper>
   );
 };
@@ -17,16 +18,6 @@ export default ServicesPage;
 
 export const query = graphql`
   query MyQuery {
-    allContentfulServices {
-      edges {
-        node {
-          serviceName
-          serviceDescription {
-            serviceDescription
-          }
-        }
-      }
-    }
     allImageSharp(
       filter: {
         fluid: {

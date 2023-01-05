@@ -1,5 +1,6 @@
 import * as React from 'react';
 import TitleSection from '../sections/TitleSection';
+import ImageSection from '../sections/ImageSection';
 import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';

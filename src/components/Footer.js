@@ -5,6 +5,7 @@ import culta from '../data/culta';
 import { withTrans } from '../i18n/withTrans';
 import { devices } from '../styles/devices';
 import { Link } from 'gatsby';
+import NewsletterForm from './forms/NewsletterForm';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -91,7 +92,7 @@ const Footer = ({ t }) => {
           <tr>
             <Td></Td>
             <Td>
-              <AuxLink>{t('footer.subscribe')}</AuxLink>
+              <NewsletterForm />
             </Td>
           </tr>
           <tr>

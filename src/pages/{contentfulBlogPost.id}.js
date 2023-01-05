@@ -9,7 +9,7 @@ const Post = ({ data }) => {
   }
 
   return (
-    <LayoutWrapper logoColor='red'>
+    <LayoutWrapper logoColor="red">
       <PostLayout
         post={data.contentfulBlogPost}
         assets={data.allContentfulAsset}

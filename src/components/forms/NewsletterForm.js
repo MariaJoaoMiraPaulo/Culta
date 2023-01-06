@@ -48,7 +48,7 @@ const NewsletterForm = ({ t }) => {
   const subscribeNewsletter = () => {
     setInfo(null);
     if (validateEmail(email)) {
-      addToMailchimp('maria.joao@fidel.uk')
+      addToMailchimp(email)
         .then(() => {
           setInfo(t('footer.subscribedSuccess'));
         })

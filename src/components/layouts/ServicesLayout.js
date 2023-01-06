@@ -9,7 +9,7 @@ import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
   display: grid;
-  margin: 0 2rem 10rem 2rem;
+  margin: 0 2rem 5rem 2rem;
   grid-template-columns: 100%;
   justify-items: center;
   @media ${devices.tablet} {
@@ -41,7 +41,7 @@ const Service = styled.div`
   }
 `;
 
-const ServicesLayout = ({ t, data, images }) => {
+const ServicesLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection
@@ -51,7 +51,7 @@ const ServicesLayout = ({ t, data, images }) => {
       />
       <ServicesWrapper>
         {services.map(({ name, description }) => (
-          <Service>
+          <Service key={name}>
             <SubTitle2>{name}</SubTitle2>
             <Body>{description}</Body>
           </Service>

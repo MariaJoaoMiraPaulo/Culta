@@ -74,6 +74,19 @@ const FooterLink = styled(Link)`
   }
 `;
 
+const FooterAnchor = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+
+  &: hover {
+    color: transparent;
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+  }
+`;
+
 const Footer = ({ t }) => {
   return (
     <FooterWrapper>
@@ -98,28 +111,28 @@ const Footer = ({ t }) => {
           <tr>
             <td>
               <ColumnWrapper>
-                <FooterLink>
+                <FooterAnchor href="tel:+351912681139">
                   <BodySmall>{culta.phoneNumber}</BodySmall>
-                </FooterLink>
-                <FooterLink>
+                </FooterAnchor>
+                <FooterAnchor href="mailto:geral@culta.pt">
                   <BodySmall>{culta.email.toUpperCase()}</BodySmall>
-                </FooterLink>
+                </FooterAnchor>
               </ColumnWrapper>
             </td>
             <td>
               <ColumnWrapper>
-                <FooterLink
+                <FooterAnchor
                   href="https://www.linkedin.com/company/aculta/?viewAsMember=true"
                   target="_blank"
                 >
                   <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
-                </FooterLink>
-                <FooterLink
+                </FooterAnchor>
+                <FooterAnchor
                   href="https://www.instagram.com/cultapt/"
                   target="_blank"
                 >
                   <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
-                </FooterLink>
+                </FooterAnchor>
               </ColumnWrapper>
             </td>
           </tr>

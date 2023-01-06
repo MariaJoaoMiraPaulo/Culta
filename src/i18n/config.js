@@ -15,13 +15,10 @@ i18next.init({
   returnObjects: true,
   debug: process.env.NODE_ENV === 'development',
   interpolation: {
-    escapeValue: false, // not needed for react!!
-  },
-  react: {
-    wait: true,
+    escapeValue: false,
   },
 });
 
-i18next.languages = ['zh-Hant', 'en'];
+i18next.languages = ['pt', 'en'];
 
 export default i18next;

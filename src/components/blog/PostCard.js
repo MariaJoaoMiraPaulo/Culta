@@ -54,9 +54,11 @@ const Title = styled.div`
   max-width: 100%;
 `;
 
-const PostCard = ({ key, title, image, tags, id, createdAt }) => {
+const PostCard = ({ title, image, tags, id, createdAt }) => {
+  const jumpToContainer = () => navigate(`/${id}`);
+
   return (
-    <PostContainer image={image} onClick={() => navigate(`/${id}`)}>
+    <PostContainer image={image} onClick={jumpToContainer}>
       <GatsbyImage
         style={{ height: '100%', width: '100%' }}
         image={image}

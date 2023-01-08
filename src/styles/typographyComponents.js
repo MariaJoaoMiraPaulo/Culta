@@ -6,10 +6,11 @@ export const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 155px;
+  line-height: 100px;
   font-weight: 100;
   @media ${devices.tablet} {
     font-size: 120px;
+    line-height: 155px;
   }
   margin: 0rem;
 }
@@ -108,4 +109,18 @@ export const Caption = styled.span`
     font-size: 18px;
   }
   margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
+`;
+
+export const AnimationTitle = styled.h2`
+  font-size: 19px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  text-transform: uppercase;
+  line-height: 65px;
+  font-weight: 100;
+  @media ${devices.tablet} {
+    font-size: 50px;
+  }
+  margin: 0rem;
+}
 `;

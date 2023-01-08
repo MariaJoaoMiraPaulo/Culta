@@ -1,35 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SubTitle2 } from '../styles/typographyComponents';
+import { AnimationTitle } from '../styles/typographyComponents';
 import { withTrans } from '../i18n/withTrans';
+import { devices } from '../styles/devices';
 
 const Animation = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 5rem;
+  padding: 3rem 4rem 6rem 4rem;
+  flex-direction: column;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    padding: 5rem;
+  }
 `;
 
 const CultureContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.marble};
   height: 60px;
-  padding: 0 1rem;
+  padding: 0 25px;
+  text-align: left;
+
+  @media ${devices.tablet} {
+    padding: 0 1rem;
+  }
 `;
 
 const AnimationContainer = styled.div`
   height: 65px;
   overflow: hidden;
   color: ${({ theme }) => theme.colors.blue};
-  padding: 0 1rem;
+  padding: 0;
+  @media ${devices.tablet} {
+    padding: 0 1rem;
+  }
 `;
 
 const Sentences = styled.ul`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   margin: 0;
+  padding-left: 0;
+  width: max-content;
+
+  @media ${devices.tablet} {
+    align-items: flex-end;
+    width: auto;
+  }
 
   li {
     line-height: 65px;
@@ -68,27 +90,27 @@ const CultureAnimation = ({ t }) => {
       <AnimationContainer>
         <Sentences>
           <li>
-            <SubTitle2>{t('about.sentence1')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence1')}</AnimationTitle>
           </li>
           <li>
-            <SubTitle2>{t('about.sentence2')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence2')}</AnimationTitle>
           </li>
           <li>
-            <SubTitle2>{t('about.sentence3')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence3')}</AnimationTitle>
           </li>
           <li>
-            <SubTitle2>{t('about.sentence4')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence4')}</AnimationTitle>
           </li>
           <li>
-            <SubTitle2>{t('about.sentence5')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence5')}</AnimationTitle>
           </li>
           <li>
-            <SubTitle2>{t('about.sentence6')}</SubTitle2>
+            <AnimationTitle>{t('about.sentence6')}</AnimationTitle>
           </li>
         </Sentences>
       </AnimationContainer>
       <CultureContainer>
-        <SubTitle2>{t('about.culture')}</SubTitle2>
+        <AnimationTitle>{t('about.culture')}</AnimationTitle>
       </CultureContainer>
     </Animation>
   );

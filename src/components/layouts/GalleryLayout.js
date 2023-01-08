@@ -111,13 +111,6 @@ const GalleryLayout = ({ photos }) => {
       }
     };
 
-    const handleRightClickImage = e => {
-      if (e.target.tagName === 'IMG') {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    };
-
     const handleEscClick = e => {
       if (e.key === 'Escape') {
         setZoomedImage(null);
@@ -125,12 +118,10 @@ const GalleryLayout = ({ photos }) => {
     };
 
     document.addEventListener('click', handleClickOutside);
-    document.addEventListener('contextmenu', handleRightClickImage);
     document.addEventListener('keydown', handleEscClick, false);
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('contextmenu', handleRightClickImage);
       document.removeEventListener('keydown', handleEscClick, false);
     };
   }, [zoomedImage]);

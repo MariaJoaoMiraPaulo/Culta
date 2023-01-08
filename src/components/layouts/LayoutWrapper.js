@@ -1,5 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import MyFooter from '../Footer';
 import Header from '../Header';
@@ -35,8 +35,22 @@ const LayoutWrapper = ({
   inline,
   logoColor,
   isHomepage = false,
-  noPadding,
 }) => {
+  useEffect(() => {
+    const handleRightClickImage = e => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    document.addEventListener('contextmenu', handleRightClickImage);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleRightClickImage);
+    };
+  });
+
   return (
     <>
       {isHomepage ? (

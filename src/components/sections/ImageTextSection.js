@@ -34,7 +34,15 @@ const TextWrapper = styled.div`
   }
 `;
 
-const ImageTextSection = ({ color, body, title, padding, image, imageAlt }) => {
+const ImageTextSection = ({
+  color,
+  body,
+  title,
+  padding,
+  image,
+  imageAlt,
+  paddingMobile,
+}) => {
   return (
     <ImageTextWrapper>
       <ImageWrapper>
@@ -46,6 +54,7 @@ const ImageTextSection = ({ color, body, title, padding, image, imageAlt }) => {
           body={body}
           title={title}
           padding={padding}
+          paddingMobile={paddingMobile}
         />
       </TextWrapper>
     </ImageTextWrapper>

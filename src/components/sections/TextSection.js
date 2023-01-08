@@ -9,13 +9,13 @@ const TextSectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   display: flex;
   flex-direction: column;
+  padding: ${({ paddingMobile }) => paddingMobile};
   @media ${devices.tablet} {
-    padding: 0 ${({ padding }) => padding || null};
-    padding-bottom: 7rem;
+    padding: ${({ padding }) => padding};
   }
   white-space: pre-line;
   z-index: 9;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 3rem 2rem;
 `;
 
 const TitleWrapper = styled.div`
@@ -38,9 +38,15 @@ const TextSection = ({
   title = false,
   centered = false,
   padding,
+  paddingMobile,
 }) => {
   return (
-    <TextSectionWrapper color={color} background={background} padding={padding}>
+    <TextSectionWrapper
+      color={color}
+      background={background}
+      padding={padding}
+      paddingMobile={paddingMobile}
+    >
       {title ? (
         <TitleWrapper>
           <SubTitle color="blue">{title}</SubTitle>

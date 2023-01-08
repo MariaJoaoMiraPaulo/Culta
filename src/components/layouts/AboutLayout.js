@@ -9,8 +9,8 @@ const AboutLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection
-        paddingTop="4rem"
-        paddingBottom="4rem"
+        padding="4rem 1rem"
+        paddingMobile="4rem 1rem"
         title={t('about.title')}
         background="marble"
         color="blue"

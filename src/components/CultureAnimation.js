@@ -8,12 +8,12 @@ const Animation = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 3rem 4rem 6rem 4rem;
+  margin: 3rem 4rem 6rem 4rem;
   flex-direction: column;
 
   @media ${devices.tablet} {
     flex-direction: row;
-    padding: 5rem;
+    margin: 5rem;
   }
 `;
 

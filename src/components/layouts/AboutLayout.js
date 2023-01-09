@@ -21,6 +21,8 @@ const AboutLayout = ({ t, images }) => {
         title={t('about.about').toUpperCase()}
         image={images['pilares.jpg']}
         imageAlt={t('services.services')}
+        padding="0"
+        paddingMobile="1rem 0"
       />
       <CultureAnimation />
       <ImageSection

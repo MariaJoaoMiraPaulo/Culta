@@ -15,7 +15,6 @@ const TextSectionWrapper = styled.div`
   }
   white-space: pre-line;
   z-index: 9;
-  padding: 3rem 2rem;
 `;
 
 const TitleWrapper = styled.div`

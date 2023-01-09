@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import { BodySmall } from '../../styles/typographyComponents';
+import { Link } from 'gatsby';
 
 const GalleryGrid = styled.div`
   width: 90%;
@@ -95,6 +96,19 @@ const AuthorBox = styled.div`
   }
 `;
 
+const AuthorLink = styled(Link)`
+  text-decoration: none;
+  &: hover {
+    color: transparent;
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+  }
+  &: visited {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.marble};
+  }
+`;
+
 const GalleryLayout = ({ photos }) => {
   const [zoomedImage, setZoomedImage] = useState(null);
   const overlayRef = useRef(null);
@@ -171,7 +185,9 @@ const GalleryLayout = ({ photos }) => {
               imgStyle={{ objectFit: 'contain' }}
             />
             <AuthorBox>
-              <BodySmall>{zoomedImage.author.toUpperCase()}</BodySmall>
+              <AuthorLink href={zoomedImage.authorsProfileLink} target="_blank">
+                <BodySmall>{zoomedImage.author.toUpperCase()}</BodySmall>
+              </AuthorLink>
             </AuthorBox>
           </ZoomedImage>
         </Overlay>

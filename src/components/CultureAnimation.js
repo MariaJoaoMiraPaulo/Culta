@@ -7,7 +7,7 @@ const Animation = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 5rem;
+  margin: 5rem;
 `;
 
 const CultureContainer = styled.div`

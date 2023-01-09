@@ -2,23 +2,47 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from '../Image';
 import TextSection from './TextSection';
+import { devices } from '../../styles/devices';
 
 const ImageTextWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 1rem 0;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
 `;
 
 const ImageWrapper = styled.div`
-  width: 50%;
-  margin: 0 1rem;
+  width: 100%;
+  margin: 0;
+
+  @media ${devices.tablet} {
+    width: 50%;
+    margin: 0 1rem;
+  }
 `;
 
 const TextWrapper = styled.div`
-  width: 50%;
+  position: relative;
   margin: 0 1rem;
+
+  @media ${devices.tablet} {
+    width: 50%;
+  }
 `;
 
-const ImageTextSection = ({ color, body, title, padding, image, imageAlt }) => {
+const ImageTextSection = ({
+  color,
+  body,
+  title,
+  padding,
+  image,
+  imageAlt,
+  paddingMobile,
+}) => {
   return (
     <ImageTextWrapper>
       <ImageWrapper>
@@ -30,6 +54,7 @@ const ImageTextSection = ({ color, body, title, padding, image, imageAlt }) => {
           body={body}
           title={title}
           padding={padding}
+          paddingMobile={paddingMobile}
         />
       </TextWrapper>
     </ImageTextWrapper>

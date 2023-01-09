@@ -8,13 +8,21 @@ import { withTrans } from '../../i18n/withTrans';
 const AboutLayout = ({ t, images }) => {
   return (
     <>
-      <TitleSection title={t('about.title')} background="marble" color="blue" />
+      <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="4rem 1rem"
+        title={t('about.title')}
+        background="marble"
+        color="blue"
+      />
       <ImageTextSection
         color="blue"
         body={t('about.body')}
         title={t('about.about').toUpperCase()}
         image={images['pilares.jpg']}
         imageAlt={t('services.services')}
+        padding="0"
+        paddingMobile="1rem 0"
       />
       <CultureAnimation />
       <ImageSection

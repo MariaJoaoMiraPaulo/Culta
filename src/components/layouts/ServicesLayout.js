@@ -45,6 +45,8 @@ const ServicesLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="4rem 1rem"
         title={t('services.services')}
         background="marble"
         color="blue"

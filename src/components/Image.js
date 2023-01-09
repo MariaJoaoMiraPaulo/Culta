@@ -1,6 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
+import { devices } from '../styles/devices';
 
 const SectionWrapper = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -14,6 +15,10 @@ const ImageSectionWrapper = styled.div`
   height: auto;
   color: ${props => props.theme.colors.marble};
   position: relative;
+
+  @media ${devices.tablet} {
+    height: 30rem;
+  }
 `;
 
 const ImageSectionCover = styled.div`

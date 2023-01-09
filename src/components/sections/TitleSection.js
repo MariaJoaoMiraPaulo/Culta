@@ -9,25 +9,19 @@ const SectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   text-align: center;
   overflow-wrap: break-word;
+  padding: ${({ paddingMobile }) => paddingMobile};
   @media ${devices.tablet} {
-    padding: ${({ paddingTop }) => paddingTop || '0'} 3rem
-      ${({ paddingBottom }) => paddingBottom || '7rem'} 3rem;
+    padding: ${({ padding }) => padding};
   }
 `;
 
-const TitleSection = ({
-  title,
-  background,
-  color,
-  paddingTop,
-  paddingBottom,
-}) => {
+const TitleSection = ({ title, background, color, padding, paddingMobile }) => {
   return (
     <SectionWrapper
       background={background}
       color={color}
-      paddingBottom={paddingBottom}
-      paddingTop={paddingTop}
+      padding={padding}
+      paddingMobile={paddingMobile}
     >
       <Title>{title}</Title>
     </SectionWrapper>

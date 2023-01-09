@@ -81,6 +81,7 @@ const Author = styled.div`
   bottom: 0;
   left: 0;
   padding: 0px 15px;
+  pointer-events: none;
 `;
 
 const AuthorBox = styled.div`

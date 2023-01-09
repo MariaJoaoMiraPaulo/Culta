@@ -112,15 +112,24 @@ export const Caption = styled.span`
 `;
 
 export const AnimationTitle = styled.h2`
-  font-size: 19px;
+  font-size: 13px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
   line-height: 65px;
   font-weight: 100;
-  @media ${devices.tablet} {
+  margin: 0rem;
+
+  @media ${devices.mobileM} {
+    font-size: 19px;
+  }
+
+  @media ${devices.laptop} {
+    font-size: 30px;
+  }
+
+  @media ${devices.desktop} {
     font-size: 50px;
   }
-  margin: 0rem;
 }
 `;

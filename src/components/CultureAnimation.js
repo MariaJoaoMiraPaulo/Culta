@@ -8,7 +8,7 @@ const Animation = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  margin: 3rem 4rem 6rem 4rem;
+  margin: 3rem 1rem 6rem 1rem;
   flex-direction: column;
 
   @media ${devices.tablet} {
@@ -20,11 +20,18 @@ const Animation = styled.div`
 const CultureContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.marble};
-  height: 60px;
+  height: 40px;
   padding: 0 25px;
   text-align: left;
+  display: flex;
+  align-items: center;
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileM} {
+    height: 60px;
+  }
+
+  @media ${devices.laptop} {
+    height: 60px;
     padding: 0 1rem;
   }
 `;

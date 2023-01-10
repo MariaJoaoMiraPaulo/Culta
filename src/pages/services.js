@@ -20,9 +20,7 @@ export const query = graphql`
   query MyQuery {
     allImageSharp(
       filter: {
-        fluid: {
-          originalName: { in: ["pilares.jpg", "what.jpg", "natureza.jpg"] }
-        }
+        fluid: { originalName: { in: ["natureza.jpg", "monumento.jpg"] } }
       }
     ) {
       edges {

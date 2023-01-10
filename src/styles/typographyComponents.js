@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { devices } from './devices';
 
 export const Title = styled.h1`
-  font-size: 60px;
+  font-size: 50px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
@@ -51,10 +51,11 @@ export const SubTitle2 = styled.h2`
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 65px;
+  line-height: 40px;
   font-weight: 100;
   @media ${devices.tablet} {
     font-size: 45px;
+    line-height: 65px;
   }
   margin: 0rem;
 }

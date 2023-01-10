@@ -6,7 +6,7 @@ const Form = styled.form`
   display: grid;
   justify-items: center;
   grid-template-columns: 100%;
-  margin-bottom: 5rem;
+  margin: 1rem 0 5rem 0;
 `;
 
 const Buttons = styled.div`

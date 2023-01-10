@@ -18,8 +18,13 @@ const FooterWrapper = styled.div`
 `;
 
 const Table = styled.table`
-  margin: 4rem;
+  margin: 1rem 0rem;
   width: 100%;
+  table-layout: fixed;
+
+  @media ${devices.tablet} {
+    margin: 4rem;
+  }
 `;
 
 const Td = styled.td`
@@ -34,8 +39,7 @@ const ColumnWrapper = styled.div`
 `;
 
 const AuxLink = styled.a`
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 12px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
@@ -44,6 +48,10 @@ const AuxLink = styled.a`
 
   &: hover {
     text-decoration: underline;
+  }
+
+  @media ${devices.tablet} {
+    font-size: 16px;
   }
 `;
 

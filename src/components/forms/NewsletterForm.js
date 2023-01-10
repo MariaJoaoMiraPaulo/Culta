@@ -2,6 +2,7 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
 import React, { useState } from 'react';
 import { withTrans } from '../../i18n/withTrans';
+import { devices } from '../../styles/devices';
 
 const NewsletterInput = styled.input`
   background: none;
@@ -19,7 +20,11 @@ const NewsletterInput = styled.input`
     color: ${({ theme }) => theme.colors.marble};
     text-align: center;
     text-decoration: underline;
-    font-size: 16px;
+    font-size: 14px;
+
+    @media ${devices.tablet} {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -28,6 +33,7 @@ const InfoMessage = styled.span`
   padding-top: 3px;
   font-family: ${({ theme }) => theme.fonts.main};
 `;
+
 const NewsletterFormWrapper = styled.div`
   height: 30px;
 `;
@@ -72,7 +78,7 @@ const NewsletterForm = ({ t }) => {
           placeholder={t('footer.subscribe')}
           onChange={handleChange}
         />
-        <button onClick={subscribeNewsletter}>.</button>
+        {/* <button onClick={subscribeNewsletter}>.</button> */}
       </div>
       <InfoMessage>{info}</InfoMessage>
     </NewsletterFormWrapper>

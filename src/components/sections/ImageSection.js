@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SubTitle } from '../../styles/typographyComponents';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { devices } from '../../styles/devices';
 
 const SectionWrapper = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -12,20 +13,23 @@ const SectionWrapper = styled.a`
 
 const ImageSectionWrapper = styled.div`
   width: 100%;
-  height: 30rem;
+  height: 20rem;
   color: ${props => props.theme.colors.marble};
   position: relative;
   cursor: pointer;
-
-  &: hover {
-    color: transparent;
-    z-index: 1;
-    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
-      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
-  }
-
   max-width: 100%;
   overflow: hidden;
+
+  @media ${devices.tablet} {
+    height: 30rem;
+
+    &: hover {
+      color: transparent;
+      z-index: 1;
+      text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+        ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+    }
+  }
 `;
 
 const ImageSectionCover = styled.div`
@@ -36,8 +40,15 @@ const ImageSectionCover = styled.div`
   display: flex;
   justify-content: center;
 
-  &: hover {
-    filter: blur(0px);
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  @media ${devices.tablet} {
+    &: hover {
+      filter: blur(0px);
+    }
   }
 `;
 
@@ -48,9 +59,14 @@ const ImageContent = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 20px 40px;
-  max-width: 50%;
+  padding: 20px 20px;
+  max-width: 100%;
   pointer-events: none;
+
+  @media ${devices.tablet} {
+    padding: 20px 40px;
+    max-width: 50%;
+  }
 `;
 
 const ImageSection = ({ background, color, image, title, linkTo }) => {

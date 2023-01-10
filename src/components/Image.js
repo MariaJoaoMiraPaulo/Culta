@@ -21,23 +21,16 @@ const ImageSectionWrapper = styled.div`
   }
 `;
 
-const ImageSectionCover = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 const ImageSection = ({ image, imageAlt }) => {
   return (
     <SectionWrapper>
       <ImageSectionWrapper>
-        <ImageSectionCover>
-          <GatsbyImage
-            image={image}
-            alt={imageAlt}
-            placeholder="blurred"
-            layout="fixed"
-          />
-        </ImageSectionCover>
+        <GatsbyImage
+          image={image}
+          alt={imageAlt}
+          placeholder="blurred"
+          layout="fixed"
+        />
       </ImageSectionWrapper>
     </SectionWrapper>
   );

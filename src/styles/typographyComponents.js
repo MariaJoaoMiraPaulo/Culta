@@ -6,7 +6,7 @@ export const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 100px;
+  line-height: 80px;
   font-weight: 100;
   @media ${devices.tablet} {
     font-size: 120px;
@@ -32,14 +32,15 @@ export const MenuTitle = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 29px;
+  font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   text-transform: uppercase;
-  line-height: 65px;
+  line-height: 35px;
   font-weight: 100;
   @media ${devices.tablet} {
     font-size: 60px;
+    line-height: 65px;
   }
   margin: 0rem;
 }
@@ -60,7 +61,7 @@ export const SubTitle2 = styled.h2`
 `;
 
 export const Body = styled.span`
-  font-size: 20px;
+  font-size: 15px;
   line-height: 33px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
@@ -101,12 +102,14 @@ export const BodySmall = styled.span`
 
 export const Caption = styled.span`
   font-size: 14px;
-  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '30px')};
+  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '24px')};
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
     font-size: 18px;
+    line-height: ${({ lineHeight }) =>
+      lineHeight ? `${lineHeight}px` : '30px'};
   }
   margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
 `;

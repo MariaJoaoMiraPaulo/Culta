@@ -11,8 +11,8 @@ const HomeLayout = ({ t, images }) => {
         title={t('homepage.title')}
         background="red"
         color="marble"
-        padding="4rem 1rem"
-        paddingMobile="2rem 1rem 0rem 1rem"
+        padding="5rem 1rem 3rem 1rem"
+        paddingMobile="3rem 1rem 1rem 1rem"
       />
       <TextSection
         body={t('homepage.about.body')}
@@ -20,8 +20,8 @@ const HomeLayout = ({ t, images }) => {
         background="red"
         color="marble"
         centered="true"
-        padding="0 20% 4rem 20%"
-        paddingMobile="0 20% 4rem 20%"
+        padding="0 20% 5rem 20%"
+        paddingMobile="0 15% 3rem 15%"
       />
       <ImageSection
         image={images['what.jpg']}

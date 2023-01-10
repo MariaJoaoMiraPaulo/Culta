@@ -6,9 +6,9 @@ const Grain = () => {
       <filter id="noiseFilter">
         <feTurbulence
           type="turbulence"
-          baseFrequency="65"
+          baseFrequency="40"
           numOctaves="2"
-          stitchTiles="stitch"
+          stitchTiles="NoStitch"
         />
       </filter>
 

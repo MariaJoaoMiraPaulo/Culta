@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SubTitle } from '../../styles/typographyComponents';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import GrainyEffect, { GrainyEffectWrapper } from '../effect/GrainyEffect';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
 
 const SectionWrapper = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -29,23 +29,6 @@ const ImageSectionWrapper = styled.div`
   overflow: hidden;
 `;
 
-const ImageSectionCover = styled.div`
-  width: 100%;
-  height: 100%;
-  filter: blur(1.2px);
-  transform: scale(1.05);
-  display: flex;
-  justify-content: center;
-
-  &:hover {
-    filter: blur(0);
-    ${GrainyEffectWrapper} {
-      width: 0;
-      height: 0;
-    }
-  }
-`;
-
 const ImageContent = styled.div`
   background-color: rgb(1, 1, 1, 0);
   display: flex;
@@ -62,15 +45,14 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
   return (
     <SectionWrapper color={color} background={background} href={linkTo}>
       <ImageSectionWrapper>
-        <ImageSectionCover>
+        <GrainyEffectImage showOnHover>
           <GatsbyImage
             image={image}
             alt={title}
             placeholder="blurred"
             layout="fixed"
           />
-          <GrainyEffect />
-        </ImageSectionCover>
+        </GrainyEffectImage>
         <ImageContent>
           <SubTitle>{title}</SubTitle>
         </ImageContent>

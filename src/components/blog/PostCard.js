@@ -3,12 +3,19 @@ import styled from 'styled-components';
 import { Caption, BodySmall } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
 
 const PostContainer = styled.div`
   margin: 20px;
   height: 450px;
   cursor: pointer;
   position: relative;
+
+  &: hover {
+    color: transparent;
+    z-index: 1;
+    text-shadow: 0 0 10px #efede4;
+  }
 `;
 
 const PostContent = styled.div`
@@ -59,28 +66,30 @@ const PostCard = ({ title, image, tags, id, createdAt }) => {
 
   return (
     <PostContainer image={image} onClick={jumpToContainer}>
-      <GatsbyImage
-        style={{ height: '100%', width: '100%' }}
-        image={image}
-        alt={title}
-        placeholder="blurred"
-        layout="constrained"
-      />
-      <PostContent>
-        <Tags>
-          {tags.map(({ name }) => (
-            <Caption key={name}>{name.toUpperCase()}</Caption>
-          ))}
-        </Tags>
-        <BottomContent>
-          <DateStyle>
-            <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
-          </DateStyle>
-          <Title>
-            <BodySmall>{title}</BodySmall>
-          </Title>
-        </BottomContent>
-      </PostContent>
+      <GrainyEffectImage>
+        <GatsbyImage
+          style={{ height: '100%', width: '100%' }}
+          image={image}
+          alt={title}
+          placeholder="blurred"
+          layout="constrained"
+        />
+        <PostContent>
+          <Tags>
+            {tags.map(({ name }) => (
+              <Caption key={name}>{name.toUpperCase()}</Caption>
+            ))}
+          </Tags>
+          <BottomContent>
+            <DateStyle>
+              <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
+            </DateStyle>
+            <Title>
+              <BodySmall>{title}</BodySmall>
+            </Title>
+          </BottomContent>
+        </PostContent>
+      </GrainyEffectImage>
     </PostContainer>
   );
 };

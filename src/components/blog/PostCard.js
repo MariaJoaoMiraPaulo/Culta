@@ -28,6 +28,7 @@ const PostContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-content: space-between;
+  pointer-events: none;
 `;
 
 const Tags = styled.div`
@@ -74,22 +75,22 @@ const PostCard = ({ title, image, tags, id, createdAt }) => {
           placeholder="blurred"
           layout="constrained"
         />
-        <PostContent>
-          <Tags>
-            {tags.map(({ name }) => (
-              <Caption key={name}>{name.toUpperCase()}</Caption>
-            ))}
-          </Tags>
-          <BottomContent>
-            <DateStyle>
-              <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
-            </DateStyle>
-            <Title>
-              <BodySmall>{title}</BodySmall>
-            </Title>
-          </BottomContent>
-        </PostContent>
       </GrainyEffectImage>
+      <PostContent>
+        <Tags>
+          {tags.map(({ name }) => (
+            <Caption key={name}>{name.toUpperCase()}</Caption>
+          ))}
+        </Tags>
+        <BottomContent>
+          <DateStyle>
+            <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
+          </DateStyle>
+          <Title>
+            <BodySmall>{title}</BodySmall>
+          </Title>
+        </BottomContent>
+      </PostContent>
     </PostContainer>
   );
 };

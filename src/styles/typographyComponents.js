@@ -62,7 +62,7 @@ export const SubTitle2 = styled.h2`
 `;
 
 export const Body = styled.span`
-  font-size: 15px;
+  font-size: 20px;
   line-height: 33px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 200;

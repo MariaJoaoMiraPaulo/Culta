@@ -100,6 +100,8 @@ const AuthorBox = styled.div`
 
 const AuthorLink = styled(Link)`
   text-decoration: none;
+  color: ${({ theme }) => theme.colors.marble};
+
   &: hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}

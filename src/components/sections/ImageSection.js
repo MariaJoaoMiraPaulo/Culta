@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SubTitle } from '../../styles/typographyComponents';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
 import { devices } from '../../styles/devices';
 
 const SectionWrapper = styled.a`
@@ -32,26 +33,6 @@ const ImageSectionWrapper = styled.div`
   }
 `;
 
-const ImageSectionCover = styled.div`
-  width: 100%;
-  height: 100%;
-  filter: blur(10px);
-  transform: scale(1.05);
-  display: flex;
-  justify-content: center;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  @media ${devices.tablet} {
-    &: hover {
-      filter: blur(0px);
-    }
-  }
-`;
-
 const ImageContent = styled.div`
   background-color: rgb(1, 1, 1, 0);
   display: flex;
@@ -73,14 +54,15 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
   return (
     <SectionWrapper color={color} background={background} href={linkTo}>
       <ImageSectionWrapper>
-        <ImageSectionCover>
+        <GrainyEffectImage>
           <GatsbyImage
             image={image}
             alt={title}
             placeholder="blurred"
             layout="fixed"
+            style={{ height: '100%' }}
           />
-        </ImageSectionCover>
+        </GrainyEffectImage>
         <ImageContent>
           <SubTitle>{title}</SubTitle>
         </ImageContent>

@@ -3,12 +3,25 @@ import styled from 'styled-components';
 import { Caption, BodySmall } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
+import { devices } from '../../styles/devices';
 
 const PostContainer = styled.div`
   margin: 20px;
   height: 450px;
   cursor: pointer;
   position: relative;
+
+  @media ${devices.tablet} {
+    &: hover {
+      span {
+        color: transparent;
+        z-index: 1;
+        text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+          ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+      }
+    }
+  }
 `;
 
 const PostContent = styled.div`
@@ -21,6 +34,7 @@ const PostContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-content: space-between;
+  pointer-events: none;
 `;
 
 const Tags = styled.div`
@@ -59,13 +73,15 @@ const PostCard = ({ title, image, tags, id, createdAt }) => {
 
   return (
     <PostContainer image={image} onClick={jumpToContainer}>
-      <GatsbyImage
-        style={{ height: '100%', width: '100%' }}
-        image={image}
-        alt={title}
-        placeholder="blurred"
-        layout="constrained"
-      />
+      <GrainyEffectImage>
+        <GatsbyImage
+          style={{ height: '100%', width: '100%' }}
+          image={image}
+          alt={title}
+          placeholder="blurred"
+          layout="constrained"
+        />
+      </GrainyEffectImage>
       <PostContent>
         <Tags>
           {tags.map(({ name }) => (

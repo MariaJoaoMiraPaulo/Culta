@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import { BodySmall } from '../../styles/typographyComponents';
 import { Link } from 'gatsby';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
 
 const GalleryGrid = styled.div`
   width: 90%;
@@ -152,13 +153,15 @@ const GalleryLayout = ({ photos }) => {
                   key={node.photo.id}
                   onClick={() => handleZoom(node)}
                 >
-                  <GatsbyImage
-                    style={{ height: '100%', width: '100%' }}
-                    image={node.photo.gatsbyImageData}
-                    alt={node.description || 'gallery image'}
-                    placeholder="blurred"
-                    layout="constrained"
-                  />
+                  <GrainyEffectImage showOnHover={false}>
+                    <GatsbyImage
+                      style={{ height: '100%', width: '100%' }}
+                      image={node.photo.gatsbyImageData}
+                      alt={node.description || 'gallery image'}
+                      placeholder="blurred"
+                      layout="constrained"
+                    />
+                  </GrainyEffectImage>
                   <Author>
                     <BodySmall>{node.author.toUpperCase()}</BodySmall>
                   </Author>

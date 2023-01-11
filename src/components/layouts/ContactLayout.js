@@ -8,6 +8,8 @@ const ContactLayout = ({ t, images }) => {
   return (
     <>
       <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="1rem 0rem"
         title={t('contact.title')}
         background="marble"
         color="blue"

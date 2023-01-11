@@ -10,6 +10,7 @@ const SectionWrapper = styled.div`
   text-align: center;
   overflow-wrap: break-word;
   padding: ${({ paddingMobile }) => paddingMobile};
+
   @media ${devices.tablet} {
     padding: ${({ padding }) => padding};
   }

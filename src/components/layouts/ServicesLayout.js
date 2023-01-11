@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TitleSection from '../sections/TitleSection';
 import ImageSection from '../sections/ImageSection';
+import ImageTextSection from '../sections/ImageTextSection';
 import { withTrans } from '../../i18n/withTrans';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
@@ -9,23 +10,22 @@ import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
   display: grid;
-  margin: 0 2rem 5rem 2rem;
+  margin: 0 1rem 2rem 1rem;
   grid-template-columns: 100%;
   justify-items: center;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;
+    margin: 0 2rem 5rem 2rem;
   }
 `;
 
 const Service = styled.div`
   color: ${({ theme }) => theme.colors.blue};
-  padding: 0 4rem;
   text-align: center;
   display: flex;
   align-items: center;
-  margin-bottom: 5rem;
-  min-height: 20vh;
   cursor: default;
+  min-height: 20vh;
 
   span {
     display: none;
@@ -39,6 +39,12 @@ const Service = styled.div`
       display: fixed;
     }
   }
+
+  @media ${devices.tablet} {
+    padding: 0 4rem;
+    margin-bottom: 5rem;
+    min-height: 20vh;
+  }
 `;
 
 const ServicesLayout = ({ t, images }) => {
@@ -46,10 +52,19 @@ const ServicesLayout = ({ t, images }) => {
     <>
       <TitleSection
         padding="4rem 1rem"
-        paddingMobile="4rem 1rem"
+        paddingMobile="1rem 0rem"
         title={t('services.services')}
         background="marble"
         color="blue"
+      />
+      <ImageTextSection
+        color="blue"
+        body={t('services.body')}
+        image={images['monumento.jpg']}
+        imageAlt={t('services.services')}
+        padding="0"
+        paddingMobile="1rem 0"
+        hide="true"
       />
       <ServicesWrapper>
         {services.map(({ name, description }) => (

@@ -38,6 +38,16 @@ const ColumnWrapper = styled.div`
   flex-direction: column;
 `;
 
+const AuxLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+  }
+`;
+
 const AuxLink = styled.a`
   font-size: 12px;
   font-family: ${({ theme }) => theme.fonts.secondary};
@@ -59,10 +69,9 @@ const Copyright = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 1rem;
 
   @media ${devices.tablet} {
-    flex-direction: row;
-
     span {
       padding-left: 1rem;
     }
@@ -147,16 +156,18 @@ const Footer = ({ t }) => {
         </tbody>
       </Table>
       <Copyright>
+        <AuxLinks>
+          <AuxLink>
+            <Caption>{t('footer.policy')}</Caption>
+          </AuxLink>
+          <AuxLink>
+            <Caption>{t('footer.terms')}</Caption>
+          </AuxLink>
+          <AuxLink>
+            <Caption>{t('footer.license')}</Caption>
+          </AuxLink>
+        </AuxLinks>
         <Caption>{t('footer.copyright')}</Caption>
-        <AuxLink>
-          <Caption>{t('footer.policy')}</Caption>
-        </AuxLink>
-        <AuxLink>
-          <Caption>{t('footer.terms')}</Caption>
-        </AuxLink>
-        <AuxLink>
-          <Caption>{t('footer.license')}</Caption>
-        </AuxLink>
       </Copyright>
     </FooterWrapper>
   );

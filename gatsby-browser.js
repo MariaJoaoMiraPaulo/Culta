@@ -5,7 +5,7 @@ import theme from './src/styles/theme';
 
 const GlobalStyles = createGlobalStyle`
     body, html {
-        background-color: ${props => props.theme.colors.marble};
+      background-color: #efede4;
     }
 `;
 

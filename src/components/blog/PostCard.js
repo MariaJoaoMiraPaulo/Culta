@@ -14,7 +14,7 @@ const PostContainer = styled.div`
 
   @media ${devices.tablet} {
     &: hover {
-      div {
+      span {
         color: transparent;
         z-index: 1;
         text-shadow: 0 0 ${({ radius }) => radius || '10px'}

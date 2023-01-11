@@ -4,6 +4,7 @@ import { Caption, BodySmall } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import GrainyEffectImage from '../effect/GrainyEffectImage';
+import { devices } from '../../styles/devices';
 
 const PostContainer = styled.div`
   margin: 20px;
@@ -11,10 +12,15 @@ const PostContainer = styled.div`
   cursor: pointer;
   position: relative;
 
-  &: hover {
-    color: transparent;
-    z-index: 1;
-    text-shadow: 0 0 10px #efede4;
+  @media ${devices.tablet} {
+    &: hover {
+      div {
+        color: transparent;
+        z-index: 1;
+        text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+          ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
+      }
+    }
   }
 `;
 

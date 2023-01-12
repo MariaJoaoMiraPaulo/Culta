@@ -8,10 +8,5 @@ export const getImagesMappedByName = data => {
   return images;
 };
 
-export const getArrayOfBannerImages = data => {
-  const imagesArray = [];
-  data.map(({ node }) => {
-    imagesArray.push(node.childImageSharp.gatsbyImageData);
-  });
-  return imagesArray;
-};
+export const getArrayOfBannerImages = data =>
+  data.map(({ node: { childImageSharp } }) => childImageSharp.gatsbyImageData);

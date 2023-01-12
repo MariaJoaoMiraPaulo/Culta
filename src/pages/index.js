@@ -11,12 +11,16 @@ const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
   const bannerImagesArray = getArrayOfBannerImages(data.allFile.edges);
 
-  console.log({ bannerImagesArray });
+  const getRandomPicFromBannerArray = () => {
+    const random = Math.floor(Math.random() * bannerImagesArray.length);
+    return random;
+  };
+
   return (
     <LayoutWrapper
       inline={false}
       isHomepage
-      bannerImage={images['1.jpg']}
+      bannerImage={bannerImagesArray[getRandomPicFromBannerArray()]}
       noPadding
     >
       <HomeLayout images={images} />
@@ -43,14 +47,7 @@ export const query = graphql`
         }
       }
     }
-    allFile(
-      filter: {
-        sourceInstanceName: { eq: "images" }
-        childImageSharp: {
-          fluid: { originalName: { in: ["proud.jpg", "what.jpg", "1.jpg"] } }
-        }
-      }
-    ) {
+    allFile(filter: { sourceInstanceName: { eq: "bannerImages" } }) {
       edges {
         node {
           id

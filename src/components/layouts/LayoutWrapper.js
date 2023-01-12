@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import MyFooter from '../Footer';
 import Header from '../Header';
+import GrainyEffectImage from '../effect/GrainyEffectImage';
 
 const Banner = styled.div`
   max-width: 100%;
@@ -57,13 +58,15 @@ const LayoutWrapper = ({
         <>
           <Banner>
             <BannerImage>
-              <GatsbyImage
-                style={{ height: '100%', width: '100%' }}
-                image={bannerImage}
-                alt={'banner image'}
-                placeholder="blurred"
-                layout="constrained"
-              />
+              <GrainyEffectImage>
+                <GatsbyImage
+                  style={{ height: '100%', width: '100%' }}
+                  image={bannerImage}
+                  alt={'banner image'}
+                  placeholder="blurred"
+                  layout="constrained"
+                />
+              </GrainyEffectImage>
             </BannerImage>
             <Header inline={inline} logoColor={logoColor} />
           </Banner>

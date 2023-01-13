@@ -17,32 +17,42 @@ const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: ${({ showOnHover }) => (showOnHover ? 'blur(1px)' : 'blur(0)')};
+  filter: ${({ showOriginalOnHover }) =>
+    showOriginalOnHover ? 'blur(1px)' : 'blur(0)'};
 
   ${GrainyEffectWrapper} {
-    width: ${({ showOnHover }) => (showOnHover ? '100%' : '0')};
-    height: ${({ showOnHover }) => (showOnHover ? '100%' : '0')};
+    width: ${({ showOriginalOnHover }) => (showOriginalOnHover ? '100%' : '0')};
+    height: ${({ showOriginalOnHover }) =>
+      showOriginalOnHover ? '100%' : '0'};
   }
 
   &:hover {
-    filter: ${({ showOnHover }) => (showOnHover ? 'blur(0)' : 'blur(1px)')};
-    transform: ${({ scaleOnHover }) =>
-      scaleOnHover ? 'scale(1.05)' : 'scale(1)'};
+    filter: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
+      !showOriginalOnHover || grainyWithNoEffect ? 'blur(1px)' : 'blur(0)'};
+    transform: ${({ scaleOnHover, grainyWithNoEffect }) =>
+      !scaleOnHover || grainyWithNoEffect ? 'scale(1)' : 'scale(1.05)'};
 
     ${GrainyEffectWrapper} {
-      width: ${({ showOnHover }) => (showOnHover ? '0' : '100%')};
-      height: ${({ showOnHover }) => (showOnHover ? '0' : '100%')};
+      width: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
+        !showOriginalOnHover || grainyWithNoEffect ? '100%' : '0'};
+      height: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
+        !showOriginalOnHover || grainyWithNoEffect ? '100%' : '0'};
     }
   }
 `;
 
 const GrainyEffectImage = ({
-  showOnHover = true,
+  grainyWithNoEffect = false,
+  showOriginalOnHover = true,
   scaleOnHover = false,
   children,
 }) => {
   return (
-    <ImageWrapper showOnHover={showOnHover} scaleOnHover={scaleOnHover}>
+    <ImageWrapper
+      grainyWithNoEffect={grainyWithNoEffect}
+      showOriginalOnHover={showOriginalOnHover}
+      scaleOnHover={scaleOnHover}
+    >
       {children}
       <GrainyEffectWrapper>
         <Grain />

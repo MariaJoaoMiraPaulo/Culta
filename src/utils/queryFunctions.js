@@ -1,9 +1,12 @@
 export const getImagesMappedByName = data => {
   const images = {};
 
-  data.allImageSharp.edges.forEach(
+  data.forEach(
     ({ node }) => (images[node.fluid.originalName] = node.gatsbyImageData),
   );
 
   return images;
 };
+
+export const getArrayOfBannerImages = data =>
+  data.map(({ node: { childImageSharp } }) => childImageSharp.gatsbyImageData);

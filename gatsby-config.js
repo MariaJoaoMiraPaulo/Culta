@@ -37,6 +37,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'bannerImages',
+        path: './src/images/banner/',
+      },
+      __key: 'bannerImages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'images',
         path: './src/images/',
       },

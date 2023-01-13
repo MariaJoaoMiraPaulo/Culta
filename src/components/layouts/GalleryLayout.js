@@ -155,7 +155,7 @@ const GalleryLayout = ({ photos }) => {
                   key={node.photo.id}
                   onClick={() => handleZoom(node)}
                 >
-                  <GrainyEffectImage showOnHover={false}>
+                  <GrainyEffectImage showOriginalOnHover={false}>
                     <GatsbyImage
                       style={{ height: '100%', width: '100%' }}
                       image={node.photo.gatsbyImageData}

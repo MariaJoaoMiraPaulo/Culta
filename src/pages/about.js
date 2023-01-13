@@ -5,7 +5,7 @@ import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
 
 const AboutPage = ({ data }) => {
-  const images = getImagesMappedByName(data);
+  const images = getImagesMappedByName(data.allImageSharp.edges);
 
   return (
     <LayoutWrapper logoColor="red">

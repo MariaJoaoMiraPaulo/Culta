@@ -15,7 +15,7 @@ const ServicesWrapper = styled.div`
   justify-items: center;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;
-    margin: 0 2rem 5rem 2rem;
+    margin: 3rem 2rem 5rem 2rem;
   }
 `;
 
@@ -25,7 +25,7 @@ const Service = styled.div`
   display: flex;
   align-items: center;
   cursor: default;
-  min-height: 20vh;
+  margin-bottom: 3rem;
 
   span {
     display: none;
@@ -42,8 +42,7 @@ const Service = styled.div`
 
   @media ${devices.tablet} {
     padding: 0 4rem;
-    margin-bottom: 5rem;
-    min-height: 20vh;
+    margin-bottom: 6rem;
   }
 `;
 
@@ -60,7 +59,7 @@ const ServicesLayout = ({ t, images }) => {
       <ImageTextSection
         color="blue"
         body={t('services.body')}
-        image={images['monumento.jpg']}
+        image={images['services.jpg']}
         imageAlt={t('services.services')}
         padding="0"
         paddingMobile="1rem 0"

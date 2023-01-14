@@ -19,7 +19,7 @@ export default ContactPage;
 export const query = graphql`
   query MyQuery {
     allImageSharp(
-      filter: { fluid: { originalName: { in: ["pilares.jpg", "what.jpg"] } } }
+      filter: { fluid: { originalName: { in: ["pilares.jpg"] } } }
     ) {
       edges {
         node {

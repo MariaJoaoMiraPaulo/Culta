@@ -24,7 +24,7 @@ const HomeLayout = ({ t, images }) => {
         paddingMobile="0 15% 3rem 15%"
       />
       <ImageSection
-        image={images['what.jpg']}
+        image={images['bannerAbout.jpg']}
         title={t('homepage.what.title')}
         linkTo={'/services'}
       />

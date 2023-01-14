@@ -26,7 +26,7 @@ const AboutLayout = ({ t, images }) => {
       />
       <CultureAnimation />
       <ImageSection
-        image={images['what.jpg']}
+        image={images['bannerAbout.jpg']}
         title={t('services.services')}
         linkTo={'/services'}
       />

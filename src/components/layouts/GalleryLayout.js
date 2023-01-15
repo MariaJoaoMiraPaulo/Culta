@@ -32,6 +32,12 @@ const GalleryGrid = styled.div`
     width: 60%;
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media ${devices.desktopL} {
+    margin: 20px 50px;
+    width: 40%;
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const CenteredDiv = styled.div`
@@ -71,10 +77,15 @@ const Overlay = styled.div`
 `;
 
 const ZoomedImage = styled.div`
-  max-width: 70%;
-  max-height: 90%;
+  max-width: 98%;
+  max-height: 98%;
   position: relative;
   overflow: hidden;
+
+  @media ${devices.tablet} {
+    max-width: 70%;
+    max-height: 90%;
+  }
 `;
 
 const Author = styled.div`

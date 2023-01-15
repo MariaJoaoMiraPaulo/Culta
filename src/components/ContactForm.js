@@ -160,7 +160,7 @@ const ContactForm = ({ t }) => {
             name="message"
             id="message"
             rows="5"
-            placeholder="mensagem"
+            placeholder={t('contact.message')}
           />
         </label>
         <button type="submit">Enviar</button>

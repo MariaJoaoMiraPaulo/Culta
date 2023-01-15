@@ -15,6 +15,7 @@ const TextSectionWrapper = styled.div`
   }
   white-space: pre-line;
   z-index: 9;
+  width: ${({ width }) => width || '100%'};
 `;
 
 const TitleWrapper = styled.div`
@@ -38,6 +39,7 @@ const TextSection = ({
   centered = false,
   padding,
   paddingMobile,
+  width,
 }) => {
   return (
     <TextSectionWrapper
@@ -45,6 +47,7 @@ const TextSection = ({
       background={background}
       padding={padding}
       paddingMobile={paddingMobile}
+      width={width}
     >
       {title ? (
         <TitleWrapper>

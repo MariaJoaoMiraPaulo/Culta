@@ -3,6 +3,7 @@ import { withTrans } from '../../i18n/withTrans';
 import ContactForm from '../ContactForm';
 import ImageSection from '../sections/ImageSection';
 import TitleSection from '../sections/TitleSection';
+import FormTextSection from '../sections/FormTextSection';
 
 const ContactLayout = ({ t, images }) => {
   return (
@@ -14,7 +15,15 @@ const ContactLayout = ({ t, images }) => {
         background="marble"
         color="blue"
       />
-      <ContactForm />
+      <FormTextSection
+        color="blue"
+        body={t('contact.body')}
+        padding="0 0 0 1rem"
+        paddingMobile="1rem 0"
+        width="80%"
+      >
+        <ContactForm />
+      </FormTextSection>
       <ImageSection
         image={images['pilares.jpg']}
         title={t('about.about')}

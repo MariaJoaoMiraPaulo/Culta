@@ -117,7 +117,7 @@ const Line = styled.div`
 const ContactForm = ({ t }) => {
   return (
     <>
-      <Form method="post" action={process.env.EMAIL_ENDPOINT}>
+      <Form method="post" action={process.env.GATSBY_EMAIL_ENDPOINT}>
         <label className="field">
           <input
             required
@@ -139,8 +139,8 @@ const ContactForm = ({ t }) => {
           <Line />
         </label>
         <label className="field">
-          <select required id="subject" name="subject">
-            <option value="" disabled selected hidden>
+          <select required id="subject" name="subject" defaultValue="">
+            <option value="" disabled hidden>
               {t('contact.subject')}
             </option>
             <option value="optionInfo">{t('contact.optionInfo')}</option>

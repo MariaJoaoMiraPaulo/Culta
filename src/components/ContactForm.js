@@ -1,12 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withTrans } from '../i18n/withTrans';
+import { devices } from '../styles/devices';
 
 const Form = styled.form`
   display: grid;
-  justify-items: end;
+  justify-items: left;
   grid-template-columns: 100%;
-  margin: 1rem 1rem 5rem 0;
+  margin: 0;
+  padding: 3rem 1rem 3rem 1rem;
+
+  @media ${devices.tablet} {
+    padding: 0;
+    justify-items: end;
+    margin: 1rem 1rem 5rem 0;
+  }
 
   .field {
     position: relative;

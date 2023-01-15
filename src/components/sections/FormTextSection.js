@@ -18,19 +18,23 @@ const FormTextWrapper = styled.div`
 const FormWrapper = styled.div`
   width: 100%;
   margin: 0;
+  order: 2;
 
   @media ${devices.tablet} {
     width: 50%;
     margin: 0 1rem;
+    order: 1;
   }
 `;
 
 const TextWrapper = styled.div`
   position: relative;
   margin: 0 1rem;
+  order: 1;
 
   @media ${devices.tablet} {
     width: 50%;
+    order: 2;
   }
 `;
 

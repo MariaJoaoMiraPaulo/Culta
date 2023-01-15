@@ -50,6 +50,17 @@
     "body": "Desafiamos o sector cultural com novas ideias e muito futuro. Criamos histórias, experiências e memórias. Não deixamos fugir oportunidades. Empenhamo-nos na criação de conceitos e estratégias de comunicação e na produção e gestão de conteúdos inovadores. Mas como? Através dos serviços que desenhamos à medida de cada cliente."
   },
   "contact": {
-    "title": "Fale connosco"
+    "title": "Fale connosco",
+    "body": "Vamos criar Cultura juntos? Envie-nos as suas ideias, questões e desejos. Trabalhamos sempre para, no mínimo, superar todas as expectativas. Todas as mensagens recebidas serão bem-vindas e prometemos ser rápidos a responder.",
+    "name": "nome",
+    "email": "email",
+    "subject": "assunto",
+    "message": "mensagem",
+    "send": "enviar",
+    "optionInfo": "Quero pedir uma informação",
+    "optionTeam": "Quero fazer parte da equipa da Culta",
+    "optionIdea": "Quero partilhar uma ideia e fazê-la crescer",
+    "optionPhotos": "Quero enviar as minhas fotografias para a Galeria",
+    "optionOthers": "Outros"
   }
 }

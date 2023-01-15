@@ -1,57 +1,164 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withTrans } from '../i18n/withTrans';
 
 const Form = styled.form`
-  height: 50vh;
   display: grid;
-  justify-items: center;
+  justify-items: end;
   grid-template-columns: 100%;
-  margin: 1rem 0 5rem 0;
-`;
+  margin: 1rem 1rem 5rem 0;
 
-const Buttons = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
+  .field {
+    position: relative;
+    margin-bottom: 2rem;
+  }
 
-  button,
-  input {
-    margin: 1rem;
+  label {
+    width: 80%;
+  }
+
+  button {
+    background: 0;
+    border: 0;
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    color: ${({ theme }) => theme.colors.blue};
+    font-size: 1.5em;
+    font-weight: 200;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &: hover {
+      color: transparent;
+      text-shadow: 0 0 ${({ radius }) => radius || '5px'}
+        ${({ theme, color }) => theme.colors[color] || theme.colors.blue};
+    }
+  }
+
+  textarea {
+    background: 0;
+    border: 0;
+    font-weight: 200;
+    font-size: 1.5em;
+    resize: none;
+    width: 96%;
+    overflow: auto;
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.blue};
+    border-style: solid;
+    border-width: 1px;
+    padding: 0.5% 2%;
+
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+  }
+
+  select {
+    color: ${({ theme }) => theme.colors.blue};
+  }
+
+  input,
+  select {
+    background: 0;
+    border: 0;
+    outline: none;
+    font-size: 1.5em;
+    transition: padding 0.3s 0.2s ease;
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    font-weight: 200;
+    padding: 0 2%;
+    width: 96%;
+
+    option {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+
+    &:focus {
+      padding-bottom: 5px;
+    }
+
+    &:focus + .line {
+      &:after {
+        transform: scaleX(1);
+      }
+    }
   }
 `;
 
-const ContactForm = () => {
+const Line = styled.div`
+  width: 100%;
+  border-color: ${({ theme }) => theme.colors.blue};
+  border-style: solid;
+  border-width: 0 0 1px 0;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    float: right;
+
+    transform: scalex(0);
+    transition: transform 0.3s ease;
+  }
+`;
+
+const ContactForm = ({ t }) => {
   return (
     <>
-      <Form method="post" action="#">
-        <label>
-          <input type="text" name="name" id="name" placeholder="name" />
-        </label>
-        <label>
-          <input type="email" name="email" id="email" placeholder="email" />
-        </label>
-        <label>
+      <Form
+        method="post"
+        action="https://getform.io/f/5b514596-6cbd-48bf-9e9a-dc32009be06d"
+      >
+        <label className="field">
           <input
+            required
             type="text"
-            name="subject"
-            id="subject"
-            placeholder="subject"
+            name="name"
+            id="name"
+            placeholder={t('contact.name')}
           />
+          <Line />
+        </label>
+        <label className="field">
+          <input
+            required
+            type="email"
+            name="email"
+            id="email"
+            placeholder={t('contact.email')}
+          />
+          <Line />
+        </label>
+        <label className="field">
+          <select required id="subject" name="subject">
+            <option value="" disabled selected hidden>
+              {t('contact.subject')}
+            </option>
+            <option value="optionInfo">{t('contact.optionInfo')}</option>
+            <option value="optionTeam">{t('contact.optionTeam')}</option>
+            <option value="optionIdea">{t('contact.optionIdea')}</option>
+            <option value="optionPhotos">{t('contact.optionPhotos')}</option>
+            <option value="optionOthers">{t('contact.optionOthers')}</option>
+          </select>
+          <Line />
         </label>
         <label>
           <textarea
+            required
             name="message"
             id="message"
             rows="5"
-            placeholder="message"
+            placeholder="mensagem"
           />
         </label>
-        <Buttons>
-          <button type="submit">Send</button>
-          <input type="reset" value="Clear" />
-        </Buttons>
+        <button type="submit">Enviar</button>
       </Form>
     </>
   );
 };
 
-export default ContactForm;
+export default withTrans(ContactForm);

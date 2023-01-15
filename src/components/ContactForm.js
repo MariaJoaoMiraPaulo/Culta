@@ -117,10 +117,7 @@ const Line = styled.div`
 const ContactForm = ({ t }) => {
   return (
     <>
-      <Form
-        method="post"
-        action="https://getform.io/f/5b514596-6cbd-48bf-9e9a-dc32009be06d"
-      >
+      <Form method="post" action={process.env.EMAIL_ENDPOINT}>
         <label className="field">
           <input
             required

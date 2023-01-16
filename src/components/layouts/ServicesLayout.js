@@ -63,7 +63,6 @@ const ServicesLayout = ({ t, images }) => {
         imageAlt={t('services.services')}
         padding="0"
         paddingMobile="1rem 0"
-        hide="true"
       />
       <ServicesWrapper>
         {services.map(({ name, description }) => (

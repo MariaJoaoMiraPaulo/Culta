@@ -14,7 +14,7 @@ const GalleryGrid = styled.div`
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   max-width: fit-content;
-  margin: 20px;
+  margin: 20px 20px 60px 20px;
 
   img:hover {
     filter: blur(10px);
@@ -22,19 +22,19 @@ const GalleryGrid = styled.div`
   }
 
   @media ${devices.tablet} {
-    margin: 20px 50px;
-    width: 60%;
+    margin: 20px 50px 60px 20px;
+    width: 70%;
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media ${devices.desktop} {
-    margin: 20px 50px;
+    margin: 20px 50px 60px 20px;
     width: 60%;
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media ${devices.desktopL} {
-    margin: 20px 50px;
+    margin: 20px 50px 60px 20px;
     width: 40%;
     grid-template-columns: repeat(3, 1fr);
   }

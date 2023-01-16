@@ -17,27 +17,6 @@ const FooterWrapper = styled.div`
   z-index: 9;
 `;
 
-const Table = styled.table`
-  margin: 1rem 0rem;
-  width: 100%;
-  table-layout: fixed;
-
-  @media ${devices.tablet} {
-    margin: 4rem;
-  }
-`;
-
-const Td = styled.td`
-  text-align: center;
-  padding-bottom: 2rem;
-  width: 50%;
-`;
-
-const ColumnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const AuxLinks = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,57 +83,96 @@ const FooterAnchor = styled.a`
   }
 `;
 
+const FlexTable = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 2.5rem;
+  flex-direction: column;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    margin: 4rem;
+  }
+`;
+
+const FlexTableColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  &:first-child {
+    padding-bottom: 30px;
+  }
+
+  @media ${devices.tablet} {
+    width: 50%;
+
+    &:first-child {
+      padding-bottom: 0px;
+    }
+  }
+`;
+
+const FlexTableRow = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  &:first-child {
+    padding-bottom: 0px;
+  }
+
+  @media ${devices.tablet} {
+    height: 90px;
+
+    &:first-child {
+      padding-bottom: 40px;
+    }
+  }
+`;
+
 const Footer = ({ t }) => {
   return (
     <FooterWrapper>
-      <Table>
-        <tbody>
-          <tr>
-            <th>
-              <FooterLink to="/contact">
-                <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
-              </FooterLink>
-            </th>
-            <th>
-              <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
-            </th>
-          </tr>
-          <tr>
-            <Td></Td>
-            <Td>
-              <NewsletterForm />
-            </Td>
-          </tr>
-          <tr>
-            <td>
-              <ColumnWrapper>
-                <FooterAnchor href="tel:+351912681139">
-                  <BodySmall>{culta.phoneNumber}</BodySmall>
-                </FooterAnchor>
-                <FooterAnchor href="mailto:geral@culta.pt">
-                  <BodySmall>{culta.email.toUpperCase()}</BodySmall>
-                </FooterAnchor>
-              </ColumnWrapper>
-            </td>
-            <td>
-              <ColumnWrapper>
-                <FooterAnchor
-                  href="https://www.linkedin.com/company/aculta/?viewAsMember=true"
-                  target="_blank"
-                >
-                  <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
-                </FooterAnchor>
-                <FooterAnchor
-                  href="https://www.instagram.com/cultapt/"
-                  target="_blank"
-                >
-                  <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
-                </FooterAnchor>
-              </ColumnWrapper>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
+      <FlexTable>
+        <FlexTableColumn>
+          <FlexTableRow>
+            <FooterLink to="/contact">
+              <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
+            </FooterLink>
+          </FlexTableRow>
+          <FlexTableRow>
+            <FooterAnchor href="tel:+351912681139">
+              <BodySmall>{culta.phoneNumber}</BodySmall>
+            </FooterAnchor>
+            <FooterAnchor href="mailto:geral@culta.pt">
+              <BodySmall>{culta.email.toUpperCase()}</BodySmall>
+            </FooterAnchor>
+          </FlexTableRow>
+        </FlexTableColumn>
+        <FlexTableColumn>
+          <FlexTableRow>
+            <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
+            <NewsletterForm />
+          </FlexTableRow>
+          <FlexTableRow>
+            <FooterAnchor
+              href="https://www.linkedin.com/company/aculta/?viewAsMember=true"
+              target="_blank"
+            >
+              <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
+            </FooterAnchor>
+            <FooterAnchor
+              href="https://www.instagram.com/cultapt/"
+              target="_blank"
+            >
+              <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
+            </FooterAnchor>
+          </FlexTableRow>
+        </FlexTableColumn>
+      </FlexTable>
       <Copyright>
         <AuxLinks>
           <AuxLink>

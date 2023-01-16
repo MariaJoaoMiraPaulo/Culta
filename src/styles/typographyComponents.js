@@ -9,6 +9,11 @@ export const Title = styled.h1`
   line-height: 80px;
   font-weight: 100;
   @media ${devices.tablet} {
+    font-size: 90px;
+    line-height: 140px;
+  }
+
+  @media ${devices.desktop} {
     font-size: 120px;
     line-height: 155px;
   }
@@ -96,6 +101,9 @@ export const BodySmall = styled.span`
   text-align: center;
   font-weight: 100;
   @media ${devices.tablet} {
+    font-size: 30px;
+  }
+  @media ${devices.desktop} {
     font-size: 40px;
   }
   margin: 0rem;

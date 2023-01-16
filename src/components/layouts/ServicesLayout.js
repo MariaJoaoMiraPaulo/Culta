@@ -13,7 +13,7 @@ const ServicesWrapper = styled.div`
   margin: 0 1rem 2rem 1rem;
   grid-template-columns: 100%;
   justify-items: center;
-  @media ${devices.tablet} {
+  @media ${devices.laptop} {
     grid-template-columns: 50% 50%;
     margin: 3rem 2rem 5rem 2rem;
   }

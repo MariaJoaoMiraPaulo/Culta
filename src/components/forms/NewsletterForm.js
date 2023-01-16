@@ -21,11 +21,17 @@ const InfoMessage = styled.span`
 `;
 
 const NewsletterFormWrapper = styled.div`
-  height: 70px;
+  height: auto;
   display: flex;
   align-items: center;
   padding-top: 10px;
   flex-direction: column;
+  padding-bottom: 30px;
+
+  @media ${devices.tablet} {
+    height: 70px;
+    padding-bottom: 0;
+  }
 `;
 
 const NewsletterInputWrapper = styled.div`
@@ -52,7 +58,7 @@ const SubmitEmail = styled.div`
   svg {
     width: 15px;
 
-    @media ${devices.tablet} {
+    @media ${devices.desktop} {
       width: 20px;
     }
   }

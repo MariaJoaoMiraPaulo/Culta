@@ -12,6 +12,11 @@ const ImageTextWrapper = styled.div`
   @media ${devices.tablet} {
     flex-direction: row;
     padding-bottom: 0;
+    display: flex;
+  }
+
+  @media ${devices.laptop} {
+    display: ${props => (props.hideOnDesktop ? 'none' : 'flex')};
   }
 `;
 
@@ -42,9 +47,10 @@ const ImageTextSection = ({
   image,
   imageAlt,
   paddingMobile,
+  hideOnDesktop = false,
 }) => {
   return (
-    <ImageTextWrapper>
+    <ImageTextWrapper hideOnDesktop={hideOnDesktop}>
       <ImageWrapper>
         <Image image={image} alt={imageAlt} />
       </ImageWrapper>

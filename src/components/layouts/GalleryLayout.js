@@ -65,7 +65,7 @@ const PhotoWrapper = styled.div`
 `;
 
 const Overlay = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background: rgba(0, 0, 0, 0.7);
   position: fixed;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { withTrans } from '../../i18n/withTrans';
-import ContactForm from '../ContactForm';
 import ImageSection from '../sections/ImageSection';
 import TitleSection from '../sections/TitleSection';
 import FormTextSection from '../sections/FormTextSection';
+import ContactForm from '../forms/ContactForm';
 
 const ContactLayout = ({ t, images }) => {
   return (

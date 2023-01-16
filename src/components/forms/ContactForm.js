@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withTrans } from '../i18n/withTrans';
-import { devices } from '../styles/devices';
+import { withTrans } from '../../i18n/withTrans';
+import { devices } from '../../styles/devices';
+import Input from './Input';
 
 const Form = styled.form`
   display: grid;
@@ -46,7 +47,6 @@ const Form = styled.form`
     background: 0;
     border: 0;
     font-weight: 200;
-    font-size: 1.5em;
     resize: none;
     width: 96%;
     overflow: auto;
@@ -60,18 +60,23 @@ const Form = styled.form`
     ::placeholder {
       color: ${({ theme }) => theme.colors.blue};
     }
+
+    font-size: 1.1em;
+
+    @media ${devices.laptop} {
+      font-size: 1.4em;
+    }
+
+    @media ${devices.desktopL} {
+      font-size: 1.8em;
+    }
   }
 
   select {
     color: ${({ theme }) => theme.colors.blue};
-  }
-
-  input,
-  select {
     background: 0;
     border: 0;
     outline: none;
-    font-size: 1.5em;
     transition: padding 0.3s 0.2s ease;
     font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: 200;
@@ -94,6 +99,16 @@ const Form = styled.form`
       &:after {
         transform: scaleX(1);
       }
+    }
+
+    font-size: 1.1em;
+
+    @media ${devices.laptop} {
+      font-size: 1.4em;
+    }
+
+    @media ${devices.desktopL} {
+      font-size: 1.8em;
     }
   }
 `;
@@ -118,26 +133,20 @@ const ContactForm = ({ t }) => {
   return (
     <>
       <Form method="post" action={process.env.GATSBY_EMAIL_ENDPOINT}>
-        <label className="field">
-          <input
-            required
-            type="text"
-            name="name"
-            id="name"
-            placeholder={t('contact.name')}
-          />
-          <Line />
-        </label>
-        <label className="field">
-          <input
-            required
-            type="email"
-            name="email"
-            id="email"
-            placeholder={t('contact.email')}
-          />
-          <Line />
-        </label>
+        <Input
+          required
+          type="text"
+          name="name"
+          id="name"
+          placeholder={t('contact.name')}
+        />
+        <Input
+          required
+          type="email"
+          name="email"
+          id="email"
+          placeholder={t('contact.email')}
+        />
         <label className="field">
           <select required id="subject" name="subject" defaultValue="">
             <option value="" disabled hidden>
@@ -160,7 +169,7 @@ const ContactForm = ({ t }) => {
             placeholder={t('contact.message')}
           />
         </label>
-        <button type="submit">Enviar</button>
+        <button type="submit">{t('contact.sendButton')}</button>
       </Form>
     </>
   );

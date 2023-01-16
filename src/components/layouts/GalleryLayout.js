@@ -74,6 +74,7 @@ const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  min-height: -webkit-fill-available;
 `;
 
 const ZoomedImage = styled.div`

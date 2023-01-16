@@ -16,6 +16,7 @@ const TextSectionWrapper = styled.div`
   white-space: pre-line;
   z-index: 9;
   width: ${({ width }) => width || '100%'};
+  box-sizing: border-box;
 `;
 
 const TitleWrapper = styled.div`

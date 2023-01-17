@@ -26,6 +26,7 @@
     "emailInvalid": "O email que inseriu não é válido.",
     "subscribedSuccess": "Obrigado!",
     "errorSubscribing": "Erro ao subscrever newsletter.",
+    "validatingEmail": "Aguarde...",
     "instagram": "Instagram",
     "linkedin": "LinkedIn",
     "copyright": "© 2023 Culta. Todos os direitos reservados.",
@@ -61,6 +62,7 @@
     "optionTeam": "Quero fazer parte da equipa da Culta",
     "optionIdea": "Quero partilhar uma ideia e fazê-la crescer",
     "optionPhotos": "Quero enviar as minhas fotografias para a Galeria",
-    "optionOthers": "Outros"
+    "optionOthers": "Outros",
+    "sendButton": "Enviar"
   }
 }

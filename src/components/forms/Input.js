@@ -31,6 +31,12 @@ export const InputWrapper = styled.input`
       white ? theme.colors.marble : theme.colors.blue};
   }
 
+  ::after {
+    content: ${({ required }) => (required ? `"*"` : '')};
+    color: ${({ theme, white }) =>
+      white ? theme.colors.marble : theme.colors.blue};
+  }
+
   &:focus {
     padding-bottom: 5px;
   }

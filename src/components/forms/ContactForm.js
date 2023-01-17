@@ -35,11 +35,16 @@ const Form = styled.form`
     font-weight: 200;
     margin-top: 1rem;
     cursor: pointer;
+    padding-left: 0;
 
     &: hover {
       color: transparent;
       text-shadow: 0 0 ${({ radius }) => radius || '5px'}
         ${({ theme, color }) => theme.colors[color] || theme.colors.blue};
+    }
+
+    @media ${devices.tablet} {
+      padding-left: 6px;
     }
   }
 
@@ -157,6 +162,7 @@ const ContactForm = ({ t }) => {
     <>
       <Form method="post" action={process.env.GATSBY_EMAIL_ENDPOINT}>
         <Input
+          className="required"
           required
           type="text"
           name="name"

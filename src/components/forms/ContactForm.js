@@ -35,11 +35,16 @@ const Form = styled.form`
     font-weight: 200;
     margin-top: 1rem;
     cursor: pointer;
+    padding-left: 0;
 
     &: hover {
       color: transparent;
       text-shadow: 0 0 ${({ radius }) => radius || '5px'}
         ${({ theme, color }) => theme.colors[color] || theme.colors.blue};
+    }
+
+    @media ${devices.tablet} {
+      padding-left: 6px;
     }
   }
 
@@ -81,7 +86,7 @@ const Form = styled.form`
     font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: 200;
     padding: 0 2%;
-    width: 96%;
+    width: 100%;
 
     option {
       color: ${({ theme }) => theme.colors.blue};
@@ -129,11 +134,35 @@ const Line = styled.div`
   }
 `;
 
+const LinkToDocs = styled.a`
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  font-size: 12px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding-top: 3px;
+  color: ${({ theme }) => theme.colors.blue};
+  cursor: pointer;
+  text-decoration: none;
+
+  &: hover {
+    color: transparent;
+    text-shadow: 0 0 ${({ radius }) => radius || '5px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.blue};
+  }
+
+  @media ${devices.tablet} {
+    justify-content: flex-end;
+  }
+`;
+
 const ContactForm = ({ t }) => {
   return (
     <>
       <Form method="post" action={process.env.GATSBY_EMAIL_ENDPOINT}>
         <Input
+          className="required"
           required
           type="text"
           name="name"
@@ -146,6 +175,12 @@ const ContactForm = ({ t }) => {
           name="email"
           id="email"
           placeholder={t('contact.email')}
+        />
+        <Input
+          type="company"
+          name="company"
+          id="company"
+          placeholder={t('contact.company')}
         />
         <label className="field">
           <select required id="subject" name="subject" defaultValue="">
@@ -169,6 +204,7 @@ const ContactForm = ({ t }) => {
             placeholder={t('contact.message')}
           />
         </label>
+        <LinkToDocs href="">{t('contact.linkToDocs')}</LinkToDocs>
         <button type="submit">{t('contact.sendButton')}</button>
       </Form>
     </>

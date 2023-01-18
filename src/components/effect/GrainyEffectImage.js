@@ -15,6 +15,12 @@ const GrainyEffectWrapper = styled.div`
   background-image: url(data:image/png;base64,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);  
   */
 `;
+const GrainyImageBlur = styled.div`
+  width: 120%;
+  height: 120%;
+  filter: ${({ showOriginalOnHover }) =>
+    showOriginalOnHover ? 'blur(5px)' : 'blur(0)'};
+`;
 
 const ImageWrapper = styled.div`
   width: 100%;
@@ -23,6 +29,7 @@ const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   ${GrainyEffectWrapper} {
     width: ${({ showOriginalOnHover }) => (showOriginalOnHover ? '100%' : '0')};
@@ -36,6 +43,11 @@ const ImageWrapper = styled.div`
         !showOriginalOnHover || grainyWithNoEffect ? '100%' : '0'};
       height: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
         !showOriginalOnHover || grainyWithNoEffect ? '100%' : '0'};
+    }
+
+    ${GrainyImageBlur} {
+      filter: ${({ showOriginalOnHover }) =>
+        showOriginalOnHover ? 'blur(0)' : 'blur(5px)'};
     }
   }
 `;
@@ -52,7 +64,9 @@ const GrainyEffectImage = ({
       showOriginalOnHover={showOriginalOnHover}
       scaleOnHover={scaleOnHover}
     >
-      {children}
+      <GrainyImageBlur showOriginalOnHover={showOriginalOnHover}>
+        {children}
+      </GrainyImageBlur>
       {<GrainyEffectWrapper></GrainyEffectWrapper>}
     </ImageWrapper>
   );

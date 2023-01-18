@@ -60,7 +60,7 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
             alt={title}
             placeholder="blurred"
             layout="fixed"
-            style={{ height: '100%' }}
+            style={{ height: '100%', filter: `blur(5px)` }}
           />
         </GrainyEffectImage>
         <ImageContent>

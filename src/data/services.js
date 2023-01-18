@@ -25,7 +25,7 @@ const services = [
   {
     name: 'Branding',
     description:
-      'Identidade visual e conceptual, Logotipo e Assinatura, Manual de Identidade',
+      'Identidade visual e conceptual, Logotipo e Assinatura, Manual de Identidade.',
   },
 ];
 

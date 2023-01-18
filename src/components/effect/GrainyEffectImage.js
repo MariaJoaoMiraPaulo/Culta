@@ -18,8 +18,8 @@ const GrainyEffectWrapper = styled.div`
 const GrainyImageBlur = styled.div`
   width: 120%;
   height: 120%;
-  filter: ${({ showOriginalOnHover }) =>
-    showOriginalOnHover ? 'blur(5px)' : 'blur(0)'};
+  filter: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
+    !showOriginalOnHover || grainyWithNoEffect ? 'blur(0)' : 'blur(5px)'};
 `;
 
 const ImageWrapper = styled.div`
@@ -46,8 +46,8 @@ const ImageWrapper = styled.div`
     }
 
     ${GrainyImageBlur} {
-      filter: ${({ showOriginalOnHover }) =>
-        showOriginalOnHover ? 'blur(0)' : 'blur(5px)'};
+      filter: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
+        !showOriginalOnHover || grainyWithNoEffect ? 'blur(5px)' : 'blur(0)'};
     }
   }
 `;

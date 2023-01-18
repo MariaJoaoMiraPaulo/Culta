@@ -16,7 +16,7 @@ const services = [
   {
     name: 'Gestão e Produção',
     description:
-      'Gestão de projetos de comunicação, Produção cultural, Activação Cultural.',
+      'Gestão de projectos de comunicação, Produção Cultural, Activação Cultural.',
   },
   {
     name: 'Design',

@@ -84,7 +84,7 @@ const PostCard = ({ title, image, tags, id, createdAt }) => {
       </GrainyEffectImage>
       <PostContent>
         <Tags>
-          {tags.map(({ name }) => (
+          {tags?.map(({ name }) => (
             <Caption key={name}>{name.toUpperCase()}</Caption>
           ))}
         </Tags>

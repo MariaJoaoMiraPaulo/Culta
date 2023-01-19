@@ -96,15 +96,17 @@ export const BodyUnderlined = styled(Body)`
 export const BodySmall = styled.span`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.main};
-  line-height: 50px;
+  line-height: 25px;
   text-transform: uppercase;
   text-align: center;
   font-weight: 100;
   @media ${devices.tablet} {
-    font-size: 30px;
+    font-size: 20px;
+    line-height: 3opx;
   }
   @media ${devices.desktop} {
     font-size: 40px;
+    line-height: 50px;
   }
   margin: 0rem;
 `;

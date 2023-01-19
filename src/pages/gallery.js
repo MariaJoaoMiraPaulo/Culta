@@ -15,7 +15,9 @@ export default Gallery;
 
 export const query = graphql`
   query MyQuery {
-    allContentfulGalleryPhoto {
+    allContentfulGalleryPhoto(
+      sort: { fields: photo___createdAt, order: DESC }
+    ) {
       edges {
         node {
           photo {

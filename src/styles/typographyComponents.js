@@ -102,7 +102,7 @@ export const BodySmall = styled.span`
   font-weight: 100;
   @media ${devices.tablet} {
     font-size: 20px;
-    line-height: 3opx;
+    line-height: 30px;
   }
   @media ${devices.desktop} {
     font-size: 40px;

@@ -131,7 +131,7 @@ const Post = ({ post, assets }) => {
           <BlogDateAndTopics>
             <Caption margin="2rem 0" lineHeight="30">
               {tags
-                .map(({ name }) => name)
+                ?.map(({ name }) => name)
                 .join(' ,')
                 .toUpperCase()}
             </Caption>

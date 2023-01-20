@@ -92,10 +92,14 @@ const ZoomedImage = styled.div`
 
 const Author = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
-  padding: 0px 15px;
+  padding: 0px 12px;
   pointer-events: none;
+
+  @media ${devices.tablet} {
+    padding: 0px 15px;
+  }
 `;
 
 const AuthorBox = styled.div`
@@ -105,7 +109,8 @@ const AuthorBox = styled.div`
   width: 100%;
   z-index: 2;
   color: ${({ theme }) => theme.colors.marble};
-  padding: 0 20px;
+  padding: 10px 20px;
+  box-sizing: content-box;
   span {
     font-size: 16px;
   }

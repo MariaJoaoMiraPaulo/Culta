@@ -140,21 +140,29 @@ const Footer = ({ t }) => {
         <FlexTableColumn>
           <FlexTableRow>
             <FooterLink to="/contact">
-              <BodySmall>{t('footer.contacts').toUpperCase()}</BodySmall>
+              <BodySmall lineHeight="50" fontSize="30">
+                {t('footer.contacts').toUpperCase()}
+              </BodySmall>
             </FooterLink>
           </FlexTableRow>
           <FlexTableRow>
             <FooterAnchor href="tel:+351912681139">
-              <BodySmall>{culta.phoneNumber}</BodySmall>
+              <BodySmall lineHeight="50" fontSize="30">
+                {culta.phoneNumber}
+              </BodySmall>
             </FooterAnchor>
             <FooterAnchor href="mailto:geral@culta.pt">
-              <BodySmall>{culta.email.toUpperCase()}</BodySmall>
+              <BodySmall lineHeight="50" fontSize="30">
+                {culta.email.toUpperCase()}
+              </BodySmall>
             </FooterAnchor>
           </FlexTableRow>
         </FlexTableColumn>
         <FlexTableColumn>
           <FlexTableRow>
-            <BodySmall>{t('footer.newsletter').toUpperCase()}</BodySmall>
+            <BodySmall lineHeight="50" fontSize="30">
+              {t('footer.newsletter').toUpperCase()}
+            </BodySmall>
             <NewsletterForm />
           </FlexTableRow>
           <FlexTableRow>
@@ -162,13 +170,17 @@ const Footer = ({ t }) => {
               href="https://www.linkedin.com/company/aculta/?viewAsMember=true"
               target="_blank"
             >
-              <BodySmall>{t('footer.linkedin').toUpperCase()}</BodySmall>
+              <BodySmall lineHeight="50" fontSize="30">
+                {t('footer.linkedin').toUpperCase()}
+              </BodySmall>
             </FooterAnchor>
             <FooterAnchor
               href="https://www.instagram.com/cultapt/"
               target="_blank"
             >
-              <BodySmall>{t('footer.instagram').toUpperCase()}</BodySmall>
+              <BodySmall lineHeight="50" fontSize="30">
+                {t('footer.instagram').toUpperCase()}
+              </BodySmall>
             </FooterAnchor>
           </FlexTableRow>
         </FlexTableColumn>

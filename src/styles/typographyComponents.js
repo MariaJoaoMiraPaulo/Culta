@@ -101,8 +101,9 @@ export const BodySmall = styled.span`
   text-align: center;
   font-weight: 100;
   @media ${devices.tablet} {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: ${({ fontSize }) => (fontSize ? `${fontSize}px` : '20px')};
+    line-height: ${({ lineHeight }) =>
+      lineHeight ? `${lineHeight}px` : '30px'};
   }
   @media ${devices.desktop} {
     font-size: 40px;

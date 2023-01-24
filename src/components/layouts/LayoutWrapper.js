@@ -38,17 +38,19 @@ const LayoutWrapper = ({
   isHomepage = false,
 }) => {
   useEffect(() => {
-    const handleRightClickImage = e => {
+    const handleAvoidSaveImage = e => {
       if (e.target.tagName === 'IMG') {
         e.preventDefault();
         e.stopPropagation();
       }
     };
 
-    document.addEventListener('contextmenu', handleRightClickImage);
+    document.addEventListener('contextmenu', handleAvoidSaveImage);
+    document.addEventListener('taphold', handleAvoidSaveImage);
 
     return () => {
-      document.removeEventListener('contextmenu', handleRightClickImage);
+      document.removeEventListener('contextmenu', handleAvoidSaveImage);
+      document.removeEventListener('taphold', handleAvoidSaveImage);
     };
   });
 

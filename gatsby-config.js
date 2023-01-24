@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Culta`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.culta.pt`,
   },
   plugins: [
     {

@@ -14,11 +14,11 @@ const GrainyImageBlur = styled.div`
   height: 100%;
   filter: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
     !showOriginalOnHover || grainyWithNoEffect ? 'blur(0)' : 'blur(5px)'};
-  transform: scale(1.1);
+  transform: scale(1.2);
 `;
 
 const ImageWrapper = styled.div`
-  transform: scale(1.1);
+  transform: scale(1.2);
   width: 100%;
   height: 100%;
   position: relative;

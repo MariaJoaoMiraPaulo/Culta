@@ -68,6 +68,7 @@ const LayoutWrapper = ({
                   alt={'banner image'}
                   placeholder="blurred"
                   layout="constrained"
+                  loading="eager"
                 />
               </GrainyEffectImage>
             </BannerImage>

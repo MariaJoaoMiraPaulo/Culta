@@ -6,7 +6,6 @@ import { withTrans } from '../i18n/withTrans';
 import { devices } from '../styles/devices';
 import { Link } from 'gatsby';
 import NewsletterForm from './forms/NewsletterForm';
-import LicensePDF from '../docs/ContratoLicença.pdf';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -35,7 +34,6 @@ const AuxLink = styled.a`
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   margin: 0rem;
   cursor: pointer;
-  text-decoration: none;
 
   &: hover {
     text-decoration: underline;
@@ -43,7 +41,6 @@ const AuxLink = styled.a`
 
   @media ${devices.tablet} {
     font-size: 16px;
-    text-decoration: none;
   }
 `;
 
@@ -196,7 +193,7 @@ const Footer = ({ t }) => {
           <AuxLink>
             <Caption>{t('footer.terms')}</Caption>
           </AuxLink>
-          <AuxLink href={LicensePDF} target="_blank">
+          <AuxLink>
             <Caption>{t('footer.license')}</Caption>
           </AuxLink>
         </AuxLinks>

@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     body, html {
       background-color: #efede4;
     }
+
+    img {
+      -webkit-touch-callout: none;
+    }
 `;
 
 export const wrapRootElement = ({ element }) => (

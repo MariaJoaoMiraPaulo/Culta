@@ -8,6 +8,8 @@ const ImageTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
+  background-color: ${({ theme, background }) =>
+    theme.colors[background] || theme.colors.marble};
 
   @media ${devices.tablet} {
     flex-direction: row;
@@ -41,6 +43,7 @@ const TextWrapper = styled.div`
 
 const ImageTextSection = ({
   color,
+  background,
   body,
   title,
   padding,
@@ -50,12 +53,13 @@ const ImageTextSection = ({
   hideOnDesktop = false,
 }) => {
   return (
-    <ImageTextWrapper hideOnDesktop={hideOnDesktop}>
+    <ImageTextWrapper background={background} hideOnDesktop={hideOnDesktop}>
       <ImageWrapper>
-        <Image image={image} alt={imageAlt} />
+        <Image image={image} imageAlt={imageAlt} />
       </ImageWrapper>
       <TextWrapper>
         <TextSection
+          background={background}
           color={color}
           body={body}
           title={title}

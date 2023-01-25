@@ -1,9 +1,18 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import { useTheme } from 'styled-components';
+import { BodyColorContext } from '../Provider';
 
 const Gallery = ({ data }) => {
+  const { setBodyColor } = useContext(BodyColorContext);
+  const theme = useTheme();
+
+  useLayoutEffect(() => {
+    setBodyColor(theme.colors['marble']);
+  }, [setBodyColor, theme.colors]);
+
   return (
     <LayoutWrapper logoColor="red">
       <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />

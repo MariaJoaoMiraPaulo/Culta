@@ -14,7 +14,10 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export const BodyColorContext = createContext();
+export const BodyColorContext = createContext({
+  bodyColor: '',
+  setBodyColor: () => {},
+});
 
 const Provider = ({ children }) => {
   const [bodyColor, setBodyColor] = useState(theme.colors['marble']);

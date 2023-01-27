@@ -2,6 +2,7 @@ import { graphql, navigate } from 'gatsby';
 import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import PostLayout from '../components/layouts/PostLayout';
+import BodyColor from '../components/BodyColor';
 
 const Post = ({ data }) => {
   if (!data.contentfulBlogPost) {
@@ -9,12 +10,14 @@ const Post = ({ data }) => {
   }
 
   return (
-    <LayoutWrapper logoColor="red">
-      <PostLayout
-        post={data.contentfulBlogPost}
-        assets={data.allContentfulAsset}
-      />
-    </LayoutWrapper>
+    <BodyColor>
+      <LayoutWrapper logoColor="red">
+        <PostLayout
+          post={data.contentfulBlogPost}
+          assets={data.allContentfulAsset}
+        />
+      </LayoutWrapper>
+    </BodyColor>
   );
 };
 

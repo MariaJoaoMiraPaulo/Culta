@@ -79,7 +79,7 @@ const Menu = ({ t }) => {
     <>
       <MenuActions>
         {!isMenuOpen ? (
-          <MenuIcon onClickHandler={() => setIsMenuOpen(true)} />
+          <MenuIcon color="red" onClickHandler={() => setIsMenuOpen(true)} />
         ) : (
           <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
         )}

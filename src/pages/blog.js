@@ -1,13 +1,17 @@
 import { graphql } from 'gatsby';
-import * as React from 'react';
+import React from 'react';
 import BlogLayout from '../components/layouts/BlogLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
+import BodyColor from '../components/BodyColor';
+
 const BlogPage = ({ data }) => {
   return (
-    <LayoutWrapper logoColor="red">
-      <BlogLayout data={data.allContentfulBlogPost.edges} />
-    </LayoutWrapper>
+    <BodyColor>
+      <LayoutWrapper logoColor="red">
+        <BlogLayout data={data.allContentfulBlogPost.edges} />
+      </LayoutWrapper>
+    </BodyColor>
   );
 };
 

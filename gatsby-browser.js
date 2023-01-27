@@ -1,21 +1,6 @@
 import React from 'react';
-import './src/styles/typography.css';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import theme from './src/styles/theme';
+import Provider from './src/Provider';
 
-const GlobalStyles = createGlobalStyle`
-    body, html {
-      background-color: #efede4;
-    }
+const Wrapper = ({ element }) => <Provider>{element}</Provider>;
 
-    img {
-      -webkit-touch-callout: none;
-    }
-`;
-
-export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    {element}
-  </ThemeProvider>
-);
+export const wrapRootElement = Wrapper;

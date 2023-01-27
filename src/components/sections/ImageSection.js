@@ -54,7 +54,7 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
   return (
     <SectionWrapper color={color} background={background} href={linkTo}>
       <ImageSectionWrapper>
-        <GrainyEffectImage>
+        <GrainyEffectImage noBorders>
           <GatsbyImage
             image={image}
             alt={title}

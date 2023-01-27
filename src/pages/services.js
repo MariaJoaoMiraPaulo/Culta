@@ -1,16 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ServicesLayout from '../components/layouts/ServicesLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
+import BodyColor from '../components/BodyColor';
 
 const ServicesPage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
 
   return (
-    <LayoutWrapper logoColor="red">
-      <ServicesLayout images={images} />
-    </LayoutWrapper>
+    <BodyColor color="blue">
+      <LayoutWrapper logoColor="marble">
+        <ServicesLayout images={images} />
+      </LayoutWrapper>
+    </BodyColor>
   );
 };
 

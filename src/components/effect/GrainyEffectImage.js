@@ -14,11 +14,11 @@ const GrainyImageBlur = styled.div`
   height: 100%;
   filter: ${({ showOriginalOnHover, grainyWithNoEffect }) =>
     !showOriginalOnHover || grainyWithNoEffect ? 'blur(0)' : 'blur(5px)'};
-  transform: scale(1.2);
+  transform: ${props => (props.noBorders ? 'scale(1.2)' : 'scale(1)')};
 `;
 
 const ImageWrapper = styled.div`
-  transform: scale(1.2);
+  transform: ${props => (props.noBorders ? 'scale(1.2)' : 'scale(1)')};
   width: 100%;
   height: 100%;
   position: relative;
@@ -53,14 +53,19 @@ const GrainyEffectImage = ({
   showOriginalOnHover = true,
   scaleOnHover = false,
   children,
+  noBorders = false,
 }) => {
   return (
     <ImageWrapper
+      noBorders={noBorders}
       grainyWithNoEffect={grainyWithNoEffect}
       showOriginalOnHover={showOriginalOnHover}
       scaleOnHover={scaleOnHover}
     >
-      <GrainyImageBlur showOriginalOnHover={showOriginalOnHover}>
+      <GrainyImageBlur
+        noBorders={noBorders}
+        showOriginalOnHover={showOriginalOnHover}
+      >
         {children}
       </GrainyImageBlur>
       {<GrainyEffectWrapper></GrainyEffectWrapper>}

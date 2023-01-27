@@ -38,7 +38,10 @@ const AuxLink = styled.a`
   text-decoration: none;
 
   &: hover {
+    color: transparent;
     text-decoration: underline;
+    text-shadow: 0 0 ${({ radius }) => radius || '10px'}
+      ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
 
   @media ${devices.tablet} {

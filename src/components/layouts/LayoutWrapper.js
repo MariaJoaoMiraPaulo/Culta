@@ -61,14 +61,15 @@ const LayoutWrapper = ({
         <>
           <Banner>
             <BannerImage>
-              <GrainyEffectImage grainyWithNoEffect>
+              <GrainyEffectImage noBorders grainyWithNoEffect>
                 <GatsbyImage
-                  style={{ height: '100%', width: '100%' }}
                   image={bannerImage}
-                  alt={'banner image'}
+                  alt="banner image"
                   placeholder="blurred"
-                  layout="constrained"
+                  objectFit="cover"
+                  layout="fixed"
                   loading="eager"
+                  style={{ height: '100%' }}
                 />
               </GrainyEffectImage>
             </BannerImage>

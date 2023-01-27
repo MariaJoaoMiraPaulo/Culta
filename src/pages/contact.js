@@ -3,14 +3,17 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ContactLayout from '../components/layouts/ContactLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
+import BodyColor from '../components/BodyColor';
 
 const ContactPage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
 
   return (
-    <LayoutWrapper logoColor="red">
-      <ContactLayout images={images} />
-    </LayoutWrapper>
+    <BodyColor>
+      <LayoutWrapper logoColor="red">
+        <ContactLayout images={images} />
+      </LayoutWrapper>
+    </BodyColor>
   );
 };
 

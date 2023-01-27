@@ -10,7 +10,7 @@ import services from '../../data/services';
 
 const ServicesWrapper = styled.div`
   display: grid;
-  margin: 0 1rem 2rem 1rem;
+  margin: 1rem 1rem 2rem 1rem;
   grid-template-columns: 100%;
   justify-items: center;
   @media ${devices.laptop} {
@@ -20,7 +20,7 @@ const ServicesWrapper = styled.div`
 `;
 
 const Service = styled.div`
-  color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.marble};
   text-align: center;
   display: flex;
   align-items: center;
@@ -53,11 +53,12 @@ const ServicesLayout = ({ t, images }) => {
         padding="4rem 1rem"
         paddingMobile="1rem 0rem"
         title={t('services.services')}
-        background="marble"
-        color="blue"
+        background="blue"
+        color="marble"
       />
       <ImageTextSection
-        color="blue"
+        color="marble"
+        background="blue"
         body={t('services.body')}
         image={images['services.jpg']}
         imageAlt={t('services.services')}

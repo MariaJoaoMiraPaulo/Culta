@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { withTrans } from '../../i18n/withTrans';
 import { devices } from '../../styles/devices';
 import Input from './Input';
+import PrivacyPolicyPDF from '../../docs/PrivacyPolicy.pdf';
 
 const Form = styled.form`
   display: grid;
@@ -204,7 +205,9 @@ const ContactForm = ({ t }) => {
             placeholder={t('contact.message')}
           />
         </label>
-        <LinkToDocs href="">{t('contact.linkToDocs')}</LinkToDocs>
+        <LinkToDocs href={PrivacyPolicyPDF} target="_blank">
+          {t('contact.linkToDocs')}
+        </LinkToDocs>
         <button type="submit">{t('contact.sendButton')}</button>
       </Form>
     </>

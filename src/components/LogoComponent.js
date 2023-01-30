@@ -1,9 +1,17 @@
 import React from 'react';
-import InlineLogo from '../icons/InlineLogo';
+import ShortenedLogo from '../icons/ShortenedLogo';
 import Logo from '../icons/Logo';
 
-const LogoComponent = ({ onClick, color, inline = true }) => {
-  return <>{inline ? <InlineLogo color={color} /> : <Logo color={color} />}</>;
+const LogoComponent = ({ color, shortenedVersion = true }) => {
+  return (
+    <>
+      {shortenedVersion ? (
+        <ShortenedLogo color={color} />
+      ) : (
+        <Logo color={color} />
+      )}
+    </>
+  );
 };
 
 export default LogoComponent;

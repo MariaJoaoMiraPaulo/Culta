@@ -34,7 +34,7 @@ const PagePadding = styled.div`
 const LayoutWrapper = ({
   bannerImage,
   children,
-  inline,
+  shortenedVersion = true,
   logoColor,
   isHomepage = false,
 }) => {
@@ -73,7 +73,7 @@ const LayoutWrapper = ({
                 />
               </GrainyEffectImage>
             </BannerImage>
-            <Header inline={inline} logoColor={logoColor} />
+            <Header shortenedVersion={shortenedVersion} logoColor={logoColor} />
           </Banner>
           <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />

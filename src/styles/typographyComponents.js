@@ -73,7 +73,7 @@ export const Body = styled.span`
   font-weight: 200;
   color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
   @media ${devices.tablet} {
-    font-size: 25px;
+    font-size: 22px;
   }
   margin: 0rem;
 `;

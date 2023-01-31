@@ -7,6 +7,8 @@ import { devices } from '../styles/devices';
 import { Link } from 'gatsby';
 import NewsletterForm from './forms/NewsletterForm';
 import LicensePDF from '../docs/ContratoLicença.pdf';
+import TermsConditionsPDF from '../docs/TC.pdf';
+import PrivacyPolicyPDF from '../docs/PrivacyPolicy.pdf';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -92,7 +94,7 @@ const FooterAnchor = styled.a`
 const FlexTable = styled.div`
   display: flex;
   width: 100%;
-  margin: 2.5rem;
+  margin: 2rem;
   flex-direction: column;
 
   @media ${devices.tablet} {
@@ -127,7 +129,7 @@ const FlexTableRow = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   &:first-child {
-    padding-bottom: 0px;
+    padding-bottom: 10px;
   }
 
   @media ${devices.tablet} {
@@ -193,10 +195,10 @@ const Footer = ({ t }) => {
       </FlexTable>
       <Copyright>
         <AuxLinks>
-          <AuxLink>
+          <AuxLink href={PrivacyPolicyPDF} target="_blank">
             <Caption>{t('footer.policy')}</Caption>
           </AuxLink>
-          <AuxLink>
+          <AuxLink href={TermsConditionsPDF} target="_blank">
             <Caption>{t('footer.terms')}</Caption>
           </AuxLink>
           <AuxLink href={LicensePDF} target="_blank">

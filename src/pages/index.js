@@ -20,7 +20,7 @@ const HomePage = ({ data }) => {
   return (
     <BodyColor>
       <LayoutWrapper
-        inline={false}
+        shortenedVersion={false}
         isHomepage
         bannerImage={bannerImagesArray[getRandomPicFromBannerArray()]}
         noPadding

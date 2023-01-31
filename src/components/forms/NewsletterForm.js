@@ -9,15 +9,7 @@ import ArrowIcon from '../../icons/ArrowIcon';
 const InfoMessage = styled.span`
   padding-top: 3px;
   font-family: ${({ theme }) => theme.fonts.main};
-  font-size: 1.1em;
-
-  @media ${devices.laptop} {
-    font-size: 1.4em;
-  }
-
-  @media ${devices.desktopL} {
-    font-size: 1.8em;
-  }
+  text-align: center;
 `;
 
 const NewsletterFormWrapper = styled.div`
@@ -46,7 +38,20 @@ const NewsletterInputWrapper = styled.div`
   }
 
   @media ${devices.desktop} {
-    width: 50%;
+    width: 40%;
+  }
+
+  input {
+    font-size: 0.9em;
+    text-align: center;
+
+    @media ${devices.laptop} {
+      font-size: 0.85em;
+    }
+
+    @media ${devices.desktopL} {
+      font-size: 1em;
+    }
   }
 `;
 

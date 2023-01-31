@@ -94,7 +94,7 @@ const FooterAnchor = styled.a`
 const FlexTable = styled.div`
   display: flex;
   width: 100%;
-  margin: 2.5rem;
+  margin: 2rem;
   flex-direction: column;
 
   @media ${devices.tablet} {
@@ -129,7 +129,7 @@ const FlexTableRow = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   &:first-child {
-    padding-bottom: 0px;
+    padding-bottom: 10px;
   }
 
   @media ${devices.tablet} {

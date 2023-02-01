@@ -6,7 +6,7 @@ import { devices } from '../styles/devices';
 
 const Animation = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   margin: 3rem 1rem 6rem 1rem;
   flex-direction: column;
@@ -18,10 +18,8 @@ const Animation = styled.div`
 `;
 
 const CultureContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.blue};
-  color: ${({ theme }) => theme.colors.marble};
+  color: ${({ theme }) => theme.colors.blue};
   height: 40px;
-  padding: 0 25px;
   text-align: left;
   display: flex;
   align-items: center;
@@ -32,7 +30,6 @@ const CultureContainer = styled.div`
 
   @media ${devices.laptop} {
     height: 60px;
-    padding: 0 1rem;
   }
 `;
 
@@ -42,7 +39,7 @@ const AnimationContainer = styled.div`
   color: ${({ theme }) => theme.colors.blue};
   padding: 0;
   @media ${devices.tablet} {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -50,7 +47,7 @@ const Sentences = styled.ul`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin: 0;
   padding-left: 0;
   width: max-content;

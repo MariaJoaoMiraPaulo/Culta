@@ -31,15 +31,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
   ]);
 };
 
-const GlobalStyles = createGlobalStyle`
-    body, html {
-        background-color: ${props => props.theme.colors.marble};
-    }
-`;
-
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    {element}
-  </ThemeProvider>
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
 );

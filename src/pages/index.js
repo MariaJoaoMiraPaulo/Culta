@@ -6,7 +6,6 @@ import {
   getImagesMappedByName,
   getArrayOfBannerImages,
 } from '../utils/queryFunctions';
-import BodyColor from '../components/BodyColor';
 
 const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
@@ -18,16 +17,14 @@ const HomePage = ({ data }) => {
   };
 
   return (
-    <BodyColor>
-      <LayoutWrapper
-        shortenedVersion={false}
-        isHomepage
-        bannerImage={bannerImagesArray[getRandomPicFromBannerArray()]}
-        noPadding
-      >
-        <HomeLayout images={images} />
-      </LayoutWrapper>
-    </BodyColor>
+    <LayoutWrapper
+      shortenedVersion={false}
+      isHomepage
+      bannerImage={bannerImagesArray[getRandomPicFromBannerArray()]}
+      noPadding
+    >
+      <HomeLayout images={images} />
+    </LayoutWrapper>
   );
 };
 

@@ -24,6 +24,8 @@ const BannerImage = styled.div`
 `;
 
 const Page = styled.div`
+  background-color: ${({ theme, backgroundColor }) =>
+    theme.colors[backgroundColor] || 'none'};
   max-width: 100%;
 `;
 
@@ -37,6 +39,7 @@ const LayoutWrapper = ({
   shortenedVersion = true,
   logoColor,
   isHomepage = false,
+  backgroundColor = null,
 }) => {
   useEffect(() => {
     const handleAvoidSaveImage = e => {
@@ -79,7 +82,7 @@ const LayoutWrapper = ({
           <MyFooter />
         </>
       ) : (
-        <Page>
+        <Page backgroundColor={backgroundColor}>
           <Header logoColor={logoColor} />
           <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />

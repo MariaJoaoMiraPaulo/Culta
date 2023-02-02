@@ -7,11 +7,9 @@ import BodyColor from '../components/BodyColor';
 
 const BlogPage = ({ data }) => {
   return (
-    <BodyColor>
-      <LayoutWrapper logoColor="red">
-        <BlogLayout data={data.allContentfulBlogPost.edges} />
-      </LayoutWrapper>
-    </BodyColor>
+    <LayoutWrapper logoColor="red">
+      <BlogLayout data={data.allContentfulBlogPost.edges} />
+    </LayoutWrapper>
   );
 };
 

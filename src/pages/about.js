@@ -3,17 +3,14 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import AboutLayout from '../components/layouts/AboutLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
-import BodyColor from '../components/BodyColor';
 
 const AboutPage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
 
   return (
-    <BodyColor>
-      <LayoutWrapper logoColor="red">
-        <AboutLayout images={images} />
-      </LayoutWrapper>
-    </BodyColor>
+    <LayoutWrapper logoColor="red">
+      <AboutLayout images={images} />
+    </LayoutWrapper>
   );
 };
 

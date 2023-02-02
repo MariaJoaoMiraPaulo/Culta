@@ -2,15 +2,12 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import BodyColor from '../components/BodyColor';
 
 const Gallery = ({ data }) => {
   return (
-    <BodyColor>
-      <LayoutWrapper logoColor="red">
-        <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />
-      </LayoutWrapper>
-    </BodyColor>
+    <LayoutWrapper logoColor="red">
+      <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />
+    </LayoutWrapper>
   );
 };
 

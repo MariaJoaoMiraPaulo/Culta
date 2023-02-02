@@ -5,8 +5,7 @@ import './styles/typography.css';
 
 const GlobalStyles = createGlobalStyle`
     body, html {
-      background-color: ${props => props.bodyColor};
-      color: ${props => props.bodyColor !== '#efede4' && '#efede4'}
+      background-color: #efede4;
     }
 
     img {
@@ -14,21 +13,12 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export const BodyColorContext = createContext({
-  bodyColor: '',
-  setBodyColor: () => {},
-});
-
 const Provider = ({ children }) => {
-  const [bodyColor, setBodyColor] = useState(theme.colors['marble']);
-
   return (
-    <BodyColorContext.Provider value={{ bodyColor, setBodyColor }}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles bodyColor={bodyColor} />
-        {children}
-      </ThemeProvider>
-    </BodyColorContext.Provider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      {children}
+    </ThemeProvider>
   );
 };
 

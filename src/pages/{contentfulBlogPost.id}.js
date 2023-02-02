@@ -10,14 +10,12 @@ const Post = ({ data }) => {
   }
 
   return (
-    <BodyColor>
-      <LayoutWrapper logoColor="red">
-        <PostLayout
-          post={data.contentfulBlogPost}
-          assets={data.allContentfulAsset}
-        />
-      </LayoutWrapper>
-    </BodyColor>
+    <LayoutWrapper logoColor="red">
+      <PostLayout
+        post={data.contentfulBlogPost}
+        assets={data.allContentfulAsset}
+      />
+    </LayoutWrapper>
   );
 };
 

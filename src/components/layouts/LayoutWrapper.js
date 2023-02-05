@@ -1,4 +1,4 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import MyFooter from '../Footer';
@@ -39,8 +39,10 @@ const LayoutWrapper = ({
   shortenedVersion = true,
   logoColor,
   isHomepage = false,
-  backgroundColor = null,
+  backgroundColor = 'marble',
 }) => {
+  const bannerImageObject = getImage(bannerImage);
+
   useEffect(() => {
     const handleAvoidSaveImage = e => {
       if (e.target.tagName === 'IMG') {
@@ -66,13 +68,11 @@ const LayoutWrapper = ({
             <BannerImage>
               <GrainyEffectImage noBorders grainyWithNoEffect>
                 <GatsbyImage
-                  image={bannerImage}
+                  image={bannerImageObject}
                   alt="banner image"
                   placeholder="blurred"
-                  objectFit="cover"
-                  layout="fixed"
-                  loading="eager"
-                  style={{ height: '100%' }}
+                  loading="blur"
+                  objectFit="contain"
                 />
               </GrainyEffectImage>
             </BannerImage>

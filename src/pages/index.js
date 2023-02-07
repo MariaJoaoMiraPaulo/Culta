@@ -7,29 +7,31 @@ import {
   getArrayOfBannerImages,
 } from '../utils/queryFunctions';
 import { SEO } from '../components/SEO';
+import metadata from '../data/metadata';
 
 const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
   const bannerImagesArray = getArrayOfBannerImages(data.allFile.edges);
-
-  const getRandomPicFromBannerArray = () => {
-    const random = Math.floor(Math.random() * bannerImagesArray.length);
-    return random;
-  };
+  const currentBannerImage =
+    bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)];
 
   return (
-    <LayoutWrapper
-      shortenedVersion={false}
-      isHomepage
-      bannerImage={bannerImagesArray[getRandomPicFromBannerArray()]}
-      noPadding
-    >
-      <HomeLayout images={images} />
-    </LayoutWrapper>
+    <>
+      <SEO
+        description={metadata.home.description}
+        imagePath={currentBannerImage.images.fallback.src}
+      />
+      <LayoutWrapper
+        shortenedVersion={false}
+        isHomepage
+        bannerImage={currentBannerImage}
+        noPadding
+      >
+        <HomeLayout images={images} />
+      </LayoutWrapper>
+    </>
   );
 };
-
-export const Head = () => <SEO />;
 
 export default HomePage;
 

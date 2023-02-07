@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import theme from './src/styles/theme';
 
 export const onRenderBody = ({ setHeadComponents }) => {

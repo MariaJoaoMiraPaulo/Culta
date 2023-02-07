@@ -1,23 +1,49 @@
-Copysrc/components/seo.jsx: copy code to clipboard
-import React from "react"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import React from 'react';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { Helmet } from 'react-helmet';
 
-export const SEO = ({ title, description, pathname, children }) => {
-  const { title: defaultTitle, description: defaultDescription, image, siteUrl } = useSiteMetadata()
+export const SEO = ({
+  title,
+  description,
+  pathname,
+  imagePath,
+  fullImageUrl,
+}) => {
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    image,
+    siteUrl,
+  } = useSiteMetadata();
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image}`,
-    url: `${siteUrl}${pathname || ``}`,
-  }
+    image: fullImageUrl
+      ? fullImageUrl
+      : imagePath
+      ? `${siteUrl}${imagePath}`
+      : image,
+    url: pathname ? `${siteUrl}/${pathname}` : siteUrl,
+  };
 
   return (
-    <>
-      <title>{seo.title}</title>
+    <Helmet>
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta name="image" property="og:image" content={seo.image} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={seo.url} />
+
+      <meta name="title" content={seo.title} />
       <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
-      {children}
-    </>
-  )
-}
+
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:url" content={seo.image} />
+      <meta name="twitter:card" content="summary_large_image" />
+
+      <link rel="canonical" href={seo.url} />
+    </Helmet>
+  );
+};

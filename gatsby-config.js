@@ -6,6 +6,8 @@ module.exports = {
   siteMetadata: {
     title: `Culta`,
     siteUrl: `https://www.culta.pt`,
+    description: `O que nos move é a cultura`,
+    image: `/logo.jpeg`,
   },
   plugins: [
     {

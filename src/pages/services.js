@@ -3,6 +3,7 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ServicesLayout from '../components/layouts/ServicesLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
+import { SEO } from '../components/SEO';
 
 const ServicesPage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
@@ -15,6 +16,8 @@ const ServicesPage = ({ data }) => {
 };
 
 export default ServicesPage;
+
+export const Head = () => <SEO title="Services page" />;
 
 export const query = graphql`
   query MyQuery {

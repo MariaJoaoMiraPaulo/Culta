@@ -6,6 +6,7 @@ import {
   getImagesMappedByName,
   getArrayOfBannerImages,
 } from '../utils/queryFunctions';
+import { SEO } from '../components/SEO';
 
 const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
@@ -27,6 +28,8 @@ const HomePage = ({ data }) => {
     </LayoutWrapper>
   );
 };
+
+export const Head = () => <SEO />;
 
 export default HomePage;
 

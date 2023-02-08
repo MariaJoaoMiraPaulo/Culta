@@ -13,11 +13,12 @@ const Post = ({ data }) => {
     <>
       <SEO
         title={data.contentfulBlogPost.title}
+        description={data.contentfulBlogPost.description}
+        pathname={data.contentfulBlogPost.id}
         fullImageUrl={
           data.contentfulBlogPost.backgroundImage.gatsbyImageData.images
             .fallback.src
         }
-        pathname={data.contentfulBlogPost.id}
       />
       <LayoutWrapper logoColor="red">
         <PostLayout
@@ -40,6 +41,9 @@ export const query = graphql`
         name
       }
       title
+      description {
+        description
+      }
       article {
         raw
       }

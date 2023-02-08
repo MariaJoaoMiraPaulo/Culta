@@ -2,7 +2,7 @@ import { graphql, navigate } from 'gatsby';
 import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import PostLayout from '../components/layouts/PostLayout';
-import BodyColor from '../components/BodyColor';
+import { SEO } from '../components/SEO';
 
 const Post = ({ data }) => {
   if (!data.contentfulBlogPost) {
@@ -10,12 +10,23 @@ const Post = ({ data }) => {
   }
 
   return (
-    <LayoutWrapper logoColor="red">
-      <PostLayout
-        post={data.contentfulBlogPost}
-        assets={data.allContentfulAsset}
+    <>
+      <SEO
+        title={data.contentfulBlogPost.title}
+        description={data.contentfulBlogPost.description}
+        pathname={data.contentfulBlogPost.id}
+        fullImageUrl={
+          data.contentfulBlogPost.backgroundImage.gatsbyImageData.images
+            .fallback.src
+        }
       />
-    </LayoutWrapper>
+      <LayoutWrapper logoColor="red">
+        <PostLayout
+          post={data.contentfulBlogPost}
+          assets={data.allContentfulAsset}
+        />
+      </LayoutWrapper>
+    </>
   );
 };
 
@@ -30,14 +41,14 @@ export const query = graphql`
         name
       }
       title
+      description {
+        description
+      }
       article {
         raw
       }
       backgroundImage {
         description
-        file {
-          url
-        }
         gatsbyImageData(layout: CONSTRAINED)
       }
     }

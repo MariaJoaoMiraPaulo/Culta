@@ -4,8 +4,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Culta`,
-    siteUrl: `https://www.culta.pt`,
+    title: 'Culta',
+    //  siteUrl: `https://www.culta.pt`,
+    siteUrl: `https://deploy-preview-51--amazing-platypus-28ca40.netlify.app`,
+    image: `/logo.jpeg`,
   },
   plugins: [
     {
@@ -24,6 +26,7 @@ module.exports = {
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

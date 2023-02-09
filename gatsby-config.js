@@ -5,8 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Culta',
-    //  siteUrl: `https://www.culta.pt`,
-    siteUrl: `https://deploy-preview-51--amazing-platypus-28ca40.netlify.app`,
+    siteUrl: 'https://www.culta.pt',
     image: `/logo.jpeg`,
   },
   plugins: [

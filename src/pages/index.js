@@ -59,7 +59,7 @@ export const query = graphql`
         node {
           id
           childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED)
+            gatsbyImageData
             fluid {
               originalName
             }

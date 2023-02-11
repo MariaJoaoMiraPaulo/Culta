@@ -27,10 +27,16 @@ const Page = styled.div`
   background-color: ${({ theme, backgroundColor }) =>
     theme.colors[backgroundColor] || 'none'};
   max-width: 100%;
+  height: ${({ fullHeight }) => (fullHeight ? '100vh' : 'auto')};
 `;
 
 const PagePadding = styled.div`
   padding: ${props => (props.noPadding ? '0' : '2rem')};
+  position: ${({ fullHeight }) => (fullHeight ? 'absolute' : 'relative')};
+  top:  ${({ fullHeight }) => (fullHeight ? '0' : 'auto')};
+  width:  ${({ fullHeight }) => (fullHeight ? '100%' : 'auto')};
+  height:  ${({ fullHeight }) => (fullHeight ? '100%' : 'auto')};
+}
 `;
 
 const LayoutWrapper = ({
@@ -40,6 +46,8 @@ const LayoutWrapper = ({
   logoColor,
   isHomepage = false,
   backgroundColor = 'marble',
+  noFooter = false,
+  fullHeight = false,
 }) => {
   const bannerImageObject = getImage(bannerImage);
 
@@ -83,10 +91,12 @@ const LayoutWrapper = ({
           <MyFooter />
         </>
       ) : (
-        <Page backgroundColor={backgroundColor}>
+        <Page fullHeight={fullHeight} backgroundColor={backgroundColor}>
           <Header logoColor={logoColor} />
-          <PagePadding noPadding>{children}</PagePadding>
-          <MyFooter />
+          <PagePadding fullHeight={fullHeight} noPadding>
+            {children}
+          </PagePadding>
+          {!noFooter && <MyFooter />}
         </Page>
       )}
     </>

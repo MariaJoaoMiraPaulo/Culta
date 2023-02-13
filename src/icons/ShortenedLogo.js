@@ -7,6 +7,7 @@ const SVGWrapper = styled.svg`
   cursor: pointer;
   width: 50%;
   padding: 1rem;
+  z-index: 2;
   @media ${devices.tablet} {
     width: 20%;
   }

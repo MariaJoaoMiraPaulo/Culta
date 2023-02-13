@@ -4,6 +4,7 @@ import styled, { useTheme } from 'styled-components';
 import { devices } from '../styles/devices';
 
 const LogoWrapper = styled.svg`
+  z-index: 2;
   width: 50%;
   cursor: pointer;
   @media ${devices.tablet} {

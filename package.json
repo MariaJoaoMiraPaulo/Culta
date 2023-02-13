@@ -42,6 +42,7 @@
     "imagemin-pngquant": "^9.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-gtm-module": "^2.0.11",
     "react-helmet": "^6.1.0",
     "react-i18next": "^12.1.1",
     "sass": "^1.54.5",

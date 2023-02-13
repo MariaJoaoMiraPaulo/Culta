@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import HomeLayout from '../components/layouts/HomeLayout';
-import { graphql } from 'gatsby';
+import { graphql, Script } from 'gatsby';
 import {
   getImagesMappedByName,
   getArrayOfBannerImages,
@@ -15,8 +17,28 @@ const HomePage = ({ data }) => {
   const currentBannerImage =
     bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)];
 
+  useEffect(() => {
+    const tagManagerArgs = {
+      gtmId: 'GTM-NJDCBBG',
+    };
+
+    TagManager.initialize(tagManagerArgs);
+  }, []);
+
   return (
     <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENTID}`}
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENTID}');
+        `}
+      </Script>
       <SEO
         description={metadata.home.description}
         imagePath={currentBannerImage.images.fallback.src}

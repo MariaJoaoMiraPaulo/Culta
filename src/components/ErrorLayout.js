@@ -39,7 +39,7 @@ const CustomLink = styled(Link)`
   }
 `;
 
-const ErrorLayout = ({ title, description }) => {
+const ErrorLayout = ({ title, description, cta }) => {
   return (
     <Page>
       <Header />
@@ -48,7 +48,7 @@ const ErrorLayout = ({ title, description }) => {
           <SubTitle color="red">{title}</SubTitle>
         </ErrorTitle>
         <Caption color="red">{description}</Caption>
-        <CustomLink to="/">Go Home</CustomLink>
+        <CustomLink to="/">{cta}</CustomLink>
       </CentralText>
     </Page>
   );

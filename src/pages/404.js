@@ -7,6 +7,7 @@ const NotFoundPage = ({ t }) => {
     <ErrorLayout
       title={t('errors.404.title')}
       description={t('errors.404.description')}
+      cta={t('errors.404.cta')}
     />
   );
 };

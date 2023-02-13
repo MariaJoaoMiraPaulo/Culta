@@ -66,5 +66,11 @@
     "sendButton": "Enviar",
     "linkToDocs": " Pode consultar a nossa Política de Privacidade.",
     "company": "empresa/instituição (opcional)"
+  },
+  "errors": {
+    "404": {
+      "title": "page not found",
+      "description": "Sorry we couldn't find what you were looking for."
+    }
   }
 }

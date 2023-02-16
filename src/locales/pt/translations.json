@@ -66,12 +66,5 @@
     "sendButton": "Enviar",
     "linkToDocs": " Pode consultar a nossa Política de Privacidade.",
     "company": "empresa/instituição (opcional)"
-  },
-  "errors": {
-    "404": {
-      "title": "Página não encontrada",
-      "description": "Desculpe, não conseguimos encontrar o que desejava.",
-      "cta": "Voltar"
-    }
   }
 }

@@ -10,10 +10,11 @@ import {
   BodyUnderlined,
   SubTitle2,
 } from '../../styles/typographyComponents';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Asset from './Asset';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -78,6 +79,13 @@ const PaddingParagraph = styled.div`
   padding-bottom: 2rem;
 `;
 
+const ALink = styled(Link)`
+  color: ${theme.colors.red};
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+`;
+
 const getCustomOptions = assets => {
   const options = {
     renderMark: {
@@ -97,6 +105,10 @@ const getCustomOptions = assets => {
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
         return <Asset id={node.data.target.sys.id} assets={assets} />;
+      },
+      [INLINES.HYPERLINK]: (node, children) => {
+        console.log(node);
+        return <ALink to={node.data.uri}>{children}</ALink>;
       },
     },
     renderText: text => {

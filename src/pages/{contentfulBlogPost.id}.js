@@ -13,7 +13,9 @@ const Post = ({ data }) => {
     const gatsbyImage = data.contentfulBlogPost.backgroundImage.gatsbyImageData;
 
     return (
-      gatsbyImage.images.sources[0].srcSet || gatsbyImage.images.fallback.src
+      gatsbyImage.images.sources[0].srcSet.split(', ')[0].split(' ')[0] ||
+      gatsbyImage.images.fallback.src ||
+      ''
     );
   };
 

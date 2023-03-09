@@ -9,16 +9,21 @@ const Post = ({ data }) => {
     return navigate('/404');
   }
 
+  const getFullImageURL = () => {
+    const gatsbyImage = data.contentfulBlogPost.backgroundImage.gatsbyImageData;
+
+    return (
+      gatsbyImage.images.sources[0].srcSet || gatsbyImage.images.fallback.src
+    );
+  };
+
   return (
     <>
       <SEO
         title={data.contentfulBlogPost.title}
         description={data.contentfulBlogPost.description}
         pathname={data.contentfulBlogPost.id}
-        fullImageUrl={
-          data.contentfulBlogPost.backgroundImage.gatsbyImageData.images
-            .fallback.src
-        }
+        fullImageUrl={getFullImageURL()}
       />
       <LayoutWrapper logoColor="red">
         <PostLayout

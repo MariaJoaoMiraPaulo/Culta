@@ -9,8 +9,15 @@ const BlogPage = ({ data }) => {
   const getFirstBlogPostImage = () => {
     const postsArray = data.allContentfulBlogPost.edges;
     if (postsArray.length === 0) return null;
-    return data.allContentfulBlogPost.edges[0].node.backgroundImage
-      .gatsbyImageData.images.fallback.src;
+
+    console.log(data.allContentfulBlogPost.edges[0].node.backgroundImage);
+
+    const gatsbyImage =
+      data.allContentfulBlogPost.edges[0].node.backgroundImage.gatsbyImageData;
+
+    return (
+      gatsbyImage.images.sources[0].srcSet || gatsbyImage.images.fallback.src
+    );
   };
 
   return (

@@ -107,7 +107,6 @@ const getCustomOptions = assets => {
         return <Asset id={node.data.target.sys.id} assets={assets} />;
       },
       [INLINES.HYPERLINK]: (node, children) => {
-        console.log(node);
         return <ALink to={node.data.uri}>{children}</ALink>;
       },
     },

@@ -5,33 +5,24 @@ import PostLayout from '../components/layouts/PostLayout';
 import { SEO } from '../components/SEO';
 
 const Post = ({ data }) => {
+  const post = React.useMemo(() => {
+    return data.contentfulBlogPost;
+  }, [data.contentfulBlogPost.id]);
+
   if (!data.contentfulBlogPost) {
     return navigate('/404');
   }
 
-  const getFullImageURL = () => {
-    const gatsbyImage = data.contentfulBlogPost.backgroundImage.gatsbyImageData;
-
-    return (
-      gatsbyImage.images.sources[0].srcSet.split(', ')[0].split(' ')[0] ||
-      gatsbyImage.images.fallback.src ||
-      ''
-    );
-  };
-
   return (
     <>
       <SEO
-        title={data.contentfulBlogPost.title}
-        description={data.contentfulBlogPost.description}
-        pathname={data.contentfulBlogPost.id}
-        fullImageUrl={getFullImageURL()}
+        title={post.title}
+        description={post.description.description}
+        pathname={post.id}
+        fullImageUrl={post.backgroundImage.publicUrl}
       />
       <LayoutWrapper logoColor="red">
-        <PostLayout
-          post={data.contentfulBlogPost}
-          assets={data.allContentfulAsset}
-        />
+        <PostLayout post={post} assets={data.allContentfulAsset} />
       </LayoutWrapper>
     </>
   );
@@ -40,13 +31,14 @@ const Post = ({ data }) => {
 export default Post;
 
 export const query = graphql`
-  query BlogPost($id: String!) {
-    contentfulBlogPost(id: { eq: $id }) {
+  query BlogPost($linkTitle: String!) {
+    contentfulBlogPost(linkTitle: { eq: $linkTitle }) {
       id
       createdAt
       tags {
         name
       }
+      linkTitle
       title
       description {
         description
@@ -57,6 +49,7 @@ export const query = graphql`
       backgroundImage {
         description
         gatsbyImageData(layout: CONSTRAINED)
+        publicUrl
       }
     }
     allContentfulAsset {

@@ -10,8 +10,6 @@ const BlogPage = ({ data }) => {
     const postsArray = data.allContentfulBlogPost.edges;
     if (postsArray.length === 0) return null;
 
-    console.log(data.allContentfulBlogPost.edges[0].node.backgroundImage);
-
     const gatsbyImage =
       data.allContentfulBlogPost.edges[0].node.backgroundImage.gatsbyImageData;
 

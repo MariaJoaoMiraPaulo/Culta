@@ -31,13 +31,14 @@ const Post = ({ data }) => {
 export default Post;
 
 export const query = graphql`
-  query BlogPost($id: String!) {
-    contentfulBlogPost(id: { eq: $id }) {
+  query BlogPost($linkTitle: String!) {
+    contentfulBlogPost(linkTitle: { eq: $linkTitle }) {
       id
       createdAt
       tags {
         name
       }
+      linkTitle
       title
       description {
         description

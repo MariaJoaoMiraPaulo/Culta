@@ -42,6 +42,7 @@ export const query = graphql`
         node {
           id
           title
+          linkTitle
           createdAt
           article {
             raw

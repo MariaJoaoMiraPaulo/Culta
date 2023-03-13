@@ -68,8 +68,8 @@ const Title = styled.div`
   max-width: 100%;
 `;
 
-const PostCard = ({ title, image, tags, id, createdAt }) => {
-  const jumpToContainer = () => navigate(`/${id}`);
+const PostCard = ({ title, image, tags, linkTitle, createdAt }) => {
+  const jumpToContainer = () => navigate(`/${linkTitle}`);
 
   return (
     <PostContainer image={image} onClick={jumpToContainer}>

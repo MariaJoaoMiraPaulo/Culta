@@ -126,6 +126,20 @@ export const Caption = styled.span`
   margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
 `;
 
+export const SmallerCaption = styled.span`
+  font-size: 12px;
+  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '24px')};
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 200;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  @media ${devices.tablet} {
+    font-size: 16px;
+    line-height: ${({ lineHeight }) =>
+      lineHeight ? `${lineHeight}px` : '30px'};
+  }
+  margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
+`;
+
 export const AnimationTitle = styled.h2`
   font-size: 13px;
   font-family: ${({ theme }) => theme.fonts.main};

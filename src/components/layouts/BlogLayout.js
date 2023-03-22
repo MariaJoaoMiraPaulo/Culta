@@ -7,6 +7,7 @@ const BlogPageLayout = styled.div`
   display: grid;
   grid-template-columns: 100%;
   min-height: 90vh;
+  margin-bottom: 2.5rem;
   @media ${devices.tablet} {
     grid-template-columns: 50% 50%;
   }

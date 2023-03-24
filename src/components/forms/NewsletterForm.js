@@ -70,17 +70,22 @@ const SubmitEmail = styled.div`
 `;
 
 const NewsletterForm = ({ t }) => {
-  const [email, setEmail] = useState(null);
-  const [info, setInfo] = useState(null);
+  const [email, setEmail] = useState('');
+  const [info, setInfo] = useState('');
 
-  function validateEmail(email) {
+  const validateEmail = email => {
     if (!email) return false;
 
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return regex.test(String(email).toLowerCase());
-  }
+  };
+
+  const resetForm = () => {
+    setInfo('');
+    setEmail('');
+  };
 
   const subscribeNewsletter = () => {
     setInfo(null);
@@ -90,6 +95,7 @@ const NewsletterForm = ({ t }) => {
       addToMailchimp(email)
         .then(() => {
           setInfo(t('footer.subscribedSuccess'));
+          setTimeout(() => resetForm(), 1200);
         })
         .catch(() => {
           setInfo(t('footer.errorSubscribing'));
@@ -118,6 +124,7 @@ const NewsletterForm = ({ t }) => {
           type="text"
           id="newsletter"
           name="newsletter"
+          value={email}
           placeholder={t('footer.subscribe')}
           onChange={handleChange}
           onKeyPress={handleKeyPress}

@@ -86,6 +86,7 @@ const Input = ({
   paddingBottomZero = false,
   white = false,
   children,
+  value,
 }) => {
   return (
     <Label paddingBottomZero={paddingBottomZero}>
@@ -98,6 +99,7 @@ const Input = ({
         placeholder={placeholder}
         onChange={onChange}
         onKeyPress={onKeyPress}
+        value={value}
       />
       {children}
       <Line white={white} />

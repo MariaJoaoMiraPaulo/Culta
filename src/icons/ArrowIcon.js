@@ -1,17 +1,21 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-const ArrowIcon = ({ color, onClickHandler }) => {
+const ArrowIcon = ({ left = false, color, onClickHandler }) => {
   const theme = useTheme();
 
   return (
     <svg
-      style={{ cursor: 'pointer', transform: 'rotate(90deg)' }}
+      style={{
+        cursor: 'pointer',
+        transform: left ? 'rotate(270deg)' : 'rotate(90deg)',
+      }}
       fill={theme.colors[color] || '#000'}
       onClick={onClickHandler}
       x="0px"
       y="0px"
       viewBox="0 0 490 490"
+      stroke={theme.colors[color]}
     >
       <g>
         <polygon

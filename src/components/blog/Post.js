@@ -6,6 +6,8 @@ import { SmallerCaption, SubTitle2 } from '../../styles/typographyComponents';
 
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { richTextToReactElements } from '../helpers/richTextConverter';
+import ArrowIcon from '../../icons/ArrowIcon';
+import { navigate } from 'gatsby';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -57,6 +59,18 @@ const BlogDateAndTopics = styled.div`
   flex-direction: row;
 `;
 
+const BackToBlog = styled.div`
+  svg {
+    width: 30px;
+    stroke-width: 5px;
+    &: hover, &: active {
+      filter: blur(2px);
+    }
+  }
+ 
+  padding: 15px 0;
+`;
+
 const Post = ({ post, assets }) => {
   const { article, title, tags, createdAt, backgroundImage } = post;
 
@@ -73,6 +87,9 @@ const Post = ({ post, assets }) => {
       </PostContentImage>
       <PostContent>
         <PostContentHeader>
+          <BackToBlog onClick={() => navigate('/blog')}>
+            <ArrowIcon left color="red" />
+          </BackToBlog>
           <SubTitle2>{title}</SubTitle2>
           <BlogDateAndTopics>
             <SmallerCaption>

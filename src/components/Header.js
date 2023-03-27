@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   z-index: 1;
 `;
 
-const Header = ({ shortenedVersion, logoColor }) => {
+const Header = ({ shortenedVersion = true, logoColor }) => {
   return (
     <HeaderWrapper shortenedVersion={shortenedVersion}>
       <LogoComponent color={logoColor} shortenedVersion={shortenedVersion} />

@@ -16,7 +16,11 @@ const ServicesPage = ({ data }) => {
         description={metadata.services.description}
         pathname="services"
       />
-      <LayoutWrapper logoColor="marble" backgroundColor="blue">
+      <LayoutWrapper
+        menuColor="marble"
+        logoColor="marble"
+        backgroundColor="blue"
+      >
         <ServicesLayout images={images} />
       </LayoutWrapper>
     </>

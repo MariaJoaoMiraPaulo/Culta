@@ -11,7 +11,7 @@ import { devices } from '../styles/devices';
 const MenuContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.marble};
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 0;
   width: 100%;
@@ -23,7 +23,7 @@ const MenuActions = styled.div`
   position: absolute;
   right: 2rem;
   top: 2rem;
-  z-index: 2;
+  z-index: 3;
 
   svg {
     &: hover, &: active {

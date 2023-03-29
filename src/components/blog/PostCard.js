@@ -51,9 +51,13 @@ const Tags = styled.div`
 const BottomContent = styled.div`
   padding: 18px;
   span {
-    font-size: 35px;
+    font-size: 28px;
     line-height: 40px;
     max-width: 60%;
+
+    @media ${devices.tablet} {
+      font-size: 32px;
+    }
   }
 `;
 

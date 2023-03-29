@@ -11,11 +11,11 @@ const HeaderWrapper = styled.div`
   z-index: 1;
 `;
 
-const Header = ({ shortenedVersion = true, logoColor }) => {
+const Header = ({ shortenedVersion, logoColor, menuColor }) => {
   return (
     <HeaderWrapper shortenedVersion={shortenedVersion}>
       <LogoComponent color={logoColor} shortenedVersion={shortenedVersion} />
-      <Menu />
+      <Menu color={menuColor} />
     </HeaderWrapper>
   );
 };

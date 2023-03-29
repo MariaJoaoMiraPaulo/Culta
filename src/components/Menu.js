@@ -59,7 +59,7 @@ const Links = styled.div`
   color: ${props => props.theme.colors.red};
 `;
 
-const Menu = ({ t }) => {
+const Menu = ({ t, color = 'red' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const jumpTo = path => {
@@ -79,7 +79,7 @@ const Menu = ({ t }) => {
     <>
       <MenuActions>
         {!isMenuOpen ? (
-          <MenuIcon color="red" onClickHandler={() => setIsMenuOpen(true)} />
+          <MenuIcon color={color} onClickHandler={() => setIsMenuOpen(true)} />
         ) : (
           <CloseIcon color="red" onClickHandler={() => setIsMenuOpen(false)} />
         )}

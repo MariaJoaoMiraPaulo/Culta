@@ -28,7 +28,7 @@ export const SEO = ({
   };
 
   return (
-    <Helmet>
+    <Helmet title={seo.title}>
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta name="image" property="og:image" content={seo.image} />

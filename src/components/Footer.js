@@ -154,16 +154,19 @@ const Footer = ({ t }) => {
             </FooterLink>
           </FlexTableRow>
           <FlexTableRow>
-            <FooterAnchor href="tel:+351912681139">
-              <BodySmall lineHeight="50" fontSize="30">
-                {culta.phoneNumber}
-              </BodySmall>
-            </FooterAnchor>
             <FooterAnchor href="mailto:geral@culta.pt">
               <BodySmall lineHeight="50" fontSize="30">
                 {culta.email.toUpperCase()}
               </BodySmall>
             </FooterAnchor>
+            <FooterAnchor href="tel:+351912681139">
+              <BodySmall lineHeight="50" fontSize="30">
+                {culta.phoneNumber}
+              </BodySmall>
+            </FooterAnchor>
+            <Caption style={{ textAlign: 'center' }}>
+              {t('footer.callNote')}
+            </Caption>
           </FlexTableRow>
         </FlexTableColumn>
         <FlexTableColumn>

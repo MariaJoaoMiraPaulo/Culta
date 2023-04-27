@@ -63,33 +63,72 @@ const Sentences = styled.ul`
   }
 
   animation-name: translation;
-  animation-duration: 12s;
+  animation-duration: 36s;
   animation-iteration-count: infinite;
 
   @keyframes translation {
     0% {
-      transform: translate(0, -6%);
+      transform: translate(0, -0%);
     }
-    14% {
-      transform: translate(0, -14.25%);
+    5% {
+      transform: translate(0, -5.25%);
     }
-    28% {
-      transform: translate(0, -28.5%);
+    10% {
+      transform: translate(0, -10.5%);
     }
-    42% {
-      transform: translate(0, -43%);
+    15% {
+      transform: translate(0, -15.75%);
     }
-    56% {
-      transform: translate(0, -57.25%);
+    20% {
+      transform: translate(0, -21%);
+    }
+    25% {
+      transform: translate(0, -26.25%);
+    }
+    30% {
+      transform: translate(0, -31.5%);
+    }
+    35% {
+      transform: translate(0, -36.75%);
+    }
+    40% {
+      transform: translate(0, -42%);
+    }
+    45% {
+      transform: translate(0, -47.25%);
+    }
+    50% {
+      transform: translate(0, -52.5%);
+    }
+    55% {
+      transform: translate(0, -57.75%);
+    }
+    60% {
+      transform: translate(0, -63%);
+    }
+    65% {
+      transform: translate(0, -68.25%);
     }
     70% {
-      transform: translate(0, -71.25%);
+      transform: translate(0, -73.5%);
     }
-    84% {
-      transform: translate(0, -85.5%);
+    75% {
+      transform: translate(0, -78.75%);
+    }
+    80% {
+      transform: translate(0, -84%);
+    }
+    85% {
+      transform: translate(0, -89.25%);
+    }
+    90% {
+      transform: translate(0, -94.5%);
+    }
+    95% {
+      transform: translate(0, -99.75%);
     }
     100% {
-      transform: translate(0, -99.5%);
+      transform: translate(0, -100%);
     }
   }
 `;
@@ -103,6 +142,42 @@ const CultureAnimation = ({ t }) => {
             <AnimationTitle>
               <div style={{ height: '65px' }} />
             </AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence1')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence2')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence3')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence4')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence5')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence6')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence1')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence2')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence3')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence4')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence5')}</AnimationTitle>
+          </li>
+          <li>
+            <AnimationTitle>{t('about.sentence6')}</AnimationTitle>
           </li>
           <li>
             <AnimationTitle>{t('about.sentence1')}</AnimationTitle>

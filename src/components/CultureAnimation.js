@@ -62,28 +62,34 @@ const Sentences = styled.ul`
     padding-bottom: 1.5rem;
   }
 
-  animation-name: change;
-  animation-duration: 10s;
+  animation-name: translation;
+  animation-duration: 12s;
   animation-iteration-count: infinite;
 
-  @keyframes change {
-    10% {
-      transform: translate3d(0, 0%, 0);
+  @keyframes translation {
+    0% {
+      transform: translate(0, -6%);
     }
-    30% {
-      transform: translate3d(0, -16.667%, 0);
+    14% {
+      transform: translate(0, -14.25%);
     }
-    45% {
-      transform: translate3d(0, -33.334%, 0);
+    28% {
+      transform: translate(0, -28.5%);
     }
-    60% {
-      transform: translate3d(0, -50.001%, 0);
+    42% {
+      transform: translate(0, -43%);
     }
-    75% {
-      transform: translate3d(0, -66.668%, 0);
+    56% {
+      transform: translate(0, -57.25%);
     }
-    90% {
-      transform: translate3d(0, -83.335%, 0);
+    70% {
+      transform: translate(0, -71.25%);
+    }
+    84% {
+      transform: translate(0, -85.5%);
+    }
+    100% {
+      transform: translate(0, -99.5%);
     }
   }
 `;
@@ -93,6 +99,11 @@ const CultureAnimation = ({ t }) => {
     <Animation>
       <AnimationContainer>
         <Sentences>
+          <li>
+            <AnimationTitle>
+              <div style={{ height: '65px' }} />
+            </AnimationTitle>
+          </li>
           <li>
             <AnimationTitle>{t('about.sentence1')}</AnimationTitle>
           </li>

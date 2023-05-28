@@ -26,17 +26,23 @@ const Service = styled.div`
   align-items: center;
   cursor: default;
   margin-bottom: 3rem;
+  height: 8rem;
 
   span {
     display: none;
+    height: 8rem;
   }
 
   &: hover {
     h2 {
       display: none;
+      height: 8rem;
     }
     span {
       display: fixed;
+      height: 8rem;
+      display: flex;
+      align-items: center;
     }
   }
 

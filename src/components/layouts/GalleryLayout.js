@@ -64,10 +64,19 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const Overlay = styled.div`
+const OverlayWrapper = styled.div`
+  width: 100%;
   height: 100%;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+`;
+
+const Overlay = styled.div`
   position: fixed;
   top: 0;
   display: flex;
@@ -75,7 +84,7 @@ const Overlay = styled.div`
   justify-content: center;
   overflow: hidden;
   min-height: -webkit-fill-available;
-  z-index: 2;
+  z-index: 10;
 `;
 
 const ZoomedImage = styled.div`
@@ -191,21 +200,26 @@ const GalleryLayout = ({ photos }) => {
         </GalleryGrid>
       </CenteredDiv>
       {zoomedImage && (
-        <Overlay>
-          <ZoomedImage ref={overlayRef}>
-            <GatsbyImage
-              image={zoomedImage.photo.gatsbyImageData}
-              alt={zoomedImage.description || 'gallery image'}
-              placeholder="blurred"
-              imgStyle={{ objectFit: 'contain' }}
-            />
-            <AuthorBox>
-              <AuthorLink href={zoomedImage.authorsProfileLink} target="_blank">
-                <BodySmall>{zoomedImage.author.toUpperCase()}</BodySmall>
-              </AuthorLink>
-            </AuthorBox>
-          </ZoomedImage>
-        </Overlay>
+        <OverlayWrapper>
+          <Overlay>
+            <ZoomedImage ref={overlayRef}>
+              <GatsbyImage
+                image={zoomedImage.photo.gatsbyImageData}
+                alt={zoomedImage.description || 'gallery image'}
+                placeholder="blurred"
+                imgStyle={{ objectFit: 'contain' }}
+              />
+              <AuthorBox>
+                <AuthorLink
+                  href={zoomedImage.authorsProfileLink}
+                  target="_blank"
+                >
+                  <BodySmall>{zoomedImage.author.toUpperCase()}</BodySmall>
+                </AuthorLink>
+              </AuthorBox>
+            </ZoomedImage>
+          </Overlay>
+        </OverlayWrapper>
       )}
     </>
   );

@@ -2,10 +2,16 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import {
+  getImagesMappedByName,
+  getArrayOfBannerImages,
+} from '../utils/queryFunctions';
 import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 const Gallery = ({ data }) => {
+  const images = getImagesMappedByName(data.allImageSharp.edges);
+
   return (
     <>
       <SEO
@@ -18,7 +24,10 @@ const Gallery = ({ data }) => {
         }
       />
       <LayoutWrapper logoColor="red">
-        <GalleryLayout photos={data.allContentfulGalleryPhoto.edges} />
+        <GalleryLayout
+          photos={data.allContentfulGalleryPhoto.edges}
+          images={images}
+        />
       </LayoutWrapper>
     </>
   );
@@ -41,6 +50,19 @@ export const query = graphql`
           }
           author
           authorsProfileLink
+        }
+      }
+    }
+    allImageSharp(
+      filter: { fluid: { originalName: { in: ["gallery.jpg"] } } }
+    ) {
+      edges {
+        node {
+          id
+          gatsbyImageData
+          fluid {
+            originalName
+          }
         }
       }
     }

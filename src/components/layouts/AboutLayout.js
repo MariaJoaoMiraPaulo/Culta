@@ -20,7 +20,7 @@ const AboutLayout = ({ t, images }) => {
         body={t('about.body')}
         title={t('about.about').toUpperCase()}
         image={images['pilares.jpg']}
-        imageAlt={t('services.services')}
+        imageAlt={t('about.about')}
         padding="0"
         paddingMobile="1rem 0"
       />

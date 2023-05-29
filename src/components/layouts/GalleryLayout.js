@@ -5,16 +5,19 @@ import { devices } from '../../styles/devices';
 import { BodySmall } from '../../styles/typographyComponents';
 import { Link } from 'gatsby';
 import GrainyEffectImage from '../effect/GrainyEffectImage';
+import { withTrans } from '../../i18n/withTrans';
+import ImageTextSection from '../sections/ImageTextSection';
+import TitleSection from '../sections/TitleSection';
 
 const GalleryGrid = styled.div`
-  width: 90%;
+  width: 100%;
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   max-width: fit-content;
-  margin: 20px 20px 60px 20px;
+  margin: 20px 0px 60px 0px;
 
   img:hover {
     filter: blur(10px);
@@ -22,20 +25,20 @@ const GalleryGrid = styled.div`
   }
 
   @media ${devices.tablet} {
-    margin: 20px 50px 60px 20px;
-    width: 70%;
+    margin: 20px 0px 60px 0px;
+    width: 100%;
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media ${devices.desktop} {
-    margin: 20px 50px 60px 20px;
-    width: 60%;
+    margin: 20px 0px 60px 0px;
+    width: 100%;
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media ${devices.desktopL} {
-    margin: 20px 50px 60px 20px;
-    width: 40%;
+    margin: 20px 0px 60px 0px;
+    width: 100%;
     grid-template-columns: repeat(3, 1fr);
   }
 `;
@@ -140,7 +143,7 @@ const AuthorLink = styled(Link)`
   }
 `;
 
-const GalleryLayout = ({ photos }) => {
+const GalleryLayout = ({ t, photos, images }) => {
   const [zoomedImage, setZoomedImage] = useState(null);
   const overlayRef = useRef(null);
   const galleryRef = useRef(null);
@@ -173,6 +176,21 @@ const GalleryLayout = ({ photos }) => {
 
   return (
     <>
+      <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="1rem 1rem"
+        title={t('gallery.gallery').toUpperCase()}
+        background="marble"
+        color="blue"
+      />
+      <ImageTextSection
+        color="blue"
+        body={t('gallery.body') + 'geral@culta.pt' + '.'}
+        image={images['gallery.jpg']}
+        imageAlt={t('gallery.gallery')}
+        padding="0"
+        paddingMobile="1rem 0"
+      />
       <CenteredDiv>
         <GalleryGrid ref={galleryRef}>
           {photos.map(
@@ -225,4 +243,4 @@ const GalleryLayout = ({ photos }) => {
   );
 };
 
-export default GalleryLayout;
+export default withTrans(GalleryLayout);

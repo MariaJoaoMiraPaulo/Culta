@@ -13,13 +13,17 @@ const Post = ({ data }) => {
     return navigate('/404');
   }
 
+  console.log(data);
   return (
     <>
       <SEO
-        title={post.title}
-        description={post.description.description}
-        pathname={post.id}
-        fullImageUrl={post.backgroundImage.publicUrl}
+        title={data.contentfulBlogPost.title}
+        description={data.contentfulBlogPost.description}
+        pathname={data.contentfulBlogPost.id}
+        fullImageUrl={
+          data.contentfulBlogPost?.backgroundImage?.gatsbyImageData?.images
+            .fallback?.src
+        }
       />
       <LayoutWrapper logoColor="red">
         <PostLayout post={post} assets={data.allContentfulAsset} />

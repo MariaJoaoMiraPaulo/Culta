@@ -22,6 +22,7 @@
   "footer": {
     "contacts": "Contactos",
     "newsletter": "Newsletter",
+    "email": "Email",
     "subscribe": "Deixe aqui o seu email",
     "emailInvalid": "O email que inseriu não é válido.",
     "subscribedSuccess": "Obrigado!",

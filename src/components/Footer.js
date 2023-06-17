@@ -154,6 +154,9 @@ const Footer = ({ t }) => {
             </FooterLink>
           </FlexTableRow>
           <FlexTableRow>
+            <BodySmall lineHeight="50" fontSize="30">
+              {t('footer.email').toUpperCase()}
+            </BodySmall>
             <FooterAnchor href="mailto:geral@culta.pt">
               <BodySmall lineHeight="50" fontSize="30">
                 {culta.email.toUpperCase()}

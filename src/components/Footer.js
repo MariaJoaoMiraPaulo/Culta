@@ -167,9 +167,6 @@ const Footer = ({ t }) => {
                 {culta.phoneNumber}
               </BodySmall>
             </FooterAnchor>
-            <Caption style={{ textAlign: 'center' }}>
-              {t('footer.callNote')}
-            </Caption>
           </FlexTableRow>
         </FlexTableColumn>
         <FlexTableColumn>

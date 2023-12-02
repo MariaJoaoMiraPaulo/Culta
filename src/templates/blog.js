@@ -1,11 +1,20 @@
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql, navigate } from 'gatsby';
+import React, { useState } from 'react';
 import BlogLayout from '../components/layouts/BlogLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
+import Pagination from '../components/pagination/Pagination';
 
-const BlogPage = ({ data }) => {
+const BlogPage = ({ data, pageContext }) => {
+  const { current, hasNext, hasPrev, total } = pageContext;
+
+  const handleChangePage = page => {
+    if (page == 1) {
+      navigate(`/blog`);
+    } else navigate(`/blog/${page}`);
+  };
+
   const getFirstBlogPostImage = () => {
     const postsArray = data.allContentfulBlogPost.edges;
     if (postsArray.length === 0) return null;
@@ -28,6 +37,11 @@ const BlogPage = ({ data }) => {
       />
       <LayoutWrapper logoColor="red">
         <BlogLayout data={data.allContentfulBlogPost.edges} />
+        <Pagination
+          numPages={total}
+          handleChangePage={handleChangePage}
+          currentPage={current}
+        />
       </LayoutWrapper>
     </>
   );
@@ -36,8 +50,12 @@ const BlogPage = ({ data }) => {
 export default BlogPage;
 
 export const query = graphql`
-  query MyQuery {
-    allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+  query BlogPostsQuery($limit: Int!, $skip: Int!) {
+    allContentfulBlogPost(
+      sort: { fields: createdAt, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           id

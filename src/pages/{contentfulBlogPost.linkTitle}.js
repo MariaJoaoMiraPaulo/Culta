@@ -13,7 +13,6 @@ const Post = ({ data }) => {
     return navigate('/404');
   }
 
-  console.log(data);
   return (
     <>
       <SEO

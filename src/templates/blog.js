@@ -1,5 +1,5 @@
 import { graphql, navigate } from 'gatsby';
-import React, { useState } from 'react';
+import React from 'react';
 import BlogLayout from '../components/layouts/BlogLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import { SEO } from '../components/SEO';
@@ -7,10 +7,10 @@ import metadata from '../data/metadata';
 import Pagination from '../components/pagination/Pagination';
 
 const BlogPage = ({ data, pageContext }) => {
-  const { current, hasNext, hasPrev, total } = pageContext;
+  const { current, total } = pageContext;
 
   const handleChangePage = page => {
-    if (page == 1) {
+    if (page === 1) {
       navigate(`/blog`);
     } else navigate(`/blog/${page}`);
   };

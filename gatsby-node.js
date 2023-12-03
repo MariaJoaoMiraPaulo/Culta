@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   const blogPosts = result.data.allContentfulBlogPost.edges;
-  const postsPerPage = 4;
+  const postsPerPage = 1;
   const numPages = Math.ceil(blogPosts.length / postsPerPage);
 
   const blogTemplate = path.resolve(`./src/templates/blog.js`);

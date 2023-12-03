@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { usePagination } from '../../hooks/usePagination';
 
 const PaginationWrapper = styled.div`
   width: 100%;
@@ -19,18 +20,34 @@ const PageNumber = styled.span`
   color: ${({ theme }) => theme.colors.red};
 `;
 
+const Dots = styled.span`
+  &:not(:last-child) {
+    padding-right: 1rem;
+  }
+  opacity: 30%;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-weight: lighter;
+  color: ${({ theme }) => theme.colors.red};
+`;
+
 const Pagination = ({ numPages, currentPage, handleChangePage }) => {
+  const DOTS = '...';
+  const range = usePagination(numPages, currentPage);
   return (
     <PaginationWrapper>
-      {Array.from(Array(numPages).keys()).map(idx => (
-        <PageNumber
-          key={`page ${idx + 1}`}
-          selected={currentPage === idx + 1}
-          onClick={() => handleChangePage(idx + 1)}
-        >
-          {idx + 1}
-        </PageNumber>
-      ))}
+      {range.map(page => {
+        return page === DOTS ? (
+          <Dots key="dots">{DOTS}</Dots>
+        ) : (
+          <PageNumber
+            key={`page ${page}`}
+            selected={currentPage === page}
+            onClick={() => handleChangePage(page)}
+          >
+            {page}
+          </PageNumber>
+        );
+      })}
     </PaginationWrapper>
   );
 };

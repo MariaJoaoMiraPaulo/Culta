@@ -1,8 +1,10 @@
 const path = require('path');
+const BLOG_POSTS_PER_PAGE = 6;
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  // BLOG POSTS
   const result = await graphql(`
     query BlogPostsQuery {
       allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
@@ -27,12 +29,11 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   const blogPosts = result.data.allContentfulBlogPost.edges;
-  const postsPerPage = 1;
-  const numPages = Math.ceil(blogPosts.length / postsPerPage);
-
+  const postsPerPage = BLOG_POSTS_PER_PAGE;
+  const numBlogPostsPages = Math.ceil(blogPosts.length / postsPerPage);
   const blogTemplate = path.resolve(`./src/templates/blog.js`);
 
-  Array.from({ length: numPages }).forEach((_, i) => {
+  Array.from({ length: numBlogPostsPages }).forEach((_, i) => {
     const withPrefix = pageNumber =>
       pageNumber === 1 ? `/blog` : `/blog/${pageNumber}`;
     const pageNumber = i + 1;
@@ -43,8 +44,8 @@ exports.createPages = async ({ graphql, actions }) => {
         limit: postsPerPage,
         skip: i * postsPerPage,
         current: pageNumber,
-        total: numPages,
-        hasNext: pageNumber < numPages,
+        total: numBlogPostsPages,
+        hasNext: pageNumber < numBlogPostsPages,
         nextPath: withPrefix(pageNumber + 1),
         hasPrev: i > 0,
         prevPath: withPrefix(pageNumber - 1),

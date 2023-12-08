@@ -3,7 +3,7 @@ import Post from '../blog/Post';
 import styled from 'styled-components';
 
 const PostPageLayout = styled.div`
-  padding: 3rem 0;
+  padding: 3rem 0 0;
 `;
 
 const PostLayout = ({ post, assets }) => {

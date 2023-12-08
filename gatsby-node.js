@@ -1,34 +1,24 @@
 const path = require('path');
 const BLOG_POSTS_PER_PAGE = 6;
+const GALLERY_PHOTOS_PER_PAGE = 6;
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // BLOG POSTS
-  const result = await graphql(`
+  const blogQueryResult = await graphql(`
     query BlogPostsQuery {
       allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
         edges {
           node {
             id
-            title
-            createdAt
-            article {
-              raw
-            }
-            tags {
-              name
-            }
-            backgroundImage {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
           }
         }
       }
     }
   `);
 
-  const blogPosts = result.data.allContentfulBlogPost.edges;
+  const blogPosts = blogQueryResult.data.allContentfulBlogPost.edges;
   const postsPerPage = BLOG_POSTS_PER_PAGE;
   const numBlogPostsPages = Math.ceil(blogPosts.length / postsPerPage);
   const blogTemplate = path.resolve(`./src/templates/blog.js`);
@@ -46,6 +36,48 @@ exports.createPages = async ({ graphql, actions }) => {
         current: pageNumber,
         total: numBlogPostsPages,
         hasNext: pageNumber < numBlogPostsPages,
+        nextPath: withPrefix(pageNumber + 1),
+        hasPrev: i > 0,
+        prevPath: withPrefix(pageNumber - 1),
+      },
+    });
+  });
+
+  // GALLERY
+  const galleryQueryResult = await graphql(`
+    query MyQuery {
+      allContentfulGalleryPhoto(
+        sort: { fields: photo___createdAt, order: DESC }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const galleryPhotos = galleryQueryResult.data.allContentfulGalleryPhoto.edges;
+  const galleryPhotosPerPage = GALLERY_PHOTOS_PER_PAGE;
+  const numGalleryPhotoPages = Math.ceil(
+    galleryPhotos.length / galleryPhotosPerPage,
+  );
+  const galleryTemplate = path.resolve(`./src/templates/gallery.js`);
+
+  Array.from({ length: numGalleryPhotoPages }).forEach((_, i) => {
+    const withPrefix = pageNumber =>
+      pageNumber === 1 ? `/gallery` : `/gallery/${pageNumber}`;
+    const pageNumber = i + 1;
+    createPage({
+      path: withPrefix(pageNumber),
+      component: galleryTemplate,
+      context: {
+        limit: galleryPhotosPerPage,
+        skip: i * galleryPhotosPerPage,
+        current: pageNumber,
+        total: numGalleryPhotoPages,
+        hasNext: pageNumber < numGalleryPhotoPages,
         nextPath: withPrefix(pageNumber + 1),
         hasPrev: i > 0,
         prevPath: withPrefix(pageNumber - 1),

@@ -1,16 +1,23 @@
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import React from 'react';
 import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import {
-  getImagesMappedByName,
-  getArrayOfBannerImages,
-} from '../utils/queryFunctions';
+import { getImagesMappedByName } from '../utils/queryFunctions';
 import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
-const Gallery = ({ data }) => {
+import Pagination from '../components/pagination/Pagination';
+
+const Gallery = ({ data, pageContext }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
+
+  const { current, total } = pageContext;
+
+  const handleChangePage = page => {
+    if (page === 1) {
+      navigate(`/gallery`);
+    } else navigate(`/gallery/${page}`);
+  };
 
   return (
     <>
@@ -28,6 +35,11 @@ const Gallery = ({ data }) => {
           photos={data.allContentfulGalleryPhoto.edges}
           images={images}
         />
+        <Pagination
+          numPages={total}
+          handleChangePage={handleChangePage}
+          currentPage={current}
+        />
       </LayoutWrapper>
     </>
   );
@@ -36,9 +48,11 @@ const Gallery = ({ data }) => {
 export default Gallery;
 
 export const query = graphql`
-  query MyQuery {
+  query GalleryQuery($limit: Int!, $skip: Int!) {
     allContentfulGalleryPhoto(
       sort: { fields: photo___createdAt, order: DESC }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

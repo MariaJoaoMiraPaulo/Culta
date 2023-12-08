@@ -3,6 +3,7 @@ import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import PostLayout from '../components/layouts/PostLayout';
 import { SEO } from '../components/SEO';
+import PreviousNextLinks from '../components/previousAndNext/PreviousNextLinks';
 
 const Post = ({ data }) => {
   const post = React.useMemo(() => {
@@ -12,6 +13,10 @@ const Post = ({ data }) => {
   if (!data.contentfulBlogPost) {
     return navigate('/404');
   }
+
+  const jumpTo = linkTitle => {
+    return navigate(`/${linkTitle}`);
+  };
 
   return (
     <>
@@ -26,6 +31,11 @@ const Post = ({ data }) => {
       />
       <LayoutWrapper logoColor="red">
         <PostLayout post={post} assets={data.allContentfulAsset} />
+        <PreviousNextLinks
+          data={data.allContentfulBlogPost.edges}
+          currentDataItemId={data.contentfulBlogPost.id}
+          jumpTo={jumpTo}
+        />
       </LayoutWrapper>
     </>
   );
@@ -71,6 +81,14 @@ export const query = graphql`
           contentful_id
           description
           gatsbyImageData(layout: CONSTRAINED)
+        }
+      }
+    }
+    allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          id
+          linkTitle
         }
       }
     }

@@ -2,9 +2,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
+import ArrowIcon from '../../icons/ArrowIcon';
 
 const Link = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.main};
   cursor: pointer;
@@ -12,6 +13,7 @@ const Link = styled.div`
   display: flex;
   align-items: flex-start;
   margin-bottom: 2rem;
+  width: 50%;
 
   @media ${devices.tablet} {
     &:first-child {
@@ -50,6 +52,18 @@ const ItemName = styled.div`
   font-weight: 200;
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+`;
+
+const Title = styled.div`
+  margin-right: ${props => (props.left ? '0' : '15px')};
+  margin-left: ${props => (props.left ? '15px' : '0')};
+`;
+
 const PreviousNextLinks = ({
   next,
   previous,
@@ -74,8 +88,10 @@ const PreviousNextLinks = ({
     <LinksWrapper>
       {previousItem ? (
         <Link onClick={() => jumpTo(previousItem.linkTitle)}>
-          <div>{previous.toUpperCase()}</div>
-          <hr></hr>
+          <TitleWrapper>
+            <ArrowIcon left color="red" style={{ width: '40px' }} />
+            <Title left>{previous.toUpperCase()}</Title>
+          </TitleWrapper>
           <ItemImage>
             <GatsbyImage
               style={{ height: '100%', width: '100%' }}
@@ -90,10 +106,12 @@ const PreviousNextLinks = ({
       ) : (
         <Link></Link>
       )}
-      {nextItem && (
+      {nextItem ? (
         <Link onClick={() => jumpTo(nextItem.linkTitle)}>
-          <div>{next.toUpperCase()}</div>
-          <hr></hr>
+          <TitleWrapper>
+            <Title>{next.toUpperCase()}</Title>
+            <ArrowIcon color="red" style={{ width: '40px' }} />
+          </TitleWrapper>
           <ItemImage>
             <GatsbyImage
               style={{ height: '100%', width: '100%' }}
@@ -105,6 +123,8 @@ const PreviousNextLinks = ({
           </ItemImage>
           <ItemName>{nextItem.title}</ItemName>
         </Link>
+      ) : (
+        <Link></Link>
       )}
     </LinksWrapper>
   );

@@ -7,6 +7,7 @@ import {
   Body,
   BodyBold,
   BodyHeading,
+  BodyHeading2,
   BodyUnderlined,
 } from '../../styles/typographyComponents';
 import styled from 'styled-components';
@@ -33,6 +34,11 @@ const getCustomOptions = assets => {
       [BLOCKS.HEADING_1]: (node, children) => (
         <PaddingParagraph>
           <BodyHeading>{children}</BodyHeading>
+        </PaddingParagraph>
+      ),
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <PaddingParagraph>
+          <BodyHeading2>{children}</BodyHeading2>
         </PaddingParagraph>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (

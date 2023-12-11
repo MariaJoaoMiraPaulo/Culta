@@ -19,7 +19,7 @@ const PostWrapper = styled.div`
 
 const PostContent = styled.div`
   max-width: 100%;
-  margin: 3rem;
+  margin: 3rem 3rem 0 3rem;
 
   @media ${devices.tablet} {
     width: 70%;
@@ -47,7 +47,7 @@ const PostContentHeader = styled.div`
 `;
 
 const PostContentBody = styled.div`
-  margin: 2.5rem 0rem;
+  margin: 2.5rem 0rem 0 0;
 
   @media ${devices.tablet} {
     margin: 3.5rem 5.5rem;

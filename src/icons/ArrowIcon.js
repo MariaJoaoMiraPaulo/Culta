@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-const ArrowIcon = ({ left = false, color, onClickHandler }) => {
+const ArrowIcon = ({ left = false, color, onClickHandler, style }) => {
   const theme = useTheme();
 
   return (
@@ -9,6 +9,7 @@ const ArrowIcon = ({ left = false, color, onClickHandler }) => {
       style={{
         cursor: 'pointer',
         transform: left ? 'rotate(270deg)' : 'rotate(90deg)',
+        ...style,
       }}
       fill={theme.colors[color] || '#000'}
       onClick={onClickHandler}

@@ -3,8 +3,10 @@ import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import PostLayout from '../components/layouts/PostLayout';
 import { SEO } from '../components/SEO';
+import PreviousNextLinks from '../components/previousAndNext/PreviousNextLinks';
+import { withTrans } from '../i18n/withTrans';
 
-const Post = ({ data }) => {
+const Post = ({ t, data }) => {
   const post = React.useMemo(() => {
     return data.contentfulBlogPost;
   }, [data.contentfulBlogPost.id]);
@@ -12,6 +14,10 @@ const Post = ({ data }) => {
   if (!data.contentfulBlogPost) {
     return navigate('/404');
   }
+
+  const jumpTo = linkTitle => {
+    return navigate(`/${linkTitle}`);
+  };
 
   return (
     <>
@@ -26,12 +32,19 @@ const Post = ({ data }) => {
       />
       <LayoutWrapper logoColor="red">
         <PostLayout post={post} assets={data.allContentfulAsset} />
+        <PreviousNextLinks
+          data={data.allContentfulBlogPost.edges}
+          currentDataItemId={data.contentfulBlogPost.id}
+          jumpTo={jumpTo}
+          next={t('blog.links.next')}
+          previous={t('blog.links.previous')}
+        />
       </LayoutWrapper>
     </>
   );
 };
 
-export default Post;
+export default withTrans(Post);
 
 export const query = graphql`
   query BlogPost($linkTitle: String!) {
@@ -71,6 +84,20 @@ export const query = graphql`
           contentful_id
           description
           gatsbyImageData(layout: CONSTRAINED)
+        }
+      }
+    }
+    allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          id
+          linkTitle
+          title
+          backgroundImage {
+            description
+            gatsbyImageData(layout: CONSTRAINED)
+            publicUrl
+          }
         }
       }
     }

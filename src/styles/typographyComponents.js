@@ -36,6 +36,20 @@ export const MenuTitle = styled.h1`
 }
 `;
 
+export const PostTitle = styled.h1`
+  font-size: 30px;
+  font-family: ${({ theme }) => theme.fonts.main};
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  text-transform: uppercase;
+  line-height: 40px;
+  font-weight: 100;
+  @media ${devices.tablet} {
+    font-size: 45px;
+    line-height: 65px;
+  }
+  margin: 0rem;
+`;
+
 export const SubTitle = styled.h2`
   font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.main};
@@ -79,9 +93,17 @@ export const Body = styled.span`
 `;
 
 export const BodyHeading = styled(Body)`
-  font-size: 25px;
+  font-size: 30px;
   @media ${devices.tablet} {
     font-size: 40px;
+  }
+`;
+
+export const BodyHeading2 = styled(Body)`
+  font-family: ${({ theme }) => theme.fonts.main};
+  font-size: 25px;
+  @media ${devices.tablet} {
+    font-size: 30px;
   }
 `;
 

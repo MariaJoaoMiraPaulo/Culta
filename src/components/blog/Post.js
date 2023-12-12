@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import theme from '../../styles/theme';
-import { SmallerCaption, SubTitle2 } from '../../styles/typographyComponents';
+import { PostTitle, SmallerCaption } from '../../styles/typographyComponents';
 
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { richTextToReactElements } from '../helpers/richTextConverter';
@@ -90,7 +90,7 @@ const Post = ({ post, assets }) => {
           <BackToBlog onClick={() => navigate('/blog')}>
             <ArrowIcon left color="red" />
           </BackToBlog>
-          <SubTitle2>{title}</SubTitle2>
+          <PostTitle>{title}</PostTitle>
           <BlogDateAndTopics>
             <SmallerCaption>
               {new Date(createdAt).toLocaleDateString()}

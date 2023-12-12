@@ -50,6 +50,7 @@ const Tags = styled.div`
 
 const BottomContent = styled.div`
   padding: 18px;
+  overflow: hidden;
   span {
     font-size: 28px;
     line-height: 40px;
@@ -68,8 +69,19 @@ const DateStyle = styled.div`
 `;
 
 const Title = styled.div`
-  margin-right: 25%;
+  margin-right: 5%;
   max-width: 100%;
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media ${devices.tablet} {
+    margin-right: 25%;
+    display: block;
+  }
 `;
 
 const PostCard = ({ title, image, tags, linkTitle, createdAt }) => {

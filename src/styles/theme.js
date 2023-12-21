@@ -6,7 +6,7 @@ const theme = {
   colors: {
     marble: '#efede4',
     red: '#ff5945',
-    grey: '#999999',
+    grey: '#c6c6c6',
     blue: '#337896',
     green: '#758073',
   },

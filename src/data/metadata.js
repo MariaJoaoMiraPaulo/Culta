@@ -24,6 +24,10 @@ export default {
     description:
       'São fotografias e criações de todos e de quem quiser. Esta galeria reúne pessoas, lugares, paisagens, património e momentos. Muitos destes são irrepetíveis, mas eternos aos nossos olhos. Esta é mais uma oportunidade de um encontro com a Cultura.',
   },
+  portfolio: {
+    title: 'Portfólio',
+    description: '',
+  },
   about: {
     title: 'Sobre a Culta',
     description:

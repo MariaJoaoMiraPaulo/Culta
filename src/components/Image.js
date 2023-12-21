@@ -12,12 +12,11 @@ const SectionWrapper = styled.a`
 
 const ImageSectionWrapper = styled.div`
   width: 100%;
-  height: auto;
   color: ${props => props.theme.colors.marble};
   position: relative;
 
   @media ${devices.tablet} {
-    height: 30rem;
+    height: 30rem; //AQUI
   }
 `;
 

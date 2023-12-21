@@ -63,11 +63,12 @@ const BackToBlog = styled.div`
   svg {
     width: 30px;
     stroke-width: 5px;
-    &: hover, &: active {
+    &:hover,
+    &:active {
       filter: blur(2px);
     }
   }
- 
+
   padding: 15px 0;
 `;
 

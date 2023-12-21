@@ -9,7 +9,7 @@ import { withTrans } from '../i18n/withTrans';
 const Post = ({ t, data }) => {
   const post = React.useMemo(() => {
     return data.contentfulBlogPost;
-  }, [data.contentfulBlogPost.id]);
+  }, [data.contentfulBlogPost]);
 
   if (!data.contentfulBlogPost) {
     return navigate('/404');

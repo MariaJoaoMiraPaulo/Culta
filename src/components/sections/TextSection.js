@@ -10,13 +10,15 @@ const TextSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${({ paddingMobile }) => paddingMobile};
-  @media ${devices.tablet} {
-    padding: ${({ padding }) => padding};
-  }
   white-space: pre-line;
   z-index: 9;
-  width: ${({ width }) => width || '100%'};
+  width: ${({ mobileWidth }) => mobileWidth || '100%'};
   box-sizing: border-box;
+
+  @media ${devices.tablet} {
+    padding: ${({ padding }) => padding};
+    width: ${({ width }) => width || '100%'};
+  }
 `;
 
 const TitleWrapper = styled.div`

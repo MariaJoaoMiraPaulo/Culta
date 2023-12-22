@@ -5,9 +5,10 @@ import theme from '../../styles/theme';
 import ArrowIcon from '../../icons/ArrowIcon';
 import { navigate } from 'gatsby';
 import TitleSection from '../sections/TitleSection';
-import ImageTextSection from '../sections/ImageTextSection';
+import ImageProjectSection from '../sections/ImageProjectSection';
 import TextSection from '../sections/TextSection';
 import { withTrans } from '../../i18n/withTrans';
+import { devices } from '../../styles/devices';
 
 const ProjectWrapper = styled.div`
   display: flex;
@@ -31,8 +32,9 @@ const BackToPortfolio = styled.div`
       filter: blur(2px);
     }
   }
-
-  padding: 15px 16px;
+  @media ${devices.tablet} {
+    padding: 16px;
+  }
 `;
 
 const Project = ({ t, project }) => {
@@ -52,7 +54,7 @@ const Project = ({ t, project }) => {
         <BackToPortfolio onClick={() => navigate('/portfolio')}>
           <ArrowIcon left color="red" />
         </BackToPortfolio>
-        <ImageTextSection
+        <ImageProjectSection
           color="red"
           projectInfo={{ year, customer, service }}
           title={title.toUpperCase()}
@@ -65,6 +67,7 @@ const Project = ({ t, project }) => {
           padding="3rem 1rem"
           color="grey"
           body={description.description}
+          width="50%"
         />
       </ProjectContent>
     </ProjectWrapper>

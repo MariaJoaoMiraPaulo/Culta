@@ -4,7 +4,7 @@
     "services": "Serviços",
     "stories": "Histórias",
     "gallery": "Galeria",
-    "portfolio": "Portfólio",
+    "portfolio": "Projectos",
     "contacts": "Contactos"
   },
   "homepage": {
@@ -94,7 +94,7 @@
     "projectInfo": {
       "year": "ano",
       "customer": "cliente",
-      "service": "service"
+      "service": "serviço"
     }
   }
 }

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Image from '../Image';
 import TextSection from './TextSection';
 import { devices } from '../../styles/devices';
-import ProjectInfoSection from './ProjectInfoSection';
 
 const ImageTextWrapper = styled.div`
   display: flex;
@@ -46,7 +45,6 @@ const ImageTextSection = ({
   color,
   background,
   body,
-  projectInfo,
   title,
   padding,
   image,
@@ -60,26 +58,14 @@ const ImageTextSection = ({
         <Image image={image} imageAlt={imageAlt} />
       </ImageWrapper>
       <TextWrapper>
-        {!!!projectInfo ? (
-          <TextSection
-            background={background}
-            color={color}
-            body={body}
-            title={title}
-            padding={padding}
-            paddingMobile={paddingMobile}
-          />
-        ) : (
-          <ProjectInfoSection
-            background={background}
-            color={color}
-            body={body}
-            title={title}
-            padding={padding}
-            paddingMobile={paddingMobile}
-            projectInfo={projectInfo}
-          />
-        )}
+        <TextSection
+          background={background}
+          color={color}
+          body={body}
+          title={title}
+          padding={padding}
+          paddingMobile={paddingMobile}
+        />
       </TextWrapper>
     </ImageTextWrapper>
   );

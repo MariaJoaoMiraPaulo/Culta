@@ -25,8 +25,9 @@ export default {
       'São fotografias e criações de todos e de quem quiser. Esta galeria reúne pessoas, lugares, paisagens, património e momentos. Muitos destes são irrepetíveis, mas eternos aos nossos olhos. Esta é mais uma oportunidade de um encontro com a Cultura.',
   },
   portfolio: {
-    title: 'Portfólio',
-    description: '',
+    title: 'Projectos',
+    description:
+      ' Estes são os projectos com a assinatura da Culta. Em cada um está a nossa dedicação, empenho e criatividade. Colocamos o nosso talento ao serviço da Cultura. Para que, através da comunicação, a Cultura seja de todos e para todos.',
   },
   about: {
     title: 'Sobre a Culta',

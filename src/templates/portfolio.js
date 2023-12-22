@@ -66,6 +66,9 @@ export const query = graphql`
           backgroundImage {
             gatsbyImageData(layout: CONSTRAINED)
           }
+          description {
+            raw
+          }
         }
       }
     }

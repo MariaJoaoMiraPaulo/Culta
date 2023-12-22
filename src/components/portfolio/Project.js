@@ -9,6 +9,7 @@ import ImageProjectSection from '../sections/ImageProjectSection';
 import TextSection from '../sections/TextSection';
 import { withTrans } from '../../i18n/withTrans';
 import { devices } from '../../styles/devices';
+import { richTextToReactElements } from '../helpers/richTextConverter';
 
 const ProjectWrapper = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ const BackToPortfolio = styled.div`
   }
 `;
 
-const Project = ({ t, project }) => {
+const Project = ({ t, project, assets }) => {
   const { title, description, year, customer, service, backgroundImage } =
     project;
 
@@ -66,7 +67,7 @@ const Project = ({ t, project }) => {
         <TextSection
           padding="3rem 1rem"
           color="grey"
-          body={description.description}
+          body={richTextToReactElements({ raw: description.raw }, assets)}
           width="50%"
         />
       </ProjectContent>

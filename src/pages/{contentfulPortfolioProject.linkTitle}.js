@@ -54,7 +54,7 @@ export const query = graphql`
       linkTitle
       title
       description {
-        description
+        raw
       }
       backgroundImage {
         description
@@ -88,12 +88,14 @@ export const query = graphql`
       edges {
         node {
           id
-          linkTitle
           title
+          linkTitle
+          createdAt
           backgroundImage {
-            description
             gatsbyImageData(layout: CONSTRAINED)
-            publicUrl
+          }
+          description {
+            raw
           }
         }
       }

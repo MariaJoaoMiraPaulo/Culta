@@ -4,6 +4,8 @@ import Image from '../Image';
 import { devices } from '../../styles/devices';
 import { withTrans } from '../../i18n/withTrans';
 import { Body, Caption, SubTitle } from '../../styles/typographyComponents';
+import ArrowIcon from '../../icons/ArrowIcon';
+import { navigate } from 'gatsby';
 
 const ImageTextWrapper = styled.div`
   display: flex;
@@ -35,6 +37,7 @@ const ImageWrapper = styled.div`
 
 const TextWrapper = styled.div`
   position: relative;
+  margin: 3rem 3rem 0 3rem;
 
   @media ${devices.tablet} {
     width: 50%;
@@ -48,20 +51,18 @@ const ProjectInfoSectionWrapper = styled.div`
     theme.colors[background] || theme.colors.marble};
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: ${({ paddingMobile }) => paddingMobile};
+  gap: 3rem;
   @media ${devices.tablet} {
     padding: ${({ padding }) => padding};
+    justify-content: space-between;
+    gap: 0;
   }
   white-space: pre-line;
   z-index: 9;
   width: ${({ width }) => width || '100%'};
   box-sizing: border-box;
   height: 100%;
-`;
-
-const TitleWrapper = styled.div`
-  padding: 0 0 2rem 0;
 `;
 
 const BodyWrapper = styled.div`
@@ -78,10 +79,48 @@ const ProjectInfo = styled.body`
 
 const Info = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr; /* Adjust column sizes as needed */
+  grid-template-columns: auto 1fr;
   grid-gap: 0.5rem 1rem;
   span {
     margin: 0;
+  }
+`;
+
+const BackToPortfolioDesktopTablet = styled.div`
+  display: none;
+  padding: 16px 0;
+
+  @media ${devices.tablet} {
+    display: block;
+    padding: 16px;
+  }
+
+  svg {
+    width: 30px;
+    stroke-width: 5px;
+    &:hover,
+    &:active {
+      filter: blur(2px);
+    }
+  }
+`;
+
+const BackToPortfolioMobile = styled.div`
+  display: block;
+  padding: 16px 0;
+
+  @media ${devices.tablet} {
+    display: none;
+    padding: 16px;
+  }
+
+  svg {
+    width: 30px;
+    stroke-width: 5px;
+    &:hover,
+    &:active {
+      filter: blur(2px);
+    }
   }
 `;
 
@@ -98,43 +137,47 @@ const ImageTextSection = ({
   hideOnDesktop = false,
 }) => {
   return (
-    <ImageTextWrapper background={background} hideOnDesktop={hideOnDesktop}>
-      <ImageWrapper>
-        <Image image={image} imageAlt={imageAlt} />
-      </ImageWrapper>
-      <TextWrapper>
-        <ProjectInfoSectionWrapper
-          color={color}
-          background={background}
-          padding={padding}
-          paddingMobile={paddingMobile}
-        >
-          {title ? (
-            <TitleWrapper>
-              <SubTitle color={color}>{title}</SubTitle>
-            </TitleWrapper>
-          ) : null}
-          <BodyWrapper>
-            <ProjectInfo>
-              <Info>
-                <Caption lineHeight="33">
-                  {t('portfolio.projectInfo.year').toUpperCase()}
-                </Caption>
-                <Body>{projectInfo.year}</Body>
-                <Caption lineHeight="33">
-                  {t('portfolio.projectInfo.customer').toUpperCase()}
-                </Caption>
-                <Body>{projectInfo.customer}</Body>
-                <Caption lineHeight="33">
-                  {t('portfolio.projectInfo.service').toUpperCase()}
-                </Caption>
-                <Body>{projectInfo.service}</Body>
-              </Info>
-            </ProjectInfo>
-          </BodyWrapper>
-        </ProjectInfoSectionWrapper>
-      </TextWrapper>
-    </ImageTextWrapper>
+    <>
+      <BackToPortfolioDesktopTablet onClick={() => navigate('/portfolio')}>
+        <ArrowIcon left color="red" />
+      </BackToPortfolioDesktopTablet>
+      <ImageTextWrapper background={background} hideOnDesktop={hideOnDesktop}>
+        <ImageWrapper>
+          <Image image={image} imageAlt={imageAlt} />
+        </ImageWrapper>
+        <TextWrapper>
+          <BackToPortfolioMobile onClick={() => navigate('/portfolio')}>
+            <ArrowIcon left color="red" />
+          </BackToPortfolioMobile>
+          <ProjectInfoSectionWrapper
+            color={color}
+            background={background}
+            padding={padding}
+            paddingMobile={paddingMobile}
+          >
+            {title ? <SubTitle color={color}>{title}</SubTitle> : null}
+            <BodyWrapper>
+              <ProjectInfo>
+                <Info>
+                  <Caption lineHeight="33">
+                    {t('portfolio.projectInfo.year').toUpperCase()}
+                  </Caption>
+                  <Body>{projectInfo.year}</Body>
+                  <Caption lineHeight="33">
+                    {t('portfolio.projectInfo.customer').toUpperCase()}
+                  </Caption>
+                  <Body>{projectInfo.customer}</Body>
+                  <Caption lineHeight="33">
+                    {t('portfolio.projectInfo.service').toUpperCase()}
+                  </Caption>
+                  <Body>{projectInfo.service}</Body>
+                </Info>
+              </ProjectInfo>
+            </BodyWrapper>
+          </ProjectInfoSectionWrapper>
+        </TextWrapper>
+      </ImageTextWrapper>
+    </>
   );
 };
 

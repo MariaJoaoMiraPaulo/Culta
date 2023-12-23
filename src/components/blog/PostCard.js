@@ -73,10 +73,11 @@ const Title = styled.div`
   max-width: 100%;
   text-wrap: balance;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-word;
 
   @media ${devices.tablet} {
     margin-right: 25%;

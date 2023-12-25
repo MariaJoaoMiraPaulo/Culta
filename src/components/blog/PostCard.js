@@ -7,7 +7,6 @@ import GrainyEffectImage from '../effect/GrainyEffectImage';
 import { devices } from '../../styles/devices';
 
 const PostContainer = styled.div`
-  margin: 20px;
   height: 450px;
   cursor: pointer;
   position: relative;
@@ -81,7 +80,6 @@ const Title = styled.div`
 
   @media ${devices.tablet} {
     margin-right: 25%;
-    display: block;
   }
 `;
 

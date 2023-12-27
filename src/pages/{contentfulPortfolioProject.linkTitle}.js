@@ -30,7 +30,7 @@ const Project = ({ t, data }) => {
             ?.images.fallback?.src
         }
       />
-      <LayoutWrapper logoColor="red">
+      <LayoutWrapper color="red">
         <ProjectLayout project={project} assets={data.allContentfulAsset} />
         <PreviousNextLinks
           data={data.allContentfulPortfolioProject.edges}

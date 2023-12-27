@@ -7,7 +7,6 @@ import GrainyEffectImage from '../effect/GrainyEffectImage';
 import { devices } from '../../styles/devices';
 
 const ProjectContainer = styled.div`
-  margin: 20px;
   height: 450px;
   cursor: pointer;
   position: relative;
@@ -71,7 +70,6 @@ const Title = styled.div`
   text-overflow: ellipsis;
   @media ${devices.tablet} {
     margin-right: 25%;
-    display: block;
   }
 `;
 

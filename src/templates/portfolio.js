@@ -36,7 +36,7 @@ const PortfolioPage = ({ data, pageContext }) => {
         pathname="portfolio"
         fullImageUrl={getFirstPortfolioProjectImage()}
       />
-      <LayoutWrapper logoColor="red">
+      <LayoutWrapper color="red">
         <PortfolioLayout data={data.allContentfulPortfolioProject.edges} />
         <Pagination
           numPages={total}

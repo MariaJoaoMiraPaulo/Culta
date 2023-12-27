@@ -95,7 +95,7 @@ const Post = ({ post, assets }) => {
             <SmallerCaption>
               {new Date(createdAt).toLocaleDateString()}
             </SmallerCaption>
-            <SmallerCaption>|</SmallerCaption>
+            {tags && <SmallerCaption>|</SmallerCaption>}
             <SmallerCaption>
               {tags
                 ?.map(({ name }) => name)

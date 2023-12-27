@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
       <LayoutWrapper
         shortenedVersion={false}
         isHomepage
-        menuColor="marble"
+        color="marble"
         bannerImage={currentBannerImage}
         noPadding
       >

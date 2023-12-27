@@ -30,7 +30,7 @@ const Post = ({ t, data }) => {
             .fallback?.src
         }
       />
-      <LayoutWrapper logoColor="red">
+      <LayoutWrapper color="red">
         <PostLayout post={post} assets={data.allContentfulAsset} />
         <PreviousNextLinks
           data={data.allContentfulBlogPost.edges}

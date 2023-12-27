@@ -37,8 +37,7 @@ const LayoutWrapper = ({
   bannerImage,
   children,
   shortenedVersion = true,
-  logoColor,
-  menuColor,
+  color,
   isHomepage = false,
   backgroundColor = 'marble',
 }) => {
@@ -78,18 +77,14 @@ const LayoutWrapper = ({
                 />
               </GrainyEffectImage>
             </BannerImage>
-            <Header
-              shortenedVersion={shortenedVersion}
-              logoColor={logoColor}
-              menuColor={menuColor}
-            />
+            <Header shortenedVersion={shortenedVersion} color={color} />
           </Banner>
           <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </>
       ) : (
         <Page backgroundColor={backgroundColor}>
-          <Header logoColor={logoColor} menuColor={menuColor} />
+          <Header color={color} />
           <PagePadding noPadding>{children}</PagePadding>
           <MyFooter />
         </Page>

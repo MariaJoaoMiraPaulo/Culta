@@ -35,7 +35,7 @@ const BlogPage = ({ data, pageContext }) => {
         pathname="blog"
         fullImageUrl={getFirstBlogPostImage()}
       />
-      <LayoutWrapper logoColor="red">
+      <LayoutWrapper color="red">
         <BlogLayout data={data.allContentfulBlogPost.edges} />
         <Pagination
           numPages={total}

@@ -17,7 +17,7 @@ const AboutPage = ({ data }) => {
         imagePath={images['pilares.jpg'].images.fallback.src}
         pathname="about"
       />
-      <LayoutWrapper logoColor="red" menuColor="blue">
+      <LayoutWrapper color="red">
         <AboutLayout images={images} />
       </LayoutWrapper>
     </>

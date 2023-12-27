@@ -30,7 +30,7 @@ const Gallery = ({ data, pageContext }) => {
             .images.fallback.src
         }
       />
-      <LayoutWrapper logoColor="red">
+      <LayoutWrapper color="red">
         <GalleryLayout
           photos={data.allContentfulGalleryPhoto.edges}
           images={images}

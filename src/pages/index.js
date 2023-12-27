@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import HomeLayout from '../components/layouts/HomeLayout';
 import { graphql } from 'gatsby';
@@ -12,8 +12,15 @@ import metadata from '../data/metadata';
 const HomePage = ({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
   const bannerImagesArray = getArrayOfBannerImages(data.allFile.edges);
-  const currentBannerImage =
-    bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)];
+  const [currentBannerImage, setBannerImage] = useState(
+    bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
+  );
+
+  useEffect(() => {
+    setBannerImage(
+      bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
+    );
+  }, []);
 
   return (
     <>

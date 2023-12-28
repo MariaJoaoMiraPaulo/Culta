@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import { BiggerCaption } from '../../styles/typographyComponents';
+import { BiggerCaption, Caption } from '../../styles/typographyComponents';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ArrowIcon from '../../icons/ArrowIcon';
 import { withTrans } from '../../i18n/withTrans';
@@ -21,7 +21,7 @@ const GallerySectionWrapper = styled.div`
 const DescriptionImage = styled.div`
   display: flex;
   flex-direction: row;
-  width: 85%;
+  width: 95%;
   gap: 2rem;
 `;
 
@@ -30,7 +30,7 @@ const Description = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 50%;
+  width: 40%;
   gap: 0.5rem;
 `;
 
@@ -77,12 +77,12 @@ const GallerySection = ({ t, color, padding, projectGallery }) => {
         <Description>
           <BiggerCaption>{currentImage?.description}</BiggerCaption>
           {projectGallery.length > 1 && (
-            <BiggerCaption>
+            <Caption>
               {t('portfolio.imageCounter', {
                 number: `${currentIndex + 1}`, // Add 1 to convert from zero-based index
                 total: `${projectGallery.length}`,
               })}
-            </BiggerCaption>
+            </Caption>
           )}
         </Description>
         {currentImage?.gatsbyImageData && (

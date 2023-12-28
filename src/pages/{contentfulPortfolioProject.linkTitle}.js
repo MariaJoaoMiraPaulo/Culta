@@ -19,6 +19,9 @@ const Project = ({ t, data }) => {
     return navigate(`/${linkTitle}`);
   };
 
+  // Extract projectGallery from the current project
+  const projectGallery = project.projectGallery || [];
+
   return (
     <>
       <Seo
@@ -31,7 +34,11 @@ const Project = ({ t, data }) => {
         }
       />
       <LayoutWrapper color="red">
-        <ProjectLayout project={project} assets={data.allContentfulAsset} />
+        <ProjectLayout
+          project={project}
+          assets={data.allContentfulAsset}
+          projectGallery={projectGallery}
+        />
         <PreviousNextLinks
           data={data.allContentfulPortfolioProject.edges}
           currentDataItemId={data.contentfulPortfolioProject.id}
@@ -60,6 +67,12 @@ export const query = graphql`
         description
         gatsbyImageData(layout: CONSTRAINED)
         publicUrl
+      }
+      projectGallery {
+        contentful_id
+        gatsbyImageData(layout: CONSTRAINED)
+        description
+        id
       }
       year
       customer
@@ -96,6 +109,12 @@ export const query = graphql`
           }
           description {
             raw
+          }
+          projectGallery {
+            contentful_id
+            gatsbyImageData(layout: CONSTRAINED)
+            description
+            id
           }
         }
       }

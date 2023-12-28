@@ -24,7 +24,7 @@ const ProjectContent = styled.div`
   flex-direction: column;
 `;
 
-const Project = ({ t, project, assets }) => {
+const Project = ({ t, project, assets, projectGallery }) => {
   const { title, description, year, customer, service, backgroundImage } =
     project;
 
@@ -53,7 +53,11 @@ const Project = ({ t, project, assets }) => {
           body={richTextToReactElements({ raw: description.raw }, assets)}
           width="50%"
         />
-        <GallerySection padding="3rem 1rem" color="grey" />
+        <GallerySection
+          padding="3rem 1rem"
+          color="grey"
+          projectGallery={projectGallery}
+        />
       </ProjectContent>
     </ProjectWrapper>
   );

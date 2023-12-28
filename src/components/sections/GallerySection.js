@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
-import ImageSection from '../sections/ImageSection';
 import { Body } from '../../styles/typographyComponents';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const GallerySectionWrapper = styled.div`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -22,14 +22,35 @@ const Description = styled.div`
   align-items: flex-start;
 `;
 
-const GallerySection = ({ color, padding }) => {
+const GallerySection = ({ color, padding, projectGallery }) => {
+  console.log('OIIIIII: ', projectGallery);
   return (
     <GallerySectionWrapper color={color} padding={padding}>
-      <Description>
-        <Body>Desenvolvimento redes sociais.</Body>
-        <Body>Imagem 1/5</Body>
-      </Description>
-      <ImageSection image={''} />
+      {projectGallery.map(node => {
+        return (
+          <>
+            <Description>
+              <Body>{node?.description}</Body>
+            </Description>
+            {node?.gatsbyImageData && (
+              <GatsbyImage
+                style={{ height: '100%', width: '100%' }}
+                image={projectGallery[0]?.gatsbyImageData}
+                alt={projectGallery[0]?.description || 'project image'}
+                placeholder="blurred"
+                layout="constrained"
+                {...(projectGallery[0]?.gatsbyImageData?.images?.fallback && {
+                  fallback: {
+                    ...projectGallery[0].gatsbyImageData.images.fallback,
+                    srcSet:
+                      projectGallery[0].gatsbyImageData.images.fallback.srcSet,
+                  },
+                })}
+              />
+            )}
+          </>
+        );
+      })}
     </GallerySectionWrapper>
   );
 };

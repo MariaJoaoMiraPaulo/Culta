@@ -22,7 +22,7 @@ const ImageSection = ({ image, imageAlt }) => {
       <ImageSectionWrapper>
         <GatsbyImage
           image={image}
-          alt={imageAlt}
+          alt={imageAlt || 'undefined'}
           placeholder="blurred"
           layout="fixed"
         />

@@ -12,7 +12,7 @@ const PostContainer = styled.div`
   position: relative;
 
   @media ${devices.tablet} {
-    &: hover {
+    &:hover {
       span {
         color: transparent;
         z-index: 1;

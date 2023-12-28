@@ -5,6 +5,7 @@ import theme from '../../styles/theme';
 import TitleSection from '../sections/TitleSection';
 import ImageProjectSection from '../sections/ImageProjectSection';
 import TextSection from '../sections/TextSection';
+import GallerySection from '../sections/GallerySection';
 import { withTrans } from '../../i18n/withTrans';
 import { richTextToReactElements } from '../helpers/richTextConverter';
 
@@ -19,6 +20,8 @@ const ProjectWrapper = styled.div`
 const ProjectContent = styled.div`
   max-width: 100%;
   margin: 3rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Project = ({ t, project, assets }) => {
@@ -50,6 +53,7 @@ const Project = ({ t, project, assets }) => {
           body={richTextToReactElements({ raw: description.raw }, assets)}
           width="50%"
         />
+        <GallerySection padding="3rem 1rem" color="grey" />
       </ProjectContent>
     </ProjectWrapper>
   );

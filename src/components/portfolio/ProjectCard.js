@@ -11,7 +11,7 @@ const ProjectContainer = styled.div`
   cursor: pointer;
   position: relative;
   @media ${devices.tablet} {
-    &: hover {
+    &:hover {
       span {
         color: transparent;
         z-index: 1;

@@ -26,7 +26,8 @@ const MenuActions = styled.div`
   z-index: 3;
 
   svg {
-    &: hover, &: active {
+    &:hover,
+    &:active {
       filter: blur(0px);
       transform: scale(1);
     }
@@ -34,7 +35,8 @@ const MenuActions = styled.div`
 
   @media ${devices.tablet} {
     svg {
-      &: hover, &: active {
+      &:hover,
+      &:active {
         filter: blur(2px);
         transform: scale(1.05);
       }

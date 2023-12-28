@@ -6,7 +6,7 @@ import {
   getImagesMappedByName,
   getArrayOfBannerImages,
 } from '../utils/queryFunctions';
-import { SEO } from '../components/SEO';
+import { Seo } from '../components/Seo';
 import metadata from '../data/metadata';
 
 const HomePage = ({ data }) => {
@@ -20,11 +20,11 @@ const HomePage = ({ data }) => {
     setBannerImage(
       bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
     );
-  }, []);
+  }, [bannerImagesArray]);
 
   return (
     <>
-      <SEO
+      <Seo
         description={metadata.home.description}
         imagePath={currentBannerImage.images.fallback.src}
       />

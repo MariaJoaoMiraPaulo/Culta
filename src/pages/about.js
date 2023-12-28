@@ -3,7 +3,7 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import AboutLayout from '../components/layouts/AboutLayout';
 import { getImagesMappedByName } from '../utils/queryFunctions';
 import { graphql } from 'gatsby';
-import { SEO } from '../components/SEO';
+import { Seo } from '../components/Seo';
 import metadata from '../data/metadata';
 
 const AboutPage = ({ data }) => {
@@ -11,7 +11,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <>
-      <SEO
+      <Seo
         title={metadata.about.title}
         description={metadata.about.description}
         imagePath={images['pilares.jpg'].images.fallback.src}

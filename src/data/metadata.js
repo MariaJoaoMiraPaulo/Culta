@@ -1,4 +1,4 @@
-export default {
+const metadata = {
   home: {
     title: 'Culta',
     description:
@@ -35,3 +35,5 @@ export default {
       'Somos uma agência de comunicação e é nossa missão fazer de cada momento uma história única e inesquecível. Comunicar para o desenvolvimento cultural e social, para a sustentabilidade e inclusão, comunicar para abrir portas, criar relação e fazer crescer.',
   },
 };
+
+export default metadata;

@@ -33,7 +33,7 @@ const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.colors['red']};
   text-transform: uppercase;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 10px red;
   }

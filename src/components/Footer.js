@@ -39,7 +39,7 @@ const AuxLink = styled.a`
   cursor: pointer;
   text-decoration: none;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-decoration: underline;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
@@ -71,7 +71,7 @@ const FooterLink = styled(Link)`
   text-align: center;
   color: inherit;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
@@ -84,7 +84,7 @@ const FooterAnchor = styled.a`
   text-align: center;
   color: inherit;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};

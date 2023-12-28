@@ -24,7 +24,7 @@ const ImageSectionWrapper = styled.div`
   @media ${devices.tablet} {
     height: 30rem;
 
-    &: hover {
+    &:hover {
       color: transparent;
       z-index: 1;
       text-shadow: 0 0 ${({ radius }) => radius || '10px'}

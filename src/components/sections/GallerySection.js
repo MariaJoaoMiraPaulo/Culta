@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import ImageSection from '../sections/ImageSection';
 import { Body } from '../../styles/typographyComponents';
-import img from '../../images/pilares.jpg';
 
 const GallerySectionWrapper = styled.div`
   color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
@@ -30,7 +29,7 @@ const GallerySection = ({ color, padding }) => {
         <Body>Desenvolvimento redes sociais.</Body>
         <Body>Imagem 1/5</Body>
       </Description>
-      <ImageSection image={img} />
+      <ImageSection image={''} />
     </GallerySectionWrapper>
   );
 };

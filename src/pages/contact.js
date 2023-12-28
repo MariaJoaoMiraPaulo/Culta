@@ -17,7 +17,7 @@ const ContactPage = ({ data }) => {
         pathname="contacts"
         imagePath={images['pilares.jpg'].images.fallback.src}
       />
-      <LayoutWrapper logoColor="red" menuColor="blue">
+      <LayoutWrapper color="red">
         <ContactLayout images={images} />
       </LayoutWrapper>
     </>

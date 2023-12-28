@@ -8,11 +8,14 @@ const BlogPageLayout = styled.div`
   grid-template-columns: 100%;
   min-height: 90vh;
   margin-bottom: 2.5rem;
+  grid-gap: 20px;
+  padding: 20px;
+
   @media ${devices.tablet} {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 49% 49%;
   }
   @media ${devices.desktop} {
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 24% 24% 24% 24%;
   }
 `;
 

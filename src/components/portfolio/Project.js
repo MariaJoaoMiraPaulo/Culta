@@ -19,7 +19,7 @@ const ProjectWrapper = styled.div`
 
 const ProjectContent = styled.div`
   max-width: 100%;
-  margin: 3rem 3rem 0 3rem;
+  margin: 3rem 0 0 0;
   display: flex;
   flex-direction: column;
 `;

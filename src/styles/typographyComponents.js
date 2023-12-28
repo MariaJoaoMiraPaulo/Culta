@@ -134,6 +134,20 @@ export const BodySmall = styled.span`
   margin: 0rem;
 `;
 
+export const BiggerCaption = styled.span`
+  font-size: 20px;
+  line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '24px')};
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-weight: 100;
+  color: ${({ theme, color }) => theme.colors[color] || 'inherit'};
+  @media ${devices.tablet} {
+    font-size: 30px;
+    line-height: ${({ lineHeight }) =>
+      lineHeight ? `${lineHeight}px` : '30px'};
+  }
+  margin: ${({ margin }) => (margin ? `${margin}` : '0rem 0.5rem')};
+`;
+
 export const Caption = styled.span`
   font-size: 14px;
   line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : '24px')};

@@ -12,6 +12,7 @@ const GallerySectionWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
+  padding: 4rem 0;
 
   @media ${devices.tablet} {
     padding: ${({ padding }) => padding};
@@ -20,26 +21,40 @@ const GallerySectionWrapper = styled.div`
 
 const DescriptionImage = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 95%;
-  gap: 2rem;
+  gap: 1rem;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    padding: ${({ padding }) => padding};
+    gap: 2rem;
+  }
 `;
 
 const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
-  width: 40%;
+  align-items: flex-start;
+  width: 100%;
   gap: 0.5rem;
+
+  @media ${devices.tablet} {
+    width: 40%;
+    align-items: flex-end;
+  }
 `;
 
 const SlideshowArrow = styled.div`
   position: absolute;
-  top: 50%;
+  top: 53.5%;
   cursor: pointer;
-  font-size: 24px;
   z-index: 2;
+
+  @media ${devices.tablet} {
+    top: 50%;
+  }
 `;
 
 const LeftArrow = styled(SlideshowArrow)`
@@ -87,7 +102,13 @@ const GallerySection = ({ t, color, padding, projectGallery }) => {
         </Description>
         {currentImage?.gatsbyImageData && (
           <GatsbyImage
-            style={{ height: '100%', width: '50%' }}
+            style={{
+              height: '100%',
+              width: '100%',
+              [devices.tablet]: {
+                maxWidth: '50%',
+              },
+            }}
             image={currentImage.gatsbyImageData}
             alt={currentImage?.description || 'project image'}
             placeholder="blurred"

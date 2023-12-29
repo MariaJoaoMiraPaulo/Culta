@@ -35,9 +35,8 @@ const LinksWrapper = styled.div`
 
   @media ${devices.tablet} {
     flex-direction: row;
-    padding: 3rem;
+    padding: 10rem 3rem 3rem 3rem;
   }
-}
 `;
 
 const ItemImage = styled.div`

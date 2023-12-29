@@ -49,15 +49,19 @@ const Project = ({ t, project, assets, projectGallery }) => {
       <ProjectContent>
         <TextSection
           padding="3rem 1rem"
+          paddingMobile="0 3rem"
           color="grey"
           body={richTextToReactElements({ raw: description.raw }, assets)}
           width="50%"
         />
-        <GallerySection
-          padding="3rem 1rem"
-          color="grey"
-          projectGallery={projectGallery}
-        />
+        {!!projectGallery.length && (
+          <GallerySection
+            padding="3rem 1rem"
+            paddingMobile="3rem 3rem"
+            color="grey"
+            projectGallery={projectGallery}
+          />
+        )}
       </ProjectContent>
     </ProjectWrapper>
   );

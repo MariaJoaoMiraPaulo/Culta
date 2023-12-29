@@ -6,7 +6,7 @@ import {
   getImagesMappedByName,
   getArrayOfBannerImages,
 } from '../utils/queryFunctions';
-import { Seo } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 const HomePage = ({ data }) => {
@@ -24,7 +24,7 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <Seo
+      <SEO
         description={metadata.home.description}
         imagePath={currentBannerImage.images.fallback.src}
       />

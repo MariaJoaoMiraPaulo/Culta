@@ -13,7 +13,7 @@ const MenuContentWrapper = styled.div`
   position: fixed;
   z-index: 2;
   left: 0;
-  top: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   overflow-y: hidden;
@@ -51,7 +51,7 @@ const MenuContent = styled.div`
   align-items: flex-end;
   flex-direction: column;
   padding: 0 2rem 0 0;
-  height: 95%;
+  height: 100%;
   color: ${props => props.theme.colors.red};
 `;
 

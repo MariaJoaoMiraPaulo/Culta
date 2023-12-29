@@ -3,7 +3,7 @@ import React from 'react';
 import GalleryLayout from '../components/layouts/GalleryLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import { getImagesMappedByName } from '../utils/queryFunctions';
-import { Seo } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 import Pagination from '../components/pagination/Pagination';
@@ -21,7 +21,7 @@ const Gallery = ({ data, pageContext }) => {
 
   return (
     <>
-      <Seo
+      <SEO
         title={metadata.gallery.title}
         description={metadata.gallery.description}
         pathname="gallery"

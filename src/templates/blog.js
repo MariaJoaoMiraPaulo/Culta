@@ -2,7 +2,7 @@ import { graphql, navigate } from 'gatsby';
 import React from 'react';
 import BlogLayout from '../components/layouts/BlogLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import { Seo } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 import Pagination from '../components/pagination/Pagination';
 
@@ -29,7 +29,7 @@ const BlogPage = ({ data, pageContext }) => {
 
   return (
     <>
-      <Seo
+      <SEO
         title={metadata.blog.title}
         description={metadata.blog.description}
         pathname="blog"

@@ -2,7 +2,7 @@ import { graphql, navigate } from 'gatsby';
 import * as React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import ProjectLayout from '../components/layouts/ProjectLayout';
-import { Seo } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import PreviousNextLinks from '../components/previousAndNext/PreviousNextLinks';
 import { withTrans } from '../i18n/withTrans';
 
@@ -24,7 +24,7 @@ const Project = ({ t, data }) => {
 
   return (
     <>
-      <Seo
+      <SEO
         title={data.contentfulPortfolioProject.title}
         description={data.contentfulPortfolioProject.description}
         pathname={data.contentfulPortfolioProject.id}

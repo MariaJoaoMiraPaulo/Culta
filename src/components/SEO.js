@@ -2,7 +2,7 @@ import React from 'react';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { Helmet } from 'react-helmet';
 
-export const Seo = ({
+export const SEO = ({
   title,
   description,
   pathname,

@@ -2,7 +2,7 @@ import { graphql, navigate } from 'gatsby';
 import React from 'react';
 import PortfolioLayout from '../components/layouts/PortfolioLayout';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import { Seo } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 import Pagination from '../components/pagination/Pagination';
 
@@ -30,7 +30,7 @@ const PortfolioPage = ({ data, pageContext }) => {
 
   return (
     <>
-      <Seo
+      <SEO
         title={metadata.portfolio.title}
         description={metadata.portfolio.description}
         pathname="portfolio"

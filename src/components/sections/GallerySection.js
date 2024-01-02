@@ -22,13 +22,14 @@ const GallerySectionWrapper = styled.div`
 const DescriptionImage = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   gap: 1rem;
 
   @media ${devices.tablet} {
     flex-direction: row;
     padding: ${({ padding }) => padding};
     gap: 2rem;
+    width: 80%;
   }
 `;
 

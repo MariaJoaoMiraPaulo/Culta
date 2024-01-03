@@ -56,6 +56,11 @@ const TitleWrapper = styled.div`
   flex-direction: row;
   margin-bottom: 10px;
   align-items: center;
+
+  &:hover,
+  &:active {
+    filter: blur(2px);
+  }
 `;
 
 const Title = styled.div`

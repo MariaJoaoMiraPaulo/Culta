@@ -105,6 +105,13 @@ const Menu = ({ t, color = 'red' }) => {
                 <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               <LinkWrapper
+                onClick={() => jumpTo('/portfolio')}
+                color="red"
+                radius="25px"
+              >
+                <MenuTitle>{t('menu.portfolio').toUpperCase()}</MenuTitle>
+              </LinkWrapper>
+              <LinkWrapper
                 onClick={() => jumpTo('/blog')}
                 color="red"
                 radius="25px"
@@ -118,13 +125,6 @@ const Menu = ({ t, color = 'red' }) => {
               >
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              <LinkWrapper
-                onClick={() => jumpTo('/portfolio')}
-                color="red"
-                radius="25px"
-              >
-                <MenuTitle>{t('menu.portfolio').toUpperCase()}</MenuTitle>
-              </LinkWrapper>{' '}
               <LinkWrapper
                 onClick={() => jumpTo('/contact')}
                 color="red"

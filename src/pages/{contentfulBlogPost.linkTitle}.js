@@ -7,9 +7,7 @@ import PreviousNextLinks from '../components/previousAndNext/PreviousNextLinks';
 import { withTrans } from '../i18n/withTrans';
 
 const Post = ({ t, data }) => {
-  const post = React.useMemo(() => {
-    return data.contentfulBlogPost;
-  }, [data.contentfulBlogPost]);
+  const post = data.contentfulBlogPost;
 
   if (!data.contentfulBlogPost) {
     return navigate('/404');

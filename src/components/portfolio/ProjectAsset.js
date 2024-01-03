@@ -16,7 +16,7 @@ const ProjectAsset = ({ id, assets }) => {
           width={asset.node.file.details.image.width}
           height={asset.node.file.details.image.height}
           image={asset.node.gatsbyImageData}
-          alt={asset.node.description}
+          alt={asset.node.description || ''}
           placeholder="blurred"
           layout="constrained"
         />

@@ -82,7 +82,7 @@ const ProjectCard = ({ title, image, linkTitle }) => {
         <GatsbyImage
           style={{ height: '100%', width: '100%' }}
           image={image}
-          alt={title}
+          alt={title || ''}
           placeholder="blurred"
           layout="constrained"
         />

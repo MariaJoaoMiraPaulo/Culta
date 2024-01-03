@@ -95,7 +95,7 @@ const PreviousNextLinks = ({
             <GatsbyImage
               style={{ height: '100%', width: '100%' }}
               image={previousItem.backgroundImage.gatsbyImageData}
-              alt={previousItem.backgroundImage.description}
+              alt={previousItem.backgroundImage.description || ''}
               placeholder="blurred"
               layout="constrained"
             />
@@ -115,7 +115,7 @@ const PreviousNextLinks = ({
             <GatsbyImage
               style={{ height: '100%', width: '100%' }}
               image={nextItem.backgroundImage.gatsbyImageData}
-              alt={nextItem.backgroundImage.description}
+              alt={nextItem.backgroundImage.description || ''}
               placeholder="blurred"
               layout="constrained"
             />

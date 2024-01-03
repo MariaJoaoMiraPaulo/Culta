@@ -81,7 +81,7 @@ const Post = ({ post, assets }) => {
         <GatsbyImage
           style={{ height: '100%', width: '100%' }}
           image={backgroundImage.gatsbyImageData}
-          alt={backgroundImage.description}
+          alt={backgroundImage.description || ''}
           placeholder="blurred"
           layout="constrained"
         />

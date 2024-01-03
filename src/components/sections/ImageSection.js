@@ -57,7 +57,7 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
         <GrainyEffectImage noBorders>
           <GatsbyImage
             image={image}
-            alt={title}
+            alt={title || ''}
             placeholder="blurred"
             layout="fixed"
             style={{ height: '100%' }}

@@ -8,7 +8,7 @@ export const LinkWrapper = styled.button`
   background: none;
   text-align: left;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || null}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};

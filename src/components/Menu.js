@@ -13,7 +13,7 @@ const MenuContentWrapper = styled.div`
   position: fixed;
   z-index: 2;
   left: 0;
-  top: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   overflow-y: hidden;
@@ -26,7 +26,8 @@ const MenuActions = styled.div`
   z-index: 3;
 
   svg {
-    &: hover, &: active {
+    &:hover,
+    &:active {
       filter: blur(0px);
       transform: scale(1);
     }
@@ -34,7 +35,8 @@ const MenuActions = styled.div`
 
   @media ${devices.tablet} {
     svg {
-      &: hover, &: active {
+      &:hover,
+      &:active {
         filter: blur(2px);
         transform: scale(1.05);
       }
@@ -49,7 +51,7 @@ const MenuContent = styled.div`
   align-items: flex-end;
   flex-direction: column;
   padding: 0 2rem 0 0;
-  height: 95%;
+  height: 100%;
   color: ${props => props.theme.colors.red};
 `;
 
@@ -116,7 +118,13 @@ const Menu = ({ t, color = 'red' }) => {
               >
                 <MenuTitle>{t('menu.gallery').toUpperCase()}</MenuTitle>
               </LinkWrapper>
-              {/* <LinkWrapper to="/" color="red" radius="25px"><MenuTitle>{t('portfolio').toUpperCase()}</MenuTitle></LinkWrapper> */}
+              <LinkWrapper
+                onClick={() => jumpTo('/portfolio')}
+                color="red"
+                radius="25px"
+              >
+                <MenuTitle>{t('menu.portfolio').toUpperCase()}</MenuTitle>
+              </LinkWrapper>{' '}
               <LinkWrapper
                 onClick={() => jumpTo('/contact')}
                 color="red"

@@ -1,16 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Caption, BodySmall } from '../../styles/typographyComponents';
+import { BodySmall } from '../../styles/typographyComponents';
 import { navigate } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import GrainyEffectImage from '../effect/GrainyEffectImage';
 import { devices } from '../../styles/devices';
 
-const PostContainer = styled.div`
+const ProjectContainer = styled.div`
   height: 450px;
   cursor: pointer;
   position: relative;
-
   @media ${devices.tablet} {
     &:hover {
       span {
@@ -23,7 +22,7 @@ const PostContainer = styled.div`
   }
 `;
 
-const PostContent = styled.div`
+const ProjectContent = styled.div`
   color: ${props => props.theme.colors.marble};
   position: absolute;
   top: 0;
@@ -54,17 +53,10 @@ const BottomContent = styled.div`
     font-size: 28px;
     line-height: 40px;
     max-width: 60%;
-
     @media ${devices.tablet} {
       font-size: 32px;
     }
   }
-`;
-
-const DateStyle = styled.div`
-  writing-mode: vertical-rl;
-  transform: scale(-1, -1);
-  padding-top: 10px;
 `;
 
 const Title = styled.div`
@@ -72,22 +64,20 @@ const Title = styled.div`
   max-width: 100%;
   text-wrap: balance;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: break-word;
-
   @media ${devices.tablet} {
     margin-right: 25%;
   }
 `;
 
-const PostCard = ({ title, image, tags, linkTitle, createdAt }) => {
+const ProjectCard = ({ title, image, linkTitle }) => {
   const jumpToContainer = () => navigate(`/${linkTitle}`);
 
   return (
-    <PostContainer image={image} onClick={jumpToContainer}>
+    <ProjectContainer image={image} onClick={jumpToContainer}>
       <GrainyEffectImage>
         <GatsbyImage
           style={{ height: '100%', width: '100%' }}
@@ -97,23 +87,16 @@ const PostCard = ({ title, image, tags, linkTitle, createdAt }) => {
           layout="constrained"
         />
       </GrainyEffectImage>
-      <PostContent>
-        <Tags>
-          {tags?.map(({ name }) => (
-            <Caption key={name}>{name.toUpperCase()}</Caption>
-          ))}
-        </Tags>
+      <ProjectContent>
+        <Tags />
         <BottomContent>
-          <DateStyle>
-            <BodySmall>{new Date(createdAt).toLocaleDateString()}</BodySmall>
-          </DateStyle>
           <Title>
             <BodySmall>{title}</BodySmall>
           </Title>
         </BottomContent>
-      </PostContent>
-    </PostContainer>
+      </ProjectContent>
+    </ProjectContainer>
   );
 };
 
-export default PostCard;
+export default ProjectCard;

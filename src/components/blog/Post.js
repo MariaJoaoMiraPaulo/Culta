@@ -63,11 +63,12 @@ const BackToBlog = styled.div`
   svg {
     width: 30px;
     stroke-width: 5px;
-    &: hover, &: active {
+    &:hover,
+    &:active {
       filter: blur(2px);
     }
   }
- 
+
   padding: 15px 0;
 `;
 
@@ -80,7 +81,7 @@ const Post = ({ post, assets }) => {
         <GatsbyImage
           style={{ height: '100%', width: '100%' }}
           image={backgroundImage.gatsbyImageData}
-          alt={backgroundImage.description}
+          alt={backgroundImage.description || ''}
           placeholder="blurred"
           layout="constrained"
         />

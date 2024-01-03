@@ -20,7 +20,7 @@ const HomePage = ({ data }) => {
     setBannerImage(
       bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
     );
-  }, []);
+  }, [bannerImagesArray]);
 
   return (
     <>

@@ -1,12 +1,12 @@
 import theme from './theme';
 
 export const devices = {
-  mobileS: `(min-width: ${theme.breakpoints.size.mobileS})`,
-  mobileM: `(min-width: ${theme.breakpoints.size.mobileM})`,
-  mobileL: `(min-width: ${theme.breakpoints.size.mobileL})`,
-  tablet: `(min-width: ${theme.breakpoints.size.tablet})`,
-  laptop: `(min-width: ${theme.breakpoints.size.laptop})`,
-  laptopL: `(min-width: ${theme.breakpoints.size.laptopL})`,
-  desktop: `(min-width: ${theme.breakpoints.size.desktop})`,
-  desktopL: `(min-width: ${theme.breakpoints.size.desktopL})`,
+  mobileS: `(minWidth: ${theme.breakpoints.size.mobileS})`,
+  mobileM: `(minWidth: ${theme.breakpoints.size.mobileM})`,
+  mobileL: `(minWidth: ${theme.breakpoints.size.mobileL})`,
+  tablet: `(minWidth: ${theme.breakpoints.size.tablet})`,
+  laptop: `(minWidth: ${theme.breakpoints.size.laptop})`,
+  laptopL: `(minWidth: ${theme.breakpoints.size.laptopL})`,
+  desktop: `(minWidth: ${theme.breakpoints.size.desktop})`,
+  desktopL: `(minWidth: ${theme.breakpoints.size.desktopL})`,
 };

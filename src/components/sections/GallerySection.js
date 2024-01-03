@@ -23,7 +23,7 @@ const DescriptionImage = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 1rem;
+  gap: 0.5rem;
 
   @media ${devices.tablet} {
     flex-direction: row;
@@ -47,14 +47,37 @@ const Description = styled.div`
   }
 `;
 
-const SlideshowArrow = styled.div`
-  position: absolute;
-  top: 53.5%;
-  cursor: pointer;
-  z-index: 2;
+const MobileArrows = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 8px;
+  @media ${devices.tablet} {
+    display: none;
+  }
+`;
+
+const DesktopArrows = styled.div`
+  display: none;
 
   @media ${devices.tablet} {
+    display: flex;
+  }
+
+  svg {
+    &:hover,
+    &:active {
+      filter: blur(2px);
+    }
+  }
+`;
+
+const SlideshowArrow = styled.div`
+  @media ${devices.tablet} {
     top: 50%;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
   }
 `;
 
@@ -85,9 +108,11 @@ const GallerySection = ({ t, color, padding, projectGallery }) => {
   return (
     <GallerySectionWrapper color={color} padding={padding}>
       {projectGallery.length > 1 && (
-        <LeftArrow onClick={handlePrevClick}>
-          <ArrowIcon left color="grey" style={{ width: '40px' }} />
-        </LeftArrow>
+        <DesktopArrows>
+          <LeftArrow onClick={handlePrevClick}>
+            <ArrowIcon left color="grey" style={{ width: '40px' }} />
+          </LeftArrow>
+        </DesktopArrows>
       )}
       <DescriptionImage>
         <Description>
@@ -101,6 +126,14 @@ const GallerySection = ({ t, color, padding, projectGallery }) => {
             </Caption>
           )}
         </Description>
+        <MobileArrows>
+          <LeftArrow onClick={handlePrevClick}>
+            <ArrowIcon left color="grey" style={{ width: '25px' }} />
+          </LeftArrow>
+          <RightArrow onClick={handleNextClick}>
+            <ArrowIcon right color="grey" style={{ width: '25px' }} />
+          </RightArrow>
+        </MobileArrows>
         {currentImage?.gatsbyImageData && (
           <GatsbyImage
             style={{
@@ -124,9 +157,11 @@ const GallerySection = ({ t, color, padding, projectGallery }) => {
         )}
       </DescriptionImage>
       {projectGallery.length > 1 && (
-        <RightArrow onClick={handleNextClick}>
-          <ArrowIcon right color="grey" style={{ width: '40px' }} />
-        </RightArrow>
+        <DesktopArrows>
+          <RightArrow onClick={handleNextClick}>
+            <ArrowIcon right color="grey" style={{ width: '40px' }} />
+          </RightArrow>
+        </DesktopArrows>
       )}
     </GallerySectionWrapper>
   );

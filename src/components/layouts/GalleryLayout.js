@@ -132,12 +132,12 @@ const AuthorLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.marble};
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || '10px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.marble};
   }
-  &: visited {
+  &:visited {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.marble};
   }
@@ -185,7 +185,7 @@ const GalleryLayout = ({ t, photos, images }) => {
       />
       <ImageTextSection
         color="blue"
-        body={t('gallery.body') + 'geral@culta.pt' + '.'}
+        body={`${t('gallery.body')} geral@culta.pt.`}
         image={images['gallery.jpg']}
         imageAlt={t('gallery.gallery')}
         padding="0"

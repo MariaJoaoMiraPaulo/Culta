@@ -38,7 +38,7 @@ const Form = styled.form`
     cursor: pointer;
     padding-left: 0;
 
-    &: hover {
+    &:hover {
       color: transparent;
       text-shadow: 0 0 ${({ radius }) => radius || '5px'}
         ${({ theme, color }) => theme.colors[color] || theme.colors.blue};
@@ -147,7 +147,7 @@ const LinkToDocs = styled.a`
   cursor: pointer;
   text-decoration: none;
 
-  &: hover {
+  &:hover {
     color: transparent;
     text-shadow: 0 0 ${({ radius }) => radius || '5px'}
       ${({ theme, color }) => theme.colors[color] || theme.colors.blue};

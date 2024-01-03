@@ -4,7 +4,7 @@
     "services": "Serviços",
     "stories": "Histórias",
     "gallery": "Galeria",
-    "portfolio": "Portfólio",
+    "portfolio": "Projectos",
     "contacts": "Contactos"
   },
   "homepage": {
@@ -84,5 +84,18 @@
       "next": "Próximo Artigo",
       "previous": "Artigo Anterior"
     }
+  },
+  "portfolio": {
+    "links": {
+      "next": "Próximo Projecto",
+      "previous": "Projecto Anterior"
+    },
+    "projects": "Projectos",
+    "projectInfo": {
+      "year": "ano",
+      "customer": "cliente",
+      "service": "serviço"
+    },
+    "imageCounter": "Imagem {{number}}/{{total}}"
   }
 }

@@ -24,7 +24,7 @@ const ImageSectionWrapper = styled.div`
   @media ${devices.tablet} {
     height: 30rem;
 
-    &: hover {
+    &:hover {
       color: transparent;
       z-index: 1;
       text-shadow: 0 0 ${({ radius }) => radius || '10px'}
@@ -57,7 +57,7 @@ const ImageSection = ({ background, color, image, title, linkTo }) => {
         <GrainyEffectImage noBorders>
           <GatsbyImage
             image={image}
-            alt={title}
+            alt={title || ''}
             placeholder="blurred"
             layout="fixed"
             style={{ height: '100%' }}

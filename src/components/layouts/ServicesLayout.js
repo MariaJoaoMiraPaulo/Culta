@@ -33,7 +33,7 @@ const Service = styled.div`
     height: 8rem;
   }
 
-  &: hover {
+  &:hover {
     h2 {
       display: none;
       height: 8rem;

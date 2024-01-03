@@ -1,5 +1,6 @@
 const path = require('path');
 const BLOG_POSTS_PER_PAGE = 6;
+const PORTFOLIO_PROJECTS_PER_PAGE = 6;
 const GALLERY_PHOTOS_PER_PAGE = 6;
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -78,6 +79,47 @@ exports.createPages = async ({ graphql, actions }) => {
         current: pageNumber,
         total: numGalleryPhotoPages,
         hasNext: pageNumber < numGalleryPhotoPages,
+        nextPath: withPrefix(pageNumber + 1),
+        hasPrev: i > 0,
+        prevPath: withPrefix(pageNumber - 1),
+      },
+    });
+  });
+
+  // PORTFOLIO PROJECTS
+  const portfolioQueryResult = await graphql(`
+    query PortfolioProjectsQuery {
+      allContentfulPortfolioProject(sort: { fields: createdAt, order: DESC }) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const portfolioProjects =
+    portfolioQueryResult.data.allContentfulPortfolioProject.edges;
+  const projectsPerPage = PORTFOLIO_PROJECTS_PER_PAGE;
+  const numPortfolioProjectsPages = Math.ceil(
+    portfolioProjects.length / projectsPerPage,
+  );
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio.js`);
+
+  Array.from({ length: numPortfolioProjectsPages }).forEach((_, i) => {
+    const withPrefix = pageNumber =>
+      pageNumber === 1 ? `/portfolio` : `/portfolio/${pageNumber}`;
+    const pageNumber = i + 1;
+    createPage({
+      path: withPrefix(pageNumber),
+      component: portfolioTemplate,
+      context: {
+        limit: projectsPerPage,
+        skip: i * projectsPerPage,
+        current: pageNumber,
+        total: numPortfolioProjectsPages,
+        hasNext: pageNumber < numPortfolioProjectsPages,
         nextPath: withPrefix(pageNumber + 1),
         hasPrev: i > 0,
         prevPath: withPrefix(pageNumber - 1),

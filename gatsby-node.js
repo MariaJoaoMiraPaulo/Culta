@@ -105,15 +105,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const numPortfolioProjectsPages = Math.ceil(
     portfolioProjects.length / projectsPerPage,
   );
-  const portfolioTemplate = path.resolve(`./src/templates/portfolio.js`);
+  const projectsTemplate = path.resolve(`./src/templates/projects.js`);
 
   Array.from({ length: numPortfolioProjectsPages }).forEach((_, i) => {
     const withPrefix = pageNumber =>
-      pageNumber === 1 ? `/portfolio` : `/portfolio/${pageNumber}`;
+      pageNumber === 1 ? `/projects` : `/projects/${pageNumber}`;
     const pageNumber = i + 1;
     createPage({
       path: withPrefix(pageNumber),
-      component: portfolioTemplate,
+      component: projectsTemplate,
       context: {
         limit: projectsPerPage,
         skip: i * projectsPerPage,

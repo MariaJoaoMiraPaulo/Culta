@@ -11,8 +11,8 @@ const PortfolioPage = ({ data, pageContext }) => {
 
   const handleChangePage = page => {
     if (page === 1) {
-      navigate(`/portfolio`);
-    } else navigate(`/portfolio/${page}`);
+      navigate(`/projects`);
+    } else navigate(`/projects/${page}`);
   };
 
   const getFirstPortfolioProjectImage = () => {

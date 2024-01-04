@@ -74,7 +74,7 @@ const Title = styled.div`
 `;
 
 const ProjectCard = ({ title, image, linkTitle }) => {
-  const jumpToContainer = () => navigate(`/${linkTitle}`);
+  const jumpToContainer = () => navigate(`/projects/${linkTitle}`);
 
   return (
     <ProjectContainer image={image} onClick={jumpToContainer}>

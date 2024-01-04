@@ -1,10 +1,10 @@
 import { graphql, navigate } from 'gatsby';
 import * as React from 'react';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import ProjectLayout from '../components/layouts/ProjectLayout';
-import { SEO } from '../components/SEO';
-import PreviousNextLinks from '../components/previousAndNext/PreviousNextLinks';
-import { withTrans } from '../i18n/withTrans';
+import LayoutWrapper from '../../components/layouts/LayoutWrapper';
+import ProjectLayout from '../../components/layouts/ProjectLayout';
+import { SEO } from '../../components/SEO';
+import PreviousNextLinks from '../../components/previousAndNext/PreviousNextLinks';
+import { withTrans } from '../../i18n/withTrans';
 
 const Project = ({ t, data }) => {
   const project = React.useMemo(() => {
@@ -16,7 +16,7 @@ const Project = ({ t, data }) => {
   }
 
   const jumpTo = linkTitle => {
-    return navigate(`/${linkTitle}`);
+    return navigate(`/projects/${linkTitle}`);
   };
 
   // Extract projectGallery from the current project

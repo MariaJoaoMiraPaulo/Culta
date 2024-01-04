@@ -138,7 +138,7 @@ const ImageTextSection = ({
 }) => {
   return (
     <>
-      <BackToPortfolioDesktopTablet onClick={() => navigate('/portfolio')}>
+      <BackToPortfolioDesktopTablet onClick={() => navigate('/projects')}>
         <ArrowIcon left color="red" />
       </BackToPortfolioDesktopTablet>
       <ImageTextWrapper background={background} hideOnDesktop={hideOnDesktop}>
@@ -146,7 +146,7 @@ const ImageTextSection = ({
           <Image image={image} imageAlt={imageAlt} />
         </ImageWrapper>
         <TextWrapper>
-          <BackToPortfolioMobile onClick={() => navigate('/portfolio')}>
+          <BackToPortfolioMobile onClick={() => navigate('/projects')}>
             <ArrowIcon left color="red" />
           </BackToPortfolioMobile>
           <ProjectInfoSectionWrapper

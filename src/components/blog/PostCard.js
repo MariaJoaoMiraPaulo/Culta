@@ -84,7 +84,7 @@ const Title = styled.div`
 `;
 
 const PostCard = ({ title, image, tags, linkTitle, createdAt }) => {
-  const jumpToContainer = () => navigate(`/${linkTitle}`);
+  const jumpToContainer = () => navigate(`/blog/${linkTitle}`);
 
   return (
     <PostContainer image={image} onClick={jumpToContainer}>

@@ -105,7 +105,7 @@ const Menu = ({ t, color = 'red' }) => {
                 <MenuTitle>{t('menu.services').toUpperCase()}</MenuTitle>
               </LinkWrapper>
               <LinkWrapper
-                onClick={() => jumpTo('/portfolio')}
+                onClick={() => jumpTo('/projects')}
                 color="red"
                 radius="25px"
               >

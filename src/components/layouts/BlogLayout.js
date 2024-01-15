@@ -2,8 +2,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import PostCard from '../blog/PostCard';
+import { withTrans } from '../../i18n/withTrans';
+import TitleSection from '../sections/TitleSection';
 
-const BlogPageLayout = styled.div`
+const BlogPostsGrid = styled.div`
   display: grid;
   grid-template-columns: 100%;
   min-height: 90vh;
@@ -19,22 +21,32 @@ const BlogPageLayout = styled.div`
   }
 `;
 
-const BlogLayout = ({ data }) => {
+const BlogLayout = ({ data, t }) => {
   return (
-    <BlogPageLayout>
-      {data.map(({ node }) => (
-        <PostCard
-          key={node.id}
-          title={node.title}
-          linkTitle={node.linkTitle}
-          image={node.backgroundImage.gatsbyImageData}
-          tags={node.tags}
-          id={node.id}
-          createdAt={node.createdAt}
-        />
-      ))}
-    </BlogPageLayout>
+    <>
+      <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="1rem 1rem"
+        title={t('blog.blog').toUpperCase()}
+        background="marble"
+        color="blue"
+      />
+
+      <BlogPostsGrid>
+        {data.map(({ node }) => (
+          <PostCard
+            key={node.id}
+            title={node.title}
+            linkTitle={node.linkTitle}
+            image={node.backgroundImage.gatsbyImageData}
+            tags={node.tags}
+            id={node.id}
+            createdAt={node.createdAt}
+          />
+        ))}
+      </BlogPostsGrid>
+    </>
   );
 };
 
-export default BlogLayout;
+export default withTrans(BlogLayout);

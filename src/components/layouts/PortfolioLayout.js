@@ -2,6 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { devices } from '../../styles/devices';
 import ProjectCard from '../portfolio/ProjectCard';
+import { withTrans } from '../../i18n/withTrans';
+import TitleSection from '../sections/TitleSection';
 
 const PortfolioPageLayout = styled.div`
   display: grid;
@@ -18,20 +20,29 @@ const PortfolioPageLayout = styled.div`
   }
 `;
 
-const PortfolioLayout = ({ data }) => {
+const PortfolioLayout = ({ data, t }) => {
   return (
-    <PortfolioPageLayout>
-      {data.map(({ node }) => (
-        <ProjectCard
-          key={node.id}
-          title={node.title}
-          linkTitle={node.linkTitle}
-          image={node.backgroundImage.gatsbyImageData}
-          id={node.id}
-        />
-      ))}
-    </PortfolioPageLayout>
+    <>
+      <TitleSection
+        padding="4rem 1rem"
+        paddingMobile="1rem 1rem"
+        title={t('portfolio.projects').toUpperCase()}
+        background="marble"
+        color="blue"
+      />
+      <PortfolioPageLayout>
+        {data.map(({ node }) => (
+          <ProjectCard
+            key={node.id}
+            title={node.title}
+            linkTitle={node.linkTitle}
+            image={node.backgroundImage.gatsbyImageData}
+            id={node.id}
+          />
+        ))}
+      </PortfolioPageLayout>
+    </>
   );
 };
 
-export default PortfolioLayout;
+export default withTrans(PortfolioLayout);

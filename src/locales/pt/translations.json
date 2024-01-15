@@ -80,6 +80,7 @@
     }
   },
   "blog": {
+    "blog": "Histórias",
     "links": {
       "next": "Próximo Artigo",
       "previous": "Artigo Anterior"

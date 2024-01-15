@@ -7,6 +7,7 @@ const PaginationWrapper = styled.div`
   text-align: center;
   padding: 3rem 0 4rem;
   font-size: 30px;
+  color: ${({ theme, color }) => theme.colors[color] || theme.colors.red};
 `;
 
 const PageNumber = styled.span`
@@ -17,7 +18,6 @@ const PageNumber = styled.span`
   cursor: pointer;
   font-family: ${({ theme }) => theme.fonts.primary};
   font-weight: lighter;
-  color: ${({ theme }) => theme.colors.red};
 `;
 
 const Dots = styled.span`
@@ -27,14 +27,13 @@ const Dots = styled.span`
   opacity: 30%;
   font-family: ${({ theme }) => theme.fonts.primary};
   font-weight: lighter;
-  color: ${({ theme }) => theme.colors.red};
 `;
 
-const Pagination = ({ numPages, currentPage, handleChangePage }) => {
+const Pagination = ({ numPages, currentPage, handleChangePage, color }) => {
   const DOTS = '...';
   const range = usePagination(numPages, currentPage);
   return (
-    <PaginationWrapper>
+    <PaginationWrapper color={color}>
       {range.map(page => {
         return page === DOTS ? (
           <Dots key="dots">{DOTS}</Dots>

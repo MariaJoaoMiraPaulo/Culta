@@ -6,7 +6,7 @@ import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 import Pagination from '../components/pagination/Pagination';
 
-const PortfolioPage = ({ data, pageContext }) => {
+const PortfolioPage = ({ data, pageContext, color }) => {
   const { current, total } = pageContext;
 
   const handleChangePage = page => {
@@ -39,6 +39,7 @@ const PortfolioPage = ({ data, pageContext }) => {
       <LayoutWrapper color="red">
         <PortfolioLayout data={data.allContentfulPortfolioProject.edges} />
         <Pagination
+          color="blue"
           numPages={total}
           handleChangePage={handleChangePage}
           currentPage={current}

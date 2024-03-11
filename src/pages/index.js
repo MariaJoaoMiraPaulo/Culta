@@ -9,37 +9,32 @@ import {
 import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
-const HomePage = ({ data }) => {
+const HomePage = React.memo(({ data }) => {
   const images = getImagesMappedByName(data.allImageSharp.edges);
   const bannerImagesArray = getArrayOfBannerImages(data.allFile.edges);
-  const [currentBannerImage, setBannerImage] = useState(
-    bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
-  );
-
-  useEffect(() => {
-    setBannerImage(
-      bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)],
-    );
-  }, [bannerImagesArray]);
+  const currentBannerImage =
+    bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)];
 
   return (
-    <>
-      <SEO
-        description={metadata.home.description}
-        imagePath={currentBannerImage.images.fallback.src}
-      />
-      <LayoutWrapper
-        shortenedVersion={false}
-        isHomepage
-        color="marble"
-        bannerImage={currentBannerImage}
-        noPadding
-      >
-        <HomeLayout images={images} />
-      </LayoutWrapper>
-    </>
+    currentBannerImage && (
+      <>
+        <SEO
+          description={metadata.home.description}
+          imagePath={currentBannerImage.images.fallback.src}
+        />
+        <LayoutWrapper
+          shortenedVersion={false}
+          isHomepage
+          color="marble"
+          bannerImage={currentBannerImage}
+          noPadding
+        >
+          <HomeLayout images={images} />
+        </LayoutWrapper>
+      </>
+    )
   );
-};
+});
 
 export default HomePage;
 

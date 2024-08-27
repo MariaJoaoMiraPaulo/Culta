@@ -6,7 +6,23 @@ import { SEO } from '../../components/SEO';
 import PreviousNextLinks from '../../components/previousAndNext/PreviousNextLinks';
 import { withTrans } from '../../i18n/withTrans';
 
+const getSEOData = project => {
+  let description = project.description;
+
+  if (typeof description === 'object') {
+    description = description.description;
+  }
+  return {
+    title: project.title,
+    description: description,
+    url: `projects/${project.linkTitle}`,
+    imageUrl: project?.backgroundImage?.gatsbyImageData?.images.fallback?.src,
+  };
+};
+
 const Project = ({ t, data }) => {
+  const seo = getSEOData(data.contentfulPortfolioProject);
+
   const project = React.useMemo(() => {
     return data.contentfulPortfolioProject;
   }, [data.contentfulPortfolioProject]);
@@ -25,13 +41,10 @@ const Project = ({ t, data }) => {
   return (
     <>
       <SEO
-        title={data.contentfulPortfolioProject.title}
-        description={data.contentfulPortfolioProject.description}
-        pathname={data.contentfulPortfolioProject.id}
-        fullImageUrl={
-          data.contentfulPortfolioProject?.backgroundImage?.gatsbyImageData
-            ?.images.fallback?.src
-        }
+        title={seo.title}
+        description={seo.description}
+        pathname={seo.url}
+        fullImageUrl={seo.imageUrl}
       />
       <LayoutWrapper color="red">
         <ProjectLayout

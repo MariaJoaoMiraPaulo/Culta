@@ -6,8 +6,23 @@ import { SEO } from '../../components/SEO';
 import PreviousNextLinks from '../../components/previousAndNext/PreviousNextLinks';
 import { withTrans } from '../../i18n/withTrans';
 
+const getSEOData = post => {
+  let description = post.description;
+
+  if (typeof description === 'object') {
+    description = description.description;
+  }
+  return {
+    title: post.title,
+    description: description,
+    url: `blog/${post.linkTitle}`,
+    imageUrl: post?.backgroundImage?.gatsbyImageData?.images.fallback?.src,
+  };
+};
+
 const Post = ({ t, data }) => {
   const post = data.contentfulBlogPost;
+  const seo = getSEOData(post);
 
   if (!data.contentfulBlogPost) {
     return navigate('/404');
@@ -20,13 +35,10 @@ const Post = ({ t, data }) => {
   return (
     <>
       <SEO
-        title={data.contentfulBlogPost.title}
-        description={data.contentfulBlogPost.description}
-        pathname={data.contentfulBlogPost.id}
-        fullImageUrl={
-          data.contentfulBlogPost?.backgroundImage?.gatsbyImageData?.images
-            .fallback?.src
-        }
+        title={seo.title}
+        description={seo.description}
+        pathname={seo.url}
+        fullImageUrl={seo.imageUrl}
       />
       <LayoutWrapper color="red">
         <PostLayout post={post} assets={data.allContentfulAsset} />
